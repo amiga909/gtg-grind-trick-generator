@@ -116,7 +116,7 @@ export class Tooltips {
     }, 500);
 
     this.$mask.on('click', () => {
-     // this.hide();
+     this.hide();
     });
 
     this.$helpBtn.on('click', () => {
@@ -191,23 +191,10 @@ export class Tooltips {
         theme: 'light',
         animation: 'scale',
         allowHTML: true,
-       // touch: true,
+         touch: true,
         trigger: 'manual',
        
-       // trigger: 'mouseenter',
-        onShow(instance) {
-          // v5
-          console.log("onshow",instance)
-          instance.setProps({trigger: 'click'});
-          // v3-v4
-          // instance.set({trigger: 'click'});
-        },
-        onHide(instance) {
-          // v5
-          instance.setProps({trigger: 'mouseenter'});
-          // v3-v4
-          // instance.set({trigger: 'mouseenter'});
-        }
+        
       };  
 
       props.onHide = (instance) => {

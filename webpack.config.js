@@ -5,22 +5,20 @@ const outputPath = "./build/";
 
 module.exports = (env = {}, argv) => {
   const isProduction = argv.mode === "production";
-  console.log("isProduction",isProduction);
+  console.log("isProduction", isProduction);
   let config = {
     context: path.resolve(__dirname, "./"),
     entry: {
       app: ["./src/js/app.js"],
 
-    //  vendor: [
-        //"./vendor/css/pure-min.css",
-        //"./vendor/css/grids-responsive-min.css",
-       // "./vendor/css/jquery.slotmachine.min.css",
-    //  ],
+      //  vendor: [
+      //"./vendor/css/pure-min.css",
+      //"./vendor/css/grids-responsive-min.css",
+      // "./vendor/css/jquery.slotmachine.min.css",
+      //  ],
     },
     plugins: [
-      new MiniCssExtractPlugin({
-       
-      }),
+      new MiniCssExtractPlugin({}),
       new webpack.ProvidePlugin({
         $: "jquery",
         jQuery: "jquery",
@@ -36,26 +34,25 @@ module.exports = (env = {}, argv) => {
       splitChunks: {
         cacheGroups: {
           vendor: {
-            chunks: 'initial',
-            name: 'vendor',
+            chunks: "initial",
+            name: "vendor",
             test: /[\\/]node_modules[\\/]/,
-           // enforce: true
+            // enforce: true
           },
-        }
+        },
       },
-      runtimeChunk: false
+      runtimeChunk: false,
     },
-    
-      devtool:  'source-map',
-     
+    devtool: "source-map",
+
     module: {
       rules: [
         {
           test: /\.js$/,
           exclude: /node_modules/,
-          use: { 
+          use: {
             loader: "babel-loader",
-            options: { 
+            options: {
               presets: ["@babel/preset-env"],
             },
           },
@@ -68,12 +65,14 @@ module.exports = (env = {}, argv) => {
         {
           test: /\.css$/,
           include: /font-awesome/,
-          use: [ {
-            loader: "file-loader",
-            options: {
-              name: "[name].[ext]",
+          use: [
+            {
+              loader: "file-loader",
+              options: {
+                name: "[name].[ext]",
+              },
             },
-          }, ],
+          ],
         },
         {
           test: /\.(gif|png|jpe?g|svg)$/i,
@@ -114,5 +113,5 @@ module.exports = (env = {}, argv) => {
       ],
     },
   };
-  return config; 
+  return config;
 };
