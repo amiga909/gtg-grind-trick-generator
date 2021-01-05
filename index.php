@@ -1,1 +1,1 @@
-<?php echo("BETA VERSION");header( 'Location: /index.html' ) ;  ?>
+<?php header( 'Location: /index.html' ) ;  ?>
