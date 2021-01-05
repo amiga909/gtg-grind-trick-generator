@@ -1,0 +1,1 @@
+# gtg-grind-trick-generator
