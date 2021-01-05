@@ -1,0 +1,231 @@
+import 'purecss/build/pure-min.css';
+import 'purecss/build/grids-responsive-min.css';
+
+import 'font-awesome/css/font-awesome.min.css';
+import '../css/style.css';
+
+import { Configuration } from './configuration';
+import { SlotMachine } from './slotmachine';
+import { ResultParser } from './resultparser';
+import { Tricknames } from './tricknames';
+//import { Trickdata } from './trickdata';
+import { Tricklist } from './tricklist';
+import { Tooltips } from './tooltips';
+import { ModalScreen } from './modalscreens';
+import { Audioplayer } from './audioplayer';
+
+let CONFIG = '';
+
+class GrindTrickRandomizer {
+  constructor() {
+    this.$startScreen = $('#l-content-modal');
+
+    this.$randomizeButton = $('#randomizeButton');
+    this.$randomizeButtonStart = $('#randomizeButtonStart');
+    this.$randomizeButtonSlots = $('#randomizeButton2');
+
+    this.$soundOnOff = $('#sound');
+    this.$loadingScreen = $('#loading-screen');
+    this.$aboutBtn = $('#aboutBtn');
+    this.$trickNamingBtn = $('#trickNamingBtn');
+    this.$configButton = $('#configButton');
+    this.$tricklistBtn = $('#tricklistBtn');
+    this.$tricklistBtnStart = $('#tricklistButtonStart');
+    this.$addTricklistBtn = $('#addTricklistBtn');
+    this.$helpBtn = $('#helpButton');
+    this.$abortButton = $('#abortButton');
+
+    this.$endScreen = $('#endScreen');
+
+    this.configurator = new Configuration();
+    this.slotSpeed = this.configurator.getSpeed();
+    this.includedTricks = this.configurator.getIncludedTricks();
+
+    this.audioplayer = new Audioplayer(this.$soundOnOff);
+    this.slotMachine = new SlotMachine(this.slotSpeed, this.includedTricks);
+    this.resultParser = new ResultParser();
+    this.trickNames = new Tricknames();
+    this.tricklist = new Tricklist(this.$tricklistBtn);
+    this.tooltips = new Tooltips(this.$helpBtn, this);
+    this.modalScreen = new ModalScreen();
+
+    this.slotMachineResult = { parsed: '', orig: '' };
+  }
+
+  init() {
+    this.audioplayer.init(this.configurator.getSound());
+    this.$loadingScreen.fadeOut('slow');
+
+    this.registerListener();
+  }
+
+  registerListener() {
+    $('.bog-slot').on('click', (e) => {
+      if (this.isEndScreen) {
+        const onResultChange = () => {
+          this.$addTricklistBtn.removeClass('pure-button-disabled');
+          this.showEndScreen();
+        };
+        this.slotMachine.onClickSlot($(e.currentTarget), {
+          scope: this,
+          cb: onResultChange,
+        });
+      }
+    });
+
+    this.$randomizeButton.on('click', (e) => {
+      e.preventDefault();
+      this.onClickStart();
+    });
+
+    this.$randomizeButtonStart.on('click', (e) => {
+      e.preventDefault();
+      this.onClickStart();
+    });
+    this.$randomizeButtonSlots.on('click', (e) => {
+      e.preventDefault();
+      this.onClickStart();
+    });
+
+    this.$aboutBtn.on('click', (e) => {
+      e.preventDefault();
+      this.modalScreen.show('about', 'About');
+    });
+
+    this.$trickNamingBtn.on('click', (e) => {
+      e.preventDefault();
+      this.modalScreen.show('reference', 'Tricktionary');
+    });
+
+    this.$configButton.on('click', (e) => {
+      e.preventDefault();
+      this.modalScreen.show('configuration', 'Configuration');
+    });
+
+    this.$tricklistBtn.on('click', (e) => {
+      e.preventDefault();
+      this.modalScreen.show('tricklist', 'Trick List');
+    });
+
+    this.$tricklistBtnStart.on('click', (e) => {
+      e.preventDefault();
+      this.modalScreen.show('tricklist', 'Trick List');
+    });
+
+    this.$abortButton.on('click', (e) => {
+      e.preventDefault();
+      location.reload();
+    });
+
+    document.body.addEventListener('keyup', (event) => {
+      if (event.keyCode === 13) {
+        event.preventDefault();
+        if (!this.$randomizeButton.hasClass('pure-button-disabled')) {
+          this.onClickStart();
+        }
+      }
+    });
+
+    this.$soundOnOff.on('click', (e) => {
+      e.preventDefault();
+      $('#soundIconOn').toggle();
+      $('#soundIconOff').toggle();
+      if ($('#soundIconOff').is(':visible')) {
+        this.turnSoundOff();
+      } else {
+        this.turnSoundOn();
+      }
+    });
+    if (localStorage.getItem('sound') === 'on') {
+      this.$soundOnOff.trigger('click');
+    }
+
+    this.$addTricklistBtn.on('click', () => {
+      this.addToTricklist();
+      this.$addTricklistBtn.addClass('pure-button-disabled');
+    });
+  }
+
+  addToTricklist() {
+    this.modalScreen.show('tricklist', 'Trick List');
+    this.tricklist.addTrick(
+      this.slotMachineResult.parsed,
+      this.slotMachineResult.orig
+    );
+  }
+
+  turnSoundOn() {
+    localStorage.setItem('sound', 'on');
+    this.$soundOnOff.addClass('pure-button-active').css({ opacity: 1 });
+    this.audioplayer.unmute();
+  }
+
+  turnSoundOff() {
+    localStorage.setItem('sound', 'off');
+    this.$soundOnOff.removeClass('pure-button-active').css({ opacity: 0.5 });
+    this.audioplayer.mute();
+  }
+
+  onClickStart() {
+    if (!this.slotMachine.isValidState()) {
+      return false;
+    }
+
+    this.$startScreen.hide();
+    this.modalScreen.hide();
+    this.$helpBtn.addClass('pure-button-disabled');
+    this.$configButton.addClass('pure-button-disabled');
+    this.$randomizeButton.addClass('pure-button-disabled');
+    this.isEndScreen = false;
+    this.audioplayer.stop();
+
+    this.$addTricklistBtn.removeClass('pure-button-disabled');
+
+    if (this.$soundOnOff.hasClass('pure-button-active')) {
+      this.audioplayer.play('start');
+    }
+
+    this.hideEndScreen();
+
+    this.slotMachine
+      .run()
+      .then((results) => {
+        this.$helpBtn.removeClass('pure-button-disabled');
+        this.$configButton.removeClass('pure-button-disabled');
+        this.$randomizeButton.removeClass('pure-button-disabled');
+        this.showEndScreen();
+      })
+      .catch((error) => {
+        console.error('catch', error);
+      });
+  }
+
+  showEndScreen(animateBottom = true) {
+    this.isEndScreen = true;
+    const winners = this.slotMachine.slots.map((s) => {
+      if (s.state === 'enabled' || s.state === 'locked') {
+        return s.winner;
+      } else {
+        return null;
+      }
+    });
+    this.slotMachineResult = this.resultParser.parse(winners);
+
+    this.$endScreen.find('#endscreen-text').html(this.slotMachineResult.parsed);
+    this.$endScreen.fadeIn(500, () => {
+      if (animateBottom) {
+        $('.l-content').animate({ scrollTop: $(document).height() }, 'fast');
+      }
+    });
+  }
+
+  hideEndScreen() {
+    this.$endScreen.hide();
+  }
+}
+
+$(document).ready(() => {
+  const s = new GrindTrickRandomizer();
+
+  s.init();
+});
