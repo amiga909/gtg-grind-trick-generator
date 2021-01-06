@@ -1,4 +1,32 @@
 export const testData = [
+
+ 
+  {
+    expected: '540 Cloudy Night',
+    data: [
+      { name: 'Grind', winner: { name: 'PStar', isGrooveGrind: false } },
+      { name: 'SpinTo', winner: { name: 'Inspin 540' } },
+      { name: 'GrindVariation', winner: { name: 'Topside' } },
+    ],
+  },
+  {
+    expected: '540 True Cloudy Night',
+    data: [
+      { name: 'Grind', winner: { name: 'PStar', isGrooveGrind: false } },
+      { name: 'SpinTo', winner: { name: 'Outspin 540' } },
+      { name: 'GrindVariation', winner: { name: 'Topside' } },
+    ],
+  },
+
+  {
+    expected: 'Top Teakettle',
+    data: [
+      { name: 'Grind', winner: { name: 'PStar', isGrooveGrind: false } },
+      { name: 'GrindVariation', winner: { name: 'Rough Topside' } },
+    ],
+  },
+
+
   {
     expected: 'AO Acid to 360 revert out',
     data: [

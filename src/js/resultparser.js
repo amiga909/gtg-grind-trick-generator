@@ -8,88 +8,7 @@ export class ResultParser {
     CONFIG = this.trickdata.get();
   }
 
-  meetsSynonymProps(syn, props) {
-    // grind meets requirements
-    let isValid = true;
-    if (syn.isReverse === true && props.isReverse !== true) {
-      isValid = false;
-    }
-    if (syn.isTopside === true && props.isTopside !== true) {
-      isValid = false;
-    }
-    if (syn.isNegative === true && props.isNegative !== true) {
-      isValid = false;
-    }
-    if (syn.isRough === true && props.isRough !== true) {
-      isValid = false;
-    }
-    return isValid;
-  }
-
-  replaceGrindSynonyms(resultStr, grindName, props) {
-    let result = resultStr;
-    let candidates = CONFIG.GRIND_SYNONYMS.filter((syn) => {
-      return syn.name === grindName;
-    });
-    // console.log("candidates",candidates)
-    let synonym = null;
-    candidates.forEach((syn) => {
-      if (synonym === null && this.meetsSynonymProps(syn, props)) {
-        synonym = syn;
-      }
-    });
-
-    /*
-    let synonym = CONFIG.GRIND_SYNONYMS.filter((syn) => {
-      if (syn.name === grindName) {
-        let isValid = true;
-        
-// problem: take rule that is most specific  
-        if (syn.isReverse === true && props.isReverse !== true) {
-          isValid = false;
-        }
-        if (syn.isTopside === true && props.isTopside !== true) {
-          isValid = false;
-        }
-        if (syn.isNegative === true && props.isNegative !== true) {
-          isValid = false;
-        }
-        if (syn.isRough === true && props.isRough !== true) {
-          isValid = false;
-        }
-
-
-  
-        if (isValid === true) {
-          //console.log("found syn",syn," for "+resultStr)
-          return syn;
-        }
-      }
-    });*/
-
-    if (synonym) {
-      //   console.log('not iffed ß ', resultStr, synonym );
-      // if (isValid) {
-      // console.log('iffed ß ', entry);
-      result = result.replace(grindName, synonym.newName);
-
-      if (synonym.isReverse) {
-        result = result.replace('Alley-oop', '');
-      }
-      if (synonym.isTopside) {
-        result = result.replace('Topside', '');
-      }
-      if (synonym.isNegative) {
-        result = result.replace('Negative&', '');
-        result = result.replace('Negative', '');
-      }
-      if (synonym.isRough) {
-        result = result.replace('Rough', '');
-      }
-    }
-
-    return result;
-  }
+ 
 
   parse(slots = null) {
     const parsed = '';
@@ -335,6 +254,64 @@ export class ResultParser {
     }
 
     return spinOffStr;
+  }
+
+  meetsSynonymProps(syn, props) {
+    // grind meets requirements
+    let isValid = true;
+    if (syn.isReverse === true && props.isReverse !== true) {
+      isValid = false;
+    }
+    if (syn.isTopside === true && props.isTopside !== true) {
+      isValid = false;
+    }
+    if (syn.isNegative === true && props.isNegative !== true) {
+      isValid = false;
+    }
+    if (syn.isRough === true && props.isRough !== true) {
+      isValid = false;
+    }
+    return isValid;
+  }
+
+  replaceGrindSynonyms(resultStr, grindName, props) {
+    let result = resultStr;
+    let candidates = CONFIG.GRIND_SYNONYMS.filter((syn) => {
+      return syn.name === grindName;
+    });
+    // console.log("candidates",candidates)
+    let synonym = null;
+    candidates.forEach((syn) => {
+      if (synonym === null && this.meetsSynonymProps(syn, props)) {
+         
+        synonym = syn;
+        
+      }
+    });
+ 
+
+    if (synonym) {
+      //   console.log('not iffed ß ', resultStr, synonym );
+      // if (isValid) {
+      // console.log('iffed ß ', entry);
+      result = result.replace(grindName, synonym.newName);
+
+      if (synonym.isReverse) {
+        result = result.replace('Alley-oop', '');
+      }
+      if (synonym.isTopside) {
+        result = result.replace('Topside', '');
+      }
+      if (synonym.isNegative) {
+        result = result.replace('Negative&', '');
+        result = result.replace('Negative', '');
+      }
+      if (synonym.isRough) {
+        result = result.replace('Rough', '');
+      }
+    }
+
+    return result;
   }
 }
 

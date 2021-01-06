@@ -577,21 +577,7 @@ const GRIND_SYNONYMS = [
   },
   // PStar
   /*  these 2 do not work
-  {
-    newName: 'Cloudy Night',
-    name: 'PStar',
-    comment: 'Alley-oop Topside PStar',
-    isTopside: true,
-    isReverse: true,
-    url: 'http://skateyeg.com/bog/06.0_Cloudy_Night_(AO_Topside_PStar).html',
-  },
-  {
-    newName: 'Sunny Day',
-    name: 'PStar',
-    comment: 'Topside PStar',
-    isTopside: true,
-    url: 'http://skateyeg.com/bog/05.0_Sunny_Day_(Topside_PStar).html',
-  },*/
+  */
   {
     newName: 'Top Teakettle',
     name: 'PStar',
@@ -606,6 +592,21 @@ const GRIND_SYNONYMS = [
     comment: 'Rough PStar',
     isRough: true,
     url: 'http://skateyeg.com/bog/13.0_Tea_Kettle.html',
+  },
+  {
+    newName: 'Cloudy Night',
+    name: 'PStar',
+    comment: 'Alley-oop Topside PStar',
+    isTopside: true,
+    isReverse: true,
+    url: 'http://skateyeg.com/bog/06.0_Cloudy_Night_(AO_Topside_PStar).html',
+  },
+  {
+    newName: 'Sunny Day',
+    name: 'PStar',
+    comment: 'Topside PStar',
+    isTopside: true,
+    url: 'http://skateyeg.com/bog/05.0_Sunny_Day_(Topside_PStar).html',
   },
   // X-Grind
   {
@@ -744,6 +745,30 @@ const SPINS_OFF_GROOVE_GRIND = [
   },
 ];
 
+const GLOSSARY = {
+  // parsed tokens
+  "AO": "Alley-oop. Forwards to 180 Inspin to a soul grind.",
+  "True": "Truespin. Forwards to 180 Outspin to a Soul grind.",
+  "Hurricane": "Forwards to 360 Outspin to a Soul grind.",
+  "Halfcab": "Fakie to 180 Inspin to a Soul grind.",
+  "Fullcab": "Fakie to 360 Inspin to a Soul grind.",
+  "True Halfcab": "Fakie to 180 Outspin to a Soul grind.",
+  "True Fullcab": "Fakie to 360 Outspin to a Soul grind.",
+  "Zerospin": "Fakie to a Soul grind, no rotation.",
+  "Revert": "Rewind. to a Soul grind, Spinning off a grind the opposite direction of the natural momentum set by the initial grind spin.",
+  
+  
+  // slot tokens 
+  "450": "360 spin to a Groove grind. The longer way (360 + 90 degrees).",
+  "270": "360 spin to a Groove grind. The shorter way (360 - 90 degrees).",
+  "Inspin": "Spin towards obstacle.",
+  "Outspin": 'Spin away from obstacle, "blindside".',
+  "Switch": "Grinding in the unnatural mirrored position of a grind or spinning your unnatural direction.",
+  "Fakie": "Approach obstacle skating backwards.",
+  "Forwards": "Approach obstacle skating backwards.",
+  "Natural": "Natural is the opposite of Switch.",
+}
+
 const GRINDS = [];
 SOUL_GRINDS.forEach((g) => {
   g.isGrooveGrind = false;
@@ -807,6 +832,7 @@ export class Trickdata {
       SPINS_OFF_GRIND,
       GRINDS,
       GRIND_SYNONYMS,
+      GLOSSARY
     };
   } /*
   filterSoulGrinds() {

@@ -1,11 +1,13 @@
-import { Trickdata } from './trickdata.js';
+import { Trickdata } from "./trickdata.js";
 let CONFIG = null;
 
 export class Tricknames {
   constructor() {
-    this.$dom = $('#trickNamingContent');
+    this.$dom = $("#trickNamingContent");
+    this.$termsTable = $("#reference-terms-table-body");
     this.trickdata = new Trickdata();
     CONFIG = this.trickdata.get();
+    this.renderTerms();
     this.renderGrinds();
     this.renderGrindSynonyms();
     this.renderVariations();
@@ -21,10 +23,31 @@ export class Tricknames {
     <td><a target="blank" href="${v.url}">${new URL(v.url).hostname}</a></td>
   </tr>`);
     });
-    $('#trickNamingContentNotImplementedTable').append(rows.join(''));
+    $("#trickNamingContentNotImplementedTable").append(rows.join(""));
 
-    const html = $('#trickNamingContentNotImplemented').html();
+    const html = $("#trickNamingContentNotImplemented").html();
     this.$dom.append(html);
+  }
+
+  renderTerms() {
+    let rows = [];
+    let terms = CONFIG.GLOSSARY;
+
+    const orderedTerms = Object.keys(terms)
+      .sort()
+      .reduce((obj, key) => {
+        obj[key] = terms[key];
+        return obj;
+      }, {});
+
+    for (const [key, value] of Object.entries(orderedTerms)) {
+      rows.push(`<tr class=" ">
+    <td>${key}</td>
+    <td> ${value}</td>
+  </tr>`);
+    }
+
+    this.$termsTable.append(rows.join(""));
   }
 
   renderGrinds() {
@@ -37,8 +60,8 @@ export class Tricknames {
         ? `<a target="blank" href="${grind.url}">${
             new URL(grind.url).hostname
           }</a>`
-        : '';
-      const comment = grind.comment ? `<br/>${grind.comment}` : '';
+        : "";
+      const comment = grind.comment ? `<br/>${grind.comment}` : "";
       rows.push(`<tr class=" ">
     <td>${grind.name}</td>
     <td>${url}${comment}</td>
@@ -53,7 +76,7 @@ export class Tricknames {
         </tr>
       </thead>
       <tbody>
-      ${rows.join('')} </tbody></table>`;
+      ${rows.join("")} </tbody></table>`;
 
     this.$dom.append(html);
   }
@@ -62,11 +85,11 @@ export class Tricknames {
     let vars = CONFIG.GRIND_SYNONYMS;
     vars = vars.sort(this.compare);
     vars.forEach((variaton) => {
-      if (variaton.url === '' && !variaton.comment) {
+      if (variaton.url === "" && !variaton.comment) {
         return true;
       }
-      const url = variaton.url ? new URL(variaton.url).hostname : '';
-      const comment = variaton.comment ? `<br/>${variaton.comment}` : '';
+      const url = variaton.url ? new URL(variaton.url).hostname : "";
+      const comment = variaton.comment ? `<br/>${variaton.comment}` : "";
       rows.push(`<tr class=" ">
     <td>${variaton.newName}</td>
     <td><a target="blank" href="${variaton.url}">${url}</a>${comment}</td>
@@ -82,7 +105,7 @@ export class Tricknames {
         </tr>
       </thead>
       <tbody>
-      ${rows.join('')} </tbody></table>`;
+      ${rows.join("")} </tbody></table>`;
 
     this.$dom.append(html);
   }
@@ -92,8 +115,8 @@ export class Tricknames {
     let vars = CONFIG.VARIATIONS;
     vars = vars.sort(this.compare);
     vars.forEach((variaton) => {
-      const url = variaton.url ? new URL(variaton.url).hostname : '';
-      const comment = variaton.comment ? `<br/>${variaton.comment}` : '';
+      const url = variaton.url ? new URL(variaton.url).hostname : "";
+      const comment = variaton.comment ? `<br/>${variaton.comment}` : "";
       rows.push(`<tr class=" ">
     <td>${variaton.name}</td>
     <td><a target="blank" href="${variaton.url}">${url}</a>${comment}</td>
@@ -109,7 +132,7 @@ export class Tricknames {
         </tr>
       </thead>
       <tbody>
-      ${rows.join('')} </tbody></table>`;
+      ${rows.join("")} </tbody></table>`;
 
     this.$dom.append(html);
   }

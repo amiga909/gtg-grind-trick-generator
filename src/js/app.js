@@ -8,7 +8,7 @@ import { Configuration } from './configuration';
 import { SlotMachine } from './slotmachine';
 import { ResultParser } from './resultparser';
 import { Tricknames } from './tricknames';
-//import { Trickdata } from './trickdata';
+ import { Trickdata } from './trickdata';
 import { Tricklist } from './tricklist';
 import { Tooltips } from './tooltips';
 import { ModalScreen } from './modalscreens';
@@ -48,6 +48,8 @@ class GrindTrickRandomizer {
     this.tricklist = new Tricklist(this.$tricklistBtn);
     this.tooltips = new Tooltips(this.$helpBtn, this);
     this.modalScreen = new ModalScreen();
+    this.trickdata = new Trickdata();
+    CONFIG = this.trickdata.get();
 
     this.slotMachineResult = { parsed: '', orig: '' };
   }
@@ -200,6 +202,50 @@ class GrindTrickRandomizer {
       });
   }
 
+  getTricktionaryEntries(slots, result){
+    let html = ''; 
+    let approach = slots.filter((s) => s && s.name === 'Approach')[0] || null;
+    let spinTo = slots.filter((s) => s && s.name === 'SpinTo')[0] || null;
+    const grind = slots.filter((s) => s && s.name === 'Grind')[0] || null;
+    let grindVariation =
+      slots.filter((s) => s && s.name === 'GrindVariation')[0] || null;
+    let spinOff = slots.filter((s) => s && s.name === 'SpinOff')[0] || null;
+
+    if(approach) {
+      let name = approach.winner.name;
+      let switchTxt = name.includes("Switch") ? `<b>Switch</b>: ${CONFIG.GLOSSARY["Switch"]} <br/>` : "";
+      switchTxt = switchTxt === "" && name.includes("Natural") ? `<b>Natural</b>: ${CONFIG.GLOSSARY["Natural"]} <br/>` : switchTxt;
+      let fakieTxt = name.includes("Fakie") ? `<b>Fakie</b>: ${CONFIG.GLOSSARY["Fakie"]} <br/>` : "";
+      fakieTxt = fakieTxt === "" && name.includes("Forwards") ? `<b>Forwards</b>: ${CONFIG.GLOSSARY["Forwards"]} <br/>` : fakieTxt;
+      html += ` ${switchTxt}${fakieTxt}  `; 
+     
+    }
+
+    if(spinTo) {
+      let name = spinTo.winner.name;
+    
+      let inSpinTxt = name.includes("Inspin") ? `<b>Inspin</b>: ${CONFIG.GLOSSARY["Inspin"]} <br/>` : "";
+      let outSpinTxt = name.includes("Outspin") ? `<b>Outspin</b>: ${CONFIG.GLOSSARY["Outspin"]} <br/>` : "";
+      html += ` ${inSpinTxt}${outSpinTxt}  `; 
+    }
+
+    if(grind) {
+      let name = grind.winner.name;
+      let grindData = CONFIG.GRINDS.filter( (g)=>{return g.name === name})[0];
+
+      html += `<b>${grindData.name}</b>: ${grindData.comment ? grindData.comment +"<br>":""}
+       ${grindData.thumbnailUrl ? "<img height=250 width=250 src='"+grindData.thumbnailUrl+"'></img": ""}     `; 
+    } if(grindVariation) {
+      let name = grindVariation.winner.name;
+      // "combos: split them in two"
+      let varData = CONFIG.VARIATIONS.filter( (g)=>{return g.name === name})[0];
+      html += `<b>${name}</b>: ${varData.comment}  `;
+    }
+
+    return html; 
+
+  }
+
   showEndScreen(animateBottom = true) {
     this.isEndScreen = true;
     const winners = this.slotMachine.slots.map((s) => {
@@ -210,6 +256,8 @@ class GrindTrickRandomizer {
       }
     });
     this.slotMachineResult = this.resultParser.parse(winners);
+    const text = this.getTricktionaryEntries(winners,  this.slotMachineResult);
+    this.tooltips.updateTooltip("endScreen", text)
 
     this.$endScreen.find('#endscreen-text').html(this.slotMachineResult.parsed);
     this.$endScreen.fadeIn(500, () => {

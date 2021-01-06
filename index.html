@@ -1,6 +1,6 @@
 <!-- 
  fix lock reel: keep grinds? 
-==> stays filtered... 
+==> stays filtered... lock channel: and no more souls av
 
 - help system (idea: hold ? button and tooltip texts appear with comment section)
    - add some text for every term 
@@ -8,7 +8,8 @@
  - fix: no vendor.css on prod 
  
  - fix firefox bug old mac 
-
+ - use flex for tables
+- cleanup tricknames,,
 
    - prevent overuse of tricks (ensure variety)
    - better design: better buttons, with 3d effect
@@ -158,7 +159,7 @@
                      <i style="display:none"  class="slot-state-lock-bg-icon--locked   fa fa-lock fa-4x"></i> 
                   </div>
                   <div  class="bog-slot-header" >
-                     <h2 data-p-tooltip="approachSlot">
+                     <h2  >
                       
                         <i style="display:none" class="slot-state-lock-icon fa fa-lock fa-1x"></i> 
                         Approach / Switch
@@ -175,7 +176,7 @@
                      <i style="display:none"  class="slot-state-lock-bg-icon--locked   fa fa-lock fa-4x"></i> 
                   </div>
                   <div  class="bog-slot-header">
-                     <h2  data-p-tooltip="spinToSlot">
+                     <h2   >
                         <i style="display:none" class="slot-state-lock-icon fa fa-lock fa-1x"></i> 
                         Spin to Grind  
                         <i style="display:none" class="slot-state-lock-icon fa fa-lock fa-1x"></i> 
@@ -191,7 +192,7 @@
                      <i style="display:none"  class="slot-state-lock-bg-icon--locked   fa fa-lock fa-4x"></i> 
                   </div>
                   <div  class="bog-slot-header">
-                     <h2 data-p-tooltip="grindSlot" >
+                     <h2 >
                         <i style="display:none" class="slot-state-lock-icon fa fa-lock fa-1x"></i> 
                         Grind  
                         <i style="display:none" class="slot-state-lock-icon fa fa-lock fa-1x"></i> 
@@ -207,7 +208,7 @@
                      <i style="display:none"  class="slot-state-lock-bg-icon--locked   fa fa-lock fa-4x"></i> 
                   </div>
                   <div   class="bog-slot-header">
-                     <h2 data-p-tooltip="grindVariationSlot">
+                     <h2  >
                         
                         <i style="display:none" class="slot-state-lock-icon fa fa-lock fa-1x"></i> 
                         Variation
@@ -225,7 +226,7 @@
                      <i style="display:none"  class="slot-state-lock-bg-icon--locked   fa fa-lock fa-4x"></i> 
                   </div>
                   <div  class="bog-slot-header">
-                     <h2 data-p-tooltip="spinOffSlot" >
+                     <h2   >
                        
                         <i style="display:none" class="slot-state-lock-icon fa fa-lock fa-1x"></i> 
                         Spin off Grind
@@ -236,8 +237,8 @@
                   </div>
                </div>
             </div>
-            <div class="pure-u-1 ">
-               <div id="endScreen">
+            <div   class="pure-u-1 ">
+               <div id="endScreen" data-p-tooltip="endScreen">
                   <div class="bog-slot-header-end">
                      <div class="slot" id="endscreen-text"></div>
 
@@ -582,18 +583,18 @@
                <h4>Notes</h4>
              
                This is a web app for aggressive inline grind tricks. You can use it to build a personal, randomized trick list.
-               <br>   The app uses a slot machine inspired interface and a rule based generator to produce the tricks. 
+               <br> The app uses a slot machine inspired interface and a rule based generator to produce the tricks. 
                <br>
            
                A grind trick is split into approach, spin to grind, grind, grind variation and spin off grind. <br>
                <br>
-           
+           <!-- 
                <br>  
                I do not aim to define how all the tricks should be named, this should be done by bladers that can actually do them. &#128517;
                <br>
                Big thanks to Martin, Dean, Kris and all bladers that helped me out a lot with testing, feedback and patience for my trick name questions. &#128591;
                <br> It was amazing for me to learn how variable grind tricks are. I love this sport. &#128151; <br> 
-      
+      -->
       
               
       
@@ -641,7 +642,7 @@
                    <th>Definition</th>
                 </tr>
              </thead>
-             <tbody>
+             <tbody  id="reference-terms-table-body">
                 <tr class=" ">
                    <td>FS</td>
                    <td>Frontside</td>
@@ -650,19 +651,38 @@
                    <td>BS</td>
                    <td>Backside</td>
                 </tr>
+
                 <tr>
-                   <td>Approach / Switch</td>
-                   <td>Forwards is the opposite of Fakie, Natural is the opposite of Switch. To save screen space Approach and Switch are combined into one slot.</td>
+                  <td>Soul grinds</td>
+                  <td>Soul frame based grind wihtout a frontside or a backside variant.</td>
+               </tr>
+               <tr>
+                  <td>Groove/Boot grinds</td>
+                  <td>H-Block based grind with a frontside and a backside variant.</td>
+               </tr>
+               <tr>
+
+                <!-- 
+                <tr>
+                   <td>  Switch</td>
+                   <td>Grinding in the unnatural mirrored position of a grind or spinning your unnatural direction Forwards is the opposite of Fakie, Natural is the opposite of Switch. To save screen space Approach and Switch are combined into one slot.</td>
                 </tr>
                 <tr>
-                   <td>Soul grinds</td>
-                   <td>Soul frame based grind wihtout a frontside or a backside variant.</td>
-                </tr>
+                  <td>  Natural</td>
+                  <td> Natural is the opposite of Switch. </td>
+               </tr>
                 <tr>
-                   <td>Groove/Boot grinds</td>
-                   <td>H-Block based grind with a frontside and a backside variant.</td>
-                </tr>
-                <tr>
+                  <td> Fakie</td>
+                  <td>Jump to or from obstacle skating backwards.</td>
+               </tr>
+               <tr>
+                  <td> Forwards</td>
+                  <td>Forwards is the opposite of Fakie.</td>
+               </tr>
+ -->
+               
+
+                  <!-- 
                    <td>Inspin</td>
                    <td>Spin towards obstacle.
                       If the obstacle is on the left and approach is forwards, Inspin is counter-clockwise.
@@ -675,7 +695,7 @@
                       If the obstacle is on the left and approach is forwards, Outspin is clockwise.
                       If the obstacle is on the right, Outspin is counter-clockwise.
                    </td>
-                </tr>
+                </tr>     
                 <tr>
                    <td>AO / Alley-oop</td>
                    <td>Forwards to 180 Inspin to a Soul grind</td>
@@ -723,7 +743,7 @@
                    <td>Revert / Rewind</td>
                    <td>Spinning off a grind the opposite direction of the natural momentum set by the initial grind spin.
                    </td>
-                </tr>
+                </tr>  -->
              </tbody>
           </table>
           <div   id="trickNamingContent"> </div> 

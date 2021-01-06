@@ -11,17 +11,17 @@ const CONFIG = {
   randomizeButton: { text: 'Spin the reels', position: '' },
   helpBtn: {
     type: 'nav',
-    text: 'Show help text bubbles. ',
+    text: '',
     position: '',
   },
   configButton: {
     type: 'nav',
-    text: 'Configure generator.<br> Include and exclude tricks. ',
+    text: 'Include <br>more <br>tricks',
   },
 
   trickNamingBtn: {
     type: 'nav',
-    text: 'Open Tricktionary.<br> Look up trick names. ',
+    text: 'Open <br>Tricktionary',
   },
   soundButton: { type: 'nav', text: 'Toggle sound' },
   aboutBtn: { type: 'nav', text: 'About this app' },
@@ -35,7 +35,7 @@ const CONFIG = {
     text: 'Abort the game. ',
   },
 
-  approachSlot: {
+  /*approachSlot: {
     type: 'slot',
     text:
       ' <b>Fakie</b> Skate backwards to the obstacle <b>Switch</b> Grinding in the unnatural mirrored position of a grind.<br>',
@@ -48,14 +48,15 @@ const CONFIG = {
       '<b>Inspin</b> If the obstacle is on the left and approach is forwards, Inspin is counter-clockwise. If the obstacle is on the right, Inspin is clockwise.',
     props: { placement: 'bottom-end', offset: 2 },
     slotName: 'SpinTo',
-  },
-  grindSlot: {
+  },*/
+  endScreen: {
     type: 'slot',
-    text:
-      '<b>Frontside Unity</b>grindSlot <br> <img width="250" heigth="250" src="./img/bog/1.jpg">  <br>Open book of grinds  ',
-    props: { placement: 'top-start', offset: 2 },
+    text: "",
+   //'<b>Switch</b>blalbblalblalblalba blalblalblalba blalblalblalba blalblalblalba blalblalblalba blalblalblalba lalblalba bblalblalblalba blalblalblalba blalblalblalba blalblalblalba lalblalblalba <br>  <b>Fakie</b>blalblalblalba blalblalblalba <br> <b>Inspin</b>bl blalbblalblalblalba blalblalblalba blalblalblalba blalblalblalba blalblalblalba blalblalblalba lalblalba blalblalblalba alblalblalba <br>   <b>Frontside Unity</b>grindSlot <br> <img width="300" heigth="300" src="./img/bog/1.jpg">  <br>Open book of grinds  ',
+    //props: { placement: 'top-start', offset: 2 },
     slotName: 'Grind',
   },
+  /*
   grindVariationSlot: {
     type: 'slot',
     text:
@@ -72,11 +73,11 @@ const CONFIG = {
       offset: 2,
     },
     slotName: 'SpinOff',
-  },
+  },*/
 };
 
 
-
+ 
 const throttle = (func, limit) => {
   let inThrottle;
   return function () {
@@ -88,7 +89,7 @@ const throttle = (func, limit) => {
       setTimeout(() => (inThrottle = false), limit);
     }
   };
-};
+}; 
 
 export class Tooltips {
   constructor($helpBtn, App) {
@@ -125,29 +126,7 @@ export class Tooltips {
     this.$helpBtnStart.on('click', () => {
       btnClick();
     });
-    /*
-    this.$helpBtn.on(
-      'touchend mouseup',
-      throttle(() => {
-        console.log("mouseup hide")
-        this.hide();
-      }, hideDelay)
-    );
- 
-    this.$helpBtnStart.on(
-      'touchstart mousedown',
-      throttle(() => {
-        this.init();
-        this.show();
-      }, throttleStart)
-    );
-
-    this.$helpBtnStart.on(
-      'touchend mouseup',
-      throttle(() => {
-        this.hide();
-      }, hideDelay)
-    ); */
+     
   }
 
   show() {
@@ -176,6 +155,15 @@ export class Tooltips {
     });
     this.$mask.hide();
   }
+  updateTooltip(name, htmlContent) {
+    this.helpTooltips.forEach((t) => {
+      if(t.name === name) {
+        t.instance.setContent(htmlContent)
+      }
+      // t.instance.hide();
+      // t.instance.disable();
+    }); 
+  }
 
   init() {
      
@@ -197,26 +185,12 @@ export class Tooltips {
         
       };  
 
-      props.onHide = (instance) => {
-        // ...
-  //   console.log("tippy onHide", instance)
-        // instance.disable();
-     //  this.hide();
-        //  tippy.hideAll(instance)
-      };
-      props.onShow = (instance) => {
-        // ...
-       console.log("tippy onShow", instance)
-        // instance.disable();
-      // this.hide();
-        //  tippy.hideAll(instance)
-      };
+      
 
       if (config.props) {
         props = { ...props, ...config.props };
       }
-      if (config.slotName) {
-      }
+       
       props.content = text;
       //  $el.css({ 'text-decoration': 'underline' });
 
