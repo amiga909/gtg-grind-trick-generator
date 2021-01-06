@@ -1,38 +1,38 @@
-import tippy from 'tippy.js';
-import 'tippy.js/dist/tippy.css';
-import 'tippy.js/animations/scale.css';
-import 'tippy.js/animations/scale-subtle.css';
-import 'tippy.js/animations/scale-extreme.css';
+import tippy from "tippy.js";
+import "tippy.js/dist/tippy.css";
+import "tippy.js/animations/scale.css";
+import "tippy.js/animations/scale-subtle.css";
+import "tippy.js/animations/scale-extreme.css";
 
-import 'tippy.js/themes/light.css';
+import "tippy.js/themes/light.css";
 
 const CONFIG = {
-  soundButton: { text: 'Toggle sound', position: '' },
-  randomizeButton: { text: 'Spin the reels', position: '' },
+  soundButton: { text: "Toggle sound", position: "" },
+  randomizeButton: { text: "Spin the reels", position: "" },
   helpBtn: {
-    type: 'nav',
-    text: '',
-    position: '',
+    type: "nav",
+    text: "",
+    position: "",
   },
   configButton: {
-    type: 'nav',
-    text: 'Include <br>more <br>tricks',
+    type: "nav",
+    text: "Include <br>more <br>tricks",
   },
 
   trickNamingBtn: {
-    type: 'nav',
-    text: 'Open <br>Tricktionary',
+    type: "nav",
+    text: "Open <br>Tricktionary",
   },
-  soundButton: { type: 'nav', text: 'Toggle sound' },
-  aboutBtn: { type: 'nav', text: 'About this app' },
+  soundButton: { type: "nav", text: "Toggle sound" },
+  aboutBtn: { type: "nav", text: "About this app" },
 
   addTricklistBtn: {
-    type: 'slot-menu',
-    text: 'Add current trick to tricklist. ',
+    type: "slot-menu",
+    text: "Add current trick to tricklist. ",
   },
   giveUpButton: {
-    type: 'slot-menu',
-    text: 'Abort the game. ',
+    type: "slot-menu",
+    text: "Abort the game. ",
   },
 
   /*approachSlot: {
@@ -50,11 +50,11 @@ const CONFIG = {
     slotName: 'SpinTo',
   },*/
   endScreen: {
-    type: 'slot',
+    type: "slot",
     text: "",
-   //'<b>Switch</b>blalbblalblalblalba blalblalblalba blalblalblalba blalblalblalba blalblalblalba blalblalblalba lalblalba bblalblalblalba blalblalblalba blalblalblalba blalblalblalba lalblalblalba <br>  <b>Fakie</b>blalblalblalba blalblalblalba <br> <b>Inspin</b>bl blalbblalblalblalba blalblalblalba blalblalblalba blalblalblalba blalblalblalba blalblalblalba lalblalba blalblalblalba alblalblalba <br>   <b>Frontside Unity</b>grindSlot <br> <img width="300" heigth="300" src="./img/bog/1.jpg">  <br>Open book of grinds  ',
+    //'<b>Switch</b>blalbblalblalblalba blalblalblalba blalblalblalba blalblalblalba blalblalblalba blalblalblalba lalblalba bblalblalblalba blalblalblalba blalblalblalba blalblalblalba lalblalblalba <br>  <b>Fakie</b>blalblalblalba blalblalblalba <br> <b>Inspin</b>bl blalbblalblalblalba blalblalblalba blalblalblalba blalblalblalba blalblalblalba blalblalblalba lalblalba blalblalblalba alblalblalba <br>   <b>Frontside Unity</b>grindSlot <br> <img width="300" heigth="300" src="./img/bog/1.jpg">  <br>Open book of grinds  ',
     //props: { placement: 'top-start', offset: 2 },
-    slotName: 'Grind',
+    slotName: "Grind",
   },
   /*
   grindVariationSlot: {
@@ -76,8 +76,6 @@ const CONFIG = {
   },*/
 };
 
-
- 
 const throttle = (func, limit) => {
   let inThrottle;
   return function () {
@@ -89,15 +87,15 @@ const throttle = (func, limit) => {
       setTimeout(() => (inThrottle = false), limit);
     }
   };
-}; 
+};
 
 export class Tooltips {
   constructor($helpBtn, App) {
     this.$helpBtn = $helpBtn;
     this.App = App;
-    this.$tooltips = $('[data-p-tooltip]')
-    this.$helpBtnStart = $('#helpButtonStart');
-    this.$mask = $('#tooltips-mask');
+    this.$tooltips = $("[data-p-tooltip]");
+    this.$helpBtnStart = $("#helpButtonStart");
+    this.$mask = $("#tooltips-mask");
 
     this.config = CONFIG;
     this.helpTooltips = [];
@@ -116,29 +114,27 @@ export class Tooltips {
       }
     }, 500);
 
-    this.$mask.on('click', () => {
-     this.hide();
+    this.$mask.on("click", () => {
+      this.hide();
     });
 
-    this.$helpBtn.on('click', () => {
+    this.$helpBtn.on("click", () => {
       btnClick();
     });
-    this.$helpBtnStart.on('click', () => {
+    this.$helpBtnStart.on("click", () => {
       btnClick();
     });
-     
   }
 
   show() {
     this.$mask.show();
-    this.$helpBtn.addClass('pure-button-disabled');
-    this.App.$randomizeButton.addClass('pure-button-disabled');
+    this.$helpBtn.addClass("pure-button-disabled");
+    this.App.$randomizeButton.addClass("pure-button-disabled");
     this.isVisible = true;
     this.helpTooltips.forEach((t) => {
       if (t.instance.props.content) {
-         t.instance.enable();
-       
-        
+        t.instance.enable();
+
         t.instance.show();
       }
     });
@@ -146,8 +142,8 @@ export class Tooltips {
   hide() {
     //  console.log('hide');
     this.isVisible = false;
-    this.$helpBtn.removeClass('pure-button-disabled');
-    this.App.$randomizeButton.removeClass('pure-button-disabled');
+    this.$helpBtn.removeClass("pure-button-disabled");
+    this.App.$randomizeButton.removeClass("pure-button-disabled");
 
     this.helpTooltips.forEach((t) => {
       // t.instance.hide();
@@ -157,40 +153,35 @@ export class Tooltips {
   }
   updateTooltip(name, htmlContent) {
     this.helpTooltips.forEach((t) => {
-      if(t.name === name) {
-        t.instance.setContent(htmlContent)
+      if (t.name === name) {
+        t.instance.setContent(htmlContent);
       }
       // t.instance.hide();
       // t.instance.disable();
-    }); 
+    });
   }
 
   init() {
-     
     this.$tooltips.each((i, el) => {
       let $el = $(el);
-      let name = $el.data('p-tooltip');
+      let name = $el.data("p-tooltip");
       let config = this.config[name];
       if (!config) {
-        console.error('missing tooltip config', name);
+        console.error("missing tooltip config", name);
       }
       let text = config.text;
-      let props =  {
-        theme: 'light',
-        animation: 'scale',
+      let props = {
+        theme: "light",
+        animation: "scale",
         allowHTML: true,
-         touch: true,
-        trigger: 'manual',
-       
-        
-      };  
-
-      
+        touch: true,
+        trigger: "manual",
+      };
 
       if (config.props) {
         props = { ...props, ...config.props };
       }
-       
+
       props.content = text;
       //  $el.css({ 'text-decoration': 'underline' });
 

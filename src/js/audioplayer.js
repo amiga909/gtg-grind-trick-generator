@@ -1,13 +1,13 @@
-import { Howl } from 'howler';
+import { Howl } from "howler";
 
-const SOUND_PATH = 'https://grind-trick-generator.herokuapp.com/assets/sounds/';
+const SOUND_PATH = "https://grind-trick-generator.herokuapp.com/assets/sounds/";
 const SOUNDS = [
   {
     start:
-      'joker-full-stretched.mp3' /* loop: "joker-loop.mp3", end: "joker-end.mp3" */,
+      "joker-full-stretched.mp3" /* loop: "joker-loop.mp3", end: "joker-end.mp3" */,
   },
-  { start: 'spark-start.mp3', loop: 'spark-loop.mp3', end: 'spark-end.mp3' },
-  { start: 'juhui-start.mp3', loop: 'juhui-loop.mp3', end: 'juhui-end.mp3' },
+  { start: "spark-start.mp3", loop: "spark-loop.mp3", end: "spark-end.mp3" },
+  { start: "juhui-start.mp3", loop: "juhui-loop.mp3", end: "juhui-end.mp3" },
 ];
 
 export class Audioplayer {
@@ -25,7 +25,7 @@ export class Audioplayer {
       src: [SOUND_PATH + SOUNDS[index].start],
       onend: () => {
         if (SOUNDS[index].loop) {
-          this.playAudio('loop');
+          this.playAudio("loop");
         }
       },
     });
@@ -37,7 +37,7 @@ export class Audioplayer {
         onend: () => {
           if (this.isEndScreen) {
             this.howler.loop.stop();
-            this.playAudio('end');
+            this.playAudio("end");
           }
         },
       });

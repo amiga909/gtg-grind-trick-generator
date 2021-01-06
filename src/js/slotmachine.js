@@ -412,7 +412,7 @@ export class SlotMachine {
     }
 
     const spinToSlot = this.slots[this.getSlotIndexByName("SpinTo")];
-   
+
     if (spinToSlot.state === SLOT_STATES.locked) {
       let isSoulSpin = this.isSoulSpin(spinToSlot.winner.winner.name);
       entries = entries.filter((e) => {
@@ -440,7 +440,6 @@ export class SlotMachine {
         }
       });
     }
-    
 
     return entries;
   }
@@ -462,7 +461,7 @@ export class SlotMachine {
     let entries = data;
 
     if (name === "Grind") {
-      entries = CONFIG.GRINDS_FOR_SLOTS; 
+      entries = CONFIG.GRINDS_FOR_SLOTS;
       if (this.includedTricks.heelRoll === "off") {
         entries = entries.filter((e) => {
           const isHeelRoll =

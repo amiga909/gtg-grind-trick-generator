@@ -1,0 +1,7 @@
+screencapture -x -R240,188,400,400 ./FSTabernacle.png
+
+
+Normal grinds (Soul, ..)
+Synonyms (Soyale,..)
+Variations (Christ, ..)
+ 

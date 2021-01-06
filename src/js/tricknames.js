@@ -15,6 +15,8 @@ export class Tricknames {
   }
 
   renderNotImplemented() {
+    // dupes content?
+    return false;
     const rows = [];
     const variations = CONFIG.OBSTACLE_VARIATIONS;
     variations.forEach((v) => {
@@ -62,12 +64,18 @@ export class Tricknames {
           }</a>`
         : "";
       const comment = grind.comment ? `<br/>${grind.comment}` : "";
-      rows.push(`<tr class=" ">
+      console.log(grind.thumbUrl);
+      const thumb = grind.thumbUrl
+        ? `<img class="tricktionary_thumb_img" src="${grind.thumbUrl}"> </img>`
+        : "";
+      rows.push(`<tr class="">
     <td>${grind.name}</td>
-    <td>${url}${comment}</td>
+    <td>${url}${comment}${thumb}</td>
+    
   </tr>`);
     });
     const html = `<h4>Grinds</h4>
+    Trick graphics are made with Book of Grinds, skateyeg.com
     <table class="pure-table pure-table-bordered">
       <thead>
         <tr>
@@ -82,7 +90,8 @@ export class Tricknames {
   }
   renderGrindSynonyms() {
     let rows = [];
-    let vars = CONFIG.GRIND_SYNONYMS;
+    let vars = CONFIG.GRIND_SYNONYMS_THUMB;
+
     vars = vars.sort(this.compare);
     vars.forEach((variaton) => {
       if (variaton.url === "" && !variaton.comment) {
@@ -90,9 +99,12 @@ export class Tricknames {
       }
       const url = variaton.url ? new URL(variaton.url).hostname : "";
       const comment = variaton.comment ? `<br/>${variaton.comment}` : "";
+      const thumb = variaton.thumbUrl
+        ? `<img class="tricktionary_thumb_img" src="${variaton.thumbUrl}"> </img>`
+        : "";
       rows.push(`<tr class=" ">
     <td>${variaton.newName}</td>
-    <td><a target="blank" href="${variaton.url}">${url}</a>${comment}</td>
+    <td><a target="blank" href="${variaton.url}">${url}</a>${comment}${thumb}</td>
   </tr>`);
       rows = rows.sort();
     });
@@ -112,14 +124,17 @@ export class Tricknames {
 
   renderVariations() {
     let rows = [];
-    let vars = CONFIG.VARIATIONS;
+    let vars = CONFIG.VARIATIONS_THUMB;
     vars = vars.sort(this.compare);
     vars.forEach((variaton) => {
       const url = variaton.url ? new URL(variaton.url).hostname : "";
       const comment = variaton.comment ? `<br/>${variaton.comment}` : "";
+      const thumb = variaton.thumbUrl
+        ? `<img class="tricktionary_thumb_img" src="${variaton.thumbUrl}"> </img>`
+        : "";
       rows.push(`<tr class=" ">
     <td>${variaton.name}</td>
-    <td><a target="blank" href="${variaton.url}">${url}</a>${comment}</td>
+    <td><a target="blank" href="${variaton.url}">${url}</a>${comment}${thumb}</td>
   </tr>`);
       rows = rows.sort();
     });
