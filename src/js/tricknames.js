@@ -64,7 +64,7 @@ export class Tricknames {
           }</a>`
         : "";
       const comment = grind.comment ? `<br/>${grind.comment}` : "";
-      console.log(grind.thumbUrl);
+
       const thumb = grind.thumbUrl
         ? `<img class="tricktionary_thumb_img" src="${grind.thumbUrl}"> </img>`
         : "";

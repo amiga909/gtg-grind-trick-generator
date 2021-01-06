@@ -140,15 +140,12 @@ export class Tooltips {
     });
   }
   hide() {
-    //  console.log('hide');
+    
     this.isVisible = false;
     this.$helpBtn.removeClass("pure-button-disabled");
     this.App.$randomizeButton.removeClass("pure-button-disabled");
 
-    this.helpTooltips.forEach((t) => {
-      // t.instance.hide();
-      // t.instance.disable();
-    });
+     
     this.$mask.hide();
   }
   updateTooltip(name, htmlContent) {
@@ -185,11 +182,11 @@ export class Tooltips {
       props.content = text;
       //  $el.css({ 'text-decoration': 'underline' });
 
-      //if (text !== '') {
+      
       let t = tippy($el[0], props);
       t.disable();
       this.helpTooltips.push({ instance: t, name: name });
-      // }
+      
     });
   }
 }

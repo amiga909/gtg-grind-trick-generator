@@ -291,7 +291,7 @@ class GrindTrickRandomizer {
     this.isEndScreen = true;
     const winners = this.slotMachine.slots.map((s) => {
       if (s.state === "enabled" || s.state === "locked") {
-        return s.winner;
+        return s;
       } else {
         return null;
       }
