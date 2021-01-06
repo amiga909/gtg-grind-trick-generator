@@ -37,7 +37,7 @@ module.exports = (env = {}, argv) => {
             chunks: "initial",
             name: "vendor",
             test: /[\\/]node_modules[\\/]/,
-            // enforce: true
+              enforce: true
           },
         },
       },
