@@ -209,7 +209,7 @@ class GrindTrickRandomizer {
     let spinTo = slots.filter((s) => s && s.name === "SpinTo")[0] || null;
     const grind = slots.filter((s) => s && s.name === "Grind")[0] || null;
     const grindSynonymData = CONFIG.GRIND_SYNONYMS_THUMB.filter((s) => {
-      return result.parsed.includes(s.name);
+      return result.parsed.includes(s.newName);
     })[0];
     let grindVariation =
       slots.filter((s) => s && s.name === "GrindVariation")[0] || null;

@@ -1,15 +1,23 @@
 <!-- 
+A I G H T Aggressive Inline Grinds - Highscore Trickgenerator  
+
+
  fix lock reel: keep grinds? 
 ==> stays filtered... lock channel: and no more souls av
 
-- help system (idea: hold ? button and tooltip texts appear with comment section)
-   - add some text for every term 
+x help system (idea: hold ? button and tooltip texts appear with comment section)
+- fix some images (quite a few...)
+ - add some text for every term 
  - fix manual, add how to play screens: 1) hit start 2) disable parts 3) add trick 
- - fix: no vendor.css on prod 
+ x fix: no vendor.css on prod 
  
  - fix firefox bug old mac 
- - use flex for tables
-- cleanup tricknames,,
+ - mobile friendly tables.. use flex instead
+
+ - fix winner.winner
+   - fix add dupe to tricklist
+   - add TOC to text menus
+   x add fullname to tricklist
 
    - prevent overuse of tricks (ensure variety)
    - better design: better buttons, with 3d effect
@@ -21,17 +29,14 @@
    x GUI: remove tricklist btn, replace with help
    x lock reel idea:  
    x fix  tricklist
-   - 
-   - endscreen menu  (add to TL, TL, start, reset) 
+   
+   x endscreen menu  (add to TL, TL, start, reset) 
    - beginner, advanced, pro, alien levels 
   
     
 
   
-- fix winner.winner
-   - fix add dupe to tricklist
-   - add TOC to text menus
-   - add fullname to tricklist
+
 
   
    
@@ -76,7 +81,7 @@
       <div class="banner">
          <div class="banner-head">
             <!-- <div style="position:absolute;" class="banner-logo"><img src="./img/icon2.jpg"></div>-->
-            <span style="color:red" > !BETA! </span>  Joker's Grind Trick Generator</div>
+            <span style="color:red" > !BETA! </span>  A I G H T ! <br>Aggressive Inline Grind Highscore Tracker  </div>
          <div class="pure-g banner-controls-container">
             
         
@@ -634,6 +639,115 @@
       
             <div style="display:none;"  id="modal-screen--reference" class="modal-screen-text">
                 
+
+
+
+
+
+<!--  RESPONSIVE TABLE example 
+
+               <style>
+                  table {
+                    max-width: 100%;
+                  }
+                  
+                  tr:nth-child(odd) {
+                     //   background-color: #eee;
+                  }
+                  
+                  th {
+                  //  background-color: #555;
+                    color: #fff;
+                  }
+                  
+                  th,
+                  td {
+                    text-align: left;
+                    padding: 0.5em 1em;
+                  }
+                  
+                  td::before {
+                    display: none;
+                  }
+                  
+                  @media screen and (max-width: 680px) {
+                   table {
+                     border: 0;
+                     display: block;
+                     box-shadow: none;
+                   }
+                  
+                   thead {
+                     position: absolute;
+                     opacity: 0;
+                   }
+                    
+                   tbody {
+                     display: block;
+                     width: 100%;
+                     min-width: 19em;
+                     max-width: 25em;
+                   }
+                  
+                   tr {
+                     border-top: 2px solid #3c3c3b;
+                     border-bottom: 1px solid #3c3c3b;
+                     display: grid;
+                     grid-template-columns: max-content auto;
+                     margin-bottom: 1em;
+                   }
+                  
+                   td {
+                     display: contents;
+                   }
+                  
+                   td::before {
+                     display: inline-block;
+                     font-weight: bold;
+                     padding: 0.5em;
+                     border-bottom: 1px solid;
+                   }
+                    
+                    td span {
+                      padding: 0.5em;
+                      border-bottom: 1px solid;
+                    }
+                  
+                   td:last-child {
+                     border-bottom: 0;
+                   }
+                  }
+                  </style>
+                  
+                  <table id="respTable">
+                    <thead>
+                      <tr>
+                        <th>1</th>
+                        <th>2</th>
+                        <th>3</th>
+                        <th>4</th>
+                         
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><span>0</span></td>
+                        <td>
+                          <span><a href="http://www.wnba.com/player/alana-beard/" target="_blank">Alana Beard</a></span></td>
+                        <td><span>G-F</span></td>
+                        <td><span>5-11</span></td>
+                 
+                   
+                      </tr>
+                      <tr>
+                    </tbody>     
+                  </table>
+                -->  
+
+
+
+
+
           <h4>Terms</h4>
           <table class="pure-table pure-table-bordered">
              <thead>

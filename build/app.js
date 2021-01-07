@@ -256,7 +256,7 @@ var GrindTrickRandomizer = /*#__PURE__*/function () {
         return s && s.name === "Grind";
       })[0] || null;
       var grindSynonymData = CONFIG.GRIND_SYNONYMS_THUMB.filter(function (s) {
-        return result.parsed.includes(s.name);
+        return result.parsed.includes(s.newName);
       })[0];
       var grindVariation = slots.filter(function (s) {
         return s && s.name === "GrindVariation";
@@ -3909,6 +3909,57 @@ var Tricknames = /*#__PURE__*/function () {
   }
 
   _createClass(Tricknames, [{
+    key: "renderThumb",
+    value: function renderThumb() {
+      var imageUrl = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
+      var bogLink = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";
+      var html = "";
+      html = imageUrl ? "<img class=\"tricktionary_thumb_img\" src=\"".concat(imageUrl, "\"> </img>") : "";
+
+      if (bogLink) {
+        var linkContent = html === "" ? "skateyeg.com" : html;
+        html = "<a href=\"".concat(bogLink, "\" target=\"blank\">").concat(linkContent, "</a>");
+      }
+
+      return html;
+    }
+  }, {
+    key: "renderTable",
+    value: function renderTable() {
+      var title = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
+      var headers = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
+      var rows = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [[], []];
+      var headersHtml = headers.map(function (h) {
+        return "<div class=\"cell\">".concat(h, "</div>");
+      });
+      var rowsHtml = rows.map(function (r) {
+        var i = -1;
+        var tds = r.map(function (rr) {
+          i = i + 1;
+          return "<div class=\"cell\" data-title=\"".concat(headers[i], "\"> ").concat(rr, " </div>");
+        });
+        return "<div class=\"row\"> ".concat(tds.join(""), "</div>");
+      });
+      return " \n    <div class=\"resp-table-wrapper\">\n      <h3>".concat(title, "</h3>\n      <div class=\"resp-table\">\n        <div class=\"row header\">").concat(headersHtml.join(""), " </div>\n        ").concat(rowsHtml.join(""), "\n      </div>\n     ");
+    }
+  }, {
+    key: "renderTable2",
+    value: function renderTable2() {
+      var title = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
+      var headers = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
+      var rows = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [[], []];
+      var headersHtml = headers.map(function (h) {
+        return "<th class=\"resp-th\">".concat(h, "</th>");
+      });
+      var rowsHtml = rows.map(function (r) {
+        var tds = r.map(function (rr) {
+          return "<td class=\"resp-td\"><span>".concat(rr, "</span></td>");
+        });
+        return "<tr class=\"resp-tr\"> ".concat(tds.join(""), "</tr>");
+      });
+      return " \n    <h4>".concat(title, "</h4>\n    <table class=\"resp-table\">\n    <thead class=\"resp-thead\">\n      <tr class=\"resp-tr\">\n        ").concat(headersHtml.join(""), "\n      </tr>\n    </thead>\n    <tbody class=\"resp-tbody\">\n      <tr class=\"resp-tr\">").concat(rowsHtml.join(""), "</tr>\n    </tbody>     \n  </table>");
+    }
+  }, {
     key: "renderNotImplemented",
     value: function renderNotImplemented() {
       // dupes content?
@@ -3960,21 +4011,19 @@ var Tricknames = /*#__PURE__*/function () {
   }, {
     key: "renderGrindSynonyms",
     value: function renderGrindSynonyms() {
+      var _this = this;
+
       var rows = [];
       var vars = CONFIG.GRIND_SYNONYMS_THUMB;
       vars = vars.sort(this.compare);
-      vars.forEach(function (variaton) {
-        if (variaton.url === "" && !variaton.comment) {
-          return true;
-        }
-
-        var url = variaton.url ? new URL(variaton.url).hostname : "";
-        var comment = variaton.comment ? "<br/>".concat(variaton.comment) : "";
-        var thumb = variaton.thumbUrl ? "<img class=\"tricktionary_thumb_img\" src=\"".concat(variaton.thumbUrl, "\"> </img>") : "";
-        rows.push("<tr class=\" \">\n    <td>".concat(variaton.newName, "</td>\n    <td><a target=\"blank\" href=\"").concat(variaton.url, "\">").concat(url, "</a>").concat(comment).concat(thumb, "</td>\n  </tr>"));
-        rows = rows.sort();
+      vars.forEach(function (variation) {
+        var row = [];
+        var url = variation.url ? new URL(variation.url).hostname : "";
+        var comment = variation.comment ? "".concat(variation.comment) : "";
+        var thumb = variation.thumbUrl ? variation.thumbUrl : '';
+        rows.push([variation.newName, comment, _this.renderThumb(thumb, url)]);
       });
-      var html = "<h4>Grind Synonyms</h4>\n    <table class=\"pure-table pure-table-bordered\">\n      <thead>\n        <tr>\n          <th>Name</th>\n          <th>Link</th>\n        </tr>\n      </thead>\n      <tbody>\n      ".concat(rows.join(""), " </tbody></table>");
+      var html = this.renderTable("Grind Synonyms", ["Name", "Comment", "Image"], rows);
       this.$dom.append(html);
     }
   }, {
@@ -3985,7 +4034,7 @@ var Tricknames = /*#__PURE__*/function () {
       vars = vars.sort(this.compare);
       vars.forEach(function (variaton) {
         var url = variaton.url ? new URL(variaton.url).hostname : "";
-        var comment = variaton.comment ? "<br/>".concat(variaton.comment) : "";
+        var comment = variaton.comment ? " ".concat(variaton.comment) : "";
         var thumb = variaton.thumbUrl ? "<img class=\"tricktionary_thumb_img\" src=\"".concat(variaton.thumbUrl, "\"> </img>") : "";
         rows.push("<tr class=\" \">\n    <td>".concat(variaton.name, "</td>\n    <td><a target=\"blank\" href=\"").concat(variaton.url, "\">").concat(url, "</a>").concat(comment).concat(thumb, "</td>\n  </tr>"));
         rows = rows.sort();
