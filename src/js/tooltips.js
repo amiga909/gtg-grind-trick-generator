@@ -53,7 +53,7 @@ const CONFIG = {
     type: "slot",
     text: "",
     //'<b>Switch</b>blalbblalblalblalba blalblalblalba blalblalblalba blalblalblalba blalblalblalba blalblalblalba lalblalba bblalblalblalba blalblalblalba blalblalblalba blalblalblalba lalblalblalba <br>  <b>Fakie</b>blalblalblalba blalblalblalba <br> <b>Inspin</b>bl blalbblalblalblalba blalblalblalba blalblalblalba blalblalblalba blalblalblalba blalblalblalba lalblalba blalblalblalba alblalblalba <br>   <b>Frontside Unity</b>grindSlot <br> <img width="300" heigth="300" src="./img/bog/1.jpg">  <br>Open book of grinds  ',
-    //props: { placement: 'top-start', offset: 2 },
+    props: {  offset: 4 },
     slotName: "Grind",
   },
   /*
@@ -155,6 +155,17 @@ export class Tooltips {
       }
       // t.instance.hide();
       // t.instance.disable();
+    });
+  }
+
+  showTooltip(name){
+    this.helpTooltips.forEach((t) => {
+      if (t.name === name) {
+        console.log("show "+name)
+        t.instance.enable();
+        t.instance.show();
+        this.$mask.show();
+      } 
     });
   }
 

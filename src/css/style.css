@@ -366,6 +366,7 @@ p {
   display: none;
   margin-top: 20px;
   padding-bottom: 20px;
+  cursor:pointer;
 }
 
 #endscreen-text {
@@ -714,86 +715,6 @@ body::-webkit-scrollbar-thumb {
   clear: left;
   overflow: auto;
 }
-
-
-
-
-
-
-.resp-table {
-  max-width: 100%;
-}
-
-.resp-tr:nth-child(odd) {
-   /*    background-color: #eee;*/
-}
-
-.resp-th {
-       background-color: #555; 
-        color: #fff; 
-}
-
-.resp-th,
-.resp-td {
-  text-align: left;
-  padding: 0.5em 1em;
-}
-
-.resp-td::before {
-  display: none;
-}
-
-@media screen and (max-width: 780px) {
-  .resp-table {
-    border: 0;
-    display: block;
-    box-shadow: none;
-  }
-
-  .resp-thead {
-    position: absolute;
-    opacity: 0;
-  }
-
-  .resp-tbody {
-    display: block;
-    width: 100%;
-    /*   min-width: 19em;
-     max-width: 25em; */
-  }
-
-  .resp-tr {
-    /* border-top: 2px solid #3c3c3b;
-      border-bottom: 1px solid #3c3c3b; */
-    display: grid;
-    grid-template-columns: max-content auto;
-    margin-bottom: 1em;
-  }
-
-  .resp-td {
-    display: contents;
-  }
-
-  .resp-td::before {
-    display: inline-block;
-    font-weight: bold;
-    /*  // padding: 0.5em;
-    // border-bottom: 1px solid;*/ 
-  }
-
-  .resp-td span {
-    /* //padding: 0.5em;
-   // border-bottom: 1px solid;*/ 
-  }
-
-  .resp-td:last-child {
-    /*  //border-bottom: 0;*/ 
-  }
-}
-
-
-
-
 
 
 

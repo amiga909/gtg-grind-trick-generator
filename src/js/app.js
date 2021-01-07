@@ -146,6 +146,13 @@ class GrindTrickRandomizer {
       this.addToTricklist();
       this.$addTricklistBtn.addClass("pure-button-disabled");
     });
+
+    this.$endScreen.on("click", () => {
+      if(this.isEndScreen) {
+        this.tooltips.showTooltip("endScreen");
+      }
+     
+    });
   }
 
   addToTricklist() {

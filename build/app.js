@@ -181,6 +181,11 @@ var GrindTrickRandomizer = /*#__PURE__*/function () {
 
         _this.$addTricklistBtn.addClass("pure-button-disabled");
       });
+      this.$endScreen.on("click", function () {
+        if (_this.isEndScreen) {
+          _this.tooltips.showTooltip("endScreen");
+        }
+      });
     }
   }, {
     key: "addToTricklist",
@@ -2695,7 +2700,9 @@ var CONFIG = (_CONFIG = {
   type: "slot",
   text: "",
   //'<b>Switch</b>blalbblalblalblalba blalblalblalba blalblalblalba blalblalblalba blalblalblalba blalblalblalba lalblalba bblalblalblalba blalblalblalba blalblalblalba blalblalblalba lalblalblalba <br>  <b>Fakie</b>blalblalblalba blalblalblalba <br> <b>Inspin</b>bl blalbblalblalblalba blalblalblalba blalblalblalba blalblalblalba blalblalblalba blalblalblalba lalblalba blalblalblalba alblalblalba <br>   <b>Frontside Unity</b>grindSlot <br> <img width="300" heigth="300" src="./img/bog/1.jpg">  <br>Open book of grinds  ',
-  //props: { placement: 'top-start', offset: 2 },
+  props: {
+    offset: 4
+  },
   slotName: "Grind"
 }), _CONFIG);
 
@@ -2788,14 +2795,29 @@ var Tooltips = /*#__PURE__*/function () {
       });
     }
   }, {
+    key: "showTooltip",
+    value: function showTooltip(name) {
+      var _this2 = this;
+
+      this.helpTooltips.forEach(function (t) {
+        if (t.name === name) {
+          console.log("show " + name);
+          t.instance.enable();
+          t.instance.show();
+
+          _this2.$mask.show();
+        }
+      });
+    }
+  }, {
     key: "init",
     value: function init() {
-      var _this2 = this;
+      var _this3 = this;
 
       this.$tooltips.each(function (i, el) {
         var $el = $(el);
         var name = $el.data("p-tooltip");
-        var config = _this2.config[name];
+        var config = _this3.config[name];
 
         if (!config) {
           console.error("missing tooltip config", name);
@@ -2819,7 +2841,7 @@ var Tooltips = /*#__PURE__*/function () {
         var t = (0,tippy_js__WEBPACK_IMPORTED_MODULE_5__.default)($el[0], props);
         t.disable();
 
-        _this2.helpTooltips.push({
+        _this3.helpTooltips.push({
           instance: t,
           name: name
         });
@@ -3566,7 +3588,12 @@ var GLOSSARY = {
   Switch: "Grinding in the unnatural mirrored position of a grind.",
   Fakie: "Approach obstacle skating backwards.",
   Forwards: "Approach obstacle skating backwards.",
-  Natural: "Natural is the opposite of Switch."
+  Natural: "Natural is the opposite of Switch.",
+  // unparsed tokens
+  "Frontside/FS": "Frontside",
+  "Backside/BS": "Backside",
+  "Soul grinds": "Soul frame based grind wihtout a frontside or a backside variant.",
+  "Groove/Boot grinds": "H-Block based grind with a frontside and a backside variant."
 };
 var GRINDS = [];
 SOUL_GRINDS.forEach(function (g) {
@@ -3898,7 +3925,6 @@ var Tricknames = /*#__PURE__*/function () {
     _classCallCheck(this, Tricknames);
 
     this.$dom = $("#trickNamingContent");
-    this.$termsTable = $("#reference-terms-table-body");
     this.trickdata = new _trickdata_js__WEBPACK_IMPORTED_MODULE_0__.Trickdata();
     CONFIG = this.trickdata.get();
     this.renderTerms();
@@ -3943,23 +3969,6 @@ var Tricknames = /*#__PURE__*/function () {
       return " \n    <div class=\"resp-table-wrapper\">\n      <h3>".concat(title, "</h3>\n      <div class=\"resp-table\">\n        <div class=\"row header\">").concat(headersHtml.join(""), " </div>\n        ").concat(rowsHtml.join(""), "\n      </div>\n     ");
     }
   }, {
-    key: "renderTable2",
-    value: function renderTable2() {
-      var title = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
-      var headers = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
-      var rows = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [[], []];
-      var headersHtml = headers.map(function (h) {
-        return "<th class=\"resp-th\">".concat(h, "</th>");
-      });
-      var rowsHtml = rows.map(function (r) {
-        var tds = r.map(function (rr) {
-          return "<td class=\"resp-td\"><span>".concat(rr, "</span></td>");
-        });
-        return "<tr class=\"resp-tr\"> ".concat(tds.join(""), "</tr>");
-      });
-      return " \n    <h4>".concat(title, "</h4>\n    <table class=\"resp-table\">\n    <thead class=\"resp-thead\">\n      <tr class=\"resp-tr\">\n        ").concat(headersHtml.join(""), "\n      </tr>\n    </thead>\n    <tbody class=\"resp-tbody\">\n      <tr class=\"resp-tr\">").concat(rowsHtml.join(""), "</tr>\n    </tbody>     \n  </table>");
-    }
-  }, {
     key: "renderNotImplemented",
     value: function renderNotImplemented() {
       // dupes content?
@@ -3988,30 +3997,50 @@ var Tricknames = /*#__PURE__*/function () {
             key = _Object$entries$_i[0],
             value = _Object$entries$_i[1];
 
-        rows.push("<tr class=\" \">\n    <td>".concat(key, "</td>\n    <td> ").concat(value, "</td>\n  </tr>"));
+        rows.push([key, value]);
       }
 
-      this.$termsTable.append(rows.join(""));
+      var html = this.renderTable("Terms", ["Term", "Definition"], rows);
+      this.$dom.append(html);
     }
   }, {
     key: "renderGrinds",
     value: function renderGrinds() {
+      var _this = this;
+
       var rows = [];
-      var grinds = CONFIG.GRINDS;
-      grinds = grinds.sort(this.compare);
-      grinds.forEach(function (grind) {
-        var url = grind.url ? "<a target=\"blank\" href=\"".concat(grind.url, "\">").concat(new URL(grind.url).hostname, "</a>") : "";
-        var comment = grind.comment ? "<br/>".concat(grind.comment) : "";
-        var thumb = grind.thumbUrl ? "<img class=\"tricktionary_thumb_img\" src=\"".concat(grind.thumbUrl, "\"> </img>") : "";
-        rows.push("<tr class=\"\">\n    <td>".concat(grind.name, "</td>\n    <td>").concat(url).concat(comment).concat(thumb, "</td>\n    \n  </tr>"));
+      var vars = CONFIG.GRINDS;
+      vars = vars.sort(function (a, b) {
+        var aa = a.name.replace("BS", "ZZ");
+        console.log(b);
+        aa = aa.replace("FS", "ZZ");
+        var bb = b.name.replace("BS", "ZZ");
+        bb = bb.replace("FS", "ZZ");
+
+        if (aa < bb) {
+          return -1;
+        }
+
+        if (aa > bb) {
+          return 1;
+        }
+
+        return 0;
       });
-      var html = "<h4>Grinds</h4>\n    Trick graphics are made with Book of Grinds, skateyeg.com\n    <table class=\"pure-table pure-table-bordered\">\n      <thead>\n        <tr>\n          <th>Name</th>\n          <th>Link</th>\n        </tr>\n      </thead>\n      <tbody>\n      ".concat(rows.join(""), " </tbody></table>");
+      vars.forEach(function (v) {
+        var row = [];
+        var url = v.url ? new URL(v.url).hostname : "";
+        var comment = v.comment ? "".concat(v.comment) : "";
+        var thumb = v.thumbUrl ? v.thumbUrl : "";
+        rows.push([v.name, comment, _this.renderThumb(thumb, url)]);
+      });
+      var html = this.renderTable("Grinds", ["Name", "Comment", "Image"], rows);
       this.$dom.append(html);
     }
   }, {
     key: "renderGrindSynonyms",
     value: function renderGrindSynonyms() {
-      var _this = this;
+      var _this2 = this;
 
       var rows = [];
       var vars = CONFIG.GRIND_SYNONYMS_THUMB;
@@ -4020,8 +4049,8 @@ var Tricknames = /*#__PURE__*/function () {
         var row = [];
         var url = variation.url ? new URL(variation.url).hostname : "";
         var comment = variation.comment ? "".concat(variation.comment) : "";
-        var thumb = variation.thumbUrl ? variation.thumbUrl : '';
-        rows.push([variation.newName, comment, _this.renderThumb(thumb, url)]);
+        var thumb = variation.thumbUrl ? variation.thumbUrl : "";
+        rows.push([variation.newName, comment, _this2.renderThumb(thumb, url)]);
       });
       var html = this.renderTable("Grind Synonyms", ["Name", "Comment", "Image"], rows);
       this.$dom.append(html);
@@ -4029,17 +4058,19 @@ var Tricknames = /*#__PURE__*/function () {
   }, {
     key: "renderVariations",
     value: function renderVariations() {
+      var _this3 = this;
+
       var rows = [];
       var vars = CONFIG.VARIATIONS_THUMB;
       vars = vars.sort(this.compare);
-      vars.forEach(function (variaton) {
-        var url = variaton.url ? new URL(variaton.url).hostname : "";
-        var comment = variaton.comment ? " ".concat(variaton.comment) : "";
-        var thumb = variaton.thumbUrl ? "<img class=\"tricktionary_thumb_img\" src=\"".concat(variaton.thumbUrl, "\"> </img>") : "";
-        rows.push("<tr class=\" \">\n    <td>".concat(variaton.name, "</td>\n    <td><a target=\"blank\" href=\"").concat(variaton.url, "\">").concat(url, "</a>").concat(comment).concat(thumb, "</td>\n  </tr>"));
-        rows = rows.sort();
+      vars.forEach(function (variation) {
+        var row = [];
+        var url = variation.url ? new URL(variation.url).hostname : "";
+        var comment = variation.comment ? "".concat(variation.comment) : "";
+        var thumb = variation.thumbUrl ? variation.thumbUrl : "";
+        rows.push([variation.name, comment, _this3.renderThumb(thumb, url)]);
       });
-      var html = "<h4>Grind Variations</h4>\n    <table class=\"pure-table pure-table-bordered\">\n      <thead>\n        <tr>\n          <th>Name</th>\n          <th>Link</th>\n        </tr>\n      </thead>\n      <tbody>\n      ".concat(rows.join(""), " </tbody></table>");
+      var html = this.renderTable("Grind Variations", ["Name", "Comment", "Image"], rows);
       this.$dom.append(html);
     }
   }, {

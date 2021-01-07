@@ -834,6 +834,13 @@ const GLOSSARY = {
   Fakie: "Approach obstacle skating backwards.",
   Forwards: "Approach obstacle skating backwards.",
   Natural: "Natural is the opposite of Switch.",
+
+  // unparsed tokens
+  "Frontside/FS": "Frontside",
+  "Backside/BS": "Backside",
+  "Soul grinds": "Soul frame based grind wihtout a frontside or a backside variant.",
+  "Groove/Boot grinds": "H-Block based grind with a frontside and a backside variant."
+ 
 };
 
 const GRINDS = [];
