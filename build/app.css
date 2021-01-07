@@ -707,7 +707,28 @@ body::-webkit-scrollbar-thumb {
 
 
 .tricktionary_thumb_img{
+  height:200px; 
+  width:200px;
+}
+.tricktionary_thumb_variation_img{
+  height:100px; 
+  width:100px;
+}
+
+.tricktionary_thumb_grind_container{
+  /* width: 200px; */
   
+}
+
+ 
+.tricktionary_thumb_grind_img_container{
+  float: left;
+  width: 200px;
+  padding-right: 4px;overflow:auto;
+}
+
+.tricktionary_thumb_grind_container-variation {
+  clear:left;overflow:auto;
 }
 
 /*# sourceMappingURL=app.css.map*/

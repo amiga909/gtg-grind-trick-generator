@@ -674,7 +674,70 @@ const VARIATIONS = [
     comment:
       "Setting the other foot on top of the toe in a soul grind position.",
   },
+
+
+
+  // combos 
+  {
+    name: "Rough Topside",
+    url: "",
+    noThumb: true,
+    comment:
+      "Same as Rough but on Topside, for example a Rough Sweatstance.",
+  },
+  {
+    name: "Cross-Grab Topside",
+    url: "",
+    noThumb: true,
+    comment:
+      "Same as Cross-Grab but with a Topside.",
+  }, {
+    name: "Christ Topside",
+    url: "",
+    noThumb: true,
+    comment:
+      "Same as Cross-Grab but with a Topside.",
+  },
+  {
+    name: "Tough Topside",
+    url: "",
+    noThumb: true,
+    comment:
+      "Same as Tough but on Topside.",
+  },
+
+  {
+    name: "Grab Topside",
+    url: "",
+    noThumb: true,
+    comment:
+      "Same as Grab but with a Topside trick",
+  },
+  {
+    name: "Rocket Topside",
+    url: "",
+    noThumb: true,
+    comment:
+      "Same as Rocket but with a Topside trick",
+  },
+  {
+    name: "Negative&Topside",
+    url: "",
+    noThumb: true,
+    comment:
+      "Used for a Negative X-Grind or Stub Soul",
+  },
+  {
+    name: "Tough&Rough",
+    url: "",
+    noThumb: true,
+    comment:
+      "Used for a Rough & Tough X-Grind or Duck Hunt",
+  },
+
+
 ];
+ 
 
 const OBSTACLE_VARIATIONS = [
   {

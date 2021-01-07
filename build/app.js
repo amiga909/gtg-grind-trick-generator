@@ -267,17 +267,24 @@ var GrindTrickRandomizer = /*#__PURE__*/function () {
 
       if (approach) {
         var approachName = approach.winner.name;
-        var switchTxt = approachName.includes("Switch") ? "<b>Switch</b>: ".concat(CONFIG.GLOSSARY["Switch"], " <br/>") : "";
-        switchTxt = switchTxt === "" && approachName.includes("Natural") ? "<b>Natural</b>: ".concat(CONFIG.GLOSSARY["Natural"], " <br/>") : switchTxt;
-        var fakieTxt = approachName.includes("Fakie") ? "<b>Fakie</b>: ".concat(CONFIG.GLOSSARY["Fakie"], " <br/>") : "";
-        fakieTxt = fakieTxt === "" && approachName.includes("Forwards") ? "<b>Forwards</b>: ".concat(CONFIG.GLOSSARY["Forwards"], " <br/>") : fakieTxt;
-        htmlRows.push("".concat(fakieTxt).concat(switchTxt));
+        var switchTxt = approachName.includes("Switch") ? "<b>Switch</b> ".concat(CONFIG.GLOSSARY["Switch"], "  ") : "";
+        switchTxt = switchTxt === "" && approachName.includes("Natural") ? "<b>Natural</b> ".concat(CONFIG.GLOSSARY["Natural"], "  ") : switchTxt;
+        var fakieTxt = approachName.includes("Fakie") ? "<b>Fakie</b> ".concat(CONFIG.GLOSSARY["Fakie"], " ") : "";
+        fakieTxt = fakieTxt === "" && approachName.includes("Forwards") ? "<b>Forwards</b> ".concat(CONFIG.GLOSSARY["Forwards"], "  ") : fakieTxt;
+
+        if (fakieTxt) {
+          htmlRows.push(fakieTxt);
+        }
+
+        if (switchTxt) {
+          htmlRows.push(switchTxt);
+        }
       }
 
       if (spinTo) {
         var spinToName = spinTo.winner.name;
-        var inSpinTxt = spinToName.includes("Inspin") ? "<b>Inspin</b>: ".concat(CONFIG.GLOSSARY["Inspin"], " <br/>") : "";
-        var outSpinTxt = spinToName.includes("Outspin") ? "<b>Outspin</b>: ".concat(CONFIG.GLOSSARY["Outspin"], " <br/>") : "";
+        var inSpinTxt = spinToName.includes("Inspin") ? "<b>Inspin</b> ".concat(CONFIG.GLOSSARY["Inspin"], "  ") : "";
+        var outSpinTxt = spinToName.includes("Outspin") ? "<b>Outspin</b> ".concat(CONFIG.GLOSSARY["Outspin"], "  ") : "";
         htmlRows.push("".concat(inSpinTxt).concat(outSpinTxt));
       }
 
@@ -297,7 +304,7 @@ var GrindTrickRandomizer = /*#__PURE__*/function () {
 
         var cleanedName = data.name.replace(/BS /, "Backside ");
         cleanedName = cleanedName.replace(/FS /, "Frontside ");
-        htmlRows.push("<b>".concat(cleanedName, "</b>: ").concat(data.comment ? data.comment : "", "\n       ").concat(data.thumbUrl ? "<img height=250 width=250 src='" + data.thumbUrl + "'></img>" : "", "     "));
+        htmlRows.push("\n      <div class=\"tricktionary_thumb_grind_container\">\n       <div class=\"tricktionary_thumb_grind_img_container\"> \n        ".concat(data.thumbUrl ? "<img  class=\"tricktionary_thumb_img\" src=\"".concat(data.thumbUrl, "\"></img>") : "", "\n       </div>\n      \n      <br/><b>").concat(cleanedName, "</b> ").concat(data.comment ? data.comment : "", "\n      </div>   "));
       }
 
       if (grindVariation) {
@@ -310,7 +317,8 @@ var GrindTrickRandomizer = /*#__PURE__*/function () {
         var varData = CONFIG.VARIATIONS.filter(function (g) {
           return g.name === _name;
         })[0];
-        htmlRows.push("<b>".concat(_name, "</b>: ").concat(varData && varData.comment ? varData.comment : "", "  "));
+        var variationHtml = "\n      <div class=\"tricktionary_thumb_grind_container-variation\">\n       <div class=\"tricktionary_thumb_grind_img_container\"> \n        ".concat(varData.thumbUrl ? "<img  class=\"tricktionary_thumb_img tricktionary_thumb_img--variation\" src=\"".concat(varData.thumbUrl, "\"></img>") : "", "\n       </div>\n      \n       <br/><b>").concat(_name, "</b> ").concat(varData.comment ? varData.comment : "", "\n      </div>   ");
+        htmlRows.push(variationHtml);
       }
 
       return htmlRows.join("<br/>");
@@ -3445,6 +3453,47 @@ var VARIATIONS = [{
   name: "Christ",
   url: "http://skateyeg.com/bog/09.0_Christ.html",
   comment: "Setting the other foot on top of the toe in a soul grind position."
+}, // combos 
+{
+  name: "Rough Topside",
+  url: "",
+  noThumb: true,
+  comment: "Same as Rough but on Topside, for example a Rough Sweatstance."
+}, {
+  name: "Cross-Grab Topside",
+  url: "",
+  noThumb: true,
+  comment: "Same as Cross-Grab but with a Topside."
+}, {
+  name: "Christ Topside",
+  url: "",
+  noThumb: true,
+  comment: "Same as Cross-Grab but with a Topside."
+}, {
+  name: "Tough Topside",
+  url: "",
+  noThumb: true,
+  comment: "Same as Tough but on Topside."
+}, {
+  name: "Grab Topside",
+  url: "",
+  noThumb: true,
+  comment: "Same as Grab but with a Topside trick"
+}, {
+  name: "Rocket Topside",
+  url: "",
+  noThumb: true,
+  comment: "Same as Rocket but with a Topside trick"
+}, {
+  name: "Negative&Topside",
+  url: "",
+  noThumb: true,
+  comment: "Used for a Negative X-Grind or Stub Soul"
+}, {
+  name: "Tough&Rough",
+  url: "",
+  noThumb: true,
+  comment: "Used for a Rough & Tough X-Grind or Duck Hunt"
 }];
 var OBSTACLE_VARIATIONS = [{
   name: "Darkside",

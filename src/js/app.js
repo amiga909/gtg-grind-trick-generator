@@ -218,30 +218,36 @@ class GrindTrickRandomizer {
     if (approach) {
       let approachName = approach.winner.name;
       let switchTxt = approachName.includes("Switch")
-        ? `<b>Switch</b>: ${CONFIG.GLOSSARY["Switch"]} <br/>`
+        ? `<b>Switch</b> ${CONFIG.GLOSSARY["Switch"]}  `
         : "";
       switchTxt =
         switchTxt === "" && approachName.includes("Natural")
-          ? `<b>Natural</b>: ${CONFIG.GLOSSARY["Natural"]} <br/>`
+          ? `<b>Natural</b> ${CONFIG.GLOSSARY["Natural"]}  `
           : switchTxt;
       let fakieTxt = approachName.includes("Fakie")
-        ? `<b>Fakie</b>: ${CONFIG.GLOSSARY["Fakie"]} <br/>`
+        ? `<b>Fakie</b> ${CONFIG.GLOSSARY["Fakie"]} `
         : "";
       fakieTxt =
         fakieTxt === "" && approachName.includes("Forwards")
-          ? `<b>Forwards</b>: ${CONFIG.GLOSSARY["Forwards"]} <br/>`
+          ? `<b>Forwards</b> ${CONFIG.GLOSSARY["Forwards"]}  `
           : fakieTxt;
-      htmlRows.push(`${fakieTxt}${switchTxt}`);
+
+      if (fakieTxt) {
+        htmlRows.push(fakieTxt);
+      }
+      if (switchTxt) {
+        htmlRows.push(switchTxt);
+      }
     }
 
     if (spinTo) {
       let spinToName = spinTo.winner.name;
 
       let inSpinTxt = spinToName.includes("Inspin")
-        ? `<b>Inspin</b>: ${CONFIG.GLOSSARY["Inspin"]} <br/>`
+        ? `<b>Inspin</b> ${CONFIG.GLOSSARY["Inspin"]}  `
         : "";
       let outSpinTxt = spinToName.includes("Outspin")
-        ? `<b>Outspin</b>: ${CONFIG.GLOSSARY["Outspin"]} <br/>`
+        ? `<b>Outspin</b> ${CONFIG.GLOSSARY["Outspin"]}  `
         : "";
       htmlRows.push(`${inSpinTxt}${outSpinTxt}`);
     }
@@ -262,12 +268,18 @@ class GrindTrickRandomizer {
       let cleanedName = data.name.replace(/BS /, "Backside ");
       cleanedName = cleanedName.replace(/FS /, "Frontside ");
 
-      htmlRows.push(`<b>${cleanedName}</b>: ${data.comment ? data.comment : ""}
-       ${
-         data.thumbUrl
-           ? "<img height=250 width=250 src='" + data.thumbUrl + "'></img>"
-           : ""
-       }     `);
+      htmlRows.push(`
+      <div class="tricktionary_thumb_grind_container">
+       <div class="tricktionary_thumb_grind_img_container"> 
+        ${
+          data.thumbUrl
+            ? `<img  class="tricktionary_thumb_img" src="${data.thumbUrl}"></img>`
+            : ""
+        }
+       </div>
+      
+      <br/><b>${cleanedName}</b> ${data.comment ? data.comment : ""}
+      </div>   `);
     }
 
     if (grindVariation) {
@@ -279,9 +291,20 @@ class GrindTrickRandomizer {
       let varData = CONFIG.VARIATIONS.filter((g) => {
         return g.name === name;
       })[0];
-      htmlRows.push(
-        `<b>${name}</b>: ${varData && varData.comment ? varData.comment : ""}  `
-      );
+      const variationHtml = `
+      <div class="tricktionary_thumb_grind_container-variation">
+       <div class="tricktionary_thumb_grind_img_container"> 
+        ${
+          varData.thumbUrl
+            ? `<img  class="tricktionary_thumb_img tricktionary_thumb_img--variation" src="${varData.thumbUrl}"></img>`
+            : ""
+        }
+       </div>
+      
+       <br/><b>${name}</b> ${varData.comment ? varData.comment : ""}
+      </div>   `
+      htmlRows.push(variationHtml);  
+  
     }
 
     return htmlRows.join("<br/>");

@@ -1,7 +1,4 @@
 screencapture -x -R240,188,400,400 ./FSTabernacle.png
-
-
-Normal grinds (Soul, ..)
-Synonyms (Soyale,..)
-Variations (Christ, ..)
+mogrify    -format jpg  *.png
+mogrify   -path 200x200   -thumbnail 200x200  *
  
