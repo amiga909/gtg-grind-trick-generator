@@ -36,6 +36,7 @@ class GrindTrickRandomizer {
     this.$abortButton = $("#abortButton");
 
     this.$endScreen = $("#endScreen");
+    this.$endScreenText = $("#endscreen-text");
 
     this.configurator = new Configuration();
     this.slotSpeed = this.configurator.getSpeed();
@@ -147,11 +148,10 @@ class GrindTrickRandomizer {
       this.$addTricklistBtn.addClass("pure-button-disabled");
     });
 
-    this.$endScreen.on("click", () => {
-      if(this.isEndScreen) {
+    this.$endScreenText.on("click", () => {
+      if (this.isEndScreen) {
         this.tooltips.showTooltip("endScreen");
       }
-     
     });
   }
 
@@ -269,6 +269,7 @@ class GrindTrickRandomizer {
       let data = null;
       if (grindSynonymData) {
         data = grindSynonymData;
+        data.name = grindSynonymData.newName;
       } else {
         data = grindData;
       }
@@ -309,9 +310,8 @@ class GrindTrickRandomizer {
        </div>
       
        <br/><b>${name}</b> ${varData.comment ? varData.comment : ""}
-      </div>   `
-      htmlRows.push(variationHtml);  
-  
+      </div>   `;
+      htmlRows.push(variationHtml);
     }
 
     return htmlRows.join("<br/>");

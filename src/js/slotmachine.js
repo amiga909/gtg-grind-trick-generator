@@ -279,11 +279,23 @@ export class SlotMachine {
         "GrindVariation",
         theWinner.variations
       );
+      const index = this.getSlotIndexByName("GrindVariation");
       if (filteredVariations.length === 0) {
-        const index = this.getSlotIndexByName("GrindVariation");
+        this.slots[index].previousState =
+          this.slots[index].state !== SLOT_STATES.unavailable
+            ? this.slots[index].state
+            : this.slots[index].previousState;
         this.setSlotState(
           "GrindVariation",
           SLOT_STATES.unavailable,
+          this.slots[index].dom.closest(".bog-slot")
+        );
+      } else if (this.slots[index].state === SLOT_STATES.unavailable) {
+        // bug: if was disabled, then unavailabe, disable is not memorized
+
+        this.setSlotState(
+          "GrindVariation",
+          this.slots[index].previousState,
           this.slots[index].dom.closest(".bog-slot")
         );
       }

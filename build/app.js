@@ -63,6 +63,7 @@ var GrindTrickRandomizer = /*#__PURE__*/function () {
     this.$helpBtn = $("#helpButton");
     this.$abortButton = $("#abortButton");
     this.$endScreen = $("#endScreen");
+    this.$endScreenText = $("#endscreen-text");
     this.configurator = new _configuration__WEBPACK_IMPORTED_MODULE_4__.Configuration();
     this.slotSpeed = this.configurator.getSpeed();
     this.includedTricks = this.configurator.getIncludedTricks();
@@ -181,7 +182,7 @@ var GrindTrickRandomizer = /*#__PURE__*/function () {
 
         _this.$addTricklistBtn.addClass("pure-button-disabled");
       });
-      this.$endScreen.on("click", function () {
+      this.$endScreenText.on("click", function () {
         if (_this.isEndScreen) {
           _this.tooltips.showTooltip("endScreen");
         }
@@ -303,6 +304,7 @@ var GrindTrickRandomizer = /*#__PURE__*/function () {
 
         if (grindSynonymData) {
           data = grindSynonymData;
+          data.name = grindSynonymData.newName;
         } else {
           data = grindData;
         }
@@ -686,6 +688,50 @@ var Configuration = /*#__PURE__*/function () {
 
   return Configuration;
 }();
+
+/***/ }),
+
+/***/ "./src/js/helperfunctions.js":
+/*!***********************************!*\
+  !*** ./src/js/helperfunctions.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "renderThumb": () => /* binding */ renderThumb,
+/* harmony export */   "renderTable": () => /* binding */ renderTable
+/* harmony export */ });
+var renderThumb = function renderThumb() {
+  var imageUrl = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
+  var bogLink = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";
+  var html = "";
+  var imageHtml = imageUrl ? "<img class=\"tricktionary_thumb_img\" src=\"".concat(imageUrl, "\"> </img>") : "";
+
+  if (bogLink) {
+    var linkContent = imageHtml === "" ? "<a href='http://skateyeg.com/bog/'>Book of Grinds</a>" : imageHtml;
+    html = "<a href=\"".concat(bogLink, "\" target=\"blank\">").concat(linkContent, "</a>");
+  }
+
+  return html;
+};
+var renderTable = function renderTable() {
+  var title = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
+  var headers = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
+  var rows = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [[], []];
+  var headersHtml = headers.map(function (h) {
+    return "<div class=\"cell\">".concat(h, "</div>");
+  });
+  var rowsHtml = rows.map(function (r) {
+    var i = -1;
+    var tds = r.map(function (rr) {
+      i = i + 1;
+      return "<div class=\"cell\" data-title=\"".concat(headers[i], "\"> ").concat(rr, " </div>");
+    });
+    return "<div class=\"row\"> ".concat(tds.join(""), "</div>");
+  });
+  return " \n    <div class=\"resp-table-wrapper\">\n      <h3>".concat(title, "</h3>\n      <div class=\"resp-table\">\n        <div class=\"row header blue\">").concat(headersHtml.join(""), " </div>\n        ").concat(rowsHtml.join(""), "\n      </div>\n     ");
+};
 
 /***/ }),
 
@@ -1438,10 +1484,14 @@ var SlotMachine = /*#__PURE__*/function () {
         // grind variations
         var filteredVariations = this.filterTrickConfiguration("GrindVariation", theWinner.variations);
 
-        if (filteredVariations.length === 0) {
-          var _index = this.getSlotIndexByName("GrindVariation");
+        var _index = this.getSlotIndexByName("GrindVariation");
 
+        if (filteredVariations.length === 0) {
+          this.slots[_index].previousState = this.slots[_index].state !== SLOT_STATES.unavailable ? this.slots[_index].state : this.slots[_index].previousState;
           this.setSlotState("GrindVariation", SLOT_STATES.unavailable, this.slots[_index].dom.closest(".bog-slot"));
+        } else if (this.slots[_index].state === SLOT_STATES.unavailable) {
+          // bug: if was disabled, then unavailabe, disable is not memorized
+          this.setSlotState("GrindVariation", this.slots[_index].previousState, this.slots[_index].dom.closest(".bog-slot"));
         }
 
         this.slots[1].data = filteredVariations; // approach
@@ -2764,14 +2814,18 @@ var Tooltips = /*#__PURE__*/function () {
   }, {
     key: "show",
     value: function show() {
+      var _this2 = this;
+
       this.$mask.show();
       this.$helpBtn.addClass("pure-button-disabled");
       this.App.$randomizeButton.addClass("pure-button-disabled");
       this.isVisible = true;
       this.helpTooltips.forEach(function (t) {
         if (t.instance.props.content) {
-          t.instance.enable();
-          t.instance.show();
+          if (t.type !== "slot-menu" || !_this2.App.isEndsreen) {
+            t.instance.enable();
+            t.instance.show();
+          }
         }
       });
     }
@@ -2797,7 +2851,7 @@ var Tooltips = /*#__PURE__*/function () {
   }, {
     key: "showTooltip",
     value: function showTooltip(name) {
-      var _this2 = this;
+      var _this3 = this;
 
       this.helpTooltips.forEach(function (t) {
         if (t.name === name) {
@@ -2805,19 +2859,19 @@ var Tooltips = /*#__PURE__*/function () {
           t.instance.enable();
           t.instance.show();
 
-          _this2.$mask.show();
+          _this3.$mask.show();
         }
       });
     }
   }, {
     key: "init",
     value: function init() {
-      var _this3 = this;
+      var _this4 = this;
 
       this.$tooltips.each(function (i, el) {
         var $el = $(el);
         var name = $el.data("p-tooltip");
-        var config = _this3.config[name];
+        var config = _this4.config[name];
 
         if (!config) {
           console.error("missing tooltip config", name);
@@ -2841,7 +2895,7 @@ var Tooltips = /*#__PURE__*/function () {
         var t = (0,tippy_js__WEBPACK_IMPORTED_MODULE_5__.default)($el[0], props);
         t.disable();
 
-        _this3.helpTooltips.push({
+        _this4.helpTooltips.push({
           instance: t,
           name: name
         });
@@ -3475,7 +3529,7 @@ var VARIATIONS = [{
   name: "Christ",
   url: "http://skateyeg.com/bog/09.0_Christ.html",
   comment: "Setting the other foot on top of the toe in a soul grind position."
-}, // combos 
+}, // combos
 {
   name: "Rough Topside",
   url: "",
@@ -3490,7 +3544,7 @@ var VARIATIONS = [{
   name: "Christ Topside",
   url: "",
   noThumb: true,
-  comment: "Same as Cross-Grab but with a Topside."
+  comment: "Same as Christ but with a Topside."
 }, {
   name: "Tough Topside",
   url: "",
@@ -3899,6 +3953,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "Tricknames": () => /* binding */ Tricknames
 /* harmony export */ });
 /* harmony import */ var _trickdata_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./trickdata.js */ "./src/js/trickdata.js");
+/* harmony import */ var _helperfunctions_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helperfunctions.js */ "./src/js/helperfunctions.js");
 /* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
@@ -3919,6 +3974,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 
+
 var CONFIG = null;
 var Tricknames = /*#__PURE__*/function () {
   function Tricknames() {
@@ -3932,41 +3988,24 @@ var Tricknames = /*#__PURE__*/function () {
     this.renderGrindSynonyms();
     this.renderVariations();
     this.renderNotImplemented();
+    this.renderTOC();
   }
 
   _createClass(Tricknames, [{
-    key: "renderThumb",
-    value: function renderThumb() {
-      var imageUrl = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
-      var bogLink = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";
-      var html = "";
-      html = imageUrl ? "<img class=\"tricktionary_thumb_img\" src=\"".concat(imageUrl, "\"> </img>") : "";
-
-      if (bogLink) {
-        var linkContent = html === "" ? "skateyeg.com" : html;
-        html = "<a href=\"".concat(bogLink, "\" target=\"blank\">").concat(linkContent, "</a>");
-      }
-
-      return html;
-    }
-  }, {
-    key: "renderTable",
-    value: function renderTable() {
-      var title = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
-      var headers = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
-      var rows = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [[], []];
-      var headersHtml = headers.map(function (h) {
-        return "<div class=\"cell\">".concat(h, "</div>");
+    key: "renderTOC",
+    value: function renderTOC() {
+      var tocs = [];
+      console.log(this.$dom.find("h3"));
+      this.$dom.find("h3").each(function (i, section) {
+        var $section = $(section);
+        var display = $section.text();
+        var anchor = display.replace(" ", "");
+        $section.html("<a class=\"toc-anchor\" name=\"".concat(anchor, "\"></a> ").concat(display, " "));
+        tocs.push("<a class=\"pure-menu-link\" href=\"#".concat(anchor, "\"> </\n        <li class=\"pure-menu-item\">").concat(display, " </li> \n        </a>"));
       });
-      var rowsHtml = rows.map(function (r) {
-        var i = -1;
-        var tds = r.map(function (rr) {
-          i = i + 1;
-          return "<div class=\"cell\" data-title=\"".concat(headers[i], "\"> ").concat(rr, " </div>");
-        });
-        return "<div class=\"row\"> ".concat(tds.join(""), "</div>");
-      });
-      return " \n    <div class=\"resp-table-wrapper\">\n      <h3>".concat(title, "</h3>\n      <div class=\"resp-table\">\n        <div class=\"row header\">").concat(headersHtml.join(""), " </div>\n        ").concat(rowsHtml.join(""), "\n      </div>\n     ");
+      var html = "\n    <div class=\"pure-menu  tricktionary-toc\">\n      <span class=\"pure-menu-heading\">TOC</span> \n      <ul class=\"pure-menu-list\"> \n        ".concat(tocs.join(""), "\n      </ul>\n      <p>\n      All 3D rendered graphics are screenshots taken from the awesome <a href='http://skateyeg.com/bog/'>Book of Grinds</a>.\n      Click on an image to open the Book of Grind page for the trick.   \n      </p> \n   </div>\n  ");
+      console.log(html);
+      $(html).prependTo(this.$dom);
     }
   }, {
     key: "renderNotImplemented",
@@ -4000,14 +4039,12 @@ var Tricknames = /*#__PURE__*/function () {
         rows.push([key, value]);
       }
 
-      var html = this.renderTable("Terms", ["Term", "Definition"], rows);
+      var html = (0,_helperfunctions_js__WEBPACK_IMPORTED_MODULE_1__.renderTable)("Terms", ["Term", "Definition"], rows);
       this.$dom.append(html);
     }
   }, {
     key: "renderGrinds",
     value: function renderGrinds() {
-      var _this = this;
-
       var rows = [];
       var vars = CONFIG.GRINDS;
       vars = vars.sort(function (a, b) {
@@ -4029,48 +4066,44 @@ var Tricknames = /*#__PURE__*/function () {
       });
       vars.forEach(function (v) {
         var row = [];
-        var url = v.url ? new URL(v.url).hostname : "";
+        var url = v.url ? v.url : "";
         var comment = v.comment ? "".concat(v.comment) : "";
         var thumb = v.thumbUrl ? v.thumbUrl : "";
-        rows.push([v.name, comment, _this.renderThumb(thumb, url)]);
+        rows.push([v.name, comment, (0,_helperfunctions_js__WEBPACK_IMPORTED_MODULE_1__.renderThumb)(thumb, url)]);
       });
-      var html = this.renderTable("Grinds", ["Name", "Comment", "Image"], rows);
+      var html = (0,_helperfunctions_js__WEBPACK_IMPORTED_MODULE_1__.renderTable)("Grinds", ["Name", "Comment", "Image"], rows);
       this.$dom.append(html);
     }
   }, {
     key: "renderGrindSynonyms",
     value: function renderGrindSynonyms() {
-      var _this2 = this;
-
       var rows = [];
       var vars = CONFIG.GRIND_SYNONYMS_THUMB;
       vars = vars.sort(this.compare);
       vars.forEach(function (variation) {
         var row = [];
-        var url = variation.url ? new URL(variation.url).hostname : "";
+        var url = variation.url ? variation.url : "";
         var comment = variation.comment ? "".concat(variation.comment) : "";
         var thumb = variation.thumbUrl ? variation.thumbUrl : "";
-        rows.push([variation.newName, comment, _this2.renderThumb(thumb, url)]);
+        rows.push([variation.newName, comment, (0,_helperfunctions_js__WEBPACK_IMPORTED_MODULE_1__.renderThumb)(thumb, url)]);
       });
-      var html = this.renderTable("Grind Synonyms", ["Name", "Comment", "Image"], rows);
+      var html = (0,_helperfunctions_js__WEBPACK_IMPORTED_MODULE_1__.renderTable)("Grind Synonyms", ["Name", "Comment", "Image"], rows);
       this.$dom.append(html);
     }
   }, {
     key: "renderVariations",
     value: function renderVariations() {
-      var _this3 = this;
-
       var rows = [];
       var vars = CONFIG.VARIATIONS_THUMB;
       vars = vars.sort(this.compare);
       vars.forEach(function (variation) {
         var row = [];
-        var url = variation.url ? new URL(variation.url).hostname : "";
+        var url = variation.url ? variation.url : "";
         var comment = variation.comment ? "".concat(variation.comment) : "";
         var thumb = variation.thumbUrl ? variation.thumbUrl : "";
-        rows.push([variation.name, comment, _this3.renderThumb(thumb, url)]);
+        rows.push([variation.name, comment, (0,_helperfunctions_js__WEBPACK_IMPORTED_MODULE_1__.renderThumb)(thumb, url)]);
       });
-      var html = this.renderTable("Grind Variations", ["Name", "Comment", "Image"], rows);
+      var html = (0,_helperfunctions_js__WEBPACK_IMPORTED_MODULE_1__.renderTable)("Grind Variations", ["Name", "Comment", "Image"], rows);
       this.$dom.append(html);
     }
   }, {

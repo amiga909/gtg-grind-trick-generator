@@ -675,69 +675,57 @@ const VARIATIONS = [
       "Setting the other foot on top of the toe in a soul grind position.",
   },
 
-
-
-  // combos 
+  // combos
   {
     name: "Rough Topside",
     url: "",
     noThumb: true,
-    comment:
-      "Same as Rough but on Topside, for example a Rough Sweatstance.",
+    comment: "Same as Rough but on Topside, for example a Rough Sweatstance.",
   },
   {
     name: "Cross-Grab Topside",
     url: "",
     noThumb: true,
-    comment:
-      "Same as Cross-Grab but with a Topside.",
-  }, {
+    comment: "Same as Cross-Grab but with a Topside.",
+  },
+  {
     name: "Christ Topside",
     url: "",
     noThumb: true,
-    comment:
-      "Same as Cross-Grab but with a Topside.",
+    comment: "Same as Christ but with a Topside.",
   },
   {
     name: "Tough Topside",
     url: "",
     noThumb: true,
-    comment:
-      "Same as Tough but on Topside.",
+    comment: "Same as Tough but on Topside.",
   },
 
   {
     name: "Grab Topside",
     url: "",
     noThumb: true,
-    comment:
-      "Same as Grab but with a Topside trick",
+    comment: "Same as Grab but with a Topside trick",
   },
   {
     name: "Rocket Topside",
     url: "",
     noThumb: true,
-    comment:
-      "Same as Rocket but with a Topside trick",
+    comment: "Same as Rocket but with a Topside trick",
   },
   {
     name: "Negative&Topside",
     url: "",
     noThumb: true,
-    comment:
-      "Used for a Negative X-Grind or Stub Soul",
+    comment: "Used for a Negative X-Grind or Stub Soul",
   },
   {
     name: "Tough&Rough",
     url: "",
     noThumb: true,
-    comment:
-      "Used for a Rough & Tough X-Grind or Duck Hunt",
+    comment: "Used for a Rough & Tough X-Grind or Duck Hunt",
   },
-
-
 ];
- 
 
 const OBSTACLE_VARIATIONS = [
   {
@@ -838,9 +826,10 @@ const GLOSSARY = {
   // unparsed tokens
   "Frontside/FS": "Frontside",
   "Backside/BS": "Backside",
-  "Soul grinds": "Soul frame based grind wihtout a frontside or a backside variant.",
-  "Groove/Boot grinds": "H-Block based grind with a frontside and a backside variant."
- 
+  "Soul grinds":
+    "Soul frame based grind wihtout a frontside or a backside variant.",
+  "Groove/Boot grinds":
+    "H-Block based grind with a frontside and a backside variant.",
 };
 
 const GRINDS = [];

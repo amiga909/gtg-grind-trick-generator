@@ -1,10 +1,9 @@
 <!-- 
    A I G H T Aggressive Inline Grinds - Highscore Trickgenerator  
    
-   
-    fix lock reel: keep grinds? 
-   ==> stays filtered... lock channel: and no more souls av
-   
+
+   - fix:  if variartion gets empty once, it stays empty (unvailable bug)
+
    x help system (idea: hold ? button and tooltip texts appear with comment section)
    - fix some images (quite a few...)
     - add some text for every term 
@@ -76,8 +75,13 @@
          <div id="tooltips-mask"> </div>
          <div class="banner">
             <div class="banner-head">
-               <!-- <div style="position:absolute;" class="banner-logo"><img src="./img/icon2.jpg"></div>-->
-               <span style="color:red" > !BETA! </span>  A I G H T ! <br>Aggressive Inline Grind Highscore Tracker  
+               <!-- AI Grind Highscore Tracker, AI Grind - High on Tricks ---, 
+                  AI Grind Hammer Tricks
+Aggressive Inline Grind Hammer Trickmachine
+                   <div style="position:absolute;" class="banner-logo"><img src="./img/icon2.jpg"></div>-->
+                 A I G H T ! <span style="color:red" > !BETA! </span> 
+                 <div style="position:fixed;font-size:10px;top: 0;right: 0;" >    
+                  <br>Aggressive Inline Grind <br>Highscore Trickgame</div> 
             </div>
             <div class="pure-g banner-controls-container">
                <div class="pure-u-1-3 banner-controls-row" >
@@ -360,7 +364,7 @@
                </div>
                <div style="display:none;"  id="modal-screen--about" class="modal-screen-text">
                   <h4>Description</h4>
-                  This is an aggressive inline grind trick randomizer. 
+                  This is an aggressive inline grind trick game. 
                   A grind trick is split into 5 parts and each part becomes a reel in the slot machine.  
                   Features
                   + Slot machine interface
@@ -596,40 +600,31 @@
                         </tbody>
                      </table>
                      <br> <br>
-                     <h4>Naming debates</h4>
-                     <table class="pure-table pure-table-bordered"  >
-                     <table class="pure-table pure-table-bordered" id="trickNamingContentNotImplementedTable">
-                        <thead>
-                           <tr>
-                              <th>Term</th>
-                              <th>Definition</th>
-                           </tr>
-                        </thead>
-                        <tbody>
-                           <tr>
-                              <td>The "Savannah" discussion</td>
-                              <td>
-                                 This app goes with the solution proposed by <a href="http://skateyeg.com/bog/09.1_Backside_Savannah_(AO_BS_Unity).html">skateyeg.com</a>. 
-                                 I opt for Savannah/Unity instead of AO Unity/Unity.  As pointed out by <a href="https://www.youtube.com/watch?v=IsE1dyXi7nM">Butch Lehman</a>.
-                                 Unity is a groove/boot grind. Groove grinds usually do not use the term Alley-oop.
-                                 I assume most would agree there is no AO Royale. A Royale grinded reverse is a Full Torque, a Torque grinded reverse is a Backslide.
-                                 This is usually not the case for souls, an AO Soul ist still a Soul, an AO Acid still an Acid.
-                                 "Usually": both souls and grooves have exceptions though, some souls have a different name when grinded reverse  Soyale (AO Torque Soul), Misfit (AO Top Mistrial), Kindgrind (AO Top Mizou) 
-                                 and some grooves do not have another name when grinded reverse (=> "True Tabernacle Discussion"). 
-                              </td>
-                           </tr>
-                           <tr>
-                              <td>The "True Tabernacle" discussion</td>
-                              <td>Tricks like Tabernacle, Wheelbarrow, Darkslide, Fastslide, Byn Soul, Neighborhood or Acid Rain are hybrids between Groove and Soul grinds. They are 
-                                 <a href="https://archive.be-mag.com/gossip/43744-what-s-the-opposite-of-a-byn-soul">
-                                 "h-block tricks that are done like AO/Truespin."</a>. 
-                                 They are hybrids because they have a BS and FS variant as every Groove grind but also have an Alley-Oop variant when grinded reverse as every Soul grind (=> The "Savannah" discussion). 
-                                 This app solves this by treating these hybrids as "FS" and "BS" Soul tricks. 
-                                 Therefore there is no 'True Tabernacle' but a 'True BS Tabernacle' or 'True FS Tabernacle'.
-                              </td>
-                           </tr>
-                        </tbody>
-                     </table>
+                     <h4>Naming decisions</h4>
+                     <h5>  "Savannah" vs "AO Unity"   </h5>
+                     <p>
+                        This app goes with the solution proposed by <a href="http://skateyeg.com/bog/09.1_Backside_Savannah_(AO_BS_Unity).html">skateyeg.com</a>. 
+                        I opt for Savannah/Unity instead of AO Unity/Unity.  As pointed out by <a href="https://www.youtube.com/watch?v=IsE1dyXi7nM">Butch Lehman</a>.
+                        Unity is a groove/boot grind. Groove grinds usually do not use the term Alley-oop.
+                        I assume most would agree there is no AO Royale. A Royale grinded reverse is a Full Torque, a Torque grinded reverse is a Backslide.
+                        This is usually not the case for souls, an AO Soul ist still a Soul, an AO Acid still an Acid.
+                        "Usually": both souls and grooves have exceptions though, some souls have a different name when grinded reverse  Soyale (AO Torque Soul), Misfit (AO Top Mistrial), Kindgrind (AO Top Mizou) 
+                        and some grooves do not have another name when grinded reverse (=> "True Tabernacle Discussion"). 
+                     </p>
+
+
+                     <h5>  "AO/True Tabernacle" vs "270/450 Tabernacle"   </h5>
+                     <p>
+                       Tricks like Tabernacle, Wheelbarrow, Darkslide, Fastslide, Byn Soul, Neighborhood or Acid Rain are hybrids between Groove and Soul grinds. They are 
+                           <a target="blank"href="https://archive.be-mag.com/gossip/43744-what-s-the-opposite-of-a-byn-soul">
+                           "h-block tricks that are done like AO/Truespin."</a>. 
+                           They are hybrids because they have a BS and FS variant as every Groove grind but also have an Alley-Oop variant when grinded reverse as every Soul grind (=> The "Savannah" discussion). 
+                           This app solves this by treating these hybrids as "FS" and "BS" Soul tricks. 
+                           Therefore there is no 'True Tabernacle' but a 'True BS Tabernacle' or 'True FS Tabernacle'.
+                         
+                     </p>
+
+                      
                   </div>
                </div>
             </div>

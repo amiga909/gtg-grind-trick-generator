@@ -53,7 +53,7 @@ const CONFIG = {
     type: "slot",
     text: "",
     //'<b>Switch</b>blalbblalblalblalba blalblalblalba blalblalblalba blalblalblalba blalblalblalba blalblalblalba lalblalba bblalblalblalba blalblalblalba blalblalblalba blalblalblalba lalblalblalba <br>  <b>Fakie</b>blalblalblalba blalblalblalba <br> <b>Inspin</b>bl blalbblalblalblalba blalblalblalba blalblalblalba blalblalblalba blalblalblalba blalblalblalba lalblalba blalblalblalba alblalblalba <br>   <b>Frontside Unity</b>grindSlot <br> <img width="300" heigth="300" src="./img/bog/1.jpg">  <br>Open book of grinds  ',
-    props: {  offset: 4 },
+    props: { offset: 4 },
     slotName: "Grind",
   },
   /*
@@ -133,19 +133,21 @@ export class Tooltips {
     this.isVisible = true;
     this.helpTooltips.forEach((t) => {
       if (t.instance.props.content) {
-        t.instance.enable();
+        if( t.type !== "slot-menu" || !this.App.isEndsreen )  {
+          t.instance.enable();
 
-        t.instance.show();
+          t.instance.show();
+        }
+    
+        
       }
     });
   }
   hide() {
-    
     this.isVisible = false;
     this.$helpBtn.removeClass("pure-button-disabled");
     this.App.$randomizeButton.removeClass("pure-button-disabled");
 
-     
     this.$mask.hide();
   }
   updateTooltip(name, htmlContent) {
@@ -158,14 +160,14 @@ export class Tooltips {
     });
   }
 
-  showTooltip(name){
+  showTooltip(name) {
     this.helpTooltips.forEach((t) => {
       if (t.name === name) {
-        console.log("show "+name)
+        console.log("show " + name);
         t.instance.enable();
         t.instance.show();
         this.$mask.show();
-      } 
+      }
     });
   }
 
@@ -193,11 +195,9 @@ export class Tooltips {
       props.content = text;
       //  $el.css({ 'text-decoration': 'underline' });
 
-      
       let t = tippy($el[0], props);
       t.disable();
       this.helpTooltips.push({ instance: t, name: name });
-      
     });
   }
 }
