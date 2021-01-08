@@ -1,15 +1,15 @@
 export class Tricklist {
   constructor($tricklistBtn) {
     this.$tricklistBtn = $tricklistBtn;
-    this.$tricklistBtnStart = $('#start-screen-tricklistBtn-container');
+    this.$tricklistBtnStart = $("#start-screen-tricklistBtn-container");
 
-    this.$clear = $('#trickList-clearlistBtn');
-    this.$sendMail = $('#trickList-sendMailBtn');
-    this.$continue = $('#trickList-continueBtn');
+    this.$clear = $("#trickList-clearlistBtn");
+    this.$sendMail = $("#trickList-sendMailBtn");
+    this.$continue = $("#trickList-continueBtn");
 
-    this.$list = $('#trickList-tableBody');
+    this.$list = $("#trickList-tableBody");
     this.results = [];
-    this.storageKey = 'tricklist';
+    this.storageKey = "tricklist";
 
     this.registerListener();
     this.getStorage();
@@ -18,27 +18,27 @@ export class Tricklist {
   }
 
   registerListener() {
-    this.$clear.on('click', (e) => {
+    this.$clear.on("click", (e) => {
       e.preventDefault();
       this.clearList();
     });
-    this.$continue.on('click', (e) => {
+    this.$continue.on("click", (e) => {
       //this.hide();
-      $('#randomizeButton').trigger('click');
+      $("#randomizeButton").trigger("click");
     });
 
-    $('body').on('click', '.clearTrick', (e) => {
+    $("body").on("click", ".clearTrick", (e) => {
       e.preventDefault();
-      const index = $(e.currentTarget).data('index');
+      const index = $(e.currentTarget).data("index");
       this.clearTrick(index);
     });
 
-    this.$sendMail.on('click', (e) => {
+    this.$sendMail.on("click", (e) => {
       let mailBody = this.$list.text();
-      mailBody = mailBody.replace(/\s/g, ' ');
-      mailBody = mailBody.replace(/ {3}/g, ' ');
-      mailBody = mailBody.replace(/ {7}/g, ' ----- ');
-      mailBody = mailBody.replace(/ {2}/g, ' ');
+      mailBody = mailBody.replace(/\s/g, " ");
+      mailBody = mailBody.replace(/ {3}/g, " ");
+      mailBody = mailBody.replace(/ {7}/g, " ----- ");
+      mailBody = mailBody.replace(/ {2}/g, " ");
 
       const title = `Tricklist made with ${document.location.href}`;
       window.open(`mailto:?subject=${title}&body=${mailBody}`);
@@ -47,17 +47,17 @@ export class Tricklist {
 
   getStorage() {
     if (localStorage.getItem(this.storageKey)) {
-      this.results = localStorage.getItem(this.storageKey).split(',');
+      this.results = localStorage.getItem(this.storageKey).split(",");
     }
   }
 
   toggleControlDisabled() {
     if (this.results.length > 0) {
-      this.$tricklistBtn.removeClass('pure-button-disabled');
-      $('#start-screen-tricklistBtn-count').html(this.results.length);
+      this.$tricklistBtn.removeClass("pure-button-disabled");
+      $("#start-screen-tricklistBtn-count").html(this.results.length);
       this.$tricklistBtnStart.show();
     } else {
-      this.$tricklistBtn.addClass('pure-button-disabled');
+      this.$tricklistBtn.addClass("pure-button-disabled");
     }
   }
 
@@ -74,14 +74,14 @@ export class Tricklist {
 
   clearList() {
     this.results = [];
-    this.$list.html('');
+    this.$list.html("");
     //  this.hide();
     localStorage.removeItem(this.storageKey);
-    this.$tricklistBtn.addClass('pure-button-disabled');
+    this.$tricklistBtn.addClass("pure-button-disabled");
   }
 
   addTrick(fullTrickName, origName) {
-    let resultStr = fullTrickName + ' (' + origName + ')';
+    let resultStr = fullTrickName + " (" + origName + ")";
     this.results.push(resultStr);
     localStorage.setItem(this.storageKey, this.results);
     let row = this.renderRow(resultStr, this.results.length - 1);
@@ -90,12 +90,12 @@ export class Tricklist {
   }
 
   render() {
-    let html = '';
+    let html = "";
     this.results.reverse().forEach((trick, index) => {
       html += this.renderRow(trick, this.results.length - 1 - index);
     });
 
-    this.$list.html('');
+    this.$list.html("");
     this.$list.html(html);
   }
 

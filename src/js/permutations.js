@@ -1,5 +1,5 @@
-import { ResultParser } from './resultparser.js';
-import { Trickdata } from './trickdata.js';
+import { ResultParser } from "./resultparser.js";
+import { Trickdata } from "./trickdata.js";
 
 const trickdata = new Trickdata();
 const CONFIG = trickdata.get();
@@ -22,7 +22,7 @@ const BOOL_COMBOS = boolCombo(4);
 
 function permutations() {
   CONFIG.APPROACHES.forEach((approach) => {
-  //  console.log("process each approach", approach.name)
+    //  console.log("process each approach", approach.name)
     CONFIG.GRINDS_FOR_SLOTS.forEach((grind) => {
       if (grind.noSwitch === true && approach.isSwitch === true) {
         return true;
@@ -56,14 +56,14 @@ function permSpins(approach, grind, grindVariation) {
     const spinOffs = trickdata.getSpinOffData(grind);
     spinOffs.forEach((spinOff) => {
       winners = [
-        { name: 'Grind', winner: grind },
+        { name: "Grind", winner: grind },
         {
-          name: 'GrindVariation',
+          name: "GrindVariation",
           winner: grindVariation,
         },
-        { name: 'Approach', winner: approach },
-        { name: 'SpinTo', winner: spinTo },
-        { name: 'SpinOff', winner: spinOff },
+        { name: "Approach", winner: approach },
+        { name: "SpinTo", winner: spinTo },
+        { name: "SpinOff", winner: spinOff },
       ];
 
       doResults(winners);
@@ -72,14 +72,13 @@ function permSpins(approach, grind, grindVariation) {
 }
 function doResults(winners) {
   const allWinners = [...winners];
-  
+
   BOOL_COMBOS.forEach((combo) => {
- 
     winners[1] = combo[0] === 1 ? allWinners[1] : null;
     winners[2] = combo[1] === 1 ? allWinners[2] : null;
     winners[3] = combo[2] === 1 ? allWinners[3] : null;
     winners[4] = combo[3] === 1 ? allWinners[4] : null;
-    
+
     let r = resultParser.parse(winners);
     RESULTS.push(r.parsed); //+ ' (' + r.orig + ')');
   });

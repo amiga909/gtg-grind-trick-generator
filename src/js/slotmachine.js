@@ -32,20 +32,6 @@ export class SlotMachine {
     this.initSlots();
   }
 
-  /*setLockedSlotData(){
-    const lockedSlots = this.slots.filter((s) => {
-      return s.state === SLOT_STATES.locked;
-    });
-    this.lockedSlots.forEach((slot) => {
-       if(slot.name === 'GrindVariation') {
-           let GRIND_DATA = this.trickdata.filterGrindsByVariationName(slot.winner.winner.name);
-       }
-        if(slot.name === 'SpinTo' || slot.name === 'SpinOff') {
-         //let grindData = this.trickdata.filterSoulGrinds();
-       }
-    });
-
-  } */
   initSlots() {
     this.slots = [
       {
@@ -110,17 +96,6 @@ export class SlotMachine {
 
   run() {
     this.onSpinStart();
-    // this.spinWinners = this.keepLockedSpinWinners();
-
-    console.log(" --------------- run  ---------------");
-    //console.table('run: keepLockedSpinWinners', this.spinWinners);
-    console.table("run: slots", this.slots);
-    console.table(
-      "run: disabled slots",
-      this.slots.filter((s) => {
-        return s.disabled === true;
-      })
-    );
 
     return new Promise((resolve, reject) => {
       const nextId = this.getFirstSlotIndex();
@@ -294,11 +269,7 @@ export class SlotMachine {
     const index = this.getSlotIndexByName(slot.name);
     const $active = slot.dom.find(`.bogLink:eq(${activeNodeIndex + 1})`);
     const theWinner = slot.data[$active.data("index") - 1];
-    this.slots[index].winner = {
-      name: slot.name,
-      // gives winner.winner ...
-      winner: theWinner,
-    };
+    this.slots[index].winner = theWinner;
 
     const data = null;
 
@@ -308,11 +279,23 @@ export class SlotMachine {
         "GrindVariation",
         theWinner.variations
       );
+      const index = this.getSlotIndexByName("GrindVariation");
       if (filteredVariations.length === 0) {
-        const index = this.getSlotIndexByName("GrindVariation");
+        this.slots[index].previousState =
+          this.slots[index].state !== SLOT_STATES.unavailable
+            ? this.slots[index].state
+            : this.slots[index].previousState;
         this.setSlotState(
           "GrindVariation",
           SLOT_STATES.unavailable,
+          this.slots[index].dom.closest(".bog-slot")
+        );
+      } else if (this.slots[index].state === SLOT_STATES.unavailable) {
+        // bug: if was disabled, then unavailabe, disable is not memorized
+
+        this.setSlotState(
+          "GrindVariation",
+          this.slots[index].previousState,
           this.slots[index].dom.closest(".bog-slot")
         );
       }
@@ -328,35 +311,28 @@ export class SlotMachine {
 
       // spinTo
       const grindSlot = this.slots[this.getSlotIndexByName("Grind")];
-      this.slots[3].data = this.trickdata.getSpinToData(
-        grindSlot.winner.winner
-      );
+      this.slots[3].data = this.trickdata.getSpinToData(grindSlot.winner);
 
       // spinOff
-      this.slots[4].data = this.trickdata.getSpinOffData(
-        grindSlot.winner.winner
-      );
+      this.slots[4].data = this.trickdata.getSpinOffData(grindSlot.winner);
     }
     if (slot.name === "Approach") {
       // spinTo
       const grindSlot = this.slots[this.getSlotIndexByName("Grind")];
       const approachSlot = this.slots[this.getSlotIndexByName("Approach")];
       this.slots[3].data = this.trickdata.getSpinToData(
-        grindSlot.winner.winner,
-        approachSlot.winner.winner
+        grindSlot.winner,
+        approachSlot.winner
       );
 
       // spinOff
-      this.slots[4].data = this.trickdata.getSpinOffData(
-        grindSlot.winner.winner
-      );
+      this.slots[4].data = this.trickdata.getSpinOffData(grindSlot.winner);
     }
 
     const nextId = this.getNextSlotIndex(slot);
     if (nextId > 0) {
       this.startSlot(nextId, resolve);
     } else {
-      console.log("resolve");
       resolve(this.getSpinWinners());
     }
   }
@@ -401,7 +377,7 @@ export class SlotMachine {
         if (
           vars &&
           vars.filter((ee) => {
-            return ee.name === variationSlot.winner.winner.name;
+            return ee.name === variationSlot.winner.name;
           }).length
         ) {
           hasVariation = true;
@@ -412,9 +388,9 @@ export class SlotMachine {
     }
 
     const spinToSlot = this.slots[this.getSlotIndexByName("SpinTo")];
-   
+
     if (spinToSlot.state === SLOT_STATES.locked) {
-      let isSoulSpin = this.isSoulSpin(spinToSlot.winner.winner.name);
+      let isSoulSpin = this.isSoulSpin(spinToSlot.winner.name);
       entries = entries.filter((e) => {
         if (
           (e.isGrooveGrind && !isSoulSpin) ||
@@ -428,7 +404,7 @@ export class SlotMachine {
     }
     const spinOffSlot = this.slots[this.getSlotIndexByName("SpinOff")];
     if (spinOffSlot.state === SLOT_STATES.locked) {
-      let isSoulSpin = this.isSoulSpin(spinOffSlot.winner.winner.name);
+      let isSoulSpin = this.isSoulSpin(spinOffSlot.winner.name);
       entries = entries.filter((e) => {
         if (
           (e.isGrooveGrind && !isSoulSpin) ||
@@ -440,7 +416,6 @@ export class SlotMachine {
         }
       });
     }
-    
 
     return entries;
   }
@@ -462,7 +437,7 @@ export class SlotMachine {
     let entries = data;
 
     if (name === "Grind") {
-      entries = CONFIG.GRINDS_FOR_SLOTS; 
+      entries = CONFIG.GRINDS_FOR_SLOTS;
       if (this.includedTricks.heelRoll === "off") {
         entries = entries.filter((e) => {
           const isHeelRoll =
