@@ -4,6 +4,7 @@
   "description": "web app for aggressive inline grind tricks",
   "main": "app/app.js",
   "engines": {
+    "node": "v14.13.*",
     "npm": "6.x"
   },
   "dependencies": {
@@ -47,7 +48,8 @@
     "build": "rm -rf build/*; webpack --mode production",
     "dev": "rm -rf build/*; webpack --mode development --watch",
     "lint": "node_modules/.bin/eslint ./src/js --fix --ext .js;",
-    "permutations": "node -r esm tools/permutations.js"
+    "permutations": "node -r esm tools/permutations.js",
+    "heroku-postbuild": "npm ci && npm run build"
   },
   "author": "RH",
   "license": "ISC"

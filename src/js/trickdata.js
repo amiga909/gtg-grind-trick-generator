@@ -142,7 +142,7 @@ const SPINS_FAKIE_TO_GRIND_GROOVE_BS = [
   },
 ];
 
-const HYBRID_COMMENT = "A hybrid between Soul and Groove grind";
+const HYBRID_COMMENT = "Treated like a soul grind (AO, Truespin, Zerospin), not like a groove grind (270, 450).";
 const SOUL_GRINDS = [
   {
     name: "Soul",
@@ -244,7 +244,7 @@ const SOUL_GRINDS = [
     noSwitch: true,
     url: "http://skateyeg.com/bog/11.0_Hot_Dog.html",
     comment:
-      "Only possible on a narrow box obstacle that can be grinded on both sides.",
+      "Easier to do on a narrow box that can be grinded on both sides.",
     variations: {
       Rough: true,
       Tough: true,
