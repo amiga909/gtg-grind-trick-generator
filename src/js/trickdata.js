@@ -142,7 +142,7 @@ const SPINS_FAKIE_TO_GRIND_GROOVE_BS = [
   },
 ];
 
-const HYBRID_COMMENT = "Treated like a soul grind (AO, Truespin, Zerospin), not like a groove grind (270, 450).";
+const HYBRID_COMMENT = "Treated like a soul grind (AO, Truespin, Zerospin) not like a groove grind (270, 450) because the trick has not a different name when grinded in reverse direction.";
 const SOUL_GRINDS = [
   {
     name: "Soul",
