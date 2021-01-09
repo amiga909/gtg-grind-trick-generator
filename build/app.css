@@ -821,6 +821,7 @@ body::-webkit-scrollbar-thumb {
 .tricktionary-toc {
   padding-top: 12px;
   color:white; 
+  box-shadow: none;
 }
 .pure-menu-heading {
   color: white; padding-left: 0px;

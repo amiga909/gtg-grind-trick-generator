@@ -1856,133 +1856,133 @@ True Fullcab Christ Fishbrain to 540 out
 Hurricane Christ Fishbrain to 540 revert out
 True Fullcab Christ Fishbrain to 540 revert out
 PStar
-Top PStar
+Sunny Day
 Zerospin PStar
-Zerospin Top PStar
+Zerospin Sunny Day
 AO PStar
-AO Top PStar
+Cloudy Night
 Halfcab PStar
-Halfcab Top PStar
+Halfcab Sunny Day
 PStar to 180 out
-Top PStar to 180 out
+Sunny Day to 180 out
 Zerospin PStar to 180 out
-Zerospin Top PStar to 180 out
+Zerospin Sunny Day to 180 out
 AO PStar to 180 out
-AO Top PStar to 180 out
+Cloudy Night to 180 out
 Halfcab PStar to 180 out
-Halfcab Top PStar to 180 out
+Halfcab Sunny Day to 180 out
 AO PStar to 180 revert out
-AO Top PStar to 180 revert out
+Cloudy Night to 180 revert out
 Halfcab PStar to 180 revert out
-Halfcab Top PStar to 180 revert out
+Halfcab Sunny Day to 180 revert out
 PStar to 360 out
-Top PStar to 360 out
+Sunny Day to 360 out
 Zerospin PStar to 360 out
-Zerospin Top PStar to 360 out
+Zerospin Sunny Day to 360 out
 AO PStar to 360 revert out
-AO Top PStar to 360 revert out
+Cloudy Night to 360 revert out
 Halfcab PStar to 360 revert out
-Halfcab Top PStar to 360 revert out
+Halfcab Sunny Day to 360 revert out
 AO PStar to 360 out
-AO Top PStar to 360 out
+Cloudy Night to 360 out
 Halfcab PStar to 360 out
-Halfcab Top PStar to 360 out
+Halfcab Sunny Day to 360 out
 PStar to 540 out
-Top PStar to 540 out
+Sunny Day to 540 out
 Zerospin PStar to 540 out
-Zerospin Top PStar to 540 out
+Zerospin Sunny Day to 540 out
 AO PStar to 540 revert out
-AO Top PStar to 540 revert out
+Cloudy Night to 540 revert out
 Halfcab PStar to 540 revert out
-Halfcab Top PStar to 540 revert out
+Halfcab Sunny Day to 540 revert out
 AO PStar to 540 out
-AO Top PStar to 540 out
+Cloudy Night to 540 out
 Halfcab PStar to 540 out
-Halfcab Top PStar to 540 out
+Halfcab Sunny Day to 540 out
 True PStar
-True Top PStar
+True Cloudy Night
 True Halfcab PStar
-True Halfcab Top PStar
+True Halfcab Sunny Day
 True PStar to 180 revert out
-True Top PStar to 180 revert out
+True Cloudy Night to 180 revert out
 True Halfcab PStar to 180 revert out
-True Halfcab Top PStar to 180 revert out
+True Halfcab Sunny Day to 180 revert out
 True PStar to 180 out
-True Top PStar to 180 out
+True Cloudy Night to 180 out
 True Halfcab PStar to 180 out
-True Halfcab Top PStar to 180 out
+True Halfcab Sunny Day to 180 out
 True PStar to 360 out
-True Top PStar to 360 out
+True Cloudy Night to 360 out
 True Halfcab PStar to 360 out
-True Halfcab Top PStar to 360 out
+True Halfcab Sunny Day to 360 out
 True PStar to 360 revert out
-True Top PStar to 360 revert out
+True Cloudy Night to 360 revert out
 True Halfcab PStar to 360 revert out
-True Halfcab Top PStar to 360 revert out
+True Halfcab Sunny Day to 360 revert out
 True PStar to 540 out
-True Top PStar to 540 out
+True Cloudy Night to 540 out
 True Halfcab PStar to 540 out
-True Halfcab Top PStar to 540 out
+True Halfcab Sunny Day to 540 out
 True PStar to 540 revert out
-True Top PStar to 540 revert out
+True Cloudy Night to 540 revert out
 True Halfcab PStar to 540 revert out
-True Halfcab Top PStar to 540 revert out
+True Halfcab Sunny Day to 540 revert out
 360 PStar
-360 Top PStar
+360 Sunny Day
 Fullcab PStar
-Fullcab Top PStar
+Fullcab Cloudy Night
 360 PStar to 180 out
-360 Top PStar to 180 out
+360 Sunny Day to 180 out
 Fullcab PStar to 180 out
-Fullcab Top PStar to 180 out
+Fullcab Cloudy Night to 180 out
 360 PStar to 180 revert out
-360 Top PStar to 180 revert out
+360 Sunny Day to 180 revert out
 Fullcab PStar to 180 revert out
-Fullcab Top PStar to 180 revert out
+Fullcab Cloudy Night to 180 revert out
 360 PStar to 360 revert out
-360 Top PStar to 360 revert out
+360 Sunny Day to 360 revert out
 Fullcab PStar to 360 revert out
-Fullcab Top PStar to 360 revert out
+Fullcab Cloudy Night to 360 revert out
 360 PStar to 360 out
-360 Top PStar to 360 out
+360 Sunny Day to 360 out
 Fullcab PStar to 360 out
-Fullcab Top PStar to 360 out
+Fullcab Cloudy Night to 360 out
 360 PStar to 540 revert out
-360 Top PStar to 540 revert out
+360 Sunny Day to 540 revert out
 Fullcab PStar to 540 revert out
-Fullcab Top PStar to 540 revert out
+Fullcab Cloudy Night to 540 revert out
 360 PStar to 540 out
-360 Top PStar to 540 out
+360 Sunny Day to 540 out
 Fullcab PStar to 540 out
-Fullcab Top PStar to 540 out
+Fullcab Cloudy Night to 540 out
 Hurricane PStar
-Hurricane Top PStar
+Hurricane Sunny Day
 True Fullcab PStar
-True Fullcab Top PStar
+True Fullcab Cloudy Night
 Hurricane PStar to 180 revert out
-Hurricane Top PStar to 180 revert out
+Hurricane Sunny Day to 180 revert out
 True Fullcab PStar to 180 revert out
-True Fullcab Top PStar to 180 revert out
+True Fullcab Cloudy Night to 180 revert out
 Hurricane PStar to 180 out
-Hurricane Top PStar to 180 out
+Hurricane Sunny Day to 180 out
 True Fullcab PStar to 180 out
-True Fullcab Top PStar to 180 out
+True Fullcab Cloudy Night to 180 out
 Hurricane PStar to 360 out
-Hurricane Top PStar to 360 out
+Hurricane Sunny Day to 360 out
 True Fullcab PStar to 360 out
-True Fullcab Top PStar to 360 out
+True Fullcab Cloudy Night to 360 out
 Hurricane PStar to 360 revert out
-Hurricane Top PStar to 360 revert out
+Hurricane Sunny Day to 360 revert out
 True Fullcab PStar to 360 revert out
-True Fullcab Top PStar to 360 revert out
+True Fullcab Cloudy Night to 360 revert out
 Hurricane PStar to 540 out
-Hurricane Top PStar to 540 out
+Hurricane Sunny Day to 540 out
 True Fullcab PStar to 540 out
-True Fullcab Top PStar to 540 out
+True Fullcab Cloudy Night to 540 out
 Hurricane PStar to 540 revert out
-Hurricane Top PStar to 540 revert out
+Hurricane Sunny Day to 540 revert out
 True Fullcab PStar to 540 revert out
-True Fullcab Top PStar to 540 revert out
+True Fullcab Cloudy Night to 540 revert out
 Negative PStar
 Zerospin Negative PStar
 AO Negative PStar
@@ -2239,70 +2239,70 @@ Hurricane Top Teakettle to 540 out
 True Fullcab Top Teakettle to 540 out
 Hurricane Top Teakettle to 540 revert out
 True Fullcab Top Teakettle to 540 revert out
-Tough Top PStar
-Zerospin Tough Top PStar
-AO Tough Top PStar
-Halfcab Tough Top PStar
-Tough Top PStar to 180 out
-Zerospin Tough Top PStar to 180 out
-AO Tough Top PStar to 180 out
-Halfcab Tough Top PStar to 180 out
-AO Tough Top PStar to 180 revert out
-Halfcab Tough Top PStar to 180 revert out
-Tough Top PStar to 360 out
-Zerospin Tough Top PStar to 360 out
-AO Tough Top PStar to 360 revert out
-Halfcab Tough Top PStar to 360 revert out
-AO Tough Top PStar to 360 out
-Halfcab Tough Top PStar to 360 out
-Tough Top PStar to 540 out
-Zerospin Tough Top PStar to 540 out
-AO Tough Top PStar to 540 revert out
-Halfcab Tough Top PStar to 540 revert out
-AO Tough Top PStar to 540 out
-Halfcab Tough Top PStar to 540 out
-True Tough Top PStar
-True Halfcab Tough Top PStar
-True Tough Top PStar to 180 revert out
-True Halfcab Tough Top PStar to 180 revert out
-True Tough Top PStar to 180 out
-True Halfcab Tough Top PStar to 180 out
-True Tough Top PStar to 360 out
-True Halfcab Tough Top PStar to 360 out
-True Tough Top PStar to 360 revert out
-True Halfcab Tough Top PStar to 360 revert out
-True Tough Top PStar to 540 out
-True Halfcab Tough Top PStar to 540 out
-True Tough Top PStar to 540 revert out
-True Halfcab Tough Top PStar to 540 revert out
-360 Tough Top PStar
-Fullcab Tough Top PStar
-360 Tough Top PStar to 180 out
-Fullcab Tough Top PStar to 180 out
-360 Tough Top PStar to 180 revert out
-Fullcab Tough Top PStar to 180 revert out
-360 Tough Top PStar to 360 revert out
-Fullcab Tough Top PStar to 360 revert out
-360 Tough Top PStar to 360 out
-Fullcab Tough Top PStar to 360 out
-360 Tough Top PStar to 540 revert out
-Fullcab Tough Top PStar to 540 revert out
-360 Tough Top PStar to 540 out
-Fullcab Tough Top PStar to 540 out
-Hurricane Tough Top PStar
-True Fullcab Tough Top PStar
-Hurricane Tough Top PStar to 180 revert out
-True Fullcab Tough Top PStar to 180 revert out
-Hurricane Tough Top PStar to 180 out
-True Fullcab Tough Top PStar to 180 out
-Hurricane Tough Top PStar to 360 out
-True Fullcab Tough Top PStar to 360 out
-Hurricane Tough Top PStar to 360 revert out
-True Fullcab Tough Top PStar to 360 revert out
-Hurricane Tough Top PStar to 540 out
-True Fullcab Tough Top PStar to 540 out
-Hurricane Tough Top PStar to 540 revert out
-True Fullcab Tough Top PStar to 540 revert out
+Tough Sunny Day
+Zerospin Tough Sunny Day
+Tough Cloudy Night
+Halfcab Tough Sunny Day
+Tough Sunny Day to 180 out
+Zerospin Tough Sunny Day to 180 out
+Tough Cloudy Night to 180 out
+Halfcab Tough Sunny Day to 180 out
+Tough Cloudy Night to 180 revert out
+Halfcab Tough Sunny Day to 180 revert out
+Tough Sunny Day to 360 out
+Zerospin Tough Sunny Day to 360 out
+Tough Cloudy Night to 360 revert out
+Halfcab Tough Sunny Day to 360 revert out
+Tough Cloudy Night to 360 out
+Halfcab Tough Sunny Day to 360 out
+Tough Sunny Day to 540 out
+Zerospin Tough Sunny Day to 540 out
+Tough Cloudy Night to 540 revert out
+Halfcab Tough Sunny Day to 540 revert out
+Tough Cloudy Night to 540 out
+Halfcab Tough Sunny Day to 540 out
+True Tough Cloudy Night
+True Halfcab Tough Sunny Day
+True Tough Cloudy Night to 180 revert out
+True Halfcab Tough Sunny Day to 180 revert out
+True Tough Cloudy Night to 180 out
+True Halfcab Tough Sunny Day to 180 out
+True Tough Cloudy Night to 360 out
+True Halfcab Tough Sunny Day to 360 out
+True Tough Cloudy Night to 360 revert out
+True Halfcab Tough Sunny Day to 360 revert out
+True Tough Cloudy Night to 540 out
+True Halfcab Tough Sunny Day to 540 out
+True Tough Cloudy Night to 540 revert out
+True Halfcab Tough Sunny Day to 540 revert out
+360 Tough Sunny Day
+Fullcab Tough Cloudy Night
+360 Tough Sunny Day to 180 out
+Fullcab Tough Cloudy Night to 180 out
+360 Tough Sunny Day to 180 revert out
+Fullcab Tough Cloudy Night to 180 revert out
+360 Tough Sunny Day to 360 revert out
+Fullcab Tough Cloudy Night to 360 revert out
+360 Tough Sunny Day to 360 out
+Fullcab Tough Cloudy Night to 360 out
+360 Tough Sunny Day to 540 revert out
+Fullcab Tough Cloudy Night to 540 revert out
+360 Tough Sunny Day to 540 out
+Fullcab Tough Cloudy Night to 540 out
+Hurricane Tough Sunny Day
+True Fullcab Tough Cloudy Night
+Hurricane Tough Sunny Day to 180 revert out
+True Fullcab Tough Cloudy Night to 180 revert out
+Hurricane Tough Sunny Day to 180 out
+True Fullcab Tough Cloudy Night to 180 out
+Hurricane Tough Sunny Day to 360 out
+True Fullcab Tough Cloudy Night to 360 out
+Hurricane Tough Sunny Day to 360 revert out
+True Fullcab Tough Cloudy Night to 360 revert out
+Hurricane Tough Sunny Day to 540 out
+True Fullcab Tough Cloudy Night to 540 out
+Hurricane Tough Sunny Day to 540 revert out
+True Fullcab Tough Cloudy Night to 540 revert out
 Torque Soul
 Top Torque Soul
 Zerospin Torque Soul
@@ -11820,125 +11820,125 @@ Switch 540 True Christ Fishbrain to 540 out
 540 True Christ Fishbrain to 540 revert out
 Switch 540 True Christ Fishbrain to 540 revert out
 Switch PStar
-Switch Top PStar
+Switch Sunny Day
 Switch True PStar
-Switch True Top PStar
+Switch True Cloudy Night
 Switch PStar to 180 out
-Switch Top PStar to 180 out
+Switch Sunny Day to 180 out
 Switch True PStar to 180 revert out
-Switch True Top PStar to 180 revert out
+Switch True Cloudy Night to 180 revert out
 Switch True PStar to 180 out
-Switch True Top PStar to 180 out
+Switch True Cloudy Night to 180 out
 Switch PStar to 360 out
-Switch Top PStar to 360 out
+Switch Sunny Day to 360 out
 Switch True PStar to 360 out
-Switch True Top PStar to 360 out
+Switch True Cloudy Night to 360 out
 Switch True PStar to 360 revert out
-Switch True Top PStar to 360 revert out
+Switch True Cloudy Night to 360 revert out
 Switch PStar to 540 out
-Switch Top PStar to 540 out
+Switch Sunny Day to 540 out
 Switch True PStar to 540 out
-Switch True Top PStar to 540 out
+Switch True Cloudy Night to 540 out
 Switch True PStar to 540 revert out
-Switch True Top PStar to 540 revert out
+Switch True Cloudy Night to 540 revert out
 Switch AO PStar
-Switch AO Top PStar
+Switch Cloudy Night
 Switch AO PStar to 180 out
-Switch AO Top PStar to 180 out
+Switch Cloudy Night to 180 out
 Switch AO PStar to 180 revert out
-Switch AO Top PStar to 180 revert out
+Switch Cloudy Night to 180 revert out
 Switch AO PStar to 360 revert out
-Switch AO Top PStar to 360 revert out
+Switch Cloudy Night to 360 revert out
 Switch AO PStar to 360 out
-Switch AO Top PStar to 360 out
+Switch Cloudy Night to 360 out
 Switch AO PStar to 540 revert out
-Switch AO Top PStar to 540 revert out
+Switch Cloudy Night to 540 revert out
 Switch AO PStar to 540 out
-Switch AO Top PStar to 540 out
+Switch Cloudy Night to 540 out
 Switch 360 PStar
-Switch 360 Top PStar
+Switch 360 Sunny Day
 Switch 360 PStar to 180 out
-Switch 360 Top PStar to 180 out
+Switch 360 Sunny Day to 180 out
 Switch 360 PStar to 180 revert out
-Switch 360 Top PStar to 180 revert out
+Switch 360 Sunny Day to 180 revert out
 Switch 360 PStar to 360 revert out
-Switch 360 Top PStar to 360 revert out
+Switch 360 Sunny Day to 360 revert out
 Switch 360 PStar to 360 out
-Switch 360 Top PStar to 360 out
+Switch 360 Sunny Day to 360 out
 Switch 360 PStar to 540 revert out
-Switch 360 Top PStar to 540 revert out
+Switch 360 Sunny Day to 540 revert out
 Switch 360 PStar to 540 out
-Switch 360 Top PStar to 540 out
+Switch 360 Sunny Day to 540 out
 Switch Hurricane PStar
-Switch Hurricane Top PStar
+Switch Hurricane Sunny Day
 Switch Hurricane PStar to 180 revert out
-Switch Hurricane Top PStar to 180 revert out
+Switch Hurricane Sunny Day to 180 revert out
 Switch Hurricane PStar to 180 out
-Switch Hurricane Top PStar to 180 out
+Switch Hurricane Sunny Day to 180 out
 Switch Hurricane PStar to 360 out
-Switch Hurricane Top PStar to 360 out
+Switch Hurricane Sunny Day to 360 out
 Switch Hurricane PStar to 360 revert out
-Switch Hurricane Top PStar to 360 revert out
+Switch Hurricane Sunny Day to 360 revert out
 Switch Hurricane PStar to 540 out
-Switch Hurricane Top PStar to 540 out
+Switch Hurricane Sunny Day to 540 out
 Switch Hurricane PStar to 540 revert out
-Switch Hurricane Top PStar to 540 revert out
+Switch Hurricane Sunny Day to 540 revert out
 540 AO PStar
-540 AO Top PStar
+540 Cloudy Night
 Switch 540 AO PStar
-Switch 540 AO Top PStar
+Switch 540 Cloudy Night
 540 AO PStar to 180 out
-540 AO Top PStar to 180 out
+540 Cloudy Night to 180 out
 Switch 540 AO PStar to 180 out
-Switch 540 AO Top PStar to 180 out
+Switch 540 Cloudy Night to 180 out
 540 AO PStar to 180 revert out
-540 AO Top PStar to 180 revert out
+540 Cloudy Night to 180 revert out
 Switch 540 AO PStar to 180 revert out
-Switch 540 AO Top PStar to 180 revert out
+Switch 540 Cloudy Night to 180 revert out
 540 AO PStar to 360 revert out
-540 AO Top PStar to 360 revert out
+540 Cloudy Night to 360 revert out
 Switch 540 AO PStar to 360 revert out
-Switch 540 AO Top PStar to 360 revert out
+Switch 540 Cloudy Night to 360 revert out
 540 AO PStar to 360 out
-540 AO Top PStar to 360 out
+540 Cloudy Night to 360 out
 Switch 540 AO PStar to 360 out
-Switch 540 AO Top PStar to 360 out
+Switch 540 Cloudy Night to 360 out
 540 AO PStar to 540 revert out
-540 AO Top PStar to 540 revert out
+540 Cloudy Night to 540 revert out
 Switch 540 AO PStar to 540 revert out
-Switch 540 AO Top PStar to 540 revert out
+Switch 540 Cloudy Night to 540 revert out
 540 AO PStar to 540 out
-540 AO Top PStar to 540 out
+540 Cloudy Night to 540 out
 Switch 540 AO PStar to 540 out
-Switch 540 AO Top PStar to 540 out
+Switch 540 Cloudy Night to 540 out
 540 True PStar
-540 True Top PStar
+540 True Cloudy Night
 Switch 540 True PStar
-Switch 540 True Top PStar
+Switch 540 True Cloudy Night
 540 True PStar to 180 revert out
-540 True Top PStar to 180 revert out
+540 True Cloudy Night to 180 revert out
 Switch 540 True PStar to 180 revert out
-Switch 540 True Top PStar to 180 revert out
+Switch 540 True Cloudy Night to 180 revert out
 540 True PStar to 180 out
-540 True Top PStar to 180 out
+540 True Cloudy Night to 180 out
 Switch 540 True PStar to 180 out
-Switch 540 True Top PStar to 180 out
+Switch 540 True Cloudy Night to 180 out
 540 True PStar to 360 out
-540 True Top PStar to 360 out
+540 True Cloudy Night to 360 out
 Switch 540 True PStar to 360 out
-Switch 540 True Top PStar to 360 out
+Switch 540 True Cloudy Night to 360 out
 540 True PStar to 360 revert out
-540 True Top PStar to 360 revert out
+540 True Cloudy Night to 360 revert out
 Switch 540 True PStar to 360 revert out
-Switch 540 True Top PStar to 360 revert out
+Switch 540 True Cloudy Night to 360 revert out
 540 True PStar to 540 out
-540 True Top PStar to 540 out
+540 True Cloudy Night to 540 out
 Switch 540 True PStar to 540 out
-Switch 540 True Top PStar to 540 out
+Switch 540 True Cloudy Night to 540 out
 540 True PStar to 540 revert out
-540 True Top PStar to 540 revert out
+540 True Cloudy Night to 540 revert out
 Switch 540 True PStar to 540 revert out
-Switch 540 True Top PStar to 540 revert out
+Switch 540 True Cloudy Night to 540 revert out
 Switch Negative PStar
 Switch True Negative PStar
 Switch Negative PStar to 180 out
@@ -12179,66 +12179,66 @@ Switch 540 True Top Teakettle to 360 revert out
 Switch 540 True Top Teakettle to 540 out
 540 True Top Teakettle to 540 revert out
 Switch 540 True Top Teakettle to 540 revert out
-Switch Tough Top PStar
-Switch True Tough Top PStar
-Switch Tough Top PStar to 180 out
-Switch True Tough Top PStar to 180 revert out
-Switch True Tough Top PStar to 180 out
-Switch Tough Top PStar to 360 out
-Switch True Tough Top PStar to 360 out
-Switch True Tough Top PStar to 360 revert out
-Switch Tough Top PStar to 540 out
-Switch True Tough Top PStar to 540 out
-Switch True Tough Top PStar to 540 revert out
-Switch AO Tough Top PStar
-Switch AO Tough Top PStar to 180 out
-Switch AO Tough Top PStar to 180 revert out
-Switch AO Tough Top PStar to 360 revert out
-Switch AO Tough Top PStar to 360 out
-Switch AO Tough Top PStar to 540 revert out
-Switch AO Tough Top PStar to 540 out
-Switch 360 Tough Top PStar
-Switch 360 Tough Top PStar to 180 out
-Switch 360 Tough Top PStar to 180 revert out
-Switch 360 Tough Top PStar to 360 revert out
-Switch 360 Tough Top PStar to 360 out
-Switch 360 Tough Top PStar to 540 revert out
-Switch 360 Tough Top PStar to 540 out
-Switch Hurricane Tough Top PStar
-Switch Hurricane Tough Top PStar to 180 revert out
-Switch Hurricane Tough Top PStar to 180 out
-Switch Hurricane Tough Top PStar to 360 out
-Switch Hurricane Tough Top PStar to 360 revert out
-Switch Hurricane Tough Top PStar to 540 out
-Switch Hurricane Tough Top PStar to 540 revert out
-540 AO Tough Top PStar
-Switch 540 AO Tough Top PStar
-540 AO Tough Top PStar to 180 out
-Switch 540 AO Tough Top PStar to 180 out
-540 AO Tough Top PStar to 180 revert out
-Switch 540 AO Tough Top PStar to 180 revert out
-540 AO Tough Top PStar to 360 revert out
-Switch 540 AO Tough Top PStar to 360 revert out
-540 AO Tough Top PStar to 360 out
-Switch 540 AO Tough Top PStar to 360 out
-540 AO Tough Top PStar to 540 revert out
-Switch 540 AO Tough Top PStar to 540 revert out
-540 AO Tough Top PStar to 540 out
-Switch 540 AO Tough Top PStar to 540 out
-540 True Tough Top PStar
-Switch 540 True Tough Top PStar
-540 True Tough Top PStar to 180 revert out
-Switch 540 True Tough Top PStar to 180 revert out
-540 True Tough Top PStar to 180 out
-Switch 540 True Tough Top PStar to 180 out
-540 True Tough Top PStar to 360 out
-Switch 540 True Tough Top PStar to 360 out
-540 True Tough Top PStar to 360 revert out
-Switch 540 True Tough Top PStar to 360 revert out
-540 True Tough Top PStar to 540 out
-Switch 540 True Tough Top PStar to 540 out
-540 True Tough Top PStar to 540 revert out
-Switch 540 True Tough Top PStar to 540 revert out
+Switch Tough Sunny Day
+Switch True Tough Cloudy Night
+Switch Tough Sunny Day to 180 out
+Switch True Tough Cloudy Night to 180 revert out
+Switch True Tough Cloudy Night to 180 out
+Switch Tough Sunny Day to 360 out
+Switch True Tough Cloudy Night to 360 out
+Switch True Tough Cloudy Night to 360 revert out
+Switch Tough Sunny Day to 540 out
+Switch True Tough Cloudy Night to 540 out
+Switch True Tough Cloudy Night to 540 revert out
+Switch Tough Cloudy Night
+Switch Tough Cloudy Night to 180 out
+Switch Tough Cloudy Night to 180 revert out
+Switch Tough Cloudy Night to 360 revert out
+Switch Tough Cloudy Night to 360 out
+Switch Tough Cloudy Night to 540 revert out
+Switch Tough Cloudy Night to 540 out
+Switch 360 Tough Sunny Day
+Switch 360 Tough Sunny Day to 180 out
+Switch 360 Tough Sunny Day to 180 revert out
+Switch 360 Tough Sunny Day to 360 revert out
+Switch 360 Tough Sunny Day to 360 out
+Switch 360 Tough Sunny Day to 540 revert out
+Switch 360 Tough Sunny Day to 540 out
+Switch Hurricane Tough Sunny Day
+Switch Hurricane Tough Sunny Day to 180 revert out
+Switch Hurricane Tough Sunny Day to 180 out
+Switch Hurricane Tough Sunny Day to 360 out
+Switch Hurricane Tough Sunny Day to 360 revert out
+Switch Hurricane Tough Sunny Day to 540 out
+Switch Hurricane Tough Sunny Day to 540 revert out
+540 Tough Cloudy Night
+Switch 540 Tough Cloudy Night
+540 Tough Cloudy Night to 180 out
+Switch 540 Tough Cloudy Night to 180 out
+540 Tough Cloudy Night to 180 revert out
+Switch 540 Tough Cloudy Night to 180 revert out
+540 Tough Cloudy Night to 360 revert out
+Switch 540 Tough Cloudy Night to 360 revert out
+540 Tough Cloudy Night to 360 out
+Switch 540 Tough Cloudy Night to 360 out
+540 Tough Cloudy Night to 540 revert out
+Switch 540 Tough Cloudy Night to 540 revert out
+540 Tough Cloudy Night to 540 out
+Switch 540 Tough Cloudy Night to 540 out
+540 True Tough Cloudy Night
+Switch 540 True Tough Cloudy Night
+540 True Tough Cloudy Night to 180 revert out
+Switch 540 True Tough Cloudy Night to 180 revert out
+540 True Tough Cloudy Night to 180 out
+Switch 540 True Tough Cloudy Night to 180 out
+540 True Tough Cloudy Night to 360 out
+Switch 540 True Tough Cloudy Night to 360 out
+540 True Tough Cloudy Night to 360 revert out
+Switch 540 True Tough Cloudy Night to 360 revert out
+540 True Tough Cloudy Night to 540 out
+Switch 540 True Tough Cloudy Night to 540 out
+540 True Tough Cloudy Night to 540 revert out
+Switch 540 True Tough Cloudy Night to 540 revert out
 Switch Torque Soul
 Switch Top Torque Soul
 Switch True Soyale
@@ -18628,69 +18628,69 @@ Switch True Fullcab Christ Fishbrain to 360 revert out
 Switch True Fullcab Christ Fishbrain to 540 out
 Switch True Fullcab Christ Fishbrain to 540 revert out
 Switch Zerospin PStar
-Switch Zerospin Top PStar
+Switch Zerospin Sunny Day
 Switch Halfcab PStar
-Switch Halfcab Top PStar
+Switch Halfcab Sunny Day
 Switch Zerospin PStar to 180 out
-Switch Zerospin Top PStar to 180 out
+Switch Zerospin Sunny Day to 180 out
 Switch Halfcab PStar to 180 out
-Switch Halfcab Top PStar to 180 out
+Switch Halfcab Sunny Day to 180 out
 Switch Halfcab PStar to 180 revert out
-Switch Halfcab Top PStar to 180 revert out
+Switch Halfcab Sunny Day to 180 revert out
 Switch Zerospin PStar to 360 out
-Switch Zerospin Top PStar to 360 out
+Switch Zerospin Sunny Day to 360 out
 Switch Halfcab PStar to 360 revert out
-Switch Halfcab Top PStar to 360 revert out
+Switch Halfcab Sunny Day to 360 revert out
 Switch Halfcab PStar to 360 out
-Switch Halfcab Top PStar to 360 out
+Switch Halfcab Sunny Day to 360 out
 Switch Zerospin PStar to 540 out
-Switch Zerospin Top PStar to 540 out
+Switch Zerospin Sunny Day to 540 out
 Switch Halfcab PStar to 540 revert out
-Switch Halfcab Top PStar to 540 revert out
+Switch Halfcab Sunny Day to 540 revert out
 Switch Halfcab PStar to 540 out
-Switch Halfcab Top PStar to 540 out
+Switch Halfcab Sunny Day to 540 out
 Switch True Halfcab PStar
-Switch True Halfcab Top PStar
+Switch True Halfcab Sunny Day
 Switch True Halfcab PStar to 180 revert out
-Switch True Halfcab Top PStar to 180 revert out
+Switch True Halfcab Sunny Day to 180 revert out
 Switch True Halfcab PStar to 180 out
-Switch True Halfcab Top PStar to 180 out
+Switch True Halfcab Sunny Day to 180 out
 Switch True Halfcab PStar to 360 out
-Switch True Halfcab Top PStar to 360 out
+Switch True Halfcab Sunny Day to 360 out
 Switch True Halfcab PStar to 360 revert out
-Switch True Halfcab Top PStar to 360 revert out
+Switch True Halfcab Sunny Day to 360 revert out
 Switch True Halfcab PStar to 540 out
-Switch True Halfcab Top PStar to 540 out
+Switch True Halfcab Sunny Day to 540 out
 Switch True Halfcab PStar to 540 revert out
-Switch True Halfcab Top PStar to 540 revert out
+Switch True Halfcab Sunny Day to 540 revert out
 Switch Fullcab PStar
-Switch Fullcab Top PStar
+Switch Fullcab Cloudy Night
 Switch Fullcab PStar to 180 out
-Switch Fullcab Top PStar to 180 out
+Switch Fullcab Cloudy Night to 180 out
 Switch Fullcab PStar to 180 revert out
-Switch Fullcab Top PStar to 180 revert out
+Switch Fullcab Cloudy Night to 180 revert out
 Switch Fullcab PStar to 360 revert out
-Switch Fullcab Top PStar to 360 revert out
+Switch Fullcab Cloudy Night to 360 revert out
 Switch Fullcab PStar to 360 out
-Switch Fullcab Top PStar to 360 out
+Switch Fullcab Cloudy Night to 360 out
 Switch Fullcab PStar to 540 revert out
-Switch Fullcab Top PStar to 540 revert out
+Switch Fullcab Cloudy Night to 540 revert out
 Switch Fullcab PStar to 540 out
-Switch Fullcab Top PStar to 540 out
+Switch Fullcab Cloudy Night to 540 out
 Switch True Fullcab PStar
-Switch True Fullcab Top PStar
+Switch True Fullcab Cloudy Night
 Switch True Fullcab PStar to 180 revert out
-Switch True Fullcab Top PStar to 180 revert out
+Switch True Fullcab Cloudy Night to 180 revert out
 Switch True Fullcab PStar to 180 out
-Switch True Fullcab Top PStar to 180 out
+Switch True Fullcab Cloudy Night to 180 out
 Switch True Fullcab PStar to 360 out
-Switch True Fullcab Top PStar to 360 out
+Switch True Fullcab Cloudy Night to 360 out
 Switch True Fullcab PStar to 360 revert out
-Switch True Fullcab Top PStar to 360 revert out
+Switch True Fullcab Cloudy Night to 360 revert out
 Switch True Fullcab PStar to 540 out
-Switch True Fullcab Top PStar to 540 out
+Switch True Fullcab Cloudy Night to 540 out
 Switch True Fullcab PStar to 540 revert out
-Switch True Fullcab Top PStar to 540 revert out
+Switch True Fullcab Cloudy Night to 540 revert out
 Switch Zerospin Negative PStar
 Switch Halfcab Negative PStar
 Switch Zerospin Negative PStar to 180 out
@@ -18819,38 +18819,38 @@ Switch True Fullcab Top Teakettle to 360 out
 Switch True Fullcab Top Teakettle to 360 revert out
 Switch True Fullcab Top Teakettle to 540 out
 Switch True Fullcab Top Teakettle to 540 revert out
-Switch Zerospin Tough Top PStar
-Switch Halfcab Tough Top PStar
-Switch Zerospin Tough Top PStar to 180 out
-Switch Halfcab Tough Top PStar to 180 out
-Switch Halfcab Tough Top PStar to 180 revert out
-Switch Zerospin Tough Top PStar to 360 out
-Switch Halfcab Tough Top PStar to 360 revert out
-Switch Halfcab Tough Top PStar to 360 out
-Switch Zerospin Tough Top PStar to 540 out
-Switch Halfcab Tough Top PStar to 540 revert out
-Switch Halfcab Tough Top PStar to 540 out
-Switch True Halfcab Tough Top PStar
-Switch True Halfcab Tough Top PStar to 180 revert out
-Switch True Halfcab Tough Top PStar to 180 out
-Switch True Halfcab Tough Top PStar to 360 out
-Switch True Halfcab Tough Top PStar to 360 revert out
-Switch True Halfcab Tough Top PStar to 540 out
-Switch True Halfcab Tough Top PStar to 540 revert out
-Switch Fullcab Tough Top PStar
-Switch Fullcab Tough Top PStar to 180 out
-Switch Fullcab Tough Top PStar to 180 revert out
-Switch Fullcab Tough Top PStar to 360 revert out
-Switch Fullcab Tough Top PStar to 360 out
-Switch Fullcab Tough Top PStar to 540 revert out
-Switch Fullcab Tough Top PStar to 540 out
-Switch True Fullcab Tough Top PStar
-Switch True Fullcab Tough Top PStar to 180 revert out
-Switch True Fullcab Tough Top PStar to 180 out
-Switch True Fullcab Tough Top PStar to 360 out
-Switch True Fullcab Tough Top PStar to 360 revert out
-Switch True Fullcab Tough Top PStar to 540 out
-Switch True Fullcab Tough Top PStar to 540 revert out
+Switch Zerospin Tough Sunny Day
+Switch Halfcab Tough Sunny Day
+Switch Zerospin Tough Sunny Day to 180 out
+Switch Halfcab Tough Sunny Day to 180 out
+Switch Halfcab Tough Sunny Day to 180 revert out
+Switch Zerospin Tough Sunny Day to 360 out
+Switch Halfcab Tough Sunny Day to 360 revert out
+Switch Halfcab Tough Sunny Day to 360 out
+Switch Zerospin Tough Sunny Day to 540 out
+Switch Halfcab Tough Sunny Day to 540 revert out
+Switch Halfcab Tough Sunny Day to 540 out
+Switch True Halfcab Tough Sunny Day
+Switch True Halfcab Tough Sunny Day to 180 revert out
+Switch True Halfcab Tough Sunny Day to 180 out
+Switch True Halfcab Tough Sunny Day to 360 out
+Switch True Halfcab Tough Sunny Day to 360 revert out
+Switch True Halfcab Tough Sunny Day to 540 out
+Switch True Halfcab Tough Sunny Day to 540 revert out
+Switch Fullcab Tough Cloudy Night
+Switch Fullcab Tough Cloudy Night to 180 out
+Switch Fullcab Tough Cloudy Night to 180 revert out
+Switch Fullcab Tough Cloudy Night to 360 revert out
+Switch Fullcab Tough Cloudy Night to 360 out
+Switch Fullcab Tough Cloudy Night to 540 revert out
+Switch Fullcab Tough Cloudy Night to 540 out
+Switch True Fullcab Tough Cloudy Night
+Switch True Fullcab Tough Cloudy Night to 180 revert out
+Switch True Fullcab Tough Cloudy Night to 180 out
+Switch True Fullcab Tough Cloudy Night to 360 out
+Switch True Fullcab Tough Cloudy Night to 360 revert out
+Switch True Fullcab Tough Cloudy Night to 540 out
+Switch True Fullcab Tough Cloudy Night to 540 revert out
 Switch Zerospin Torque Soul
 Switch Zerospin Top Torque Soul
 Switch Halfcab Torque Soul
@@ -22547,4 +22547,3 @@ Fakie Switch 630 BS Savannah to 450 out
 Fakie Switch 630 Channel BS Savannah to 450 out
 Fakie Switch 630 BS Savannah to 630 out
 Fakie Switch 630 Channel BS Savannah to 630 out
-

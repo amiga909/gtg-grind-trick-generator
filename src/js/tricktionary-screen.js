@@ -2,7 +2,7 @@ import { Trickdata } from "./trickdata.js";
 import { renderThumb, renderTable } from "./helperfunctions.js";
 let CONFIG = null;
 
-export class Tricknames {
+export class TricktionarySceen {
   constructor() {
     this.$dom = $("#trickNamingContent");
 
@@ -20,8 +20,7 @@ export class Tricknames {
 
   renderTOC() {
     let tocs = [];
-
-    console.log(this.$dom.find("h3"));
+ 
 
     this.$dom.find("h3").each((i, section) => {
       let $section = $(section);
@@ -46,7 +45,7 @@ export class Tricknames {
       </p> 
    </div>
   `;
-    console.log(html);
+  
     $(html).prependTo(this.$dom);
   }
 
@@ -92,7 +91,7 @@ export class Tricknames {
 
     vars = vars.sort((a, b) => {
       let aa = a.name.replace("BS", "ZZ");
-      console.log(b);
+       
       aa = aa.replace("FS", "ZZ");
       let bb = b.name.replace("BS", "ZZ");
       bb = bb.replace("FS", "ZZ");
@@ -109,28 +108,27 @@ export class Tricknames {
       const url = v.url ? v.url : "";
       const comment = v.comment ? `${v.comment}` : "";
       const thumb = v.thumbUrl ? v.thumbUrl : "";
-      rows.push([v.name, comment, renderThumb(thumb, url)]);
+      rows.push([v.name, renderThumb(thumb, url), comment]);
     });
 
-    let html = renderTable("Grinds", ["Name", "Comment", "Image"], rows);
+    let html = renderTable("Grinds", ["Name", "Image", "Comment"], rows);
     this.$dom.append(html);
   }
   renderGrindSynonyms() {
     let rows = [];
     let vars = CONFIG.GRIND_SYNONYMS_THUMB;
 
-    vars = vars.sort(this.compare);
-    vars.forEach((variation) => {
+    vars.sort(this.compare2).forEach((variation) => {
       let row = [];
       const url = variation.url ? variation.url : "";
       const comment = variation.comment ? `${variation.comment}` : "";
       const thumb = variation.thumbUrl ? variation.thumbUrl : "";
-      rows.push([variation.newName, comment, renderThumb(thumb, url)]);
+      rows.push([variation.newName, renderThumb(thumb, url), comment]);
     });
 
     let html = renderTable(
       "Grind Synonyms",
-      ["Name", "Comment", "Image"],
+      ["Name", "Image", "Comment"],
       rows
     );
     this.$dom.append(html);
@@ -146,12 +144,12 @@ export class Tricknames {
       const url = variation.url ? variation.url : "";
       const comment = variation.comment ? `${variation.comment}` : "";
       const thumb = variation.thumbUrl ? variation.thumbUrl : "";
-      rows.push([variation.name, comment, renderThumb(thumb, url)]);
+      rows.push([variation.name, renderThumb(thumb, url), comment]);
     });
 
     let html = renderTable(
       "Grind Variations",
-      ["Name", "Comment", "Image"],
+      ["Name", "Image", "Comment"],
       rows
     );
     this.$dom.append(html);
@@ -162,6 +160,15 @@ export class Tricknames {
       return -1;
     }
     if (a.name > b.name) {
+      return 1;
+    }
+    return 0;
+  }
+  compare2(a, b) {
+    if (a.newName < b.newName) {
+      return -1;
+    }
+    if (a.newName > b.newName) {
       return 1;
     }
     return 0;

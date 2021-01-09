@@ -133,13 +133,11 @@ export class Tooltips {
     this.isVisible = true;
     this.helpTooltips.forEach((t) => {
       if (t.instance.props.content) {
-        if( t.type !== "slot-menu" || !this.App.isEndsreen )  {
+        if (t.type !== "slot-menu" || !this.App.isEndsreen) {
           t.instance.enable();
 
           t.instance.show();
         }
-    
-        
       }
     });
   }

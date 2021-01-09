@@ -1,13 +1,15 @@
 <!-- 
    A I G H T Aggressive Inline Grinds - Highscore Trickgenerator  
    
+   -- table render everywhere 
+   - game mode
 
-   - fix:  if variartion gets empty once, it stays empty (unvailable bug)
+   x> fix:  if variartion gets empty once, it stays empty (unvailable bug)
 
    x help system (idea: hold ? button and tooltip texts appear with comment section)
    - fix some images (quite a few...)
     - add some text for every term 
-    - fix manual, add how to play screens: 1) hit start 2) disable parts 3) add trick 
+     
     x fix: no vendor.css on prod 
     
     - fix firefox bug old mac 
@@ -332,7 +334,7 @@ Aggressive Inline Grind Hammer Trickmachine
                         <input  class="includeTricksCb"  id="channel-select" type="checkbox"><label for="channel-select">Channel grinds</label> <br/>
                         <input  class="includeTricksCb"  id="christ-select" type="checkbox"><label for="christ-select">Christ grinds</label> <br/>
                         <button id="config-submit" class="pure-button pure-button-primary pure-button-disabled"
-                           >Apply</button>
+                           >Apply&Restart</button>
                         <button id="config-reset" class="pure-button "
                            class="pure-button pure-button-primary">Reset</button>
                      </fieldset>
@@ -365,7 +367,8 @@ Aggressive Inline Grind Hammer Trickmachine
                <div style="display:none;"  id="modal-screen--about" class="modal-screen-text">
                   <h4>Description</h4>
                   This is an aggressive inline grind trick app. 
-                  A grind trick is split into five parts and each part becomes a reel in the slot machine.  
+                  A grind trick is split into five parts: approach, spin to grind, grind, grind variation and spin off grind. 
+                  Each part is a reel in the slot machine.  
 
                   <div class="pure-menu  ">
                   <ul class="pure-menu-list">  
@@ -554,6 +557,8 @@ Aggressive Inline Grind Hammer Trickmachine
                               <a target="blank" href="https://180fahrvergnuegen.de.tl/TRICKGUIDE.htm/">180fahrvergnuegen.de</a> <br />
                               <a target="blank" href="https://grind-trick-generator.herokuapp.com/assets/permutations.txt">Joker's trick book  &#129313;</a> <br />
                            </td>
+
+                         Graphics:   https://svg-edit.github.io/, https://thenounproject.com/term/rollerblade/139149/
                         </tr>
                      </tbody>
                   </table>
@@ -571,23 +576,23 @@ Aggressive Inline Grind Hammer Trickmachine
                         </thead>
                         <tbody>
                            <tr>
-                              <td>Medspin</td>
-                              <td>www.toxboe.net: A 360 done on-ground where you go forward to backwards on foot, then back to forwards
-                                 on both feet.
-                              </td>
-                           </tr>
-                           <tr>
                               <td>Illusion Spin</td>
-                              <td>www.enacademic.com: Looking over the opposite shoulder of the direction you are going to spin. </td>
+                              <td>Looking over the opposite shoulder of the direction you are going to spin. </td>
+                           </tr>
+                         
+                           <tr>
+                              <td>Grabbing locked feet</td>
+                              <td>Grabs are only considered as grabbing the free foot of a one legged grind like Makio. A locked feet grab means holding a locked skate, for example a grabbed Full Torque.</td>
+                           </tr>
+
+                           <tr>
+                              <td>Negative Topside</td>
+                              <td>Exists but I do not understand it at all. </td>
                            </tr>
                            <tr>
-                              <td>Tough & Rough</td>
-                              <td>"Duck Hunt", a Rough and Tough X-Grind.
-                              </td>
-                           </tr>
-                           <tr>
-                              <td>Step</td>
-                              <td><a target="blank" href="http://skateyeg.com/bog/10.0_Step.html">skateyeg.com</a>
+                              <td>Medspin</td>
+                              <td>A 360 done on-ground where you go forward to backwards on foot, then back to forwards
+                                 on both feet.
                               </td>
                            </tr>
                            <tr>
@@ -595,13 +600,12 @@ Aggressive Inline Grind Hammer Trickmachine
                               <td>Before and after the grind.</td>
                            </tr>
                            <tr>
-                              <td>Negative Topside</td>
-                              <td>Exists but I do not understand it at all. </td>
+                              <td>Step</td>
+                              <td>Exists but I do not understand it at all. <a target="blank" href="http://skateyeg.com/bog/10.0_Step.html">skateyeg.com</a>
+                              </td>
                            </tr>
-                           <tr>
-                              <td>Grabbing locked feet</td>
-                              <td>Grabs are only considered as grabbing the free foot of a one legged grind like Makio. A locked feet grab means holding a locked skate, for example a grabbed Full Torque.</td>
-                           </tr>
+                          
+                        
                         </tbody>
                      </table>
                      <br> <br>
