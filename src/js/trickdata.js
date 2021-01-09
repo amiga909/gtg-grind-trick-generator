@@ -584,7 +584,7 @@ const GRIND_SYNONYMS = [
   {
     newName: "Top Teakettle",
     name: "PStar",
-    comment: "Rough PStar",
+    comment: "Rough Topside PStar",
     isTopside: true,
     isRough: true,
     url: "",
@@ -614,6 +614,7 @@ const GRIND_SYNONYMS = [
   // X-Grind
   {
     newName: "Stub Soul",
+    comment: "Negative X-Grind",
     name: "X-Grind",
     isNegative: true,
     url: "",
@@ -961,3 +962,5 @@ export class Trickdata {
     return isGrooveGrind ? SPINS_OFF_GROOVE_GRIND : SPINS_OFF_GRIND;
   }
 }
+
+//  https://www.npmjs.com/package/google-search-results-nodejs https://serpapi.com/playground?q=aggressive+inline+%22tough+soyale%22+&location=Austin%2C+Texas%2C+United+States&gl=us&hl=en

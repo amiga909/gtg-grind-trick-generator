@@ -1,3 +1,5 @@
+import { renderTable } from "./helperfunctions.js";
+
 export class Tricklist {
   constructor($tricklistBtn) {
     this.$tricklistBtn = $tricklistBtn;
@@ -9,7 +11,7 @@ export class Tricklist {
 
     this.$list = $("#trickList-tableBody");
     this.results = [];
-    this.storageKey = "tricklist";
+    this.storageKey = "tricklist-serialized"; // points; t; orig.t; getPointsForTrick(this.winners)
 
     this.registerListener();
     this.getStorage();
@@ -90,9 +92,16 @@ export class Tricklist {
   }
 
   render() {
-    let html = "";
+    let rows = [];
+    let html = renderTable(
+      "Trick List",
+      ["Points", "Name", "Description"],
+      rows
+    );
+    let i = 0;
     this.results.reverse().forEach((trick, index) => {
-      html += this.renderRow(trick, this.results.length - 1 - index);
+      i = i + 1;
+      rows.push(this.renderRow(trick, this.results.length - 1 - index));
     });
 
     this.$list.html("");
