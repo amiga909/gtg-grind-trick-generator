@@ -49,7 +49,7 @@
     "dev": "rm -rf build/*; webpack --mode development --watch",
     "lint": "node_modules/.bin/eslint ./src/js --fix --ext .js;",
     "permutations": "node -r esm tools/permutations.js",
-    "heroku-postbuild": "npm ci && npm run build"
+    "heroku-postbuild": "npm i && npm run build"
   },
   "author": "RH",
   "license": "ISC"
