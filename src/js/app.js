@@ -2,7 +2,7 @@ import "purecss/build/pure-min.css";
 import "purecss/build/grids-responsive-min.css";
 
 import "font-awesome/css/font-awesome.min.css";
-import "../css/style.css";
+import "../css/style.scss";
 
 import { Configuration } from "./configuration";
 import { SlotMachine } from "./slotmachine";
@@ -14,12 +14,15 @@ import { Tricklist } from "./tricklist";
 import { Tooltips } from "./tooltips";
 import { ModalScreen } from "./modalscreens";
 import { Audioplayer } from "./audioplayer";
+import { renderThumb, renderTable } from "./helperfunctions.js";
 
 let CONFIG = "";
 
 class GrindTrickRandomizer {
   constructor() {
-    this.$startScreen = $("#l-content-modal");
+    this.$startScreen = $("#start-screen");
+    this.$gameScreen = $("#slotmachine");
+    this.$gameOverScreen = $("#l-content-modal");
 
     this.$randomizeButton = $("#randomizeButton");
     this.$randomizeButtonStart = $("#randomizeButtonStart");
@@ -159,9 +162,11 @@ class GrindTrickRandomizer {
 
   addToTricklist() {
     this.modalScreen.show("tricklist", "Trick List");
+    let points = 1; // TODO
     this.tricklist.addTrick(
       this.slotMachineResult.parsed,
-      this.slotMachineResult.orig
+      this.slotMachineResult.orig,
+      points
     );
   }
 
@@ -184,6 +189,7 @@ class GrindTrickRandomizer {
 
     this.$startScreen.hide();
     this.modalScreen.hide();
+    this.$gameScreen.show();
     this.$helpBtn.addClass("pure-button-disabled");
     this.$configButton.addClass("pure-button-disabled");
     this.$randomizeButton.addClass("pure-button-disabled");
@@ -210,115 +216,9 @@ class GrindTrickRandomizer {
         console.error("catch", error);
       });
   }
-
-  getTricktionaryEntries(slots, result) {
-    let html = "";
-    let htmlRows = [];
-    let approach = slots.filter((s) => s && s.name === "Approach")[0] || null;
-    let spinTo = slots.filter((s) => s && s.name === "SpinTo")[0] || null;
-    const grind = slots.filter((s) => s && s.name === "Grind")[0] || null;
-    const grindSynonymData = CONFIG.GRIND_SYNONYMS_THUMB.filter((s) => {
-      return result.parsed.includes(s.newName);
-    })[0];
-    let grindVariation =
-      slots.filter((s) => s && s.name === "GrindVariation")[0] || null;
-    let spinOff = slots.filter((s) => s && s.name === "SpinOff")[0] || null;
-
-    if (approach) {
-      let approachName = approach.winner.name;
-      let switchTxt = approachName.includes("Switch")
-        ? `<b>Switch</b> ${CONFIG.GLOSSARY["Switch"]}  `
-        : "";
-      switchTxt =
-        switchTxt === "" && approachName.includes("Natural")
-          ? `<b>Natural</b> ${CONFIG.GLOSSARY["Natural"]}  `
-          : switchTxt;
-      let fakieTxt = approachName.includes("Fakie")
-        ? `<b>Fakie</b> ${CONFIG.GLOSSARY["Fakie"]} `
-        : "";
-      fakieTxt =
-        fakieTxt === "" && approachName.includes("Forwards")
-          ? `<b>Forwards</b> ${CONFIG.GLOSSARY["Forwards"]}  `
-          : fakieTxt;
-
-      if (fakieTxt) {
-        htmlRows.push(fakieTxt);
-      }
-      if (switchTxt) {
-        htmlRows.push(switchTxt);
-      }
-    }
-
-    if (spinTo) {
-      let spinToName = spinTo.winner.name;
-
-      let inSpinTxt = spinToName.includes("Inspin")
-        ? `<b>Inspin</b> ${CONFIG.GLOSSARY["Inspin"]}  `
-        : "";
-      let outSpinTxt = spinToName.includes("Outspin")
-        ? `<b>Outspin</b> ${CONFIG.GLOSSARY["Outspin"]}  `
-        : "";
-      htmlRows.push(`${inSpinTxt}${outSpinTxt}`);
-    }
-
-    if (grind) {
-      let grindName = grind.winner.name;
-
-      const grindData = CONFIG.GRINDS.filter((g) => {
-        return g.name === grindName;
-      })[0];
-      let name = "";
-      let data = null;
-      if (grindSynonymData) {
-        data = grindSynonymData;
-        data.name = grindSynonymData.newName;
-      } else {
-        data = grindData;
-      }
-      let cleanedName = data.name.replace(/BS /, "Backside ");
-      cleanedName = cleanedName.replace(/FS /, "Frontside ");
-
-      htmlRows.push(`
-      <div class="tricktionary_thumb_grind_container">
-       <div class="tricktionary_thumb_grind_img_container"> 
-        ${
-          data.thumbUrl
-            ? `<img  class="tricktionary_thumb_img" src="${data.thumbUrl}"></img>`
-            : ""
-        }
-       </div>
-      
-      <br/><b>${cleanedName}</b> ${data.comment ? data.comment : ""}
-      </div>   `);
-    }
-
-    if (grindVariation) {
-      let name = grindVariation.winner.name;
-      if (grindSynonymData && grindSynonymData.isTopside) {
-        // skip
-      }
-      // to do: parse combos: rough+topside..
-      let varData = CONFIG.VARIATIONS.filter((g) => {
-        return g.name === name;
-      })[0];
-      const variationHtml = `
-      <div class="tricktionary_thumb_grind_container-variation">
-       <div class="tricktionary_thumb_grind_img_container"> 
-        ${
-          varData.thumbUrl
-            ? `<img  class="tricktionary_thumb_img tricktionary_thumb_img--variation" src="${varData.thumbUrl}"></img>`
-            : ""
-        }
-       </div>
-      
-       <br/><b>${name}</b> ${varData.comment ? varData.comment : ""}
-      </div>   `;
-      htmlRows.push(variationHtml);
-    }
-
-    return htmlRows.join("<br/>");
-  }
-
+ 
+ 
+  
   showEndScreen(animateBottom = true) {
     this.isEndScreen = true;
     const winners = this.slotMachine.slots.map((s) => {
@@ -329,7 +229,7 @@ class GrindTrickRandomizer {
       }
     });
     this.slotMachineResult = this.resultParser.parse(winners);
-    const text = this.getTricktionaryEntries(winners, this.slotMachineResult);
+    const text = this.resultParser.getHelpTableForTrick(this.slotMachineResult);
     this.tooltips.updateTooltip("endScreen", text);
 
     this.$endScreen.find("#endscreen-text").html(this.slotMachineResult.parsed);

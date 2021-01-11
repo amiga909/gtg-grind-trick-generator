@@ -7,24 +7,25 @@ import "tippy.js/animations/scale-extreme.css";
 import "tippy.js/themes/light.css";
 
 const CONFIG = {
-  soundButton: { text: "Toggle sound", position: "" },
+  soundButton: { type: "nav", text: "Toggle sound" },
   randomizeButton: { text: "Spin the reels", position: "" },
   helpBtn: {
     type: "nav",
     text: "",
     position: "",
   },
+
   configButton: {
     type: "nav",
-    text: "Include <br>more <br>tricks",
+    text: "Choose difficulty", //props: { maxWidth: "50px" },
   },
-
   trickNamingBtn: {
     type: "nav",
-    text: "Open <br>Tricktionary",
+    text: "Open  Tricktionary",//props: { maxWidth: "50px" },
   },
-  soundButton: { type: "nav", text: "Toggle sound" },
-  aboutBtn: { type: "nav", text: "About this app" },
+  
+  aboutBtn: { type: "nav", text: "How to play" },//props: { maxWidth: "50px" },
+
 
   addTricklistBtn: {
     type: "slot-menu",
@@ -53,7 +54,7 @@ const CONFIG = {
     type: "slot",
     text: "",
     //'<b>Switch</b>blalbblalblalblalba blalblalblalba blalblalblalba blalblalblalba blalblalblalba blalblalblalba lalblalba bblalblalblalba blalblalblalba blalblalblalba blalblalblalba lalblalblalba <br>  <b>Fakie</b>blalblalblalba blalblalblalba <br> <b>Inspin</b>bl blalbblalblalblalba blalblalblalba blalblalblalba blalblalblalba blalblalblalba blalblalblalba lalblalba blalblalblalba alblalblalba <br>   <b>Frontside Unity</b>grindSlot <br> <img width="300" heigth="300" src="./img/bog/1.jpg">  <br>Open book of grinds  ',
-    props: { offset: 4 },
+    props: { offset: 8 , maxWidth: "80vh"},
     slotName: "Grind",
   },
   /*
@@ -114,14 +115,17 @@ export class Tooltips {
       }
     }, 500);
 
-    this.$mask.on("click", () => {
+    this.$mask.on("click", (e) => {
+      e.preventDefault();
       this.hide();
     });
 
-    this.$helpBtn.on("click", () => {
+    this.$helpBtn.on("click", (e) => {
+      e.preventDefault();
       btnClick();
     });
-    this.$helpBtnStart.on("click", () => {
+    this.$helpBtnStart.on("click", (e) => {
+      e.preventDefault();
       btnClick();
     });
   }

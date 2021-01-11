@@ -578,9 +578,7 @@ const GRIND_SYNONYMS = [
     isTopside: true,
     url: "http://skateyeg.com/bog/02.0_Sweatstance_(Topside_Mizou).html",
   },
-  // PStar
-  /*  these 2 do not work
-   */
+ 
   {
     newName: "Top Teakettle",
     name: "PStar",
@@ -625,6 +623,7 @@ const VARIATIONS = [
   {
     name: "Topside",
     url: "http://skateyeg.com/bog/03.0_Topside_(Top).html",
+    comment: "A Topside is when the frame of the skate is brought over an obstacle and placed on top, while the soul plate remains underneath."
   },
   {
     name: "Negative",
@@ -803,8 +802,8 @@ const SPINS_OFF_GROOVE_GRIND = [
 
 const GLOSSARY = {
   // parsed tokens
-  AO: "Alley-oop. Forwards to 180 Inspin to a soul grind.",
-  True: "Truespin. Forwards to 180 Outspin to a Soul grind.",
+  AO: "(Alley-oop) Forwards to 180 Inspin to a soul grind.",
+  True: "(Truespin) Forwards to 180 Outspin to a Soul grind.",
   Hurricane: "Forwards to 360 Outspin to a Soul grind.",
   Halfcab: "Fakie to 180 Inspin to a Soul grind.",
   Fullcab: "Fakie to 360 Inspin to a Soul grind.",
@@ -812,7 +811,8 @@ const GLOSSARY = {
   "True Fullcab": "Fakie to 360 Outspin to a Soul grind.",
   Zerospin: "Fakie to a Soul grind, no rotation.",
   Revert:
-    "Rewind. to a Soul grind, Spinning off a grind the opposite direction of the natural momentum set by the initial grind spin.",
+    "(Rewind) Spinning off a grind the opposite direction of the natural momentum set by the initial grind spin.",
+   
 
   // slot tokens
   450: "360 spin to a Groove grind. The longer way (360 + 90 degrees).",
@@ -879,7 +879,8 @@ VARIATIONS.forEach((v) => {
 
 const GRIND_SYNONYMS_THUMB = [];
 GRIND_SYNONYMS.forEach((v) => {
-  v.thumbUrl = v.noThumb !== true ? getThumbUrl(v.name) : "";
+  let name = v.newName === "Top Teakettle" ? "Teakettle" : v.newName;
+  v.thumbUrl = v.noThumb !== true ? getThumbUrl(name) : "";
   GRIND_SYNONYMS_THUMB.push(v);
 });
 

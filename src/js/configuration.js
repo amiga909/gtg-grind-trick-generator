@@ -82,6 +82,7 @@ export class Configuration {
     });
 
     this.$reset.on("click", (e) => {
+      e.preventDefault();
       localStorage.clear();
       location.reload();
     });

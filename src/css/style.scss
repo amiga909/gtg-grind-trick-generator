@@ -8,9 +8,33 @@ tooltip-mask = 5
 modal / loading-screen / l-content-modal = 3
 */
 
+// colors
+$bgBgColor: black;
+$bgFontColor: #526066; // bg color for all screens
+$bannerBgColor: #111;
+$bannerFontColor: white;
+
+$slotEnabled: #0078e7;
+$slotDisabled: #e71b00;
+$slotLocked: #004280;
+
+$slotApproach: #1a0e2d;
+$slotSpinTo: #101e33;
+$slotGrind: #072818;
+$slotVariation: #453a02;
+$slotSpinOff: #44110a;
+
+$redButton: red;
+//font-sizes
+
+.body-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
 body {
-  color: #526066;
-  background-color: black;
+  color: $bgFontColor;
+  background-color: $bgBgColor;
   height: 100%;
   width: 100%;
 }
@@ -56,23 +80,40 @@ p {
 .pure-menu-link {
   padding: 0.5em 0.7em;
 }
+.banner-logo {
+  background-image: url('../../img/gtg-logo-banner.svg');
+  background-size: contain;
+
+  z-index: 0;
+
+  width: 100%;
+  height: 90px;
+  background-repeat: no-repeat;
+  position: fixed;
+}
+
+.banner-head-full-name {
+  font-size: 14px;
+  text-align: center;
+  margin-right: 8px;
+}
 
 .banner {
-  position: absolute;
   z-index: 6;
   top: 0px;
   left: 0px;
   height: 90px;
   right: 0px;
   overflow: hidden;
+ //border-bottom: 1px solid white;
 
-  background-color: #111;
+  background-color: $bannerBgColor;
   text-align: center;
   background-size: cover;
   background-position: center;
 
   width: 100%;
-  margin-bottom: 12px;
+//  margin-bottom: 12px;
 
   display: table;
 }
@@ -83,48 +124,10 @@ background: -webkit-linear-gradient(top,  #156b2c 0%,#2989d8 50%,#d6c122 61%,#f9
 background: linear-gradient(to bottom,  #156b2c 0%,#2989d8 50%,#d6c122 61%,#f98686 99%);   
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#156b2c', endColorstr='#f98686',GradientType=0 ); 
  
-
-
-.banner-background-image {
-  position: fixed;
-  right: 12px;
-  height: 100px;
-  z-index: -1;
-}
-
-.banner-background-image-animated {
-  animation: infinite alternate ease-in-out;
-  animation-name: ellies-roll;
-  animation-duration: 2s;
-} 
-
-.banner-background-image-animated-end {
- 
-}
-
-@keyframes ellies-roll {
-  0% {
-    left: calc(100% - 80px);
-
-    transform: translateX(0);
-  }
-  100% {
-    left: 0;
-    transform: translateX(100%);
-    transform: rotateY(180deg);
-  }
-}
-@keyframes ellies-roll-end {
-  100% {
-    left: 100%;
-    transform: translateX(0);
-  }
-}
+ */
 .banner-controls-row {
- // z-index: 4;
+  z-index: 1;
 }
-
-*/
 
 .banner-controls-container {
   margin-top: 12px;
@@ -134,12 +137,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#156b2c', end
   vertical-align: middle;
   margin-top: 8px;
   font-size: 1.4em;
-  color: white;
+  color: $bannerFontColor;
   font-weight: 500;
 
-  text-shadow: 0 2px 2px white;
+  text-shadow: 0 2px 2px $bannerFontColor;
   padding-bottom: 3px;
-  border-bottom: 1px solid white;
+  // border-bottom: 1px solid $bannerFontColor;
 }
 
 .bog-slot {
@@ -155,31 +158,18 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#156b2c', end
 .bog-slot-editable {
 }
 .bog-slot-enabled {
-  box-shadow: 8px 0 0px -2px #0078e7, -8px 0 0px -2px #0078e7;
+  box-shadow: 8px 0 0px -2px $slotEnabled, -8px 0 0px -2px $slotEnabled;
   cursor: pointer;
 }
 
 .bog-slot-disabled {
-  box-shadow: 8px 0 0px -2px #e71b00, -8px 0 0px -2px #e71b00;
+  box-shadow: 8px 0 0px -2px $slotDisabled, -8px 0 0px -2px $slotDisabled;
 
   cursor: pointer;
 }
 .bog-slot-locked {
-  box-shadow: 8px 0 0px -2px #004280, -8px 0 0px -2px #004280;
+  box-shadow: 8px 0 0px -2px $slotLocked, -8px 0 0px -2px $slotLocked;
   cursor: pointer;
-}
-/*
-.bog-slot-addable:hover {
-  box-shadow: 8px 0 0px -2px #b3daff,  -8px 0 0px -2px  #b3daff;
-   
-}
-.bog-slot-removeable:hover {
-  box-shadow: 8px 0 0px -2px #b3daff,  -8px 0 0px -2px  #b3daff;
-   
-}*/
-
-.bog-slot-removeable-explanation {
-  color: #0078e7;
 }
 
 #grindVariations {
@@ -192,7 +182,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#156b2c', end
    */
 .bog-slots,
 .information {
-  max-width: 980px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 .bog-slots {
@@ -204,26 +194,24 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#156b2c', end
 }
 
 .bog-slot-1 .bog-slot-header {
-  background: #1a0e2d;
+  background: $slotApproach;
 }
 
 .bog-slot-2 .bog-slot-header {
-  background: #101e33;
+  background: $slotSpinTo;
 }
 .bog-slot-3 .bog-slot-header {
-  background: #072818;
+  background: $slotGrind;
 }
 .bog-slot-4 .bog-slot-header {
-  background: #453a02;
+  background: $slotVariation;
 }
+/*
 .bog-slot-5 .bog-slot-header {
   background: #462206;
-}
+}*/
 .bog-slot-6 .bog-slot-header {
-  background: #44110a;
-}
-
-.bogLink-icon {
+  background: $slotSpinOff;
 }
 
 .bogLink-icon-clockwise:after {
@@ -352,7 +340,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#156b2c', end
    */
 @media (max-width: 320px) {
   .banner-head {
-    font-size: 1.2em;
+    //font-size: 1.2em;
   }
 }
 
@@ -374,16 +362,82 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#156b2c', end
   display: none;
   margin-top: 20px;
   padding-bottom: 20px;
-  cursor:pointer;
+  cursor: pointer;
 }
 
 #endscreen-text {
   font-size: 1.6em;
   padding: 6px;
 }
+.start-screen-logo {
+  border-bottom: 1px solid white;
+  //border-bottom: 1px solid white;
+  padding-top: 12px;
+  z-index: -1;
+  max-width: 500px;
+
+  margin: auto;
+  //  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  //box-shadow: 0 0 0 1px white;
+}
+.start-screen-controls {
+  padding-top:12px;
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+  h2 {
+    font-size: 20px;
+  }
+}
+
+.start-game-button {
+  background-color: red;
+  width: 120px;
+  height: 70px;
+}
+.start-screen-controls-upper {
+  position: absolute;
+  top: 2px;
+  right: 16px;
+}
+
+#start-screen {
+  //padding-left: 10px;
+  //  padding-right: 10px;
+  z-index: 3;
+  opacity: 1;
+  height: 100%;
+  background-color: #111; //$slotApproach;// $bgFontColor;
+  color: white;
+  //top: 0;
+  //left: 0;
+  width: 100%;
+  max-width: 1000px;
+
+  margin: 0 auto;
+}
+
+.start-screen-text {
+  width: 100%;
+
+  max-width: 600px;
+
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
 
 .myFooter {
+  margin: 0 auto;
   font-size: 0.8em;
+  max-width: 1000px;
 }
 body::-webkit-scrollbar {
   width: 1em;
@@ -399,12 +453,13 @@ body::-webkit-scrollbar-thumb {
 }
 
 .l-content-modal {
+  display: none;
   z-index: 3;
   opacity: 1;
   height: 100%;
 
   position: absolute;
-  background-color: #526066;
+  background-color: $bgFontColor;
   color: white;
   top: 0;
   left: 0;
@@ -430,24 +485,25 @@ body::-webkit-scrollbar-thumb {
   color: white !important;
 }
 
-#modal-screen-content {
-  padding-top: 32px;
+ 
+#modal-screen-window {
+  //max-width: 1000px;
+  //margin: 0 auto;
 }
-.modal-screen-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
 
-  background-color: #526066;
-}
 .modal-screen {
-  z-index: 8;
-  min-height: 100vh;
-  display: none;
-  position: absolute;
-  background-color: #526066;
+  overflow: auto;
+  max-height: 88vh !important;
 
-  top: 0;
+  z-index: 8;
+ // min-height: 100vh;
+  max-width: 950px;
+  margin: 0 auto;
+  display: none;
+  position: relative;
+  background-color: $bgFontColor;
+
+  //top: 90px;
   left: 0;
   width: 100%;
 
@@ -461,6 +517,10 @@ body::-webkit-scrollbar-thumb {
 .modal-screen-text {
   padding: 24px;
   padding-bottom: 0px;
+}
+
+#modal-screen--about, #modal-screen--reference,#modal-screen--configuration {
+  padding-top: 0px;
 }
 #trickList-table {
   width: 100%;
@@ -490,7 +550,7 @@ body::-webkit-scrollbar-thumb {
 
 .configurator-right-close {
   cursor: pointer;
-  right: 64px;
+  right: 24px; // 64px;
   top: 10px;
   position: absolute;
 }
@@ -499,7 +559,7 @@ body::-webkit-scrollbar-thumb {
   z-index: 20;
   position: absolute;
   display: table;
-  background-color: #526066;
+  background-color: $bgFontColor;
   opacity: 0.95;
   top: 0px;
   height: calc(100vh - 0px);
@@ -615,7 +675,7 @@ body::-webkit-scrollbar-thumb {
   float: right;
   font-size: 12px;
   color: white;
-  background-color: red;
+  background-color: $redButton;
 }
 
 #config-submit {
@@ -625,7 +685,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 #trickList-clearlistBtn {
-  background-color: red;
+  background-color: $redButton;
 }
 
 .info-tooltip {
@@ -724,21 +784,17 @@ body::-webkit-scrollbar-thumb {
   overflow: auto;
 }
 
-
-
-
- 
-
 .resp-table-wrapper {
   padding-top: 16px;
 }
+
 
 .resp-table {
   margin: 0 0 40px 0;
   width: 100%;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   display: table;
-  color: black; 
+  color: black;
 }
 @media screen and (max-width: 580px) {
   .table {
@@ -756,10 +812,10 @@ body::-webkit-scrollbar-thumb {
 .row.header {
   font-weight: 900;
   color: #ffffff;
-  background: #44110a;;
+  background: #44110a;
 }
 .row.green {
-  background:#072818;;
+  background: #072818;
 }
 .row.blue {
   background: #101e33;
@@ -777,7 +833,6 @@ body::-webkit-scrollbar-thumb {
     display: none;
   }
   .row .cell {
-  
     margin-bottom: 10px;
   }
   .row .cell:before {
@@ -805,25 +860,51 @@ body::-webkit-scrollbar-thumb {
   }
 }
 
+.resp-table-wrapper-details-view {
+ // padding-top:0px;
+  .resp-table {
+    //margin: 0; 
+  }
+  .tricktionary_thumb_img {
+    width:100px;
+    height: 100px;
+  }
+  
+
+
+ .cell--details-view {
+   padding: 2px;  margin: 0;
+ }
+.row--details-view { margin: 0;padding:0;
+}
+
+}
+
+
 
 .tricktionary-toc {
   padding-top: 12px;
-  color:white; 
+  color: white;
   box-shadow: none;
 }
 .pure-menu-heading {
-  color: white; padding-left: 0px;
+  color: white;
+  padding-left: 0px;
 }
-.pure-menu-link  {
-  color:white; 
+.pure-menu-link {
+  color: white;
 }
-.pure-menu-link:hover  {
-  color:black; 
+.pure-menu-link:hover {
+  color: black;
 }
 
-.toc-anchor{
+.toc-anchor {
   display: block;
   position: relative;
   top: -250px;
   visibility: hidden;
+}
+
+#slotmachine {
+  display: none;
 }
