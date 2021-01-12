@@ -7,34 +7,26 @@ import "../css/style.scss";
 import { Configuration } from "./configuration";
 import { SlotMachine } from "./slotmachine";
 import { ResultParser } from "./resultparser";
-import { TricktionarySceen } from "./tricktionary-screen";
-import { AboutScreen } from "./about-screen";
+import { Screens } from "./screens";
 import { Trickdata } from "./trickdata";
 import { Tricklist } from "./tricklist";
 import { Tooltips } from "./tooltips";
-import { ModalScreen } from "./modalscreens";
+import { Scoreboard } from "./scoreboard";
+
 import { Audioplayer } from "./audioplayer";
-import { renderThumb, renderTable } from "./helperfunctions.js";
+//import { renderThumb, renderTable } from "./helperfunctions.js";
 
 let CONFIG = "";
 
 class GrindTrickRandomizer {
   constructor() {
-    this.$startScreen = $("#start-screen");
-    this.$gameScreen = $("#slotmachine");
-    this.$gameOverScreen = $("#l-content-modal");
-
     this.$randomizeButton = $("#randomizeButton");
     this.$randomizeButtonStart = $("#randomizeButtonStart");
     this.$randomizeButtonSlots = $("#randomizeButton2");
 
     this.$soundOnOff = $("#sound");
-    this.$loadingScreen = $("#loading-screen");
-    this.$aboutBtn = $("#aboutBtn");
-    this.$trickNamingBtn = $("#trickNamingBtn");
-    this.$configButton = $("#configButton");
+
     this.$tricklistBtn = $("#tricklistBtn");
-    this.$tricklistBtnStart = $("#tricklistButtonStart");
     this.$addTricklistBtn = $("#addTricklistBtn");
     this.$helpBtn = $("#helpButton");
     this.$abortButton = $("#abortButton");
@@ -49,11 +41,12 @@ class GrindTrickRandomizer {
     this.audioplayer = new Audioplayer(this.$soundOnOff);
     this.slotMachine = new SlotMachine(this.slotSpeed, this.includedTricks);
     this.resultParser = new ResultParser();
-    this.tricktionarySceen = new TricktionarySceen();
-    this.aboutScreen = new AboutScreen();
+
+    this.screens = new Screens();
     this.tricklist = new Tricklist(this.$tricklistBtn);
     this.tooltips = new Tooltips(this.$helpBtn, this);
-    this.modalScreen = new ModalScreen();
+    this.scoreboard = new Scoreboard(this.configurator.getGameConfig()); 
+
     this.trickdata = new Trickdata();
     CONFIG = this.trickdata.get();
 
@@ -62,7 +55,7 @@ class GrindTrickRandomizer {
 
   init() {
     this.audioplayer.init(this.configurator.getSound());
-    this.$loadingScreen.fadeOut("slow");
+    this.screens.show("Start");
 
     this.registerListener();
   }
@@ -88,36 +81,12 @@ class GrindTrickRandomizer {
 
     this.$randomizeButtonStart.on("click", (e) => {
       e.preventDefault();
+      this.scoreboard.startGame();
       this.onClickStart();
     });
     this.$randomizeButtonSlots.on("click", (e) => {
       e.preventDefault();
       this.onClickStart();
-    });
-
-    this.$aboutBtn.on("click", (e) => {
-      e.preventDefault();
-      this.modalScreen.show("about", "About");
-    });
-
-    this.$trickNamingBtn.on("click", (e) => {
-      e.preventDefault();
-      this.modalScreen.show("reference", "Tricktionary");
-    });
-
-    this.$configButton.on("click", (e) => {
-      e.preventDefault();
-      this.modalScreen.show("configuration", "Configuration");
-    });
-
-    this.$tricklistBtn.on("click", (e) => {
-      e.preventDefault();
-      this.modalScreen.show("tricklist", "Trick List");
-    });
-
-    this.$tricklistBtnStart.on("click", (e) => {
-      e.preventDefault();
-      this.modalScreen.show("tricklist", "Trick List");
     });
 
     this.$abortButton.on("click", (e) => {
@@ -155,13 +124,16 @@ class GrindTrickRandomizer {
 
     this.$endScreenText.on("click", () => {
       if (this.isEndScreen) {
+        this.screens.scrollDown();
+
         this.tooltips.showTooltip("endScreen");
       }
     });
   }
 
   addToTricklist() {
-    this.modalScreen.show("tricklist", "Trick List");
+    this.screens.show("Trick List");
+
     let points = 1; // TODO
     this.tricklist.addTrick(
       this.slotMachineResult.parsed,
@@ -186,13 +158,9 @@ class GrindTrickRandomizer {
     if (!this.slotMachine.isValidState()) {
       return false;
     }
+    this.screens.show("Slotmachine");
+    this.screens.disableNav();
 
-    this.$startScreen.hide();
-    this.modalScreen.hide();
-    this.$gameScreen.show();
-    this.$helpBtn.addClass("pure-button-disabled");
-    this.$configButton.addClass("pure-button-disabled");
-    this.$randomizeButton.addClass("pure-button-disabled");
     this.isEndScreen = false;
     this.audioplayer.stop();
 
@@ -207,18 +175,15 @@ class GrindTrickRandomizer {
     this.slotMachine
       .run()
       .then((results) => {
-        this.$helpBtn.removeClass("pure-button-disabled");
-        this.$configButton.removeClass("pure-button-disabled");
-        this.$randomizeButton.removeClass("pure-button-disabled");
+        this.screens.enableNav();
+
         this.showEndScreen();
       })
       .catch((error) => {
         console.error("catch", error);
       });
   }
- 
- 
-  
+
   showEndScreen(animateBottom = true) {
     this.isEndScreen = true;
     const winners = this.slotMachine.slots.map((s) => {

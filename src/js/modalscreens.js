@@ -36,8 +36,8 @@ export class ModalScreen {
     if (this.currentWindow) {
       $("#modal-screen--" + this.currentWindow).hide();
     }
-
     this.$container.hide();
     $("html, body").animate({ scrollTop: 0 }, "fast");
+    
   }
 }

@@ -10,7 +10,7 @@ export class Tricklist {
     this.$continue = $("#trickList-continueBtn");
 
     this.$list = $("#modal-screen--tricklist");
-    this.results = [];// {points: 0, parsed: "", orig: ""}
+    this.results = []; // {points: 0, parsed: "", orig: ""}
     this.storageKey = "tricklist-serialized"; // points; t; orig.t; getPointsForTrick(this.winners)
 
     this.registerListener();
@@ -66,7 +66,7 @@ export class Tricklist {
   }
 
   clearTrick(index = 0) {
-    return false; 
+    return false;
     const tmp = this.results;
     tmp.splice(index, 1);
     this.results = tmp;
@@ -86,22 +86,21 @@ export class Tricklist {
   }
 
   addTrick(fullTrickName, origName, points) {
-    let trickEntry = { parsed: fullTrickName, orig: origName,points: points,}; 
+    let trickEntry = { parsed: fullTrickName, orig: origName, points: points };
     this.results.push(trickEntry);
-    localStorage.setItem(this.storageKey, JSON.stringify( this.results));
-     //let row = this.renderRow(trickEntry, this.results.length - 1);
+    localStorage.setItem(this.storageKey, JSON.stringify(this.results));
+    //let row = this.renderRow(trickEntry, this.results.length - 1);
     //$(row).hide().prependTo(this.$list).fadeIn();
     this.toggleControlDisabled();
   }
 
   render() {
     let rows = [];
-   
+
     let i = 0;
     this.results.reverse().forEach((entry, index) => {
       i = i + 1;
-      let row = 
-      rows.push([entry.points, entry.parsed, entry.orig, ]);
+      let row = rows.push([entry.points, entry.parsed, entry.orig]);
     });
     let html = renderTable(
       "Trick List",
@@ -111,7 +110,7 @@ export class Tricklist {
     this.$list.html("");
     this.$list.html(html);
   }
-/*
+  /*
   renderRow(name, index) {
     return `<tr>
     <td>${index + 1}</td> 

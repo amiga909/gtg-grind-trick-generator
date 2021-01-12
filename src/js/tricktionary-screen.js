@@ -1,8 +1,39 @@
 import { Trickdata } from "./trickdata.js";
 import { renderThumb, renderTable } from "./helperfunctions.js";
 let CONFIG = null;
+const MORE = [
+  {
+    term: "Illusion Spin",
+    comment:
+      "Looking over the opposite shoulder of the direction you are going to spin.",
+  },
+  {
+    term: "Grabbing locked feet",
+    comment:
+      "Grabs are only considered as grabbing the free foot of a one legged grind like Makio. A locked feet grab means holding a locked skate, for example a grabbed Full Torque.",
+  },
+  {
+    term: "Negative Topside",
+    comment: "Exists but I do not understand it at all.",
+  },
+  {
+    term: "Medspin",
+    comment:
+      "A 360 done on-ground where you go forward to backwards on foot, then back to forwards on both feet.",
+  },
+  {
+    term: "Toe/Heel Rolls",
+    comment:
+      "Rolling with one foot on one wheel before or after the grind.",
+  },
+  {
+    term: "Step",
+    comment:
+      "Exists but I do not understand it at all. <a target='blank' href='http://skateyeg.com/bog/10.0_Step.html'>Book of Grinds</a>",
+  },
+];
 
-export class TricktionarySceen {
+export class TricktionaryScreen {
   constructor() {
     this.$dom = $("#trickNamingContent");
 
@@ -20,7 +51,6 @@ export class TricktionarySceen {
 
   renderTOC() {
     let tocs = [];
- 
 
     this.$dom.find("h3").each((i, section) => {
       let $section = $(section);
@@ -45,24 +75,27 @@ export class TricktionarySceen {
       </p> 
    </div>
   `;
-  
+
     $(html).prependTo(this.$dom);
   }
 
   renderNotImplemented() {
-    // dupes content?
-    return false;
     const rows = [];
     const variations = CONFIG.OBSTACLE_VARIATIONS;
-    variations.forEach((v) => {
-      rows.push(`<tr class=" ">
-    <td>${v.name}</td>
-    <td><a target="blank" href="${v.url}">${new URL(v.url).hostname}</a></td>
-  </tr>`);
-    });
-    $("#trickNamingContentNotImplementedTable").append(rows.join(""));
 
-    const html = $("#trickNamingContentNotImplemented").html();
+    variations.forEach((v) => {
+      let row = [];
+      const url = v.url ? v.url : "";
+      const comment = v.comment ? `${v.comment}` : "";
+      const thumb = v.thumbUrl ? v.thumbUrl : "";
+      rows.push([v.name, url ? `<a  target="blank" href="${url}">Book of Grinds</a>` : ""   ]);
+    });
+   
+
+    MORE.forEach((m) => {
+      rows.push([m.term, m.comment]);
+    });
+    let html = renderTable("Not Implemented", ["Term", "Comment"], rows);
     this.$dom.append(html);
   }
 
@@ -91,7 +124,7 @@ export class TricktionarySceen {
 
     vars = vars.sort((a, b) => {
       let aa = a.name.replace("BS", "ZZ");
-       
+
       aa = aa.replace("FS", "ZZ");
       let bb = b.name.replace("BS", "ZZ");
       bb = bb.replace("FS", "ZZ");

@@ -1,5 +1,12 @@
 export class Configuration {
   constructor() {
+
+    this.$levelSelect = $("#levelSelect");
+    this.$spinsTotal = $("#spinsTotalInput");
+    this.$removesTotal = $("#removesTotalInput");
+    this.$spinsLocks = $("#spinsLocksInput");
+
+
     this.$soundSelect = $("#soundSelect");
     this.$speedSelect = $("#speedSelect");
     this.$submit = $("#config-submit");
@@ -97,6 +104,14 @@ export class Configuration {
     const { value } = this.configs.filter((s) => s.key == "speedSelect")[0];
 
     return value;
+  }
+
+  getGameConfig(){
+    return {
+      spins: 10,
+      removes: 3,
+      locks: 2
+    }
   }
 
   getIncludedTricks() {

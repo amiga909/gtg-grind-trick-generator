@@ -10,22 +10,16 @@ export const renderThumb = (imageUrl = "", bogLink = "") => {
         ? "<a href='http://skateyeg.com/bog/'>Book of Grinds</a>"
         : imageHtml;
     html = `<a href="${bogLink}" target="blank">${linkContent}</a>`;
-  }
-  else {
+  } else {
     html = imageHtml;
   }
   return html;
 };
 
-
-
-export const renderTableNoHeader = (  rows = [[], []], color="blue") => {
-   
+export const renderTableNoHeader = (rows = [[], []], color = "blue") => {
   let rowsHtml = rows.map((r) => {
-   
     let tds = r.map((rr) => {
-       
-      return  `<div class="cell cell--details-view"  > ${rr} </div>`  ;
+      return `<div class="cell cell--details-view"  > ${rr} </div>`;
     });
     return `<div class="row row--details-view"> ${tds.join("")}</div>`;
   });
@@ -39,11 +33,18 @@ export const renderTableNoHeader = (  rows = [[], []], color="blue") => {
      `;
 };
 
-export const renderTable = (title = "", headers = [], rows = [[], []], color="blue") => {
+export const renderTable = (
+  title = "",
+  headers = [],
+  rows = [[], []],
+  color = "blue"
+) => {
   let headersHtml = headers.map((h) => {
     return `<div class="cell">${h}</div>`;
   });
-  let headersContainer = headersHtml ?  `<div class="row header ${color}">${headersHtml.join("")} </div> ` : ''
+  let headersContainer = headersHtml
+    ? `<div class="row header ${color}">${headersHtml.join("")} </div> `
+    : "";
   let rowsHtml = rows.map((r) => {
     let i = -1;
     let tds = r.map((rr) => {
@@ -54,7 +55,7 @@ export const renderTable = (title = "", headers = [], rows = [[], []], color="bl
   });
 
   return ` 
-    <div data-name="${title.replace(" ","")}" class="resp-table-wrapper">
+    <div data-name="${title.replace(" ", "")}" class="resp-table-wrapper">
       <h3>${title}</h3>
       <div class="resp-table">
         ${headersContainer} 
@@ -63,6 +64,4 @@ export const renderTable = (title = "", headers = [], rows = [[], []], color="bl
      `;
 };
 
-export const addRowToTop = (  rows = [ ]) => {
-
-}
+export const addRowToTop = (rows = []) => {};

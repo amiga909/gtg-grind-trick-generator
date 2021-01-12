@@ -11,9 +11,15 @@ const CONFIG = {
   randomizeButton: { text: "Spin the reels", position: "" },
   helpBtn: {
     type: "nav",
-    text: "",
+    text: "Explains in-screen controls",
     position: "",
   },
+
+  scoreboard: {
+    type: "nav",
+    text: "Scoreboard", //props: { maxWidth: "50px" },
+  },
+  
 
   configButton: {
     type: "nav",
@@ -21,11 +27,10 @@ const CONFIG = {
   },
   trickNamingBtn: {
     type: "nav",
-    text: "Open  Tricktionary",//props: { maxWidth: "50px" },
+    text: "Open  Tricktionary", //props: { maxWidth: "50px" },
   },
-  
-  aboutBtn: { type: "nav", text: "How to play" },//props: { maxWidth: "50px" },
 
+  aboutBtn: { type: "nav", text: "How to play" }, //props: { maxWidth: "50px" },
 
   addTricklistBtn: {
     type: "slot-menu",
@@ -54,7 +59,7 @@ const CONFIG = {
     type: "slot",
     text: "",
     //'<b>Switch</b>blalbblalblalblalba blalblalblalba blalblalblalba blalblalblalba blalblalblalba blalblalblalba lalblalba bblalblalblalba blalblalblalba blalblalblalba blalblalblalba lalblalblalba <br>  <b>Fakie</b>blalblalblalba blalblalblalba <br> <b>Inspin</b>bl blalbblalblalblalba blalblalblalba blalblalblalba blalblalblalba blalblalblalba blalblalblalba lalblalba blalblalblalba alblalblalba <br>   <b>Frontside Unity</b>grindSlot <br> <img width="300" heigth="300" src="./img/bog/1.jpg">  <br>Open book of grinds  ',
-    props: { offset: 8 , maxWidth: "80vh"},
+    props: { offset: 8, maxWidth: "80vh" },
     slotName: "Grind",
   },
   /*

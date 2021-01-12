@@ -310,21 +310,23 @@ export class ResultParser {
     return result;
   }
 
-  getHelpTableForTrick( result) {
+  getHelpTableForTrick(result) {
     let html = "";
     let parseString = result.parsed.replace("Top ", "Topside");
     let rows = [];
- 
 
     for (const [term, comment] of Object.entries(CONFIG.GLOSSARY)) {
-      if( parseString.toLowerCase().includes(term.toLowerCase()) && !term.includes(" ")) {
-        rows.push([ `<b>${term}</b>`,  "", comment]);
-        parseString = parseString.replace(term, "")
-       }
+      if (
+        parseString.toLowerCase().includes(term.toLowerCase()) &&
+        !term.includes(" ")
+      ) {
+        rows.push([`<b>${term}</b> ${comment}`, ""]);
+        parseString = parseString.replace(term, "");
+      }
     }
 
     const grind = CONFIG.GRINDS.filter((g) => {
-      return parseString.includes(g.name);  
+      return parseString.includes(g.name);
     })[0];
 
     const grindSynonym = CONFIG.GRIND_SYNONYMS_THUMB.filter((s) => {
@@ -335,40 +337,40 @@ export class ResultParser {
       return parseString.includes(s.name);
     });
     if (grindSynonym) {
-      rows.push([ `<b>${grindSynonym.newName}</b>`, renderThumb(grindSynonym.thumbUrl), grindSynonym.comment ? grindSynonym.comment : ""]);
-      parseString = parseString.replace(grindSynonym.name, "")
+      rows.push([
+        `<b>${grindSynonym.newName}</b> ${
+          grindSynonym.comment ? grindSynonym.comment : ""
+        }`,
+        renderThumb(grindSynonym.thumbUrl),
+      ]);
+      parseString = parseString.replace(grindSynonym.name, "");
     } else {
       let cleanedName = grind.name.replace(/BS /, "Backside ");
       cleanedName = cleanedName.replace(/FS /, "Frontside ");
-      rows.push([`<b>${cleanedName}</b>`, renderThumb(grind.thumbUrl ), grind.comment ? grind.comment : ""]);
-      parseString = parseString.replace(grind.name, "")
+      rows.push([
+        `<b>${cleanedName}</b> ${grind.comment ? grind.comment : ""}`,
+        renderThumb(grind.thumbUrl),
+      ]);
+      parseString = parseString.replace(grind.name, "");
     }
-    
-    if(variations) {
-      let varComb = {names: [], thumbs:[], comments: []};
-      variations.forEach( (v)=>{
-        
-        if(parseString.includes(v.name) && !v.name.includes(" ")) {
-          varComb.names.push(`<b>${v.name}</b>`)
-          varComb.thumbs.push(renderThumb(v.thumbUrl))
-          varComb.comments.push(v.comment ? `<b>${v.name}</b> ${v.comment}` : "") 
-         // rows.push([  `<b>${v.name}</b>` , renderThumb(v.thumbUrl), v.comment ? v.comment : ""]);
-          parseString = parseString.replace(v.name, "")
+
+    if (variations) {
+      let varComb = { names: [], thumbs: [], comments: [] };
+      variations.forEach((v) => {
+        if (parseString.includes(v.name) && !v.name.includes(" ")) {
+          varComb.names.push(`<b>${v.name}</b> ${v.comment ? v.comment : ""}`);
+          varComb.thumbs.push(renderThumb(v.thumbUrl));
+
+          parseString = parseString.replace(v.name, "");
         }
-        
-      })
-      let variNames = 
-      rows.push([ varComb.names.join(" | ") , varComb.thumbs.join(""), varComb.comments.join("<br>")]);
+      });
+
+      rows.push([varComb.names.join("<br/>"), varComb.thumbs.join("")]);
     }
- 
 
-     
-    return renderTableNoHeader(    rows);
-  }  
+    return renderTableNoHeader(rows);
+  }
 }
-
-
-
 
 function testParser() {
   const s = new ResultParser();
@@ -379,7 +381,7 @@ function testParser() {
       console.error(i, entry, p);
     }
     let doc = s.getHelpTableForTrick(p);
-   // console.log(i, p.parsed, doc)
+    // console.log(i, p.parsed, doc)
   });
 }
 

@@ -142,7 +142,8 @@ const SPINS_FAKIE_TO_GRIND_GROOVE_BS = [
   },
 ];
 
-const HYBRID_COMMENT = "Treated like a soul grind (AO, Truespin, Zerospin) not like a groove grind (270, 450) because the trick has not a different name when grinded in reverse direction.";
+const HYBRID_COMMENT =
+  "Treated like a soul grind (AO, Truespin, Zerospin) not like a groove grind (270, 450) because the trick has not a different name when grinded in reverse direction.";
 const SOUL_GRINDS = [
   {
     name: "Soul",
@@ -243,8 +244,7 @@ const SOUL_GRINDS = [
     name: "Hot Dog",
     noSwitch: true,
     url: "http://skateyeg.com/bog/11.0_Hot_Dog.html",
-    comment:
-      "Easier to do on a narrow box that can be grinded on both sides.",
+    comment: "Easier to do on a narrow box that can be grinded on both sides.",
     variations: {
       Rough: true,
       Tough: true,
@@ -578,7 +578,7 @@ const GRIND_SYNONYMS = [
     isTopside: true,
     url: "http://skateyeg.com/bog/02.0_Sweatstance_(Topside_Mizou).html",
   },
- 
+
   {
     newName: "Top Teakettle",
     name: "PStar",
@@ -623,7 +623,8 @@ const VARIATIONS = [
   {
     name: "Topside",
     url: "http://skateyeg.com/bog/03.0_Topside_(Top).html",
-    comment: "A Topside is when the frame of the skate is brought over an obstacle and placed on top, while the soul plate remains underneath."
+    comment:
+      "A Topside is when the frame of the skate is brought over an obstacle and placed on top, while the soul plate remains underneath.",
   },
   {
     name: "Negative",
@@ -802,7 +803,7 @@ const SPINS_OFF_GROOVE_GRIND = [
 
 const GLOSSARY = {
   // parsed tokens
-  AO: "(Alley-oop) Forwards to 180 Inspin to a soul grind.",
+  AO: "(Alley-oop) Forwards to 180 Inspin to a Soul grind.",
   True: "(Truespin) Forwards to 180 Outspin to a Soul grind.",
   Hurricane: "Forwards to 360 Outspin to a Soul grind.",
   Halfcab: "Fakie to 180 Inspin to a Soul grind.",
@@ -812,11 +813,12 @@ const GLOSSARY = {
   Zerospin: "Fakie to a Soul grind, no rotation.",
   Revert:
     "(Rewind) Spinning off a grind the opposite direction of the natural momentum set by the initial grind spin.",
-   
 
   // slot tokens
-  450: "360 spin to a Groove grind. The longer way (360 + 90 degrees).",
-  270: "360 spin to a Groove grind. The shorter way (360 - 90 degrees).",
+  450: "360 spin to/off a Groove grind. The longer way (360 + 90 degrees).",
+  270: "360 spin to/off a Groove grind. The shorter way (360 - 90 degrees).",
+  810: "720 spin to/off a Groove grind. The longer way (720 + 90 degrees).",
+  630: "720 spin to/off a Groove grind. The shorter way (720 - 90 degrees).",
   Inspin: "Spin towards obstacle.",
   Outspin: 'Spin away from obstacle, "blindside".',
   Switch: "Grinding in the unnatural mirrored position of a grind.",
