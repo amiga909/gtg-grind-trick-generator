@@ -5,7 +5,7 @@ import "jquery-slotmachine/dist/jquery.slotmachine.min";
 import { Trickdata } from "./trickdata.js";
 let CONFIG = null;
 
-const SLOT_STATES = {
+export const SLOT_STATES = {
   enabled: "enabled",
   disabled: "disabled",
   locked: "locked",
@@ -86,6 +86,19 @@ export class SlotMachine {
       this.setSlotState(slot.name, slot.state, slot.dom.closest(".bog-slot"));
     });
   }
+  countSlotStates(){
+    const states = { };
+    this.slots.forEach((slot) => {
+      if(states[slot.state]) {
+        states[slot.state] = states[slot.state] + 1; 
+      }
+      else {
+        states[slot.state] = 1;
+      }
+   
+    });
+    return states; 
+  }
   onSpinStart() {
     this.slots.forEach((slot) => {
       if (slot.state !== SLOT_STATES.locked) {
@@ -103,14 +116,16 @@ export class SlotMachine {
     });
   }
 
-  onClickSlot($slot, callback) {
+  onClickSlot($slot, callbacks) {
     const name = $slot.data("name");
     const index = this.getSlotIndexByName(name);
     const slot = this.slots[index];
 
     const isClickable = this.slots[index].state !== SLOT_STATES.unavailable;
     if (isClickable) {
-      this.toggleSlotState(name, $slot, callback);
+    
+      this.toggleSlotState(name, $slot, callbacks);
+      callbacks.on.afterSlotChange.call(callbacks.scope)
     }
   }
 
@@ -183,7 +198,7 @@ export class SlotMachine {
     return isValid;
   }
 
-  toggleSlotState(slotName, $slot, callback) {
+  toggleSlotState(slotName, $slot, callbacks) {
     const index = this.getSlotIndexByName(slotName);
     const state = this.slots[index].state;
 
@@ -191,6 +206,7 @@ export class SlotMachine {
 
     if (state === SLOT_STATES.unavailable) {
       //console.log('cant change slot');
+      // newState = state;
     } else if (state === SLOT_STATES.enabled) {
       newState = SLOT_STATES.locked;
     } else if (state === SLOT_STATES.locked) {
@@ -208,8 +224,9 @@ export class SlotMachine {
       (state === SLOT_STATES.locked && newState === SLOT_STATES.disabled) ||
       (state === SLOT_STATES.disabled && newState === SLOT_STATES.enabled)
     ) {
-      callback.cb.call(callback.scope, false);
+      callbacks.on.onResultChange.call(callbacks.scope, false);
     }
+    return newState;
   }
 
   getSlotIndexByName(name) {
@@ -529,7 +546,9 @@ export class SlotMachine {
       name = this.slots[slotIndex].name === "Grind" ? name : s.name;
       name = s.name;
 
-      const htmlSlot = `<div data-index="${index}" class="bogLink"><div class="${iconClass}">${name}</div></div>`;
+      const htmlSlot = `<div data-index="${index}" class="bogLink"><div class="${iconClass}">${name}  
+       <span class="number-circle-slot">x2</span>
+      </div></div>`;
 
       return htmlSlot;
     });

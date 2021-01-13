@@ -101,7 +101,7 @@ export class Screens {
     }
 
     if (newScreen.modal) {
-      this.modalScreen.show(newScreen.modal.id, newScreen.modal.name);
+      this.modalScreen.show(newScreen.modal.id, newScreen.modal.title);
     } else {
       this.lastNonModalScreen = selected;
       newScreen.$dom.show();

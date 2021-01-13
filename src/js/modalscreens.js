@@ -7,17 +7,15 @@ const MODAL_WINDOW_ICONS = {
 
 export class ModalScreen {
   constructor() {
+     
     this.$container = $("#modal-screen-window");
     this.$contents = $(".modal-screen-text");
-    this.$closeBtn = $("#modal-screen-close-btn");
+  
     this.$title = $("#modal-screen-title");
     this.$titleIcon = $("#modal-screen-title-icon");
     this.currentWindow = "";
 
-    this.$closeBtn.on("click", (e) => {
-      e.preventDefault();
-      this.hide();
-    });
+   
   }
   show(id = "", title = "") {
     this.currentWindow = id;

@@ -4,18 +4,21 @@ const APPROACHES = [
     url: "http://skateyeg.com/bog/05.0_Fakie.html",
     isFakie: true,
     isSwitch: false,
+    scores:"x2",
   },
   {
     name: "Switch",
     url: "http://skateyeg.com/bog/04.0_Switch.html",
     isFakie: false,
     isSwitch: true,
+    scores:"x2",
   },
   {
     name: "Fakie & Switch",
     url: "http://skateyeg.com/bog/04.0_Switch.html",
     isFakie: true,
     isSwitch: true,
+    scores:"x4",
   },
 ];
 

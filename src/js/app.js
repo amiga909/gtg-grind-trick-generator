@@ -63,13 +63,18 @@ class GrindTrickRandomizer {
   registerListener() {
     $(".bog-slot").on("click", (e) => {
       if (this.isEndScreen) {
-        const onResultChange = () => {
+        const onResultChange = ( ) => {
+        
+          this.scoreboard.set(this.slotMachine.countSlotStates());
           this.$addTricklistBtn.removeClass("pure-button-disabled");
           this.showEndScreen();
         };
+        const afterSlotChange = ( ) => {
+          this.scoreboard.set(this.slotMachine.countSlotStates());
+        };
         this.slotMachine.onClickSlot($(e.currentTarget), {
           scope: this,
-          cb: onResultChange,
+          on: {onResultChange: onResultChange, afterSlotChange: afterSlotChange} ,
         });
       }
     });
@@ -160,7 +165,8 @@ class GrindTrickRandomizer {
     }
     this.screens.show("Slotmachine");
     this.screens.disableNav();
-
+    this.scoreboard.useSpin();
+   
     this.isEndScreen = false;
     this.audioplayer.stop();
 
