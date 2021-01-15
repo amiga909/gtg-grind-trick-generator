@@ -23,8 +23,7 @@ const MORE = [
   },
   {
     term: "Toe/Heel Rolls",
-    comment:
-      "Rolling with one foot on one wheel before or after the grind.",
+    comment: "Rolling with one foot on one wheel before or after the grind.",
   },
   {
     term: "Step",
@@ -88,9 +87,11 @@ export class TricktionaryScreen {
       const url = v.url ? v.url : "";
       const comment = v.comment ? `${v.comment}` : "";
       const thumb = v.thumbUrl ? v.thumbUrl : "";
-      rows.push([v.name, url ? `<a  target="blank" href="${url}">Book of Grinds</a>` : ""   ]);
+      rows.push([
+        v.name,
+        url ? `<a  target="blank" href="${url}">Book of Grinds</a>` : "",
+      ]);
     });
-   
 
     MORE.forEach((m) => {
       rows.push([m.term, m.comment]);

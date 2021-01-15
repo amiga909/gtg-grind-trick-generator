@@ -5,13 +5,14 @@ export class Tricklist {
     this.$tricklistBtn = $tricklistBtn;
     this.$tricklistBtnStart = $("#start-screen-tricklistBtn-container");
 
-    this.$clear = $("#trickList-clearlistBtn");
-    this.$sendMail = $("#trickList-sendMailBtn");
-    this.$continue = $("#trickList-continueBtn");
+    //this.$clear = $("#trickList-clearlistBtn");
+    //this.$sendMail = $("#trickList-sendMailBtn");
+    this.$spinNext = $("#trickList-continueBtn");
+    this.$abortButton = $("#abortButton");
 
-    this.$list = $("#modal-screen--tricklist");
+    this.$list = $("#tricklist-table");
     this.results = []; // {points: 0, parsed: "", orig: ""}
-    this.storageKey = "tricklist-serialized"; // points; t; orig.t; getPointsForTrick(this.winners)
+    this.storageKey = "tricklist-serialized";  
 
     this.registerListener();
     this.getStorage();
@@ -20,15 +21,20 @@ export class Tricklist {
   }
 
   registerListener() {
-    this.$clear.on("click", (e) => {
+    this.$abortButton.on("click", (e) => {
+      e.preventDefault();
+      location.reload();
+    });
+  /*  this.$clear.on("click", (e) => {
       e.preventDefault();
       this.clearList();
-    });
-    this.$continue.on("click", (e) => {
+    });*/
+    this.$spinNext.on("click", (e) => {
       e.preventDefault();
-      $("#randomizeButton").trigger("click");
+      $("#randomizeButton2").trigger("click");
     });
 
+    /*
     $("body").on("click", ".clearTrick", (e) => {
       e.preventDefault();
       const index = $(e.currentTarget).data("index");
@@ -45,7 +51,7 @@ export class Tricklist {
 
       const title = `Tricklist made with ${document.location.href}`;
       window.open(`mailto:?subject=${title}&body=${mailBody}`);
-    });
+    });*/
   }
 
   getStorage() {
@@ -56,6 +62,7 @@ export class Tricklist {
   }
 
   toggleControlDisabled() {
+    return false; 
     if (this.results.length > 0) {
       this.$tricklistBtn.removeClass("pure-button-disabled");
       $("#start-screen-tricklistBtn-count").html(this.results.length);
@@ -79,18 +86,17 @@ export class Tricklist {
 
   clearList() {
     this.results = [];
-    this.$list.html("");
-    //  this.hide();
-    localStorage.removeItem(this.storageKey);
-    this.$tricklistBtn.addClass("pure-button-disabled");
+ 
+    localStorage.removeItem(this.storageKey); 
   }
 
   addTrick(fullTrickName, origName, points) {
     let trickEntry = { parsed: fullTrickName, orig: origName, points: points };
     this.results.push(trickEntry);
     localStorage.setItem(this.storageKey, JSON.stringify(this.results));
-    //let row = this.renderRow(trickEntry, this.results.length - 1);
-    //$(row).hide().prependTo(this.$list).fadeIn();
+    let row = this.renderRow(trickEntry );
+    console.log("row",row)
+    $(row).hide().insertAfter(this.$list.find(".row:nth-child(1)")).fadeIn();
     this.toggleControlDisabled();
   }
 
@@ -103,21 +109,22 @@ export class Tricklist {
       let row = rows.push([entry.points, entry.parsed, entry.orig]);
     });
     let html = renderTable(
-      "Trick List",
+      "",
       ["Points", "Name", "Description"],
       rows
     );
-    this.$list.html("");
-    this.$list.html(html);
+    console.log(this.results)
+     this.$list.html("");
+     this.$list.html(html);
   }
-  /*
-  renderRow(name, index) {
-    return `<tr>
-    <td>${index + 1}</td> 
-    <td>${name}</td> 
-    <td> <button data-index="${index}" class="clearTrick pure-button pure-button-secondary">
-    <i class="fa fa-trash fa-2x"></i> 
-     </button></td>
-</tr>`;
-  }*/
+  
+  renderRow(entry) {
+    
+    return `<div class="row"> 
+      <div class="cell" data-title="Points"> ${entry.points} </div>
+      <div class="cell" data-title="Name"> ${entry.parsed} </div>
+      <div class="cell" data-title="Description"> ${entry.orig} </div>
+    </div>`;
+     
+  } 
 }

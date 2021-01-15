@@ -1,4 +1,4 @@
-import {SLOT_STATES} from './slotmachine'
+import { SLOT_STATES } from "./slotmachine";
 
 export class Scoreboard {
   constructor(config) {
@@ -40,9 +40,9 @@ export class Scoreboard {
   }
 
   set(stateCount = {}) {
-  
     if (stateCount[SLOT_STATES.disabled]) {
-        this.removes = this.tokensTotal.removes - stateCount[SLOT_STATES.disabled];
+      this.removes =
+        this.tokensTotal.removes - stateCount[SLOT_STATES.disabled];
     }
     if (stateCount[SLOT_STATES.locked]) {
       this.locks = this.tokensTotal.locks - stateCount[SLOT_STATES.locked];
@@ -54,11 +54,19 @@ export class Scoreboard {
     this.render();
   }
 
+  setPoints(p) {
+    this.points = this.points + p;
+    this.render();
+  }
+
   isLastSpin() {
     this.spins === this.tokensTotal.spins;
   }
 
-  isValidTokensCount(){
-      return this.removes <= this.tokensTotal.removes && this.locks <= this.tokensTotal.locks;
+  isValidTokensCount() {
+    return (
+      this.removes <= this.tokensTotal.removes &&
+      this.locks <= this.tokensTotal.locks
+    );
   }
 }

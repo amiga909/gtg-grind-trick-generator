@@ -47,6 +47,7 @@ export class Screens {
       },
       {
         name: "Trick List",
+        noCloseButton: true,
         modal: {
           title: "Trick List",
           id: "tricklist",
@@ -105,6 +106,11 @@ export class Screens {
     } else {
       this.lastNonModalScreen = selected;
       newScreen.$dom.show();
+    }
+    if(newScreen.noCloseButton === true) {
+      this.$modalCloseBtn.hide();
+    }else {
+      this.$modalCloseBtn.show();
     }
 
     this.activeScreen = selected;

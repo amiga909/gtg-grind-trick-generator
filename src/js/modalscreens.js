@@ -7,15 +7,12 @@ const MODAL_WINDOW_ICONS = {
 
 export class ModalScreen {
   constructor() {
-     
     this.$container = $("#modal-screen-window");
     this.$contents = $(".modal-screen-text");
-  
+
     this.$title = $("#modal-screen-title");
     this.$titleIcon = $("#modal-screen-title-icon");
     this.currentWindow = "";
-
-   
   }
   show(id = "", title = "") {
     this.currentWindow = id;
@@ -36,6 +33,5 @@ export class ModalScreen {
     }
     this.$container.hide();
     $("html, body").animate({ scrollTop: 0 }, "fast");
-    
   }
 }

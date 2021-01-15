@@ -14,9 +14,14 @@ $bgFontColor: #526066; // bg color for all screens
 $bannerBgColor: #111;
 $bannerFontColor: white;
 
+// #e71b00#e93119#eb4832#ee5f4c#f07666#f38d7f#f5a399#f7bab2#fad1cc#fce8e5#ffffff
+$startButtonGlow: #e71b00;
+$startButtonGlowH: #ee5f4c;
+$startButtonGlowH1: #fad1cc;
+
 $slotEnabled: #0078e7;
-$slotDisabled: #e71b00;
-$slotLocked: #004280;
+$slotDisabled: #004280; // e71b00
+$slotLocked: #e71b00; // 004280
 
 $slotApproach: #1a0e2d;
 $slotSpinTo: #101e33;
@@ -24,8 +29,28 @@ $slotGrind: #072818;
 $slotVariation: #453a02;
 $slotSpinOff: #44110a;
 
-$redButton: green;
+$redButton: #e71b00;
+
+$bog-slot-header-color: white;
+$bog-slot-header-bgColor: #111;
 //font-sizes
+$banner-head-full-name-FS: 14px;
+$banner-head-FS: 1.4em;
+$bog-slot-header-FS: 0.7em;
+$bog-slot-machine-FS: 1.8em;
+$endscreen-text-FS: 1.6em;
+$start-screen-controls-FS: 20px;
+$myFooter-FS: 0.8em;
+$l-content-modal-text-content-FS: 1.6em;
+$modal-screen-FS: 1em;
+$ncludeTricksCb-FS: 16px;
+$config-reset-FS: 12px;
+$tippy-content-FS: 12px;
+$tippy-content-FS-up: 14px;
+$dataTable-row-FS: 10px;
+$scoreboard-FS: 16px;
+$scoreboard-points-FS: 40px;
+$scoreboard-spins-FS: 24px;
 
 .body-wrapper {
   max-width: 1000px;
@@ -93,7 +118,7 @@ p {
 }
 
 .banner-head-full-name {
-  font-size: 14px;
+  font-size: $banner-head-full-name-FS;
   text-align: center;
   margin-right: 8px;
 }
@@ -105,7 +130,7 @@ p {
   height: 90px;
   right: 0px;
   overflow: hidden;
- //border-bottom: 1px solid white;
+  //border-bottom: 1px solid white;
 
   background-color: $bannerBgColor;
   text-align: center;
@@ -113,7 +138,7 @@ p {
   background-position: center;
 
   width: 100%;
-//  margin-bottom: 12px;
+  //  margin-bottom: 12px;
 
   display: table;
 }
@@ -136,7 +161,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#156b2c', end
 .banner-head {
   vertical-align: middle;
   margin-top: 8px;
-  font-size: 1.4em;
+  font-size: $banner-head-FS;
   color: $bannerFontColor;
   font-weight: 500;
 
@@ -232,32 +257,35 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#156b2c', end
   height: 24px;
   margin: 0px 0px 0px 12px;
 }
+.bogLink {
+  user-select: none;
+}
 
 .bog-slot-header {
-  background: #111;
-  color: #fff;
+  background: $bog-slot-header-bgColor;
+  color: $bog-slot-header-color;
   padding-bottom: 8px;
 }
 .bog-slot-header h2 {
   margin: 0;
   padding-top: 0.7em;
-  font-size: 0.7em;
+  font-size: $bog-slot-header-FS;
   font-weight: normal;
 }
 .bog-slot-header-end {
-  background: #111;
-  color: #fff;
+  background: $bog-slot-header-bgColor;
+  color: $bog-slot-header-color;
   padding-bottom: 8px;
 }
 .bog-slot-header-end h2 {
   margin: 0;
   padding-top: 0.7em;
-  font-size: 0.7em;
+  font-size: $bog-slot-header-FS;
   font-weight: normal;
 }
 
 .bog-slot-machine {
-  font-size: 1.8em;
+  font-size: $bog-slot-machine-FS;
   margin: 0.2em 0 0;
   font-weight: 100;
   height: 36px;
@@ -359,14 +387,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#156b2c', end
   transform: matrix(1, 0, 0, 1, 0, -34);
 }
 #endScreen {
+  position: relative;
   display: none;
   margin-top: 20px;
   padding-bottom: 20px;
-  cursor: pointer;
 }
 
 #endscreen-text {
-  font-size: 1.6em;
+  font-size: $endscreen-text-FS;
   padding: 6px;
 }
 .start-screen-logo {
@@ -385,26 +413,27 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#156b2c', end
   //box-shadow: 0 0 0 1px white;
 }
 .start-screen-controls {
-  padding-top:12px;
+  padding-top: 12px;
   max-width: 400px;
   margin: 0 auto;
   text-align: center;
   h2 {
-    font-size: 20px;
+    font-size: $start-screen-controls-FS;
   }
 }
 .start-screen-levels {
   margin-top: -6px !important;
-  width: 100%!important;
+  width: 100% !important;
 }
 
-#addTricklistBtn {  background-color: $redButton;}
-.start-game-button {
+#addTricklistBtn {
+  width: 80px;
   background-color: $redButton;
-  //width: 90px;
- // height: 52.5px;
-  
 }
+#currentScore {
+  margin-top: 2px;
+}
+
 .start-screen-controls-upper {
   position: absolute;
   top: 2px;
@@ -443,7 +472,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#156b2c', end
 
 .myFooter {
   margin: 0 auto;
-  font-size: 0.8em;
+  font-size: $myFooter-FS;
   max-width: 1000px;
 }
 body::-webkit-scrollbar {
@@ -473,7 +502,7 @@ body::-webkit-scrollbar-thumb {
   width: 100%;
 }
 .l-content-modal-text-content {
-  font-size: 1.6em;
+  font-size: $l-content-modal-text-content-FS;
 }
 
 .l-content-modal-text {
@@ -492,30 +521,28 @@ body::-webkit-scrollbar-thumb {
   color: white !important;
 }
 
- 
- 
 .modal-screen {
- // overflow: auto;
-//  max-height: 88vh !important;
-//height: 100%;
-min-height: 100vh;
+  // overflow: auto;
+  //  max-height: 88vh !important;
+  //height: 100%;
+  min-height: 100vh;
   z-index: 8;
- // min-height: 100vh;
-//  max-width: 950px;
-//  margin: 0 auto;
+  // min-height: 100vh;
+  //  max-width: 950px;
+  //  margin: 0 auto;
   display: none;
- // position: relative;
+  // position: relative;
   background-color: $bgFontColor;
 
   //top: 90px;
- // left: 0;
-//  width: 100%;
+  // left: 0;
+  //  width: 100%;
 
- // padding: 24px;
+  // padding: 24px;
   color: white;
-  font-size: 1em;
+  font-size: $modal-screen-FS;
 
- // padding: 0;
+  // padding: 0;
 }
 
 .modal-screen-text {
@@ -523,11 +550,31 @@ min-height: 100vh;
   padding-bottom: 0px;
 }
 
-#modal-screen--about, #modal-screen--reference,#modal-screen--configuration {
+#modal-screen--about,
+#modal-screen--reference,
+#modal-screen--configuration {
   padding-top: 0px;
 }
 #trickList-table {
   width: 100%;
+}
+#trickList-continueBtn {
+  background-color: $slotLocked;
+}
+.tricklist-controls {
+  color:white;    text-align: center;
+   h2 {
+    margin: 0;
+    padding-top: 0.7em;
+    font-size: 0.7em;
+    font-weight: normal;
+}
+}
+
+#modal-screen--tricklist {
+  color: black;
+  padding-top:0px;
+  
 }
 
 .l-content-modal::after {
@@ -641,7 +688,7 @@ min-height: 100vh;
   display: inline-flex;
   cursor: pointer;
   font-family: sans-serif;
-  font-size: 16px;
+  font-size: $ncludeTricksCb-FS;
 }
 .includeTricksCb + label:before {
   width: 60px;
@@ -677,9 +724,13 @@ min-height: 100vh;
   margin-top: 24px;
   padding: 1em;
   float: right;
-  font-size: 12px;
+  font-size: $config-reset-FS;
   color: white;
-  background-color: $redButton;
+  background-color: red;
+}
+
+.config-number-input {
+  max-width: 80px !important;
 }
 
 #config-submit {
@@ -702,11 +753,11 @@ min-height: 100vh;
   display: none;
 }
 .tippy-content {
-  font-size: 12px;
+  font-size: $tippy-content-FS;
 }
 @media (min-width: 780px) {
   .tippy-content {
-    font-size: 14px;
+    font-size: $tippy-content-FS-up;
   }
 }
 .info-tooltip[data-show] {
@@ -762,6 +813,19 @@ min-height: 100vh;
   margin-right: auto;
   width: 100px;
 }
+.slotBgIconContainerRight {
+  position: absolute;
+  opacity: 0.7;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80px;
+  margin-top: 16px;
+}
+.bogSlot-score-img {
+  width: 30px;
+  height: 30px;
+}
 
 .tricktionary_thumb_img {
   height: 200px;
@@ -791,7 +855,6 @@ min-height: 100vh;
 .resp-table-wrapper {
   padding-top: 16px;
 }
-
 
 .resp-table {
   margin: 0 0 40px 0;
@@ -843,7 +906,7 @@ min-height: 100vh;
     margin-bottom: 3px;
     content: attr(data-title);
     min-width: 98px;
-    font-size: 10px;
+    font-size: $dataTable-row-FS;
     line-height: 10px;
     font-weight: bold;
     text-transform: uppercase;
@@ -865,26 +928,24 @@ min-height: 100vh;
 }
 
 .resp-table-wrapper-details-view {
- // padding-top:0px;
+  // padding-top:0px;
   .resp-table {
-    //margin: 0; 
+    //margin: 0;
   }
   .tricktionary_thumb_img {
-    width:100px;
+    width: 100px;
     height: 100px;
   }
-  
 
-
- .cell--details-view {
-   padding: 2px;  margin: 0;
- }
-.row--details-view { margin: 0;padding:0;
+  .cell--details-view {
+    padding: 2px;
+    margin: 0;
+  }
+  .row--details-view {
+    margin: 0;
+    padding: 0;
+  }
 }
-
-}
-
-
 
 .tricktionary-toc {
   padding-top: 12px;
@@ -913,8 +974,6 @@ min-height: 100vh;
   display: none;
 }
 
-
-
 .number-circle {
   margin: 0 auto;
   border-radius: 50%;
@@ -925,10 +984,9 @@ min-height: 100vh;
   border: 3px solid #000;
   color: #000;
   text-align: center;
-  font-size: 32px ;
+  font-size: 32px;
 }
 .number-circle-slot {
- 
   border-radius: 50%;
   width: 26px;
   height: 26px;
@@ -937,40 +995,180 @@ min-height: 100vh;
   border: 3px solid #000;
   color: #000;
   text-align: center;
-  font-size: 26px ;
+  font-size: 26px;
 }
 
-
-.scoreboard{
-  font-size:16px;
-  box-shadow: 0 0 2px 1px white;   // margin-top: -10px;
-   
+.scoreboard {
+  font-size: $scoreboard-FS;
+  box-shadow: 0 0 1px 1px white; // margin-top: -10px;
+}
+.scoreboard-left {
+  text-align: left;
 }
 
-.scoreboard-active{
-  color:white;
-   
+.scoreboard-active {
+  color: white;
 }
-.scoreboard-title{
+.scoreboard-title {
   //text-decoration: underline;
-   
 }
-.scoreboard-points{
-  font-size: 40px;
+.scoreboard-points {
+  font-size: $scoreboard-points-FS;
   font-weight: bold;
 }
 
-.sb-spins-total{
-  font-size: 24px;
+.sb-spins-total {
+  font-size: $scoreboard-spins-FS;
 }
-#sb-spins-remaining, #sb-locks-remaining, #sb-removes-remaining{
+#sb-spins-remaining,
+#sb-locks-remaining,
+#sb-removes-remaining {
   font-weight: bold;
 }
 
-
-#trickNamingContent   {
+#trickNamingContent {
   .resp-table a {
-    color:black;
+    color: black;
   }
-  
+}
+
+.start-game-button {
+  background-color: $redButton;
+  //width: 90px;
+  // height: 52.5px;
+}
+
+.start-game-button {
+  text-shadow: 0px 1px 0px #faffc7;
+  background-image: -webkit-linear-gradient(
+    top,
+    $startButtonGlow,
+    $startButtonGlowH
+  );
+  background-image: -moz-linear-gradient(
+    top,
+    $startButtonGlow,
+    $startButtonGlowH
+  );
+  background-image: -o-linear-gradient(
+    top,
+    $startButtonGlow,
+    $startButtonGlowH
+  );
+  background-image: linear-gradient(
+    to bottom,
+    $startButtonGlow,
+    $startButtonGlowH
+  );
+  -webkit-animation: yellow 2s infinite;
+  -moz-animation: yellow 2s infinite;
+  -o-animation: yellow 2s infinite;
+  animation: yellow 2s infinite;
+}
+
+@keyframes yellow {
+  0%,
+  100% {
+    box-shadow: 1px 0px 19px 4px $startButtonGlowH1,
+      inset 0px 0px 10px rgba(255, 255, 255, 0.5);
+  }
+
+  50% {
+    box-shadow: 0px 0px 0px 0px rgba(255, 245, 3, 0),
+      inset 0px 0px 0px rgba(255, 255, 255, 0);
+  }
+}
+
+.spinsLeftAnimation {
+position: absolute;
+top: 50%;  /* position the top  edge of the element at the middle of the parent */
+    left: 50%; /* position the left edge of the element at the middle of the parent */
+
+    transform: translate(-50%, -50%);
+}
+.animate {
+  font-size: 50px;
+  margin: 100px 0 0;
+ // border-bottom: 2px solid #ccc;
+  z-index:100;
+  color: $slotDisabled;
+}
+
+.animate span {
+  display: inline-block;
+}
+.animate span:nth-of-type(2) {
+  animation-delay: .05s;
+}
+.animate span:nth-of-type(3) {
+  animation-delay: .1s;
+}
+.animate span:nth-of-type(4) {
+  animation-delay: .15s;
+}
+.animate span:nth-of-type(5) {
+  animation-delay: .2s;
+}
+.animate span:nth-of-type(6) {
+  animation-delay: .25s;
+}
+.animate span:nth-of-type(7) {
+  animation-delay: .3s;
+}
+.animate span:nth-of-type(8) {
+  animation-delay: .35s;
+}
+.animate span:nth-of-type(9) {
+  animation-delay: .4s;
+}
+.animate span:nth-of-type(10) {
+  animation-delay: .45s;
+}
+.animate span:nth-of-type(11) {
+  animation-delay: .5s;
+}
+.animate span:nth-of-type(12) {
+  animation-delay: .55s;
+}
+.animate span:nth-of-type(13) {
+  animation-delay: .6s;
+}
+.animate span:nth-of-type(14) {
+  animation-delay: .65s;
+}
+.animate span:nth-of-type(15) {
+  animation-delay: .7s;
+}
+.animate span:nth-of-type(16) {
+  animation-delay: .75s;
+}
+.animate span:nth-of-type(17) {
+  animation-delay: .8s;
+}
+.animate span:nth-of-type(18) {
+  animation-delay: .85s;
+}
+.animate span:nth-of-type(19) {
+  animation-delay: .9s;
+}
+.animate span:nth-of-type(20) {
+  animation-delay: .95s;
+}
+
+.one span {
+  color: $slotDisabled;
+  opacity: 0;
+  transform: translate(-150px, -50px) rotate(-180deg) scale(3);
+  animation: revolveScale .4s forwards;
+}
+@keyframes revolveScale {
+  60% {
+    transform: translate(20px, 20px) rotate(30deg) scale(.3);
+  }
+
+  100% {
+    transform: translate(0) rotate(0) scale(1);
+    opacity: 1;
+  }
+   
 }

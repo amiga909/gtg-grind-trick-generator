@@ -4,21 +4,21 @@ const APPROACHES = [
     url: "http://skateyeg.com/bog/05.0_Fakie.html",
     isFakie: true,
     isSwitch: false,
-    scores:"x2",
+    scores: 1,
   },
   {
     name: "Switch",
     url: "http://skateyeg.com/bog/04.0_Switch.html",
     isFakie: false,
     isSwitch: true,
-    scores:"x2",
+    scores: 1,
   },
   {
     name: "Fakie & Switch",
     url: "http://skateyeg.com/bog/04.0_Switch.html",
     isFakie: true,
     isSwitch: true,
-    scores:"x4",
+    scores: 3,
   },
 ];
 
@@ -30,44 +30,54 @@ const APPROACHES = [
 const SPINS_TO_GRIND = [
   {
     name: "Outspin 180",
+    scores: 1,
   },
   {
     name: "Inspin 180",
+    scores: 1,
     url: "",
   },
 
   {
     name: "Inspin 360",
+    scores: 2,
     url: "",
   },
   {
     name: "Outspin 360",
+    scores: 2,
     url: "",
   },
   {
     name: "Inspin 540",
+    scores: 3,
     url: "",
   },
   {
     name: "Outspin 540",
+    scores: 3,
     url: "",
   },
 ];
 const SPINS_FAKIE_TO_GRIND = [
   {
     name: "Inspin 180",
+    scores: 1,
     url: "",
   },
   {
     name: "Outspin 180",
+    scores: 1,
     url: "",
   },
   {
     name: "Inspin 360",
+    scores: 2,
     url: "",
   },
   {
     name: "Outspin 360",
+    scores: 2,
     url: "",
   },
 ];
@@ -75,72 +85,88 @@ const SPINS_FAKIE_TO_GRIND = [
 const SPINS_TO_GRIND_GROOVE_FS = [
   {
     name: "Inspin 90",
+    scores: 0,
     url: "",
   },
   {
     name: "Outspin 270",
+    scores: 1,
     url: "",
   },
   {
     name: "Inspin 450",
+    scores: 2,
     url: "",
   },
   {
     name: "Outspin 630",
+    scores: 3,
     url: "",
   },
 ];
 const SPINS_TO_GRIND_GROOVE_BS = [
   {
     name: "Outspin 90",
+    scores: 0,
     url: "",
   },
   {
     name: "Inspin 270",
+    scores: 1,
     url: "",
   },
   {
     name: "Outspin 450",
+    scores: 2,
     url: "",
   },
   {
     name: "Inspin 630",
+    scores: 3,
     url: "",
   },
 ];
 const SPINS_FAKIE_TO_GRIND_GROOVE_FS = [
   {
     name: "Inspin 90",
+    scores: 0,
     url: "",
   },
   {
     name: "Outspin 270",
+    scores: 1,
     url: "",
   },
   {
     name: "Inspin 450",
+    scores: 2,
     url: "",
   },
   {
     name: "Outspin 630",
+    scores: 3,
     url: "",
   },
 ];
 const SPINS_FAKIE_TO_GRIND_GROOVE_BS = [
   {
     name: "Outspin 90",
+    scores: 0,
     url: "",
   },
   {
     name: "Inspin 270",
+    scores: 1,
     url: "",
   },
   {
     name: "Outspin 450",
+    scores: 2,
     url: "",
   },
   {
     name: "Inspin 630",
+    scores: 3,
     url: "",
   },
 ];
@@ -625,24 +651,28 @@ const GRIND_SYNONYMS = [
 const VARIATIONS = [
   {
     name: "Topside",
+    scores: 1,
     url: "http://skateyeg.com/bog/03.0_Topside_(Top).html",
     comment:
       "A Topside is when the frame of the skate is brought over an obstacle and placed on top, while the soul plate remains underneath.",
   },
   {
     name: "Negative",
+    scores: 1,
     url: "http://skateyeg.com/bog/11.0_Negative.html",
     comment:
       "Grinding on the inside soul plate instead of the outside soul plate.",
   },
   {
     name: "Rough",
+    scores: 1,
     url: "http://skateyeg.com/bog/08.0_Rough_(Heel).html",
     comment:
       "Grinding on the heel instead of the whole soul foot (Rough Mizou, Rough Sweatstance, ..)",
   },
   {
     name: "Tough",
+    scores: 1,
     url: "http://skateyeg.com/bog/07.0_Tough_(Toe).html",
     comment:
       "Grinding on the toe instead of the whole soul foot (Tough Soyale, Tough Top Soyale, ..)",
@@ -650,23 +680,27 @@ const VARIATIONS = [
 
   {
     name: "Channel",
+    scores: 1,
     url: "http://skateyeg.com/bog/18.0_Channel.html",
     comment:
       "Grinding a groove trick between the wheels (Channel Frontside, ..)",
   },
   {
     name: "Rocket",
+    scores: 1,
     url: "http://skateyeg.com/bog/06.0_Rocket.html",
     comment:
       "Extending both legs out straight and crossing one hand over the front of both legs and grabbing the opposite outside soul plate.",
   },
   {
     name: "Grab",
+    scores: 1,
     url: "http://skateyeg.com/bog/17.0_Grabbed.html",
     comment: "Grabbing the free foot while doing a one-footed grind.",
   },
   {
     name: "Cross-Grab",
+    scores: 1,
     noThumb: true,
     url: "",
     comment:
@@ -674,6 +708,7 @@ const VARIATIONS = [
   },
   {
     name: "Christ",
+    scores: 1,
     url: "http://skateyeg.com/bog/09.0_Christ.html",
     comment:
       "Setting the other foot on top of the toe in a soul grind position.",
@@ -682,24 +717,28 @@ const VARIATIONS = [
   // combos
   {
     name: "Rough Topside",
+    scores: 2,
     url: "",
     noThumb: true,
     comment: "Same as Rough but on Topside, for example a Rough Sweatstance.",
   },
   {
     name: "Cross-Grab Topside",
+    scores: 2,
     url: "",
     noThumb: true,
     comment: "Same as Cross-Grab but with a Topside.",
   },
   {
     name: "Christ Topside",
+    scores: 2,
     url: "",
     noThumb: true,
     comment: "Same as Christ but with a Topside.",
   },
   {
     name: "Tough Topside",
+    scores: 2,
     url: "",
     noThumb: true,
     comment: "Same as Tough but on Topside.",
@@ -707,24 +746,28 @@ const VARIATIONS = [
 
   {
     name: "Grab Topside",
+    scores: 2,
     url: "",
     noThumb: true,
     comment: "Same as Grab but with a Topside trick",
   },
   {
     name: "Rocket Topside",
+    scores: 2,
     url: "",
     noThumb: true,
     comment: "Same as Rocket but with a Topside trick",
   },
   {
     name: "Negative&Topside",
+    scores: 2,
     url: "",
     noThumb: true,
     comment: "Used for a Negative X-Grind or Stub Soul",
   },
   {
     name: "Tough&Rough",
+    scores: 2,
     url: "",
     noThumb: true,
     comment: "Used for a Rough & Tough X-Grind or Duck Hunt",
@@ -749,34 +792,32 @@ const OBSTACLE_VARIATIONS = [
 const SPINS_OFF_GRIND = [
   {
     name: "Inspin 180",
+    scores: 1,
     url: "",
   },
   {
     name: "Outspin 180 ",
-    url: "",
-  },
-  {
-    name: "Inspin 180",
-    url: "",
-  },
-  {
-    name: "Outspin 180 ",
+    scores: 1,
     url: "",
   },
   {
     name: "Outspin 360",
+    scores: 2,
     url: "",
   },
   {
     name: "Inspin 360",
+    scores: 2,
     url: "",
   },
   {
     name: "Outspin 540",
+    scores: 3,
     url: "",
   },
   {
     name: "Inspin 540",
+    scores: 3,
     url: "",
   },
 ];
@@ -784,22 +825,27 @@ const SPINS_OFF_GRIND = [
 const SPINS_OFF_GROOVE_GRIND = [
   {
     name: "Fakie",
+    scores: 1,
     url: "",
   },
   {
     name: "Forwards",
+    scores: 0,
     url: "",
   },
   {
     name: "270",
+    scores: 1,
     url: "",
   },
   {
     name: "450",
+    scores: 2,
     url: "",
   },
   {
     name: "630",
+    scores: 3,
     url: "",
   },
 ];
@@ -851,6 +897,7 @@ GROOVE_GRINDS.forEach((g) => {
 const GRINDS_FOR_SLOTS = [];
 GRINDS.forEach((g) => {
   g.thumbUrl = g.noThumb !== true ? getThumbUrl(g.name) : "";
+  g.scores = 1;
   GRINDS_FOR_SLOTS.push(g);
   // duplicate soul grinds to even out cause groove grinds have fs/bs
   if (g.isGrooveGrind !== true && g.isSoulGroove !== true) {

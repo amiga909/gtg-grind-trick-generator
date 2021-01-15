@@ -1,11 +1,13 @@
+const VERSION_KEY = 'aight-version';
+const CURRENT_VERSION = "1.0"; 
+
 export class Configuration {
   constructor() {
-
     this.$levelSelect = $("#levelSelect");
+    this.$levelStartSelect = $("#start-screen-levels");
     this.$spinsTotal = $("#spinsTotalInput");
     this.$removesTotal = $("#removesTotalInput");
     this.$spinsLocks = $("#spinsLocksInput");
-
 
     this.$soundSelect = $("#soundSelect");
     this.$speedSelect = $("#speedSelect");
@@ -22,6 +24,11 @@ export class Configuration {
     this.$channelSelect = $("#channel-select");
     this.$christSelect = $("#christ-select");
 
+    this.$levelSelect = $("#levelSelect");
+    this.$spinsTotal = $("#spinsTotalInput");
+    this.$removesTotal = $("#removesTotalInput");
+    this.$locksTotal = $("#spinsLocksInput");
+
     this.configs = [
       //   { $dom: this.$levelSelect, key: "levelSelect", value: "" },
       { $dom: this.$soundSelect, key: "soundSelect", value: 0 },
@@ -35,11 +42,26 @@ export class Configuration {
       { $dom: this.$spins540Select, key: "spins540Checkbox", value: "off" },
       { $dom: this.$channelSelect, key: "channelCheckbox", value: "off" },
       { $dom: this.$christSelect, key: "christCheckbox", value: "off" },
+      { $dom: this.$levelSelect, key: "levelSelect", value: "1" },
+      { $dom: this.$levelStartSelect, key: "levelStartSelect", value: "1" },
+      { $dom: this.$spinsTotal, key: "spinsTotal", value: 10 },
+      { $dom: this.$removesTotal, key: "removesTotal", value: 5 },
+      { $dom: this.$locksTotal, key: "locksTotal", value: 3 },
     ];
 
+    this.versionCheck()
     this.initStoreables();
     this.registerListener();
   }
+
+  versionCheck(){
+    if (localStorage.getItem(VERSION_KEY) !== CURRENT_VERSION) {
+      localStorage.clear();
+      localStorage.setItem(VERSION_KEY,CURRENT_VERSION) 
+    }
+  }
+
+  
 
   initStoreables() {
     this.configs.forEach((param) => {
@@ -85,6 +107,7 @@ export class Configuration {
           localStorage.setItem(param.key, param.value);
         }
       });
+      //localStorage.setItem(VERSION_KEY,CURRENT_VERSION);
       location.reload();
     });
 
@@ -93,6 +116,20 @@ export class Configuration {
       localStorage.clear();
       location.reload();
     });
+  }
+
+  getLevel() {
+    const value = this.configs.filter((s) => s.key == "levelSelect")[0].value;
+    return value;
+  }
+
+  getGameConfig() {
+    return {
+      level: this.configs.filter((s) => s.key == "levelSelect")[0].value,
+      spins: this.configs.filter((s) => s.key == "spinsTotal")[0].value,
+      removes: this.configs.filter((s) => s.key == "removesTotal")[0].value,
+      locks: this.configs.filter((s) => s.key == "locksTotal")[0].value,
+    };
   }
 
   getSound() {
@@ -104,14 +141,6 @@ export class Configuration {
     const { value } = this.configs.filter((s) => s.key == "speedSelect")[0];
 
     return value;
-  }
-
-  getGameConfig(){
-    return {
-      spins: 10,
-      removes: 3,
-      locks: 2
-    }
   }
 
   getIncludedTricks() {

@@ -19,7 +19,6 @@ const CONFIG = {
     type: "nav",
     text: "Scoreboard", //props: { maxWidth: "50px" },
   },
-  
 
   configButton: {
     type: "nav",

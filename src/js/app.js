@@ -32,7 +32,8 @@ class GrindTrickRandomizer {
     this.$abortButton = $("#abortButton");
 
     this.$endScreen = $("#endScreen");
-    this.$endScreenText = $("#endscreen-text");
+    this.$trickHelpButton = $("#trickHelpButton")
+    this.$currentScore =  $("#currentScore")
 
     this.configurator = new Configuration();
     this.slotSpeed = this.configurator.getSpeed();
@@ -45,7 +46,7 @@ class GrindTrickRandomizer {
     this.screens = new Screens();
     this.tricklist = new Tricklist(this.$tricklistBtn);
     this.tooltips = new Tooltips(this.$helpBtn, this);
-    this.scoreboard = new Scoreboard(this.configurator.getGameConfig()); 
+    this.scoreboard = new Scoreboard(this.configurator.getGameConfig());
 
     this.trickdata = new Trickdata();
     CONFIG = this.trickdata.get();
@@ -63,18 +64,21 @@ class GrindTrickRandomizer {
   registerListener() {
     $(".bog-slot").on("click", (e) => {
       if (this.isEndScreen) {
-        const onResultChange = ( ) => {
-        
+        const onResultChange = () => {
           this.scoreboard.set(this.slotMachine.countSlotStates());
           this.$addTricklistBtn.removeClass("pure-button-disabled");
+          
           this.showEndScreen();
         };
-        const afterSlotChange = ( ) => {
+        const afterSlotChange = () => {
           this.scoreboard.set(this.slotMachine.countSlotStates());
         };
         this.slotMachine.onClickSlot($(e.currentTarget), {
           scope: this,
-          on: {onResultChange: onResultChange, afterSlotChange: afterSlotChange} ,
+          on: {
+            onResultChange: onResultChange,
+            afterSlotChange: afterSlotChange,
+          },
         });
       }
     });
@@ -87,6 +91,7 @@ class GrindTrickRandomizer {
     this.$randomizeButtonStart.on("click", (e) => {
       e.preventDefault();
       this.scoreboard.startGame();
+      this.tricklist.clearList();
       this.onClickStart();
     });
     this.$randomizeButtonSlots.on("click", (e) => {
@@ -127,7 +132,7 @@ class GrindTrickRandomizer {
       this.$addTricklistBtn.addClass("pure-button-disabled");
     });
 
-    this.$endScreenText.on("click", () => {
+    this.$trickHelpButton.on("click", () => {
       if (this.isEndScreen) {
         this.screens.scrollDown();
 
@@ -138,13 +143,13 @@ class GrindTrickRandomizer {
 
   addToTricklist() {
     this.screens.show("Trick List");
-
-    let points = 1; // TODO
+    const score = this.slotMachine.getTrickScore()
     this.tricklist.addTrick(
       this.slotMachineResult.parsed,
       this.slotMachineResult.orig,
-      points
+      score
     );
+    this.scoreboard.setPoints(score);
   }
 
   turnSoundOn() {
@@ -166,7 +171,7 @@ class GrindTrickRandomizer {
     this.screens.show("Slotmachine");
     this.screens.disableNav();
     this.scoreboard.useSpin();
-   
+
     this.isEndScreen = false;
     this.audioplayer.stop();
 
@@ -190,15 +195,20 @@ class GrindTrickRandomizer {
       });
   }
 
+  updateTrickScore(){
+    this.currentScore = this.slotMachine.getTrickScore()
+    let imgPath = "img/score-[SCORE].svg";
+    imgPath = imgPath.replace("[SCORE]",this.currentScore)
+    this.$currentScore.attr('src', imgPath) ;
+  }
+
   showEndScreen(animateBottom = true) {
     this.isEndScreen = true;
-    const winners = this.slotMachine.slots.map((s) => {
-      if (s.state === "enabled" || s.state === "locked") {
-        return s;
-      } else {
-        return null;
-      }
-    });
+    const winners = this.slotMachine.getWinnerSlots();  
+
+    this.updateTrickScore();
+   
+
     this.slotMachineResult = this.resultParser.parse(winners);
     const text = this.resultParser.getHelpTableForTrick(this.slotMachineResult);
     this.tooltips.updateTooltip("endScreen", text);
