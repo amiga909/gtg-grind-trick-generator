@@ -18,7 +18,6 @@ export class Tricklist {
 
     let html = renderTable("", ["Points", "Name", "Description"], []);
     this.$list.html(html);
- 
   }
 
   registerListener() {
@@ -82,13 +81,18 @@ export class Tricklist {
   addTrick(fullTrickName, origName, points) {
     let trickEntry = { parsed: fullTrickName, orig: origName, points: points };
 
-   let arr = JSON.parse(localStorage.getItem(this.storageKey )) || [];
-   arr.push(trickEntry)
+    let arr = JSON.parse(localStorage.getItem(this.storageKey)) || [];
+    arr.push(trickEntry);
     localStorage.setItem(this.storageKey, JSON.stringify(arr));
     let row = this.renderRow(trickEntry);
     console.log("row", row);
     $(row).hide().insertAfter(this.$list.find(".row:nth-child(1)")).fadeIn();
     this.toggleControlDisabled();
+  }
+
+  hasTrick(parsedStr) {
+    let found = this.getStorage().filter( (i)=>{return i.parsed === parsedStr});
+    return found.length > 0; 
   }
   /*
   render() {

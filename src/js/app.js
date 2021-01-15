@@ -68,9 +68,9 @@ class GrindTrickRandomizer {
       if (this.isEndScreen) {
         const onResultChange = () => {
           this.scoreboard.set(this.slotMachine.countSlotStates());
-          // this.$addTricklistBtn.removeClass("pure-button-disabled");
+        
 
-          this.showEndScreen();
+          this.showEndScreen(false);
         };
         const afterSlotChange = () => {
           this.scoreboard.set(this.slotMachine.countSlotStates());
@@ -232,6 +232,14 @@ class GrindTrickRandomizer {
     const text = this.resultParser.getHelpTableForTrick(this.slotMachineResult);
     this.tooltips.updateTooltip("endScreen", text);
 
+    if(this.tricklist.hasTrick(this.slotMachineResult.parsed)) {
+      console.log("trick already in list cannot add!")
+      this.$addTricklistBtn.addClass("pure-button-disabled");
+    }else {
+      this.$addTricklistBtn.removeClass("pure-button-disabled");
+    }
+        
+
     this.$endScreen.find("#endscreen-text").html(this.slotMachineResult.parsed);
     this.$endScreen.fadeIn(500, () => {
       if (animateBottom) {
@@ -244,9 +252,9 @@ class GrindTrickRandomizer {
     this.$endScreen.hide();
   }
 }
-
-$(document).ready(() => {
+$( () =>{
   const s = new GrindTrickRandomizer();
 
   s.init();
-});
+ });
+ 
