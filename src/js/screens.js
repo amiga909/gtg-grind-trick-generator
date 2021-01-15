@@ -1,7 +1,5 @@
 import { ModalScreen } from "./modalscreens";
 import { TricktionaryScreen } from "./tricktionary-screen";
-import { AboutScreen } from "./about-screen";
-
 export class Screens {
   constructor() {
     this.$helpBtn = $("#helpButton"); // dupe
@@ -14,7 +12,8 @@ export class Screens {
     this.$modalCloseBtn = $("#modal-screen-close-btn");
 
     this.modalScreen = new ModalScreen();
-    this.tricktionarySceen = new TricktionaryScreen();
+    this.tricktionaryScreen = new TricktionaryScreen()
+
     //this.aboutScreen = new AboutScreen();
     this.activeScreen = "Loading";
     this.lastNonModalScreen = "";
@@ -107,9 +106,9 @@ export class Screens {
       this.lastNonModalScreen = selected;
       newScreen.$dom.show();
     }
-    if(newScreen.noCloseButton === true) {
+    if (newScreen.noCloseButton === true) {
       this.$modalCloseBtn.hide();
-    }else {
+    } else {
       this.$modalCloseBtn.show();
     }
 

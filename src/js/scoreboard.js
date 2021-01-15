@@ -60,7 +60,7 @@ export class Scoreboard {
   }
 
   isLastSpin() {
-    this.spins === this.tokensTotal.spins;
+    return this.spins === 0 ? true : false;
   }
 
   isValidTokensCount() {

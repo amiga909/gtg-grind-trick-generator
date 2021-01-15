@@ -12,9 +12,8 @@ import { Trickdata } from "./trickdata";
 import { Tricklist } from "./tricklist";
 import { Tooltips } from "./tooltips";
 import { Scoreboard } from "./scoreboard";
-
+import { GameOverScreen } from "./gameover-screen";
 import { Audioplayer } from "./audioplayer";
-//import { renderThumb, renderTable } from "./helperfunctions.js";
 
 let CONFIG = "";
 
@@ -22,6 +21,7 @@ class GrindTrickRandomizer {
   constructor() {
     this.$randomizeButton = $("#randomizeButton");
     this.$randomizeButtonStart = $("#randomizeButtonStart");
+    this.$randomizeButtonStartContainer = $(".randomizeButton2-container");
     this.$randomizeButtonSlots = $("#randomizeButton2");
 
     this.$soundOnOff = $("#sound");
@@ -29,11 +29,12 @@ class GrindTrickRandomizer {
     this.$tricklistBtn = $("#tricklistBtn");
     this.$addTricklistBtn = $("#addTricklistBtn");
     this.$helpBtn = $("#helpButton");
-    this.$abortButton = $("#abortButton");
+    this.$endGameButton = $("#endGameButton");
+    this.$endGameButtonContainer = $(".endGameButton-container");
 
     this.$endScreen = $("#endScreen");
-    this.$trickHelpButton = $("#trickHelpButton")
-    this.$currentScore =  $("#currentScore")
+    this.$trickHelpButton = $("#trickHelpButton");
+    this.$currentScore = $("#currentScore");
 
     this.configurator = new Configuration();
     this.slotSpeed = this.configurator.getSpeed();
@@ -47,6 +48,7 @@ class GrindTrickRandomizer {
     this.tricklist = new Tricklist(this.$tricklistBtn);
     this.tooltips = new Tooltips(this.$helpBtn, this);
     this.scoreboard = new Scoreboard(this.configurator.getGameConfig());
+    this.gameOverScreen = new GameOverScreen();
 
     this.trickdata = new Trickdata();
     CONFIG = this.trickdata.get();
@@ -66,8 +68,8 @@ class GrindTrickRandomizer {
       if (this.isEndScreen) {
         const onResultChange = () => {
           this.scoreboard.set(this.slotMachine.countSlotStates());
-          this.$addTricklistBtn.removeClass("pure-button-disabled");
-          
+          // this.$addTricklistBtn.removeClass("pure-button-disabled");
+
           this.showEndScreen();
         };
         const afterSlotChange = () => {
@@ -99,19 +101,14 @@ class GrindTrickRandomizer {
       this.onClickStart();
     });
 
-    this.$abortButton.on("click", (e) => {
-      e.preventDefault();
-      location.reload();
-    });
-
-    document.body.addEventListener("keyup", (event) => {
+   /* document.body.addEventListener("keyup", (event) => {
       if (event.keyCode === 13) {
         event.preventDefault();
         if (!this.$randomizeButton.hasClass("pure-button-disabled")) {
           this.onClickStart();
         }
       }
-    });
+    });*/
 
     this.$soundOnOff.on("click", (e) => {
       e.preventDefault();
@@ -128,8 +125,8 @@ class GrindTrickRandomizer {
     }
 
     this.$addTricklistBtn.on("click", () => {
-      this.addToTricklist();
-      this.$addTricklistBtn.addClass("pure-button-disabled");
+      this.addToTricklist(this.scoreboard.isLastSpin());
+      //  this.$addTricklistBtn.addClass("pure-button-disabled");
     });
 
     this.$trickHelpButton.on("click", () => {
@@ -139,17 +136,36 @@ class GrindTrickRandomizer {
         this.tooltips.showTooltip("endScreen");
       }
     });
+
+    this.$endGameButton.on("click", (e) => {
+      this.gameOverScreen.render(
+        this.scoreboard.points,
+        this.tricklist.getStorage()
+      );
+      this.screens.show("GameOver");
+    });
   }
 
   addToTricklist() {
-    this.screens.show("Trick List");
-    const score = this.slotMachine.getTrickScore()
+    const score = this.slotMachine.getTrickScore();
+    this.scoreboard.setPoints(score);
+
     this.tricklist.addTrick(
       this.slotMachineResult.parsed,
       this.slotMachineResult.orig,
       score
     );
-    this.scoreboard.setPoints(score);
+
+    if (this.scoreboard.isLastSpin()) {
+      this.gameOverScreen.render(
+        this.scoreboard.points,
+        this.tricklist.getStorage()
+      );
+      this.screens.show("GameOver");
+    } else {
+      this.screens.show("Trick List");
+    }
+    this.screens.scrollDown();
   }
 
   turnSoundOn() {
@@ -195,19 +211,22 @@ class GrindTrickRandomizer {
       });
   }
 
-  updateTrickScore(){
-    this.currentScore = this.slotMachine.getTrickScore()
+  updateTrickScore() {
+    this.currentScore = this.slotMachine.getTrickScore();
     let imgPath = "img/score-[SCORE].svg";
-    imgPath = imgPath.replace("[SCORE]",this.currentScore)
-    this.$currentScore.attr('src', imgPath) ;
+    imgPath = imgPath.replace("[SCORE]", this.currentScore);
+    this.$currentScore.attr("src", imgPath);
   }
 
   showEndScreen(animateBottom = true) {
     this.isEndScreen = true;
-    const winners = this.slotMachine.getWinnerSlots();  
+    const winners = this.slotMachine.getWinnerSlots();
 
     this.updateTrickScore();
-   
+    if (this.scoreboard.isLastSpin()) {
+      this.$randomizeButtonStartContainer.hide();
+      this.$endGameButtonContainer.show();
+    }
 
     this.slotMachineResult = this.resultParser.parse(winners);
     const text = this.resultParser.getHelpTableForTrick(this.slotMachineResult);

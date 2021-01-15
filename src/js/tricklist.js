@@ -11,13 +11,14 @@ export class Tricklist {
     this.$abortButton = $("#abortButton");
 
     this.$list = $("#tricklist-table");
-    this.results = []; // {points: 0, parsed: "", orig: ""}
-    this.storageKey = "tricklist-serialized";  
+
+    this.storageKey = "tricklist-serialized";
 
     this.registerListener();
-    this.getStorage();
-    this.render();
-    this.toggleControlDisabled();
+
+    let html = renderTable("", ["Points", "Name", "Description"], []);
+    this.$list.html(html);
+ 
   }
 
   registerListener() {
@@ -25,7 +26,7 @@ export class Tricklist {
       e.preventDefault();
       location.reload();
     });
-  /*  this.$clear.on("click", (e) => {
+    /*  this.$clear.on("click", (e) => {
       e.preventDefault();
       this.clearList();
     });*/
@@ -57,12 +58,14 @@ export class Tricklist {
   getStorage() {
     if (localStorage.getItem(this.storageKey)) {
       let json = localStorage.getItem(this.storageKey);
-      this.results = JSON.parse(json);
+      return JSON.parse(json);
+    } else {
+      return [];
     }
   }
 
   toggleControlDisabled() {
-    return false; 
+    return false;
     if (this.results.length > 0) {
       this.$tricklistBtn.removeClass("pure-button-disabled");
       $("#start-screen-tricklistBtn-count").html(this.results.length);
@@ -72,39 +75,27 @@ export class Tricklist {
     }
   }
 
-  clearTrick(index = 0) {
-    return false;
-    const tmp = this.results;
-    tmp.splice(index, 1);
-    this.results = tmp;
-
-    localStorage.removeItem(this.storageKey);
-    localStorage.setItem(this.storageKey, this.results);
-
-    this.render();
-  }
-
   clearList() {
-    this.results = [];
- 
-    localStorage.removeItem(this.storageKey); 
+    localStorage.removeItem(this.storageKey);
   }
 
   addTrick(fullTrickName, origName, points) {
     let trickEntry = { parsed: fullTrickName, orig: origName, points: points };
-    this.results.push(trickEntry);
-    localStorage.setItem(this.storageKey, JSON.stringify(this.results));
-    let row = this.renderRow(trickEntry );
-    console.log("row",row)
+
+   let arr = JSON.parse(localStorage.getItem(this.storageKey )) || [];
+   arr.push(trickEntry)
+    localStorage.setItem(this.storageKey, JSON.stringify(arr));
+    let row = this.renderRow(trickEntry);
+    console.log("row", row);
     $(row).hide().insertAfter(this.$list.find(".row:nth-child(1)")).fadeIn();
     this.toggleControlDisabled();
   }
-
+  /*
   render() {
     let rows = [];
 
     let i = 0;
-    this.results.reverse().forEach((entry, index) => {
+    this.getStorage().reverse().forEach((entry, index) => {
       i = i + 1;
       let row = rows.push([entry.points, entry.parsed, entry.orig]);
     });
@@ -113,18 +104,16 @@ export class Tricklist {
       ["Points", "Name", "Description"],
       rows
     );
-    console.log(this.results)
+     
      this.$list.html("");
      this.$list.html(html);
-  }
-  
+  }*/
+
   renderRow(entry) {
-    
     return `<div class="row"> 
       <div class="cell" data-title="Points"> ${entry.points} </div>
       <div class="cell" data-title="Name"> ${entry.parsed} </div>
       <div class="cell" data-title="Description"> ${entry.orig} </div>
     </div>`;
-     
-  } 
+  }
 }

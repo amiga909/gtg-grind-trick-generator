@@ -171,6 +171,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#156b2c', end
 }
 
 .bog-slot {
+  position: relative;
   padding: 2px;
 }
 .bog-slot-header {
@@ -427,7 +428,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#156b2c', end
 }
 
 #addTricklistBtn {
-  width: 80px;
+  width: 60px;
   background-color: $redButton;
 }
 #currentScore {
@@ -558,23 +559,28 @@ body::-webkit-scrollbar-thumb {
 #trickList-table {
   width: 100%;
 }
+.addTricklistBtn-plus-icon {
+  position: absolute;
+  margin-top: 10px;
+  margin-left: -14px;
+}
 #trickList-continueBtn {
   background-color: $slotLocked;
 }
 .tricklist-controls {
-  color:white;    text-align: center;
-   h2 {
+  color: white;
+  text-align: center;
+  h2 {
     margin: 0;
     padding-top: 0.7em;
     font-size: 0.7em;
     font-weight: normal;
-}
+  }
 }
 
 #modal-screen--tricklist {
   color: black;
-  padding-top:0px;
-  
+  padding-top: 0px;
 }
 
 .l-content-modal::after {
@@ -1000,10 +1006,10 @@ body::-webkit-scrollbar-thumb {
 
 .scoreboard {
   font-size: $scoreboard-FS;
-  box-shadow: 0 0 1px 1px white; // margin-top: -10px;
+  //box-shadow: 0 0 1px 1px white; // margin-top: -10px;
 }
 .scoreboard-left {
-  text-align: left;
+  text-align: center;
 }
 
 .scoreboard-active {
@@ -1013,12 +1019,12 @@ body::-webkit-scrollbar-thumb {
   //text-decoration: underline;
 }
 .scoreboard-points {
-  font-size: $scoreboard-points-FS;
+  font-size: $scoreboard-FS;
   font-weight: bold;
 }
 
-.sb-spins-total {
-  font-size: $scoreboard-spins-FS;
+.sb-tokens {
+  font-size:12px;
 }
 #sb-spins-remaining,
 #sb-locks-remaining,
@@ -1080,17 +1086,17 @@ body::-webkit-scrollbar-thumb {
 }
 
 .spinsLeftAnimation {
-position: absolute;
-top: 50%;  /* position the top  edge of the element at the middle of the parent */
-    left: 50%; /* position the left edge of the element at the middle of the parent */
+  position: absolute;
+  top: 50%; /* position the top  edge of the element at the middle of the parent */
+  left: 50%; /* position the left edge of the element at the middle of the parent */
 
-    transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 .animate {
   font-size: 50px;
   margin: 100px 0 0;
- // border-bottom: 2px solid #ccc;
-  z-index:100;
+  // border-bottom: 2px solid #ccc;
+  z-index: 100;
   color: $slotDisabled;
 }
 
@@ -1098,77 +1104,127 @@ top: 50%;  /* position the top  edge of the element at the middle of the parent 
   display: inline-block;
 }
 .animate span:nth-of-type(2) {
-  animation-delay: .05s;
+  animation-delay: 0.05s;
 }
 .animate span:nth-of-type(3) {
-  animation-delay: .1s;
+  animation-delay: 0.1s;
 }
 .animate span:nth-of-type(4) {
-  animation-delay: .15s;
+  animation-delay: 0.15s;
 }
 .animate span:nth-of-type(5) {
-  animation-delay: .2s;
+  animation-delay: 0.2s;
 }
 .animate span:nth-of-type(6) {
-  animation-delay: .25s;
+  animation-delay: 0.25s;
 }
 .animate span:nth-of-type(7) {
-  animation-delay: .3s;
+  animation-delay: 0.3s;
 }
 .animate span:nth-of-type(8) {
-  animation-delay: .35s;
+  animation-delay: 0.35s;
 }
 .animate span:nth-of-type(9) {
-  animation-delay: .4s;
+  animation-delay: 0.4s;
 }
 .animate span:nth-of-type(10) {
-  animation-delay: .45s;
+  animation-delay: 0.45s;
 }
 .animate span:nth-of-type(11) {
-  animation-delay: .5s;
+  animation-delay: 0.5s;
 }
 .animate span:nth-of-type(12) {
-  animation-delay: .55s;
+  animation-delay: 0.55s;
 }
 .animate span:nth-of-type(13) {
-  animation-delay: .6s;
+  animation-delay: 0.6s;
 }
 .animate span:nth-of-type(14) {
-  animation-delay: .65s;
+  animation-delay: 0.65s;
 }
 .animate span:nth-of-type(15) {
-  animation-delay: .7s;
+  animation-delay: 0.7s;
 }
 .animate span:nth-of-type(16) {
-  animation-delay: .75s;
+  animation-delay: 0.75s;
 }
 .animate span:nth-of-type(17) {
-  animation-delay: .8s;
+  animation-delay: 0.8s;
 }
 .animate span:nth-of-type(18) {
-  animation-delay: .85s;
+  animation-delay: 0.85s;
 }
 .animate span:nth-of-type(19) {
-  animation-delay: .9s;
+  animation-delay: 0.9s;
 }
 .animate span:nth-of-type(20) {
-  animation-delay: .95s;
+  animation-delay: 0.95s;
 }
 
 .one span {
   color: $slotDisabled;
   opacity: 0;
   transform: translate(-150px, -50px) rotate(-180deg) scale(3);
-  animation: revolveScale .4s forwards;
+  animation: revolveScale 0.4s forwards;
 }
 @keyframes revolveScale {
   60% {
-    transform: translate(20px, 20px) rotate(30deg) scale(.3);
+    transform: translate(20px, 20px) rotate(30deg) scale(0.3);
   }
 
   100% {
     transform: translate(0) rotate(0) scale(1);
     opacity: 1;
   }
-   
+}
+
+#gameOverPointsTotal {
+  font-size: 36px;
+}
+
+.gameOverTitle h3 {
+  animation-name: gameOverKeyFrames;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  font-size: $bog-slot-machine-FS;
+}
+
+$gameOverKeyFrames1: $slotLocked;
+$gameOverKeyFrames2: $slotGrind;
+$gameOverKeyFrames3: $slotEnabled;
+
+@keyframes gameOverKeyFrames {
+  0% {
+    color: $gameOverKeyFrames1;
+    text-shadow: 0 0 20px $gameOverKeyFrames2;
+  }
+  25% {
+    color: $gameOverKeyFrames2;
+    text-shadow: 2px 2px 2px $gameOverKeyFrames1;
+    transform: translate(-2px, 1px);
+  }
+  40% {
+    color: $gameOverKeyFrames1;
+    text-shadow: none;
+    transform: translate(0, 0);
+  }
+  50% {
+    color: $gameOverKeyFrames2;
+    text-shadow: 5px 5px 2px blue, -5px -5px 2px red;
+    transform: translate(0px, 5px);
+  }
+  70% {
+    color: $gameOverKeyFrames1;
+    text-shadow: none;
+    transform: translate(0, 0);
+  }
+  80% {
+    color: $gameOverKeyFrames1;
+    text-shadow: 0 0 20px $gameOverKeyFrames2;
+    transform: translate(-2px, 1px);
+  }
+  100% {
+    color: $gameOverKeyFrames1;
+    text-shadow: none;
+  }
 }

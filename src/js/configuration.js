@@ -1,5 +1,5 @@
-const VERSION_KEY = 'aight-version';
-const CURRENT_VERSION = "1.0"; 
+const VERSION_KEY = "aight-version";
+const CURRENT_VERSION = "1.0";
 
 export class Configuration {
   constructor() {
@@ -49,19 +49,17 @@ export class Configuration {
       { $dom: this.$locksTotal, key: "locksTotal", value: 3 },
     ];
 
-    this.versionCheck()
+    this.versionCheck();
     this.initStoreables();
     this.registerListener();
   }
 
-  versionCheck(){
+  versionCheck() {
     if (localStorage.getItem(VERSION_KEY) !== CURRENT_VERSION) {
       localStorage.clear();
-      localStorage.setItem(VERSION_KEY,CURRENT_VERSION) 
+      localStorage.setItem(VERSION_KEY, CURRENT_VERSION);
     }
   }
-
-  
 
   initStoreables() {
     this.configs.forEach((param) => {

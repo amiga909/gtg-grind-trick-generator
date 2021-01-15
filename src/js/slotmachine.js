@@ -238,9 +238,9 @@ export class SlotMachine {
     return index;
   }
 
-  getWinnerSlots(){
-   const winners = this.slots.map((s) => {
-      if (s.state === SLOT_STATES.enabled   || s.state === SLOT_STATES.locked  ) {
+  getWinnerSlots() {
+    const winners = this.slots.map((s) => {
+      if (s.state === SLOT_STATES.enabled || s.state === SLOT_STATES.locked) {
         return s;
       } else {
         return null;
@@ -249,21 +249,20 @@ export class SlotMachine {
     return winners;
   }
 
-  getTrickScore(){
+  getTrickScore() {
     let total = 0;
     this.getWinnerSlots().forEach((w) => {
-      let score = w &&  w.winner ?   w.winner.scores  : 0;
+      let score = w && w.winner ? w.winner.scores : 0;
       if (w && w.name === "GrindVariation") {
         const variation = CONFIG.VARIATIONS.filter((v) => {
           return v.name === w.winner.name;
         })[0];
         score = variation.scores;
       }
-      total = total + parseInt(score,10);
+      total = total + parseInt(score, 10);
     });
 
     return total;
-   
   }
 
   showScores($slot) {
