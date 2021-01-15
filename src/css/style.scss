@@ -106,7 +106,7 @@ p {
   padding: 0.5em 0.7em;
 }
 .banner-logo {
-  background-image: url('../../img/gtg-logo-banner.svg');
+  background-image: url('../img/gtg-logo-banner.svg');
   background-size: contain;
 
   z-index: 0;
@@ -239,7 +239,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#156b2c', end
 .bog-slot-6 .bog-slot-header {
   background: $slotSpinOff;
 }
-
+/*
 .bogLink-icon-clockwise:after {
   content: '';
   display: inline-block;
@@ -257,7 +257,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#156b2c', end
   width: 24px;
   height: 24px;
   margin: 0px 0px 0px 12px;
-}
+}*/
 .bogLink {
   user-select: none;
   -webkit-user-select: none;  /* Chrome all / Safari all */
@@ -587,7 +587,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .l-content-modal::after {
-  background-image: url('../../img/thejokerblade-smaller-1x.jpg');
+  background-image: url('../img/thejokerblade-smaller-1x.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   content: '';
@@ -604,7 +604,7 @@ body::-webkit-scrollbar-thumb {
 }
 @media (min-width: 780px) {
   .l-content-modal::after {
-    background-image: url('../../img/thejokerblade-big.jpg');
+    background-image: url('../img/thejokerblade-big.jpg');
   }
 }
 

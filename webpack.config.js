@@ -9,13 +9,8 @@ module.exports = (env = {}, argv) => {
   let config = {
     context: path.resolve(__dirname, "./"),
     entry: {
-      app: ["./src/js/app.js"],
-
-      //  vendor: [
-      //"./vendor/css/pure-min.css",
-      //"./vendor/css/grids-responsive-min.css",
-      // "./vendor/css/jquery.slotmachine.min.css",
-      //  ],
+      app: ["./src/js/app.js", "./src/css/style.scss"],
+ 
     },
     plugins: [
       new MiniCssExtractPlugin({}),
@@ -57,14 +52,15 @@ module.exports = (env = {}, argv) => {
             },
           },
         },
-        {
+         {
           test: /\.scss$/,
           exclude: /node_modules/,
           use: [
-            // Creates `style` nodes from JS strings
-            "style-loader",
-            // Translates CSS into CommonJS
-            "css-loader",
+            {
+              loader: "file-loader",
+              options: { name: '[name].min.css'}
+            },
+           
             // Compiles Sass to CSS
             "sass-loader",
           ],

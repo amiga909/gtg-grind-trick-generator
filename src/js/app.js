@@ -2,7 +2,7 @@ import "purecss/build/pure-min.css";
 import "purecss/build/grids-responsive-min.css";
 
 import "font-awesome/css/font-awesome.min.css";
-import "../css/style.scss";
+//import "../css/style.scss";
 
 import { Configuration } from "./configuration";
 import { SlotMachine } from "./slotmachine";
