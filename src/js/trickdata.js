@@ -1,5 +1,5 @@
-const EASY_REPEAT = 5;
-const MEDIUM_REPEAT = 3;
+const EASY_REPEAT = 2;
+const MEDIUM_REPEAT = 1;
 
 const APPROACHES = [
   {
@@ -777,7 +777,6 @@ const VARIATIONS = [
     noThumb: true,
     comment: "Same as Tough but on Topside.",
   },
-
   {
     name: "Grab Topside",
     repeat: MEDIUM_REPEAT,
