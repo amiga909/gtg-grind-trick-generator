@@ -198,6 +198,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#156b2c', end
   cursor: pointer;
 }
 
+.bog-slot-disabled {
+  .slotBgIconContainerRight {
+    opacity: 0.2;
+  }
+}
+
 #grindVariations {
   overflow: hidden;
 }

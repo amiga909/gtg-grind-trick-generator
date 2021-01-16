@@ -6,7 +6,7 @@ import "tippy.js/animations/scale-extreme.css";
 
 import "tippy.js/themes/light.css";
 
-const ERROR_MSG_COLOR = '#e71b00'
+const ERROR_MSG_COLOR = "#e71b00";
 const ERROR_MSG = {
   noMoreSpinningReels: `<span style="color:${ERROR_MSG_COLOR};">Error. 
     At least one reel must be active and unlocked. 
@@ -161,7 +161,6 @@ export class Tooltips {
   showTooltip(name) {
     this.helpTooltips.forEach((t) => {
       if (t.name === name) {
-        
         t.instance.enable();
         t.instance.show();
         this.$mask.show();

@@ -192,7 +192,6 @@ class GrindTrickRandomizer {
       );
       this.tooltips.showTooltip("errorMsgTokens");
     } else if (!this.scoreboard.isValidTokensCount()) {
-       
       hasPrompt = true;
       this.tooltips.updateTooltip(
         "errorMsgTokens",
