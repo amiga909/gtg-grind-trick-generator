@@ -28,7 +28,7 @@ const MORE = [
   {
     term: "Step",
     comment:
-      "Exists but I do not understand it at all. <a target='blank' href='http://skateyeg.com/bog/10.0_Step.html'>Book of Grinds</a>",
+      "Exists but I do not understand it at all. <a target='_blank' href='http://skateyeg.com/bog/10.0_Step.html'>Book of Grinds</a>",
   },
 ];
 
@@ -69,7 +69,7 @@ export class TricktionaryScreen {
         ${tocs.join("")}
       </ul>
       <p>
-      All 3D rendered graphics are screenshots taken from the awesome <a target="blank" href='http://skateyeg.com/bog/'>Book of Grinds</a>.
+      All 3D rendered graphics are screenshots taken from the awesome <a target="_blank" href='http://skateyeg.com/bog/'>Book of Grinds</a>.
       Click on an image to open the Book of Grind page for the trick.   
       </p> 
    </div>
@@ -89,7 +89,7 @@ export class TricktionaryScreen {
       const thumb = v.thumbUrl ? v.thumbUrl : "";
       rows.push([
         v.name,
-        url ? `<a  target="blank" href="${url}">Book of Grinds</a>` : "",
+        url ? `<a  target="_blank" href="${url}">Book of Grinds</a>` : "",
       ]);
     });
 

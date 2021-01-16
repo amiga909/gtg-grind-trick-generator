@@ -593,7 +593,7 @@ export class SlotMachine {
       iconClass = "";
 
       let name = s.url
-        ? `<a target="blank" href="${s.url}">${s.name}</a>`
+        ? `<a target="_blank" href="${s.url}">${s.name}</a>`
         : s.name;
 
       name = this.slots[slotIndex].name === "Grind" ? name : s.name;

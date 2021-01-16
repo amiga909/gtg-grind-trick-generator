@@ -7,9 +7,9 @@ export const renderThumb = (imageUrl = "", bogLink = "") => {
   if (bogLink) {
     let linkContent =
       imageHtml === ""
-        ? "<a href='http://skateyeg.com/bog/'>Book of Grinds</a>"
+        ? "<a target='_blank' href='http://skateyeg.com/bog/'>Book of Grinds</a>"
         : imageHtml;
-    html = `<a href="${bogLink}" target="blank">${linkContent}</a>`;
+    html = `<a href="${bogLink}" target="_blank">${linkContent}</a>`;
   } else {
     html = imageHtml;
   }
