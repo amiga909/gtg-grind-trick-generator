@@ -18,6 +18,17 @@ const REFERENCES = [
     url: `<a target="_blank" href="https://broskowfanboy.wordpress.com/rollerblading-explained-in-progress/">broskowfanboy</a>`,
   },
   {
+    name: "Aggressive Inline Skating Terms",
+    url: `<a target="_blank" href="https://www.angelfire.com/home/amandalane/sports/aggressiveinline/terms.html/">angelfire.com</a>`,
+  },
+  
+  {
+    name: "The Grab and Grind Chart Aggressive Skating",
+    url: `<a target="_blank" href="https://lurch17.tripod.com/skchart.htm">lurch17.tripod.com</a>`,
+  },
+  
+  
+  {
     name: "SVG Editor",
     url: `<a target="_blank" href="https://svg-edit.github.io/">svg-edit</a>`,
   },

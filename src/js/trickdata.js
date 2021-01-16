@@ -341,7 +341,7 @@ const SOUL_GRINDS = [
   {
     name: "Training Wheel",
     url: "",
-    noThumb: true,
+    
     comment:
       "The front skate is rolling on the wheel on the heel, the back skate is on Topside soul.",
     variations: { Rough: true, Tough: true },
@@ -391,7 +391,6 @@ const SOUL_GRINDS = [
 
   {
     name: "BS Byn Soul",
-    noThumb: true,
     url: "",
     comment: "Turning the soul foot on a Soul grind into a torque",
     isSoulGroove: true,
@@ -399,7 +398,6 @@ const SOUL_GRINDS = [
   },
   {
     name: "FS Byn Soul",
-    noThumb: true,
     url: "",
     comment: "Turning the soul foot on a Soul grind into a torque",
     isSoulGroove: true,
@@ -411,7 +409,7 @@ const SOUL_GRINDS = [
     noSwitch: true,
     url: "",
     comment:
-      "Grinding on the soul plates with both feet, with toes facing each other.",
+      "(Snub Soul) Grinding on the soul plates with both feet, with toes facing each other.",
     variations: { Rough: true, Tough: true },
   },
 ];
@@ -445,6 +443,7 @@ const GROOVE_GRINDS = [
   },
   {
     name: "BS Cab driver",
+    comment: "Also called Cowboy Grind",
     url: "http://skateyeg.com/bog/09.1_Backside_Cab_driver.html",
     variations: { Channel: true },
   },
@@ -535,6 +534,7 @@ const GROOVE_GRINDS = [
   },
   {
     name: "FS Cab driver",
+    comment: "Also called Cowboy Grind",
     url: "http://skateyeg.com/bog/09.0_Cab_driver.html",
     variations: { Channel: true },
   },
@@ -673,7 +673,7 @@ const GRIND_SYNONYMS = [
     comment: "Negative X-Grind",
     name: "X-Grind",
     isNegative: true,
-    url: "",
+    url: "http://skateyeg.com/bog/10.0_Stub_Soul.html",
   },
 ];
 
