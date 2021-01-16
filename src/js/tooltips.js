@@ -6,79 +6,75 @@ import "tippy.js/animations/scale-extreme.css";
 
 import "tippy.js/themes/light.css";
 
+const ERROR_MSG_COLOR = '#e71b00'
+const ERROR_MSG = {
+  noMoreSpinningReels: `<span style="color:${ERROR_MSG_COLOR};">Error. 
+    At least one reel must be active and unlocked. 
+    Toggle the reels to unlock or enable reels.</span>`,
+  tooManyTokensUsed: `<span style="color:${ERROR_MSG_COLOR};">Error. You used too many tokens. 
+    Toggle the reels to remove <i class="fa fa-lock fa-1x"></i> and 
+    <i class="fa fa-ban fa-1x"></i> tokens from the slot machine.</span>`,
+};
+
 const CONFIG = {
-  soundButton: { type: "nav", text: "Toggle sound" },
-  randomizeButton: { text: "Spin the reels", position: "" },
+  // all screens
+  soundButton: { screen: "all", text: "Toggle sound" },
   helpBtn: {
-    type: "nav",
+    screen: "all",
     text: "Explains in-screen controls",
     position: "",
   },
-
   scoreboard: {
-    type: "nav",
-    text: "Scoreboard", //props: { maxWidth: "50px" },
+    screen: "all",
+    text: `Current score<br>
+    Remaining spins <i class="fa fa-play-circle fa-1x"></i><br>
+    Remaining locks <i class="fa fa-lock fa-1x"></i>  <br>
+    Remaining removes <i class="fa fa-ban fa-1x"></i> `, //props: { maxWidth: "50px" },
   },
-
   configButton: {
-    type: "nav",
-    text: "Choose difficulty", //props: { maxWidth: "50px" },
+    screen: "all",
+    text: "Settings", //props: { maxWidth: "50px" },
   },
   trickNamingBtn: {
-    type: "nav",
-    text: "Open  Tricktionary", //props: { maxWidth: "50px" },
+    screen: "all",
+    text: "Tricktionary", //props: { maxWidth: "50px" },
   },
-
-  aboutBtn: { type: "nav", text: "How to play" }, //props: { maxWidth: "50px" },
-
+  aboutBtn: { screen: "all", text: "How to play" }, //props: { maxWidth: "50px" },
+  //
+  randomizeButton: {
+    screen: "Slotmachine",
+    text: "Spin the reels",
+    position: "",
+  },
   addTricklistBtn: {
-    type: "slot-menu",
-    text: "Add current trick to tricklist. ",
+    screen: "Slotmachine",
+    text: "Add trick to tricklist",
   },
+  explainTrick: {
+    screen: "Slotmachine",
+    text: "Show trick info",
+  },
+  //
   giveUpButton: {
-    type: "slot-menu",
-    text: "Abort the game. ",
+    screen: "Trick List",
+    text: "Abort the game",
   },
-
-  /*approachSlot: {
-    type: 'slot',
-    text:
-      ' <b>Fakie</b> Skate backwards to the obstacle <b>Switch</b> Grinding in the unnatural mirrored position of a grind.<br>',
-    props: { placement: 'top-end', offset: 2 },
-    slotName: 'Approach',
+  trickListContinueBtn: {
+    screen: "Trick List",
+    text: "Continue the game and spin next trick",
   },
-  spinToSlot: {
-    type: 'slot',
-    text:
-      '<b>Inspin</b> If the obstacle is on the left and approach is forwards, Inspin is counter-clockwise. If the obstacle is on the right, Inspin is clockwise.',
-    props: { placement: 'bottom-end', offset: 2 },
-    slotName: 'SpinTo',
-  },*/
+  //
   endScreen: {
-    type: "slot",
-    text: "",
-    //'<b>Switch</b>blalbblalblalblalba blalblalblalba blalblalblalba blalblalblalba blalblalblalba blalblalblalba lalblalba bblalblalblalba blalblalblalba blalblalblalba blalblalblalba lalblalblalba <br>  <b>Fakie</b>blalblalblalba blalblalblalba <br> <b>Inspin</b>bl blalbblalblalblalba blalblalblalba blalblalblalba blalblalblalba blalblalblalba blalblalblalba lalblalba blalblalblalba alblalblalba <br>   <b>Frontside Unity</b>grindSlot <br> <img width="300" heigth="300" src="./img/bog/1.jpg">  <br>Open book of grinds  ',
-    props: { offset: 8, maxWidth: "80vh" },
-    slotName: "Grind",
-  },
-  /*
-  grindVariationSlot: {
-    type: 'slot',
-    text:
-      '<b>Topside</b> INside X <img width=100 heigth=100 src="./img/bog/1.jpg">  ',
-    props: { placement: 'bottom-end', offset: 2 },
-    slotName: 'GrindVariation',
-  },
-  spinOffSlot: {
-    type: 'slot',
-    text: 'f the obstacle is on the left and approach is forwa',
-    props: {
-      placement: 'top-start',
+    screen: "manual",
 
-      offset: 2,
-    },
-    slotName: 'SpinOff',
-  },*/
+    text: "",
+    props: { offset: 8, maxWidth: "80vh" },
+  },
+  errorMsgTokens: {
+    screen: "manual",
+    text: ``,
+    props: {},
+  },
 };
 
 const throttle = (func, limit) => {
@@ -95,14 +91,15 @@ const throttle = (func, limit) => {
 };
 
 export class Tooltips {
-  constructor($helpBtn, App) {
+  constructor($helpBtn, screens) {
     this.$helpBtn = $helpBtn;
-    this.App = App;
+    this.screens = screens;
     this.$tooltips = $("[data-p-tooltip]");
     this.$helpBtnStart = $("#helpButtonStart");
     this.$mask = $("#tooltips-mask");
 
     this.config = CONFIG;
+    this.ERROR_MSG = ERROR_MSG;
     this.helpTooltips = [];
     this.isVisible = false;
     this.init();
@@ -114,7 +111,6 @@ export class Tooltips {
       if (this.isVisible) {
         this.hide();
       } else {
-        // this.init();
         this.show();
       }
     }, 500);
@@ -137,11 +133,10 @@ export class Tooltips {
   show() {
     this.$mask.show();
     this.$helpBtn.addClass("pure-button-disabled");
-    this.App.$randomizeButton.addClass("pure-button-disabled");
     this.isVisible = true;
     this.helpTooltips.forEach((t) => {
       if (t.instance.props.content) {
-        if (t.type !== "slot-menu" || !this.App.isEndsreen) {
+        if (t.screen === "all" || t.screen === this.screens.activeScreen) {
           t.instance.enable();
 
           t.instance.show();
@@ -152,7 +147,6 @@ export class Tooltips {
   hide() {
     this.isVisible = false;
     this.$helpBtn.removeClass("pure-button-disabled");
-    this.App.$randomizeButton.removeClass("pure-button-disabled");
 
     this.$mask.hide();
   }
@@ -161,15 +155,13 @@ export class Tooltips {
       if (t.name === name) {
         t.instance.setContent(htmlContent);
       }
-      // t.instance.hide();
-      // t.instance.disable();
     });
   }
 
   showTooltip(name) {
     this.helpTooltips.forEach((t) => {
       if (t.name === name) {
-        console.log("show " + name);
+        
         t.instance.enable();
         t.instance.show();
         this.$mask.show();
@@ -203,7 +195,11 @@ export class Tooltips {
 
       let t = tippy($el[0], props);
       t.disable();
-      this.helpTooltips.push({ instance: t, name: name });
+      this.helpTooltips.push({
+        instance: t,
+        name: name,
+        screen: config.screen,
+      });
     });
   }
 }

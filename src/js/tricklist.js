@@ -85,14 +85,16 @@ export class Tricklist {
     arr.push(trickEntry);
     localStorage.setItem(this.storageKey, JSON.stringify(arr));
     let row = this.renderRow(trickEntry);
-    console.log("row", row);
+
     $(row).hide().insertAfter(this.$list.find(".row:nth-child(1)")).fadeIn();
     this.toggleControlDisabled();
   }
 
   hasTrick(parsedStr) {
-    let found = this.getStorage().filter( (i)=>{return i.parsed === parsedStr});
-    return found.length > 0; 
+    let found = this.getStorage().filter((i) => {
+      return i.parsed === parsedStr;
+    });
+    return found.length > 0;
   }
   /*
   render() {

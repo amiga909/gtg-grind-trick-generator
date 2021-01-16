@@ -46,7 +46,7 @@ class GrindTrickRandomizer {
 
     this.screens = new Screens();
     this.tricklist = new Tricklist(this.$tricklistBtn);
-    this.tooltips = new Tooltips(this.$helpBtn, this);
+    this.tooltips = new Tooltips(this.$helpBtn, this.screens);
     this.scoreboard = new Scoreboard(this.configurator.getGameConfig());
     this.gameOverScreen = new GameOverScreen();
 
@@ -68,7 +68,6 @@ class GrindTrickRandomizer {
       if (this.isEndScreen) {
         const onResultChange = () => {
           this.scoreboard.set(this.slotMachine.countSlotStates());
-        
 
           this.showEndScreen(false);
         };
@@ -98,10 +97,12 @@ class GrindTrickRandomizer {
     });
     this.$randomizeButtonSlots.on("click", (e) => {
       e.preventDefault();
-      this.onClickStart();
+      if (!this.hasTokenErrorPrompt()) {
+        this.onClickStart();
+      }
     });
 
-   /* document.body.addEventListener("keyup", (event) => {
+    /* document.body.addEventListener("keyup", (event) => {
       if (event.keyCode === 13) {
         event.preventDefault();
         if (!this.$randomizeButton.hasClass("pure-button-disabled")) {
@@ -125,8 +126,9 @@ class GrindTrickRandomizer {
     }
 
     this.$addTricklistBtn.on("click", () => {
-      this.addToTricklist(this.scoreboard.isLastSpin());
-      //  this.$addTricklistBtn.addClass("pure-button-disabled");
+      if (!this.hasTokenErrorPrompt()) {
+        this.addToTricklist(this.scoreboard.isLastSpin());
+      }
     });
 
     this.$trickHelpButton.on("click", () => {
@@ -180,10 +182,28 @@ class GrindTrickRandomizer {
     this.audioplayer.mute();
   }
 
-  onClickStart() {
+  hasTokenErrorPrompt() {
+    let hasPrompt = false;
     if (!this.slotMachine.isValidState()) {
-      return false;
+      hasPrompt = true;
+      this.tooltips.updateTooltip(
+        "errorMsgTokens",
+        this.tooltips.ERROR_MSG.noMoreSpinningReels
+      );
+      this.tooltips.showTooltip("errorMsgTokens");
+    } else if (!this.scoreboard.isValidTokensCount()) {
+       
+      hasPrompt = true;
+      this.tooltips.updateTooltip(
+        "errorMsgTokens",
+        this.tooltips.ERROR_MSG.tooManyTokensUsed
+      );
+      this.tooltips.showTooltip("errorMsgTokens");
     }
+    return hasPrompt;
+  }
+
+  onClickStart() {
     this.screens.show("Slotmachine");
     this.screens.disableNav();
     this.scoreboard.useSpin();
@@ -232,13 +252,12 @@ class GrindTrickRandomizer {
     const text = this.resultParser.getHelpTableForTrick(this.slotMachineResult);
     this.tooltips.updateTooltip("endScreen", text);
 
-    if(this.tricklist.hasTrick(this.slotMachineResult.parsed)) {
-      console.log("trick already in list cannot add!")
+    if (this.tricklist.hasTrick(this.slotMachineResult.parsed)) {
+      console.log("trick already in list cannot add!");
       this.$addTricklistBtn.addClass("pure-button-disabled");
-    }else {
+    } else {
       this.$addTricklistBtn.removeClass("pure-button-disabled");
     }
-        
 
     this.$endScreen.find("#endscreen-text").html(this.slotMachineResult.parsed);
     this.$endScreen.fadeIn(500, () => {
@@ -252,9 +271,8 @@ class GrindTrickRandomizer {
     this.$endScreen.hide();
   }
 }
-$( () =>{
+$(() => {
   const s = new GrindTrickRandomizer();
 
   s.init();
- });
- 
+});

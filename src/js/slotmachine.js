@@ -190,7 +190,7 @@ export class SlotMachine {
       disabledSlots.length + lockedSlots.length + unavailableSlots.length ===
       5
     ) {
-      alert("At least one reel must be active and unlocked");
+      //alert("At least one reel must be active and unlocked");
       return (isValid = false);
     }
     return isValid;

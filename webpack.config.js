@@ -60,9 +60,17 @@ module.exports = (env = {}, argv) => {
               loader: "file-loader",
               options: { name: '[name].min.css'}
             },
-           
-            // Compiles Sass to CSS
-            "sass-loader",
+            
+            {
+              loader: 'postcss-loader',
+              options: {
+                sourceMap: true,
+                 
+              }
+            },
+            {
+              loader: 'sass-loader', options: { sourceMap: true }
+            }
           ],
         },
         {

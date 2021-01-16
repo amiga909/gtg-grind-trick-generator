@@ -12,7 +12,7 @@ export class Screens {
     this.$modalCloseBtn = $("#modal-screen-close-btn");
 
     this.modalScreen = new ModalScreen();
-    this.tricktionaryScreen = new TricktionaryScreen()
+    this.tricktionaryScreen = new TricktionaryScreen();
 
     //this.aboutScreen = new AboutScreen();
     this.activeScreen = "Loading";

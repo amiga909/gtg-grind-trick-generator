@@ -18,9 +18,9 @@ export class GameOverScreen {
     this.$points.html(score);
     let rows = [];
     tricks.forEach((entry) => {
-      let row = rows.push([entry.points, entry.parsed ]);
+      let row = rows.push([entry.points, entry.parsed]);
     });
-    let html = renderTable("Tricks", ["Points", "Name" ], rows);
+    let html = renderTable("Tricks", ["Points", "Name"], rows);
     this.$tricks.html(html);
   }
 }

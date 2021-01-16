@@ -260,9 +260,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#156b2c', end
 }*/
 .bogLink {
   user-select: none;
-  -webkit-user-select: none;  /* Chrome all / Safari all */
-  -moz-user-select: none;     /* Firefox all */
-  -ms-user-select: none;  
+  // autoprefixer!
+  //-webkit-user-select: none;  /* Chrome all / Safari all */
+ // -moz-user-select: none;     /* Firefox all */
+ // -ms-user-select: none;  
 }
 
 .bog-slot-header {
