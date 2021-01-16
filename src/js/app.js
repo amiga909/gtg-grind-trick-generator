@@ -23,6 +23,7 @@ class GrindTrickRandomizer {
     this.$randomizeButtonStart = $("#randomizeButtonStart");
     this.$randomizeButtonStartContainer = $(".randomizeButton2-container");
     this.$randomizeButtonSlots = $("#randomizeButton2");
+    
 
     this.$soundOnOff = $("#sound");
 
@@ -37,6 +38,9 @@ class GrindTrickRandomizer {
     this.$currentScore = $("#currentScore");
 
     this.configurator = new Configuration();
+    this.$levelStartSelect = $("#start-screen-levels");
+    this.$levelStartSelect.val(this.configurator.getLevel());
+
     this.slotSpeed = this.configurator.getSpeed();
     this.includedTricks = this.configurator.getIncludedTricks();
 
@@ -82,6 +86,14 @@ class GrindTrickRandomizer {
           },
         });
       }
+    });
+
+   
+    this.$levelStartSelect.on("change", (e) => {
+      e.preventDefault();
+     // this.screens.show("Configuration");
+      this.configurator.setLevel(this.$levelStartSelect.val());
+      this.configurator.submit();
     });
 
     this.$randomizeButton.on("click", (e) => {
@@ -145,6 +157,7 @@ class GrindTrickRandomizer {
         this.tricklist.getStorage()
       );
       this.screens.show("GameOver");
+      this.screens.scrollDown();
     });
   }
 

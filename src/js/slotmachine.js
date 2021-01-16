@@ -147,7 +147,7 @@ export class SlotMachine {
       if (!isSkipped) {
         nextSlotId = currentSlot.next;
       } else {
-        // console.log('recusrice getNextSlotId', currentSlot, nextSlot);
+     
         nextSlotId = this.getNextSlotIndex(nextSlot);
       }
     }
@@ -203,8 +203,7 @@ export class SlotMachine {
     let newState = this.getNextState(state, slotName);
 
     if (state === SLOT_STATES.unavailable) {
-      //console.log('cant change slot');
-      // newState = state;
+       
     } else if (state === SLOT_STATES.enabled) {
       newState = SLOT_STATES.locked;
     } else if (state === SLOT_STATES.locked) {
@@ -582,7 +581,7 @@ export class SlotMachine {
       try {
         this.slots[slotIndex].machine.destroy();
       } catch (err) {
-        // console.log(err);
+      
         this.slots[slotIndex].machine = null;
       }
       // cssId: generate fresh node for slotmachine (re-init problem)

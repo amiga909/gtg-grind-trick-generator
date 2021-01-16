@@ -49,7 +49,7 @@ const LEVEL_CONFIG = {
 export class Configuration {
   constructor() {
     this.$levelSelect = $("#levelSelect");
-    this.$levelStartSelect = $("#start-screen-levels");
+
     this.$spinsTotal = $("#spinsTotalInput");
     this.$removesTotal = $("#removesTotalInput");
     this.$spinsLocks = $("#spinsLocksInput");
@@ -73,31 +73,26 @@ export class Configuration {
     this.$spinsTotal = $("#spinsTotalInput");
     this.$removesTotal = $("#removesTotalInput");
     this.$locksTotal = $("#spinsLocksInput");
-    this.defaultConfig = LEVEL_CONFIG["2"];
-    this.defaultConfig.levelSelect = "2";
+  
     this.configs = [
       { $dom: this.$soundSelect, key: "soundSelect", value: 0 },
       { $dom: this.$speedSelect, key: "speedSelect", value: 0 },
-      { $dom: this.$switchSelect, key: "switchCheckbox", value: "on" },
-      { $dom: this.$negativeSelect, key: "negativeCheckbox", value: "on" },
+      { $dom: this.$switchSelect, key: "switchCheckbox", value: "off" },
+      { $dom: this.$negativeSelect, key: "negativeCheckbox", value: "off" },
       { $dom: this.$roughSelect, key: "roughCheckbox", value: "off" },
       { $dom: this.$toughSelect, key: "toughCheckbox", value: "off" },
-      { $dom: this.$spins360Select, key: "spins360Checkbox", value: "on" },
+      { $dom: this.$spins360Select, key: "spins360Checkbox", value: "off" },
       { $dom: this.$heelRollSelect, key: "heelRollCheckbox", value: "off" },
       { $dom: this.$spins540Select, key: "spins540Checkbox", value: "off" },
       { $dom: this.$channelSelect, key: "channelCheckbox", value: "off" },
       { $dom: this.$christSelect, key: "christCheckbox", value: "off" },
       { $dom: this.$levelSelect, key: "levelSelect", value: "1" },
-      { $dom: this.$levelStartSelect, key: "levelStartSelect", value: "1" },
-      { $dom: this.$spinsTotal, key: "spinsTotal", value: 10 },
+      { $dom: this.$spinsTotal, key: "spinsTotal", value: 5 },
       { $dom: this.$removesTotal, key: "removesTotal", value: 5 },
       { $dom: this.$locksTotal, key: "locksTotal", value: 3 },
     ];
-    this.configs.forEach( (c)=>{
-      if(this.defaultConfig[c.key]) {
-      //  c.value = this.defaultConfig[c.key];
-      }
-    })
+     
+
 
     this.versionCheck();
     this.initStoreables();
@@ -130,7 +125,6 @@ export class Configuration {
     param.$dom.on("change", (e) => {
       this.$submit.removeClass("pure-button-disabled");
       param.value = param.$dom.val();
-       
     });
   }
 
@@ -154,13 +148,8 @@ export class Configuration {
     });
     this.$submit.on("click", (e) => {
       e.preventDefault();
-      this.configs.forEach((param) => {
-        console.log("on save", param)
-        if (param.value) {
-          localStorage.setItem(param.key, param.value);
-        }
-      });
-      location.reload();
+     this.submit();
+      
     });
 
     this.$reset.on("click", (e) => {
@@ -170,26 +159,38 @@ export class Configuration {
     });
   }
 
+  submit(){
+    this.configs.forEach((param) => {
+      if (param.value) {
+        localStorage.setItem(param.key, param.value);
+      }
+    });location.reload();
+  }
+
   getLevel() {
     const value = this.configs.filter((s) => s.key == "levelSelect")[0].value;
     return value;
   }
   setLevel(level) {
     const levelConfig = LEVEL_CONFIG[level];
-$("#levelStartSelect").val(level);
+    //this.$levelSelect.val(level)
     this.configs.forEach((param) => {
       let configValue = levelConfig[param.key] ? levelConfig[param.key] : "";
-    
+      if(param.key === "levelSelect") {
+        configValue = level;
+      }
       if (configValue) {
         param.value = configValue;
         if (param.key.includes("Checkbox")) {
           if (configValue === "on") {
-             param.$dom.prop("checked", true);
-           } else {
-             param.$dom.prop("checked", false);
-           } } else {
-        param.$dom.val(configValue);}
-        
+            param.$dom.prop("checked", true);
+          } else {
+            param.$dom.prop("checked", false);
+          }
+        } else {
+          param.$dom.val(configValue);
+         
+        }
       }
     });
   }
