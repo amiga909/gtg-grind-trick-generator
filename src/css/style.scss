@@ -490,6 +490,39 @@ body::-webkit-scrollbar-thumb {
   outline: 1px solid slategrey;
 }
 
+#gameover-screen {
+  display: none;    color: white;
+  padding:12px;    max-width: 1000px;
+  margin: 0 auto;position: relative;    text-align: center;min-height: 100vh;
+}
+.gameover-screen-box {
+ // background-color: rgba(255, 255, 255, 0.2);
+}
+.gameover-controls-container {
+  margin-top:16px;
+}
+.gameover-controls-row {
+  //padding: 16px;
+  width: auto;padding: 8px;
+  margin: 0 auto; background-color: rgba(255, 255, 255, 0.1);
+}
+.gameover-screen-box::after {
+  background-image: url('../img/thejokerblade-smaller-1x.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  content: '';
+  opacity: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0.5;
+  position: absolute;
+  z-index: -1;
+
+  filter: grayscale(1);
+}
+
 .l-content-modal {
   display: none;
   z-index: 3;
@@ -507,6 +540,7 @@ body::-webkit-scrollbar-thumb {
   font-size: $l-content-modal-text-content-FS;
 }
 
+/*
 .l-content-modal-text {
   white-space: nowrap;
   text-align: center;
@@ -518,7 +552,7 @@ body::-webkit-scrollbar-thumb {
 .l-content-modal-text-center {
   margin-top: 96px;
   opacity: 1;
-}
+}*/
 .tab-legend-configuration {
   color: white !important;
 }
@@ -590,22 +624,7 @@ body::-webkit-scrollbar-thumb {
   padding-top: 0px;
 }
 
-.l-content-modal::after {
-  background-image: url('../img/thejokerblade-smaller-1x.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  content: '';
-  opacity: 0;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  opacity: 0.5;
-  position: absolute;
-  z-index: -1;
 
-  filter: grayscale(1);
-}
 @media (min-width: $bp_tablet) {
   .l-content-modal::after {
     background-image: url('../img/thejokerblade-big.jpg');

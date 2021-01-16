@@ -58,7 +58,7 @@ class GrindTrickRandomizer {
 
   init() {
     this.audioplayer.init(this.configurator.getSound());
-    this.screens.show("Start");
+    this.screens.show("Start"); //Start
 
     this.registerListener();
   }

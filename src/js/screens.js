@@ -25,7 +25,7 @@ export class Screens {
       { name: "Start", $dom: $("#start-screen") },
       { name: "Slotmachine", $dom: $("#slotmachine") },
 
-      { name: "GameOver", $dom: $("#l-content-modal") }, // #modal-screen-window
+      { name: "GameOver", $dom: $("#gameover-screen") }, // #modal-screen-window
       {
         name: "Configuration",
         modal: {
