@@ -278,7 +278,7 @@ export class ResultParser {
     let candidates = CONFIG.GRIND_SYNONYMS.filter((syn) => {
       return syn.name === grindName;
     });
-    // console.log("candidates",candidates)
+   
     let synonym = null;
     candidates.forEach((syn) => {
       if (synonym === null && this.meetsSynonymProps(syn, props)) {
@@ -287,9 +287,7 @@ export class ResultParser {
     });
 
     if (synonym) {
-      //   console.log('not iffed ß ', resultStr, synonym );
-      // if (isValid) {
-      // console.log('iffed ß ', entry);
+      
       result = result.replace(grindName, synonym.newName);
 
       if (synonym.isReverse) {
@@ -381,7 +379,7 @@ function testParser() {
       console.error(i, entry, p);
     }
     let doc = s.getHelpTableForTrick(p);
-    // console.log(i, p.parsed, doc)
+ 
   });
 }
 
