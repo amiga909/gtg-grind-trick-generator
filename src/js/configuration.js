@@ -73,7 +73,7 @@ export class Configuration {
     this.$spinsTotal = $("#spinsTotalInput");
     this.$removesTotal = $("#removesTotalInput");
     this.$locksTotal = $("#spinsLocksInput");
-  
+
     this.configs = [
       { $dom: this.$soundSelect, key: "soundSelect", value: 0 },
       { $dom: this.$speedSelect, key: "speedSelect", value: 0 },
@@ -91,8 +91,6 @@ export class Configuration {
       { $dom: this.$removesTotal, key: "removesTotal", value: 5 },
       { $dom: this.$locksTotal, key: "locksTotal", value: 3 },
     ];
-     
-
 
     this.versionCheck();
     this.initStoreables();
@@ -148,8 +146,7 @@ export class Configuration {
     });
     this.$submit.on("click", (e) => {
       e.preventDefault();
-     this.submit();
-      
+      this.submit();
     });
 
     this.$reset.on("click", (e) => {
@@ -159,12 +156,13 @@ export class Configuration {
     });
   }
 
-  submit(){
+  submit() {
     this.configs.forEach((param) => {
       if (param.value) {
         localStorage.setItem(param.key, param.value);
       }
-    });location.reload();
+    });
+    location.reload();
   }
 
   getLevel() {
@@ -176,7 +174,7 @@ export class Configuration {
     //this.$levelSelect.val(level)
     this.configs.forEach((param) => {
       let configValue = levelConfig[param.key] ? levelConfig[param.key] : "";
-      if(param.key === "levelSelect") {
+      if (param.key === "levelSelect") {
         configValue = level;
       }
       if (configValue) {
@@ -189,7 +187,6 @@ export class Configuration {
           }
         } else {
           param.$dom.val(configValue);
-         
         }
       }
     });

@@ -46,11 +46,7 @@ export class TricktionaryScreen {
     this.renderNotImplemented();
 
     this.renderTOC();
-
-    
   }
-
- 
 
   renderTOC() {
     let tocs = [];
@@ -146,8 +142,8 @@ export class TricktionaryScreen {
       const url = v.url ? v.url : "";
       const comment = v.comment ? `${v.comment}` : "";
       const thumb = v.thumbUrl ? v.thumbUrl : "";
-      let name = v.name.replace("BS ", "Backside/BS ")
-      name = name.replace("FS ", "Frontside/FS ")
+      let name = v.name.replace("BS ", "Backside/BS ");
+      name = name.replace("FS ", "Frontside/FS ");
       rows.push([name, renderThumb(thumb, url), comment]);
     });
 

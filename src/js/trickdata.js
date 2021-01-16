@@ -1,6 +1,10 @@
+const EASY_REPEAT = 5;
+const MEDIUM_REPEAT = 3;
+
 const APPROACHES = [
   {
     name: "Fakie",
+    repeat: MEDIUM_REPEAT,
     url: "http://skateyeg.com/bog/05.0_Fakie.html",
     isFakie: true,
     isSwitch: false,
@@ -8,6 +12,7 @@ const APPROACHES = [
   },
   {
     name: "Switch",
+    repeat: MEDIUM_REPEAT,
     url: "http://skateyeg.com/bog/04.0_Switch.html",
     isFakie: false,
     isSwitch: true,
@@ -30,10 +35,12 @@ const APPROACHES = [
 const SPINS_TO_GRIND = [
   {
     name: "Outspin 180",
+    repeat: MEDIUM_REPEAT,
     scores: 1,
   },
   {
     name: "Inspin 180",
+    repeat: EASY_REPEAT,
     scores: 1,
     url: "",
   },
@@ -62,11 +69,14 @@ const SPINS_TO_GRIND = [
 const SPINS_FAKIE_TO_GRIND = [
   {
     name: "Inspin 180",
+    repeat: EASY_REPEAT,
     scores: 1,
+
     url: "",
   },
   {
     name: "Outspin 180",
+    repeat: MEDIUM_REPEAT,
     scores: 1,
     url: "",
   },
@@ -85,6 +95,7 @@ const SPINS_FAKIE_TO_GRIND = [
 const SPINS_TO_GRIND_GROOVE_FS = [
   {
     name: "Inspin 90",
+    repeat: EASY_REPEAT,
     scores: 0,
     url: "",
   },
@@ -107,6 +118,7 @@ const SPINS_TO_GRIND_GROOVE_FS = [
 const SPINS_TO_GRIND_GROOVE_BS = [
   {
     name: "Outspin 90",
+    repeat: EASY_REPEAT,
     scores: 0,
     url: "",
   },
@@ -129,6 +141,7 @@ const SPINS_TO_GRIND_GROOVE_BS = [
 const SPINS_FAKIE_TO_GRIND_GROOVE_FS = [
   {
     name: "Inspin 90",
+    repeat: EASY_REPEAT,
     scores: 0,
     url: "",
   },
@@ -151,6 +164,7 @@ const SPINS_FAKIE_TO_GRIND_GROOVE_FS = [
 const SPINS_FAKIE_TO_GRIND_GROOVE_BS = [
   {
     name: "Outspin 90",
+    repeat: EASY_REPEAT,
     scores: 0,
     url: "",
   },
@@ -176,6 +190,7 @@ const HYBRID_COMMENT =
 const SOUL_GRINDS = [
   {
     name: "Soul",
+    repeat: EASY_REPEAT,
     url: "http://skateyeg.com/bog/02.0_Soul.html",
     variations: {
       Topside: true,
@@ -188,6 +203,7 @@ const SOUL_GRINDS = [
   },
   {
     name: "Acid",
+    repeat: EASY_REPEAT,
     url: "http://skateyeg.com/bog/05.0_Acid.html",
     variations: {
       Topside: true,
@@ -200,15 +216,13 @@ const SOUL_GRINDS = [
   },
   {
     name: "Makio",
+    repeat: EASY_REPEAT,
     url: "http://skateyeg.com/bog/01.0_Makio.html",
     variations: {
       Topside: true,
       Negative: true,
       Rough: true,
       Tough: true,
-      // Grabs: enac: You can grab it as a Plain (Safety), Cross Grab (Mute),
-      // Backside Grab, Rocket, Parallel, or Stale.
-
       Grab: true,
       Rocket: true,
       "Cross-Grab": true,
@@ -223,6 +237,7 @@ const SOUL_GRINDS = [
   },
   {
     name: "PStar",
+    repeat: EASY_REPEAT,
     url: "http://skateyeg.com/bog/04.0_PStar.html",
     variations: {
       Topside: true,
@@ -235,6 +250,7 @@ const SOUL_GRINDS = [
   },
   {
     name: "Torque Soul",
+    repeat: MEDIUM_REPEAT,
     url: "http://skateyeg.com/bog/08.0_Torque_Soul.html",
     variations: {
       Topside: true,
@@ -247,6 +263,7 @@ const SOUL_GRINDS = [
   },
   {
     name: "Mistrial",
+    repeat: MEDIUM_REPEAT,
     url: "http://skateyeg.com/bog/07.0_Mistrial.html",
     variations: {
       Topside: true,
@@ -281,6 +298,7 @@ const SOUL_GRINDS = [
   },
   {
     name: "Mizou",
+    repeat: EASY_REPEAT,
     url: "http://skateyeg.com/bog/03.0_Mizou.html",
     variations: {
       Topside: true,
@@ -305,6 +323,7 @@ const SOUL_GRINDS = [
   },
   {
     name: "X-Grind",
+    repeat: MEDIUM_REPEAT,
     url: "http://skateyeg.com/bog/06.0_X_Grind.html",
     comment:
       "A regular X-Grind has the front foot Topside. A Topside X-Grind has the back foot Topside. A Negative X-Grind is called Stub Soul.",
@@ -402,16 +421,19 @@ const SOUL_GRINDS = [
 const GROOVE_GRINDS = [
   {
     name: "FS Royale",
+    repeat: MEDIUM_REPEAT,
     url: "http://skateyeg.com/bog/03.0_Royale.html",
     variations: { Channel: true },
   },
   {
     name: "FS Unity",
+    repeat: MEDIUM_REPEAT,
     url: "http://skateyeg.com/bog/07.0_Unity.html",
     variations: { Channel: true },
   },
   {
     name: "FS Torque",
+    repeat: MEDIUM_REPEAT,
     url: "http://skateyeg.com/bog/05.0_Torque.html",
     variations: {
       Grab: true,
@@ -460,6 +482,7 @@ const GROOVE_GRINDS = [
   },
   {
     name: "BS Full Torque",
+    repeat: MEDIUM_REPEAT,
     url: "http://skateyeg.com/bog/04.1_Backside_Full_Torque.html",
     comment: "Same as Fahrvergnuegen, Farhve, Nugen",
     variations: { Channel: true },
@@ -477,11 +500,13 @@ const GROOVE_GRINDS = [
   },
   {
     name: "BS Unity",
+    repeat: MEDIUM_REPEAT,
     url: "http://skateyeg.com/bog/07.1_Backside_Unity.html",
     variations: { Channel: true },
   },
   {
     name: "BS Torque",
+    repeat: MEDIUM_REPEAT,
     url: "http://skateyeg.com/bog/05.1_Backside_Torque.html",
     variations: {
       Grab: true,
@@ -493,6 +518,7 @@ const GROOVE_GRINDS = [
   },
   {
     name: "BS Royale",
+    repeat: MEDIUM_REPEAT,
     url: "http://skateyeg.com/bog/03.1_Backside_Royale.html",
     variations: { Channel: true },
   },
@@ -524,12 +550,14 @@ const GROOVE_GRINDS = [
   },
   {
     name: "FS Full Torque",
+    repeat: MEDIUM_REPEAT,
     url: "http://skateyeg.com/bog/04.0_Full_Torque.html",
     comment: "Same as Fahrvergnuegen, Farhve, Nugen",
     variations: { Channel: true },
   },
   {
     name: "Backside",
+    repeat: MEDIUM_REPEAT,
     url: "http://skateyeg.com/bog/02.0_Backside.html",
     variations: {
       Channel: true,
@@ -537,6 +565,7 @@ const GROOVE_GRINDS = [
   },
   {
     name: "Frontside",
+    repeat: MEDIUM_REPEAT,
     url: "http://skateyeg.com/bog/01.0_Frontside.html",
     variations: {
       Channel: true,
@@ -651,6 +680,7 @@ const GRIND_SYNONYMS = [
 const VARIATIONS = [
   {
     name: "Topside",
+    repeat: EASY_REPEAT * 2,
     scores: 1,
     url: "http://skateyeg.com/bog/03.0_Topside_(Top).html",
     comment:
@@ -658,6 +688,7 @@ const VARIATIONS = [
   },
   {
     name: "Negative",
+    repeat: EASY_REPEAT,
     scores: 1,
     url: "http://skateyeg.com/bog/11.0_Negative.html",
     comment:
@@ -687,6 +718,7 @@ const VARIATIONS = [
   },
   {
     name: "Rocket",
+    repeat: MEDIUM_REPEAT,
     scores: 1,
     url: "http://skateyeg.com/bog/06.0_Rocket.html",
     comment:
@@ -694,12 +726,14 @@ const VARIATIONS = [
   },
   {
     name: "Grab",
+    repeat: EASY_REPEAT,
     scores: 1,
     url: "http://skateyeg.com/bog/17.0_Grabbed.html",
     comment: "Grabbing the free foot while doing a one-footed grind.",
   },
   {
     name: "Cross-Grab",
+    repeat: MEDIUM_REPEAT,
     scores: 1,
     noThumb: true,
     url: "",
@@ -746,6 +780,7 @@ const VARIATIONS = [
 
   {
     name: "Grab Topside",
+    repeat: MEDIUM_REPEAT,
     scores: 2,
     url: "",
     noThumb: true,

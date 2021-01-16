@@ -64,9 +64,6 @@ export class Scoreboard {
   }
 
   isValidTokensCount() {
-    return (
-      this.removes >= 0 &&
-      this.locks >= 0
-    );
+    return this.removes >= 0 && this.locks >= 0;
   }
 }

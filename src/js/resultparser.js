@@ -278,7 +278,7 @@ export class ResultParser {
     let candidates = CONFIG.GRIND_SYNONYMS.filter((syn) => {
       return syn.name === grindName;
     });
-   
+
     let synonym = null;
     candidates.forEach((syn) => {
       if (synonym === null && this.meetsSynonymProps(syn, props)) {
@@ -287,7 +287,6 @@ export class ResultParser {
     });
 
     if (synonym) {
-      
       result = result.replace(grindName, synonym.newName);
 
       if (synonym.isReverse) {
@@ -379,7 +378,6 @@ function testParser() {
       console.error(i, entry, p);
     }
     let doc = s.getHelpTableForTrick(p);
- 
   });
 }
 

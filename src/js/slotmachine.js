@@ -147,7 +147,6 @@ export class SlotMachine {
       if (!isSkipped) {
         nextSlotId = currentSlot.next;
       } else {
-     
         nextSlotId = this.getNextSlotIndex(nextSlot);
       }
     }
@@ -203,7 +202,6 @@ export class SlotMachine {
     let newState = this.getNextState(state, slotName);
 
     if (state === SLOT_STATES.unavailable) {
-       
     } else if (state === SLOT_STATES.enabled) {
       newState = SLOT_STATES.locked;
     } else if (state === SLOT_STATES.locked) {
@@ -581,7 +579,6 @@ export class SlotMachine {
       try {
         this.slots[slotIndex].machine.destroy();
       } catch (err) {
-      
         this.slots[slotIndex].machine = null;
       }
       // cssId: generate fresh node for slotmachine (re-init problem)
@@ -589,7 +586,8 @@ export class SlotMachine {
       this.slots[slotIndex].dom = $node;
     }
     let index = 0;
-    const html = filteredData.map((s) => {
+    let reelRows = [];
+    /*const html = */ filteredData.map((s) => {
       index += 1;
       let iconClass = s.icon ? `bogLink-icon-${s.icon}` : "";
       iconClass = "";
@@ -602,14 +600,31 @@ export class SlotMachine {
       name = s.name;
 
       //const scores = s.scores ? s.scores   : "";
-      const htmlSlot = `<div data-index="${index}"   class="bogLink"><div class="${iconClass}">${name}  
-    
-      </div></div>`;
-
-      return htmlSlot;
+      let htmlSlot = `
+        <div data-index="${index}" class="bogLink">
+          <div class="${iconClass}">${name}
+          </div>
+        </div>
+        `;
+      if (s.repeat) {
+        for (let i = 0; i < s.repeat; i++) {
+          reelRows.push(htmlSlot);
+        }
+      } else if (this.slots[slotIndex].name === "GrindVariation") {
+        const variation = CONFIG.VARIATIONS.filter((v) => {
+          return v.name === s.name;
+        })[0];
+        if (variation && variation.repeat) {
+          for (let i = 0; i < variation.repeat; i++) {
+            reelRows.push(htmlSlot);
+          }
+          //htmlSlot = htmlSlot.repeat(variation.repeat);
+        }
+      }
+      reelRows.push(htmlSlot);
     });
     const shuffleArray = (arr) => arr.sort(() => Math.random() - 0.5);
-    $node.html(shuffleArray(html).join(""));
+    $node.html(shuffleArray(reelRows).join(""));
 
     this.slots[slotIndex].machine = $node.slotMachine({
       active: 0,

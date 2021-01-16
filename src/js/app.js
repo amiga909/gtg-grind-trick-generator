@@ -23,7 +23,6 @@ class GrindTrickRandomizer {
     this.$randomizeButtonStart = $("#randomizeButtonStart");
     this.$randomizeButtonStartContainer = $(".randomizeButton2-container");
     this.$randomizeButtonSlots = $("#randomizeButton2");
-    
 
     this.$soundOnOff = $("#sound");
 
@@ -88,10 +87,9 @@ class GrindTrickRandomizer {
       }
     });
 
-   
     this.$levelStartSelect.on("change", (e) => {
       e.preventDefault();
-     // this.screens.show("Configuration");
+      // this.screens.show("Configuration");
       this.configurator.setLevel(this.$levelStartSelect.val());
       this.configurator.submit();
     });
@@ -142,7 +140,7 @@ class GrindTrickRandomizer {
         this.addToTricklist(this.scoreboard.isLastSpin());
       }
     });
-  
+
     this.$trickHelpButton.on("click", () => {
       if (this.isEndScreen) {
         this.screens.scrollDown();
@@ -195,7 +193,7 @@ class GrindTrickRandomizer {
     this.audioplayer.mute();
   }
 
-  hasTrickDupeErrorPrompt(){
+  hasTrickDupeErrorPrompt() {
     let hasPrompt = false;
     if (this.tricklist.hasTrick(this.slotMachineResult.parsed)) {
       hasPrompt = true;
@@ -204,7 +202,7 @@ class GrindTrickRandomizer {
         this.tooltips.ERROR_MSG.dupeTrick
       );
       this.tooltips.showTooltip("errorMsgTricklist");
-    }  
+    }
     return hasPrompt;
   }
 

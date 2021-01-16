@@ -32,7 +32,7 @@ $bannerFontColor: white;
 // #e71b00#e93119#eb4832#ee5f4c#f07666#f38d7f#f5a399#f7bab2#fad1cc#fce8e5#ffffff
 $startButtonGlow: #e71b00;
 $startButtonGlowH: #ee5f4c;
-$startButtonGlowH1: #fad1cc;
+$startButtonGlowH1: rgb(250,209,204,0.9);
 
 $slotEnabled: #0078e7;
 $slotDisabled: #004280; // e71b00
@@ -1153,16 +1153,21 @@ body::-webkit-scrollbar-thumb {
 }
 
 @keyframes yellow {
-  0%,
+  0% {
+    box-shadow: 1px 0px 19px 4px $startButtonGlowH1,
+      inset 0px 0px 10px rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    box-shadow: 0px 0px 0px 0px rgba(255, 245, 3, 0),
+      inset 0px 0px 0px rgba(255, 255, 255, 0);
+  }
+
   100% {
     box-shadow: 1px 0px 19px 4px $startButtonGlowH1,
       inset 0px 0px 10px rgba(255, 255, 255, 0.5);
   }
 
-  50% {
-    box-shadow: 0px 0px 0px 0px rgba(255, 245, 3, 0),
-      inset 0px 0px 0px rgba(255, 255, 255, 0);
-  }
+ 
 }
 
 .spinsLeftAnimation {
