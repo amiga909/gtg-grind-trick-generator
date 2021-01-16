@@ -65,8 +65,8 @@ export class Scoreboard {
 
   isValidTokensCount() {
     return (
-      this.removes <= this.tokensTotal.removes &&
-      this.locks <= this.tokensTotal.locks
+      this.removes >= 0 &&
+      this.locks >= 0
     );
   }
 }

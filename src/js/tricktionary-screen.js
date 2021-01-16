@@ -46,7 +46,11 @@ export class TricktionaryScreen {
     this.renderNotImplemented();
 
     this.renderTOC();
+
+    
   }
+
+ 
 
   renderTOC() {
     let tocs = [];
@@ -69,7 +73,7 @@ export class TricktionaryScreen {
         ${tocs.join("")}
       </ul>
       <p>
-      All 3D rendered graphics are screenshots taken from the awesome <a href='http://skateyeg.com/bog/'>Book of Grinds</a>.
+      All 3D rendered graphics are screenshots taken from the awesome <a target="blank" href='http://skateyeg.com/bog/'>Book of Grinds</a>.
       Click on an image to open the Book of Grind page for the trick.   
       </p> 
    </div>
@@ -142,7 +146,9 @@ export class TricktionaryScreen {
       const url = v.url ? v.url : "";
       const comment = v.comment ? `${v.comment}` : "";
       const thumb = v.thumbUrl ? v.thumbUrl : "";
-      rows.push([v.name, renderThumb(thumb, url), comment]);
+      let name = v.name.replace("BS ", "Backside/BS ")
+      name = name.replace("FS ", "Frontside/FS ")
+      rows.push([name, renderThumb(thumb, url), comment]);
     });
 
     let html = renderTable("Grinds", ["Name", "Image", "Comment"], rows);

@@ -14,6 +14,8 @@ const ERROR_MSG = {
   tooManyTokensUsed: `<span style="color:${ERROR_MSG_COLOR};">Error. You used too many tokens. 
     Toggle the reels to remove <i class="fa fa-lock fa-1x"></i> and 
     <i class="fa fa-ban fa-1x"></i> tokens from the slot machine.</span>`,
+    dupeTrick: `<span style="color:${ERROR_MSG_COLOR};">Error. You already got that trick. 
+    Toggle the reels to change the trick or spin a new trick if you have spins left.</span>`,
 };
 
 const CONFIG = {
@@ -55,6 +57,15 @@ const CONFIG = {
     text: "Show trick info",
   },
   //
+  configSubmit: {
+    screen: "Configuration",
+    text: "Apply the changes and restart the game",
+  },
+  configReset: {
+    screen: "Configuration",
+    text: "Reset all settings and restart game",
+  },
+  //
   giveUpButton: {
     screen: "Trick List",
     text: "Abort the game",
@@ -71,6 +82,10 @@ const CONFIG = {
     props: { offset: 8, maxWidth: "80vh" },
   },
   errorMsgTokens: {
+    screen: "manual",
+    text: ``,
+    props: {},
+  }, errorMsgTricklist: {
     screen: "manual",
     text: ``,
     props: {},

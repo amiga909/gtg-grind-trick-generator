@@ -1,5 +1,7 @@
 import { ModalScreen } from "./modalscreens";
 import { TricktionaryScreen } from "./tricktionary-screen";
+import { AboutScreen } from "./about-screen";
+
 export class Screens {
   constructor() {
     this.$helpBtn = $("#helpButton"); // dupe
@@ -13,6 +15,7 @@ export class Screens {
 
     this.modalScreen = new ModalScreen();
     this.tricktionaryScreen = new TricktionaryScreen();
+    this.aboutScreen = new AboutScreen();
 
     //this.aboutScreen = new AboutScreen();
     this.activeScreen = "Loading";

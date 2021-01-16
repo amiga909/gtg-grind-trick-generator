@@ -1,3 +1,6 @@
+* {
+  //box-shadow: 0 2px 2px rgba(230, 6, 6, 0.8);
+}
 /*
 z-indices
 
@@ -6,7 +9,19 @@ tooltips = 7
 banner = 6
 tooltip-mask = 5
 modal / loading-screen / l-content-modal = 3
+
+
+320px — 480px: Mobile devices.
+481px — 768px: iPads, Tablets.
+769px — 1024px: Small screens, laptops.
+1025px — 1200px: Desktops, large screens.
 */
+
+// breakpoints
+$bp_smallSmartphone: 320px; 
+$bp_smartphone: 481px;  // used for resp_table (580)
+$bp_tablet: 769px;
+$bp_desktop: 1025px; 
 
 // colors
 $bgBgColor: black;
@@ -86,7 +101,7 @@ p {
   margin: 0 auto;
   position: absolute;
   top: 100px;
-  bottom: 45px;
+  bottom: 60px;
   left: 0px;
   right: 0px;
   overflow: auto;
@@ -94,9 +109,7 @@ p {
   margin-right: 12px;
 }
 
-.l-box {
-  padding: 0.5em 2em;
-}
+ 
 
 .pure-menu {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
@@ -346,7 +359,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#156b2c', end
   text-align: center;
   position: absolute;
   bottom: 0px;
-  height: 35px;
+ height: 60px;
+  
   left: 0px;
   right: 0px;
   overflow: hidden;
@@ -358,30 +372,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#156b2c', end
 #resultlist {
   width: 100%;
 }
-
-/*
-   * -- TABLET MEDIA QUERIES --
-   * On tablets, we want to slightly adjust the size of the banner
-   * text and add some vertical space between the various pricing tables
-   */
-@media (min-width: 780px) {
-  .banner {
-  }
-  .banner-head {
-  }
-  .bog-slot {
-  }
-}
-
-/*
-   * -- PHONE MEDIA QUERIES --
-   * On phones, we want to reduce the height and font-size of the banner further
-   */
-@media (max-width: 320px) {
-  .banner-head {
-    //font-size: 1.2em;
-  }
-}
+ 
 
 .spinNoResult {
   opacity: 0.5;
@@ -483,7 +474,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#156b2c', end
 
 .myFooter {
   margin: 0 auto;
-  font-size: $myFooter-FS;
+  font-size: 16px;
   max-width: 1000px;
 }
 body::-webkit-scrollbar {
@@ -533,6 +524,8 @@ body::-webkit-scrollbar-thumb {
 }
 
 .modal-screen {
+  max-width: 1000px;
+  margin: 0 auto;
   // overflow: auto;
   //  max-height: 88vh !important;
   //height: 100%;
@@ -555,8 +548,12 @@ body::-webkit-scrollbar-thumb {
 
   // padding: 0;
 }
+#modal-screen-content {
+  padding-bottom: 16px; 
+}
 
 .modal-screen-text {
+  position: relative;
   padding: 24px;
   padding-bottom: 0px;
 }
@@ -609,7 +606,7 @@ body::-webkit-scrollbar-thumb {
 
   filter: grayscale(1);
 }
-@media (min-width: 780px) {
+@media (min-width: $bp_tablet) {
   .l-content-modal::after {
     background-image: url('../img/thejokerblade-big.jpg');
   }
@@ -771,7 +768,7 @@ body::-webkit-scrollbar-thumb {
 .tippy-content {
   font-size: $tippy-content-FS;
 }
-@media (min-width: 780px) {
+@media (min-width: $bp_tablet) {
   .tippy-content {
     font-size: $tippy-content-FS-up;
   }
@@ -879,10 +876,13 @@ body::-webkit-scrollbar-thumb {
   display: table;
   color: black;
 }
-@media screen and (max-width: 580px) {
+@media screen and (max-width: $bp_smartphone) {
   .table {
     display: block;
   }
+}
+.resp-table {
+  a {color: black;}
 }
 
 .row {
@@ -903,7 +903,7 @@ body::-webkit-scrollbar-thumb {
 .row.blue {
   background: #101e33;
 }
-@media screen and (max-width: 580px) {
+@media screen and (max-width: $bp_smartphone) {
   .row {
     padding: 14px 0 7px;
     display: block;
@@ -936,7 +936,7 @@ body::-webkit-scrollbar-thumb {
   display: table-cell;
   vertical-align: top;
 }
-@media screen and (max-width: 580px) {
+@media screen and (max-width: $bp_smartphone) {
   .cell {
     padding: 2px 16px;
     display: block;

@@ -1,6 +1,51 @@
 const VERSION_KEY = "aight-version";
 const CURRENT_VERSION = "1.0";
 
+const LEVEL_CONFIG = {
+  1: {
+    spinsTotal: "5",
+    locksTotal: "3",
+    removesTotal: "5",
+    channelCheckbox: "off",
+    christCheckbox: "off",
+    heelRollCheckbox: "off",
+    negativeCheckbox: "off",
+    roughCheckbox: "off",
+    spins360Checkbox: "off",
+    spins540Checkbox: "off",
+    switchCheckbox: "off",
+    toughCheckbox: "off",
+  },
+  2: {
+    spinsTotal: "5",
+    locksTotal: "2",
+    removesTotal: "2",
+    channelCheckbox: "off",
+    christCheckbox: "on",
+    heelRollCheckbox: "on",
+    negativeCheckbox: "on",
+    roughCheckbox: "off",
+    spins360Checkbox: "on",
+    spins540Checkbox: "off",
+    switchCheckbox: "on",
+    toughCheckbox: "off",
+  },
+  3: {
+    spinsTotal: "5",
+    locksTotal: "1",
+    removesTotal: "1",
+    channelCheckbox: "on",
+    christCheckbox: "on",
+    heelRollCheckbox: "on",
+    negativeCheckbox: "on",
+    roughCheckbox: "on",
+    spins360Checkbox: "on",
+    spins540Checkbox: "on",
+    switchCheckbox: "on",
+    toughCheckbox: "on",
+  },
+};
+
 export class Configuration {
   constructor() {
     this.$levelSelect = $("#levelSelect");
@@ -28,9 +73,9 @@ export class Configuration {
     this.$spinsTotal = $("#spinsTotalInput");
     this.$removesTotal = $("#removesTotalInput");
     this.$locksTotal = $("#spinsLocksInput");
-
+    this.defaultConfig = LEVEL_CONFIG["2"];
+    this.defaultConfig.levelSelect = "2";
     this.configs = [
-      //   { $dom: this.$levelSelect, key: "levelSelect", value: "" },
       { $dom: this.$soundSelect, key: "soundSelect", value: 0 },
       { $dom: this.$speedSelect, key: "speedSelect", value: 0 },
       { $dom: this.$switchSelect, key: "switchCheckbox", value: "on" },
@@ -48,6 +93,11 @@ export class Configuration {
       { $dom: this.$removesTotal, key: "removesTotal", value: 5 },
       { $dom: this.$locksTotal, key: "locksTotal", value: 3 },
     ];
+    this.configs.forEach( (c)=>{
+      if(this.defaultConfig[c.key]) {
+      //  c.value = this.defaultConfig[c.key];
+      }
+    })
 
     this.versionCheck();
     this.initStoreables();
@@ -80,6 +130,7 @@ export class Configuration {
     param.$dom.on("change", (e) => {
       this.$submit.removeClass("pure-button-disabled");
       param.value = param.$dom.val();
+       
     });
   }
 
@@ -98,14 +149,17 @@ export class Configuration {
   }
 
   registerListener() {
+    this.$levelSelect.on("change", (e) => {
+      this.setLevel(this.$levelSelect.val());
+    });
     this.$submit.on("click", (e) => {
       e.preventDefault();
       this.configs.forEach((param) => {
+        console.log("on save", param)
         if (param.value) {
           localStorage.setItem(param.key, param.value);
         }
       });
-      //localStorage.setItem(VERSION_KEY,CURRENT_VERSION);
       location.reload();
     });
 
@@ -119,6 +173,25 @@ export class Configuration {
   getLevel() {
     const value = this.configs.filter((s) => s.key == "levelSelect")[0].value;
     return value;
+  }
+  setLevel(level) {
+    const levelConfig = LEVEL_CONFIG[level];
+$("#levelStartSelect").val(level);
+    this.configs.forEach((param) => {
+      let configValue = levelConfig[param.key] ? levelConfig[param.key] : "";
+    
+      if (configValue) {
+        param.value = configValue;
+        if (param.key.includes("Checkbox")) {
+          if (configValue === "on") {
+             param.$dom.prop("checked", true);
+           } else {
+             param.$dom.prop("checked", false);
+           } } else {
+        param.$dom.val(configValue);}
+        
+      }
+    });
   }
 
   getGameConfig() {

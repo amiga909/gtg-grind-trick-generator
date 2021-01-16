@@ -675,7 +675,7 @@ const VARIATIONS = [
     scores: 1,
     url: "http://skateyeg.com/bog/07.0_Tough_(Toe).html",
     comment:
-      "Grinding on the toe instead of the whole soul foot (Tough Soyale, Tough Top Soyale, ..)",
+      "Grinding on the toe instead of the whole soul foot (Tough Acid, ..)",
   },
 
   {
