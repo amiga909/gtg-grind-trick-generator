@@ -419,7 +419,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#156b2c', end
   //box-shadow: 0 0 0 1px white;
 }
 .start-screen-controls {
-  padding-top: 12px;
+  padding-top: 24px;
   max-width: 400px;
   margin: 0 auto;
   text-align: center;
@@ -627,6 +627,14 @@ body::-webkit-scrollbar-thumb {
     padding-top: 0.7em;
     font-size: 0.7em;
     font-weight: normal;
+  }
+}
+.start-screen-controls {
+  h2 {
+   // margin: 0;
+   //  padding-top: 0.7em;
+    font-size: 16px;
+   // font-weight: normal;
   }
 }
 
