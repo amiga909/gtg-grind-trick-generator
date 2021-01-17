@@ -316,6 +316,18 @@ export class ResultParser {
     ];
   }
 
+  getSortedByStrLen(arrH) {
+    return arrH.sort((a, b) => {
+      let comparison = 0;
+      if (a.name.length > b.name.length) {
+        comparison = -1;
+      } else if (a.name.length < b.name.length) {
+        comparison = 1;
+      }
+      return comparison;
+    });
+  }
+
   getHelpTableForTrick(result) {
     let html = "";
     let parseString = result.parsed.replace("Top ", "Topside");
@@ -331,7 +343,7 @@ export class ResultParser {
       }
     }
 
-    const grind = CONFIG.GRINDS.filter((g) => {
+    const grind = this.getSortedByStrLen(CONFIG.GRINDS).filter((g) => {
       return parseString.includes(g.name);
     })[0];
 
@@ -384,6 +396,7 @@ function testParser() {
       console.error(i, entry, p);
     }
     let doc = s.getHelpTableForTrick(p);
+    //console.log(doc)
   });
 }
 
