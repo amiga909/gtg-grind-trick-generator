@@ -4,7 +4,7 @@ import { AboutScreen } from "./about-screen";
 
 export class Screens {
   constructor() {
-    this.$scrollWrapper = $(".l-content")
+    this.$scrollWrapper = $(".l-content");
     this.$helpBtn = $("#helpButton"); // dupe
     this.$tricklistBtn = $("#tricklistBtn"); // dupe
 
@@ -67,22 +67,22 @@ export class Screens {
     });
     this.$configButton.on("click", (e) => {
       e.preventDefault();
-      this.show("Configuration");
+      this.show("Configuration", "up");
     });
 
     this.$aboutBtn.on("click", (e) => {
       e.preventDefault();
-      this.show("About");
+      this.show("About", "up");
     });
 
     this.$trickNamingBtn.on("click", (e) => {
       e.preventDefault();
-      this.show("Tricktionary");
+      this.show("Tricktionary", "up");
     });
 
     this.$tricklistBtn.on("click", (e) => {
       e.preventDefault();
-      this.show("Tricklist");
+      this.show("Tricklist", "up");
     });
 
     /*this.$tricklistBtnStart.on("click", (e) => {
@@ -90,7 +90,7 @@ export class Screens {
         this.modalScreen.show("tricklist", "Trick List");
       });*/
   }
-  show(selected = "", scrollTo="") {
+  show(selected = "", scrollTo = "") {
     if (this.activeScreen === "Loading") {
       this.getScreen().$dom.fadeOut("slow");
     }
@@ -111,7 +111,7 @@ export class Screens {
       newScreen.$dom.show();
     }
     // Trick List is not a modal, dont return to Slotmachine screen
-    if (newScreen.name === 'Trick List') { 
+    if (newScreen.name === "Trick List") {
       this.lastNonModalScreen = selected;
     }
 
@@ -123,10 +123,11 @@ export class Screens {
 
     this.activeScreen = selected;
 
-    if(scrollTo === "up") {
+    if (scrollTo === "up") {
       this.scrollUp();
+    } else if (scrollTo === "down") {
+      this.scrollDown();
     }
-    else if(scrollTo === "down") {  this.scrollDown();}
   }
 
   disableNav() {
@@ -148,11 +149,10 @@ export class Screens {
     })[0];
   }
 
-  scrollDown() { this.$scrollWrapper.animate({ scrollTop: $(document).height() }, "fast");
-   
+  scrollDown() {
+    this.$scrollWrapper.animate({ scrollTop: $(document).height() }, "fast");
   }
-  scrollUp() {  
+  scrollUp() {
     this.$scrollWrapper.animate({ scrollTop: 0 }, "fast");
   }
- 
 }

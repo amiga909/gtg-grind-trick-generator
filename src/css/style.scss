@@ -820,6 +820,7 @@ body::-webkit-scrollbar-thumb {
   display: none;
 }
 .tippy-content {
+  pointer-events: none;
   font-size: $tippy-content-FS;
 }
 @media (min-width: $bp_tablet) {
@@ -861,14 +862,29 @@ body::-webkit-scrollbar-thumb {
 }
 
 #tooltips-mask {
+ 
   display: none;
-  position: fixed;
+  position: absolute;
   top: 0px;
   left: 0px;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 9; /* 5*/
+  z-index: 9; // 5 
+  
+}
+
+#tooltips-slots-mask {
+  //background:red;
+  padding-bottom: 25px;
+   display: none;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+  z-index: 9; // 5 
+  
 }
 
 .slotBgIconContainer {
@@ -901,6 +917,10 @@ body::-webkit-scrollbar-thumb {
 .tricktionary_thumb_variation_img {
   height: 100px;
   width: 100px;
+  @media only screen and (min-width: $bp_tablet) {
+    //height: 150px;
+    //width: 150px;
+  }
 }
 
 .tricktionary_thumb_grind_container {
@@ -1007,6 +1027,10 @@ body::-webkit-scrollbar-thumb {
   .tricktionary_thumb_img {
     width: 100px;
     height: 100px;
+    @media only screen and (min-width: $bp_tablet) {
+      //height: 150px;
+      //width: 150px;
+    }
   }
 
   .cell--details-view {
@@ -1334,4 +1358,16 @@ $gameOverKeyFrames3: $slotEnabled;
     color: $gameOverKeyFrames1;
     text-shadow: none;
   }
+}
+
+
+.explainTrickName {
+  font-weight: bold;
+}
+.explainTrickImage {
+  //float:left;
+}
+
+.explainTrickComment {
+  //float: none;
 }

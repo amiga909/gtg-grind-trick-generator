@@ -79,7 +79,7 @@ const CONFIG = {
     screen: "manual",
 
     text: "",
-    props: { offset: 8, maxWidth: "90vw" },
+    props: { offset: 8, maxWidth: "800px" },
   },
   errorMsgTokens: {
     screen: "manual",
@@ -113,6 +113,8 @@ export class Tooltips {
     this.$tooltips = $("[data-p-tooltip]");
     this.$helpBtnStart = $("#helpButtonStart");
     this.$mask = $("#tooltips-mask");
+    // keep page scrollable while tooltip is open
+    this.$explainTrickMask = $("#tooltips-slots-mask");
 
     this.config = CONFIG;
     this.ERROR_MSG = ERROR_MSG;
@@ -133,6 +135,7 @@ export class Tooltips {
 
     this.$mask.on("click", (e) => {
       e.preventDefault();
+      //e.stopPropagation();
       this.hide();
     });
 
@@ -163,7 +166,7 @@ export class Tooltips {
   hide() {
     this.isVisible = false;
     this.$helpBtn.removeClass("pure-button-disabled");
-
+    this.$explainTrickMask.hide();
     this.$mask.hide();
   }
   updateTooltip(name, htmlContent) {
@@ -174,12 +177,22 @@ export class Tooltips {
     });
   }
 
-  showTooltip(name) {
+  showTooltip(name, keepScrollable = false) {
     this.helpTooltips.forEach((t) => {
       if (t.name === name) {
         t.instance.enable();
         t.instance.show();
-        this.$mask.show();
+        if (keepScrollable) {
+          t.instance.setProps({
+            onHide: () => {
+              this.$explainTrickMask.hide();
+            },
+          });
+
+          this.$explainTrickMask.show();
+        } else {
+          this.$mask.show();
+        }
       }
     });
   }

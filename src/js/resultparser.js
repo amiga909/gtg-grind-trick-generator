@@ -307,6 +307,15 @@ export class ResultParser {
     return result;
   }
 
+  renderHelpTableRow(name, thumbUrl, comment) {
+    return [
+      ` <div class="explainTrickName">${name}</div> `,
+      ` <div class="explainTrickImage"> ${renderThumb(thumbUrl)}</div> 
+        <div class="explainTrickComment">${comment ? comment : ""} </div> 
+      `,
+    ];
+  }
+
   getHelpTableForTrick(result) {
     let html = "";
     let parseString = result.parsed.replace("Top ", "Topside");
@@ -317,7 +326,7 @@ export class ResultParser {
         parseString.toLowerCase().includes(term.toLowerCase()) &&
         !term.includes(" ")
       ) {
-        rows.push([`<b>${term}</b> ${comment}`, ""]);
+        rows.push(this.renderHelpTableRow(term, "", comment));
         parseString = parseString.replace(term, "");
       }
     }
@@ -334,35 +343,32 @@ export class ResultParser {
       return parseString.includes(s.name);
     });
     if (grindSynonym) {
-      rows.push([
-        `<b>${grindSynonym.newName}</b> ${
-          grindSynonym.comment ? grindSynonym.comment : ""
-        }`,
-        renderThumb(grindSynonym.thumbUrl),
-      ]);
+      rows.push(
+        this.renderHelpTableRow(
+          grindSynonym.newName,
+          grindSynonym.thumbUrl,
+          grindSynonym.comment
+        )
+      );
       parseString = parseString.replace(grindSynonym.name, "");
     } else {
       let cleanedName = grind.name.replace(/BS /, "Backside ");
       cleanedName = cleanedName.replace(/FS /, "Frontside ");
-      rows.push([
-        `<b>${cleanedName}</b> ${grind.comment ? grind.comment : ""}`,
-        renderThumb(grind.thumbUrl),
-      ]);
+
+      rows.push(
+        this.renderHelpTableRow(cleanedName, grind.thumbUrl, grind.comment)
+      );
       parseString = parseString.replace(grind.name, "");
     }
 
     if (variations) {
-      let varComb = { names: [], thumbs: [], comments: [] };
       variations.forEach((v) => {
         if (parseString.includes(v.name) && !v.name.includes(" ")) {
-          varComb.names.push(`<b>${v.name}</b> ${v.comment ? v.comment : ""}`);
-          varComb.thumbs.push(renderThumb(v.thumbUrl));
+          rows.push(this.renderHelpTableRow(v.name, v.thumbUrl, v.comment));
 
           parseString = parseString.replace(v.name, "");
         }
       });
-
-      rows.push([varComb.names.join("<br/>"), varComb.thumbs.join("")]);
     }
 
     return renderTableNoHeader(rows);
