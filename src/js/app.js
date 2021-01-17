@@ -286,8 +286,7 @@ class GrindTrickRandomizer {
     this.$endScreen.hide();
   }
 }
-$(() => {
+$(window).on("load",  () => {
   const s = new GrindTrickRandomizer();
-
   s.init();
 });
