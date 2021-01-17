@@ -429,7 +429,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#156b2c', end
 }
 
 .start-screen-controls {
-  padding-top: 24px;
+  @media only screen and (max-width: $bp_smartphone) {
+    padding-top: 12px;
+  }
+  padding-top: 28px;
+ //padding-top: calc(100vh - 600px);
   max-width: 400px;
   margin: 0 auto;
   text-align: center;

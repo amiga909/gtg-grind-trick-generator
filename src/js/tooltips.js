@@ -79,7 +79,7 @@ const CONFIG = {
     screen: "manual",
 
     text: "",
-    props: { offset: 8, maxWidth: "80vh" },
+    props: { offset: 8, maxWidth: "90vw" },
   },
   errorMsgTokens: {
     screen: "manual",
