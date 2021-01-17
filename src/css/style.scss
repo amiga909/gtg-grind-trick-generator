@@ -32,7 +32,7 @@ $bannerFontColor: white;
 // #e71b00#e93119#eb4832#ee5f4c#f07666#f38d7f#f5a399#f7bab2#fad1cc#fce8e5#ffffff
 $startButtonGlow: #e71b00;
 $startButtonGlowH: #ee5f4c;
-$startButtonGlowH1: rgb(250,209,204,0.9);
+$startButtonGlowH1: rgb(250, 209, 204, 0.9);
 
 $slotEnabled: #0078e7;
 $slotDisabled: #004280; // e71b00
@@ -73,6 +73,11 @@ $scoreboard--desktop-FS: 24px;
 $scoreboard-tokens-FS: 14px;
 $scoreboard-tokens--tablet-FS: 18px;
 $scoreboard-tokens--desktop-FS: 20px;
+
+$startscreen-controls-text-FS: 16px;
+$startscreen-controls-text-smallSmartphone-FS: 14px;
+$startscreen-controls-text--tablet-FS: 18px;
+$startscreen-controls-text--desktop-FS: 20px;
 
 .body-wrapper {
   max-width: 1000px;
@@ -418,6 +423,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#156b2c', end
   right: 0;
   //box-shadow: 0 0 0 1px white;
 }
+.start-screen-logo-img {
+  width: 95%;
+  height: auto;
+}
+
 .start-screen-controls {
   padding-top: 24px;
   max-width: 400px;
@@ -447,6 +457,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#156b2c', end
 }
 
 #start-screen {
+  overflow: hidden;
   display: none;
   //padding-left: 10px;
   //  padding-right: 10px;
@@ -631,10 +642,10 @@ body::-webkit-scrollbar-thumb {
 }
 .start-screen-controls {
   h2 {
-   // margin: 0;
-   //  padding-top: 0.7em;
-    font-size: 16px;
-   // font-weight: normal;
+    @media only screen and (max-width: $bp_smartphone) {
+      font-size: $startscreen-controls-text-smallSmartphone-FS;
+    }
+    font-size: $startscreen-controls-text-FS;
   }
 }
 
@@ -742,6 +753,7 @@ body::-webkit-scrollbar-thumb {
 }
 .includeTricksCb + label:before {
   width: 60px;
+  min-width: 60px;
   height: 30px;
   border-radius: 30px;
   border: 2px solid #ddd;
@@ -772,7 +784,7 @@ body::-webkit-scrollbar-thumb {
 
 #config-reset {
   margin-top: 24px;
-  padding: 1em;
+  padding: 8px;
   float: right;
   font-size: $config-reset-FS;
   color: white;
@@ -785,7 +797,7 @@ body::-webkit-scrollbar-thumb {
 
 #config-submit {
   margin-top: 24px;
-  padding: 1em;
+  padding: 8px;
   display: block;
 }
 
@@ -1166,8 +1178,6 @@ body::-webkit-scrollbar-thumb {
     box-shadow: 1px 0px 19px 4px $startButtonGlowH1,
       inset 0px 0px 10px rgba(255, 255, 255, 0.5);
   }
-
- 
 }
 
 .spinsLeftAnimation {

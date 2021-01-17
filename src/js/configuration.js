@@ -1,11 +1,11 @@
 const VERSION_KEY = "aight-version";
-const CURRENT_VERSION = "1.1";
+const CURRENT_VERSION = "1.2";
 
 const LEVEL_CONFIG = {
   1: {
     spinsTotal: "5",
-    locksTotal: "3",
-    removesTotal: "5",
+    locksTotal: "2",
+    removesTotal: "3",
     channelCheckbox: "off",
     christCheckbox: "off",
     heelRollCheckbox: "off",
@@ -18,7 +18,7 @@ const LEVEL_CONFIG = {
   },
   2: {
     spinsTotal: "5",
-    locksTotal: "2",
+    locksTotal: "1",
     removesTotal: "2",
     channelCheckbox: "off",
     christCheckbox: "on",
@@ -88,8 +88,8 @@ export class Configuration {
       { $dom: this.$christSelect, key: "christCheckbox", value: "off" },
       { $dom: this.$levelSelect, key: "levelSelect", value: "1" },
       { $dom: this.$spinsTotal, key: "spinsTotal", value: 5 },
-      { $dom: this.$removesTotal, key: "removesTotal", value: 5 },
-      { $dom: this.$locksTotal, key: "locksTotal", value: 3 },
+      { $dom: this.$removesTotal, key: "removesTotal", value: 3 },
+      { $dom: this.$locksTotal, key: "locksTotal", value: 2 },
     ];
 
     this.versionCheck();
@@ -97,7 +97,7 @@ export class Configuration {
     this.registerListener();
   }
 
-  versionCheck() {
+  versionCheck() { console.log(localStorage.getItem(VERSION_KEY), "vkey")
     if (localStorage.getItem(VERSION_KEY) !== CURRENT_VERSION) {
       localStorage.clear();
       localStorage.setItem(VERSION_KEY, CURRENT_VERSION);
