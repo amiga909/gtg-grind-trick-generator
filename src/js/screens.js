@@ -109,6 +109,11 @@ export class Screens {
       this.lastNonModalScreen = selected;
       newScreen.$dom.show();
     }
+    // Trick List is not a modal, dont return to Slotmachine screen
+    if (newScreen.name === 'Trick List') { 
+      this.lastNonModalScreen = selected;
+    }
+
     if (newScreen.noCloseButton === true) {
       this.$modalCloseBtn.hide();
     } else {

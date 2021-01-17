@@ -97,7 +97,8 @@ export class Configuration {
     this.registerListener();
   }
 
-  versionCheck() { console.log(localStorage.getItem(VERSION_KEY), "vkey")
+  versionCheck() {
+    console.log(localStorage.getItem(VERSION_KEY), "vkey");
     if (localStorage.getItem(VERSION_KEY) !== CURRENT_VERSION) {
       localStorage.clear();
       localStorage.setItem(VERSION_KEY, CURRENT_VERSION);

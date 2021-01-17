@@ -21,13 +21,12 @@ const REFERENCES = [
     name: "Aggressive Inline Skating Terms",
     url: `<a target="_blank" href="https://www.angelfire.com/home/amandalane/sports/aggressiveinline/terms.html/">angelfire.com</a>`,
   },
-  
+
   {
     name: "The Grab and Grind Chart Aggressive Skating",
     url: `<a target="_blank" href="https://lurch17.tripod.com/skchart.htm">lurch17.tripod.com</a>`,
   },
-  
-  
+
   {
     name: "SVG Editor",
     url: `<a target="_blank" href="https://svg-edit.github.io/">svg-edit</a>`,
@@ -49,15 +48,17 @@ export class AboutScreen {
       rows.push([m.name, `<span style="color:black"> ${m.url}</span>`]);
     });
     let html = renderTable("References", ["Name", "URL"], rows);
-      html += renderTable(
-        "Author",
-        ["Name", "Github", "Contact"],
-        [  [
+    html += renderTable(
+      "Author",
+      ["Name", "Github", "Contact"],
+      [
+        [
           "2020 by Roman Hatz",
           `<a target="_blank" href="https://github.com/amiga909/gtg-grind-trick-generator"> Source Code </a>`,
           `<a href="mailto:aight.bladegame@gmail.com">aight.bladegame@gmail.com</a>`,
-        ]]
-      );
+        ],
+      ]
+    );
 
     this.$references.html(html);
   }
