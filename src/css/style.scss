@@ -20,6 +20,7 @@ modal / loading-screen / l-content-modal = 3
 // breakpoints
 $bp_smallSmartphone: 320px;
 $bp_smartphone: 481px; // used for resp_table (580)
+$bp_resp_table: 580px; // used for resp_table (580)
 $bp_tablet: 769px;
 $bp_desktop: 1025px;
 
@@ -929,7 +930,7 @@ body::-webkit-scrollbar-thumb {
   display: table;
   color: black;
 }
-@media screen and (max-width: $bp_smartphone) {
+@media screen and (max-width: $bp_resp_table) {
   .table {
     display: block;
   }
@@ -958,7 +959,7 @@ body::-webkit-scrollbar-thumb {
 .row.blue {
   background: #101e33;
 }
-@media screen and (max-width: $bp_smartphone) {
+@media screen and (max-width: $bp_resp_table) {
   .row {
     padding: 14px 0 7px;
     display: block;
@@ -991,7 +992,7 @@ body::-webkit-scrollbar-thumb {
   display: table-cell;
   vertical-align: top;
 }
-@media screen and (max-width: $bp_smartphone) {
+@media screen and (max-width: $bp_resp_table) {
   .cell {
     padding: 2px 16px;
     display: block;
