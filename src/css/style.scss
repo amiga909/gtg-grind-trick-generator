@@ -820,7 +820,7 @@ body::-webkit-scrollbar-thumb {
   display: none;
 }
 .tippy-content {
-  pointer-events: none;
+ // pointer-events: none;
   font-size: $tippy-content-FS;
 }
 @media (min-width: $bp_tablet) {
