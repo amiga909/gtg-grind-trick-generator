@@ -1153,6 +1153,10 @@ body::-webkit-scrollbar-thumb {
   font-weight: bold;
 }
 
+.token-in-minus {
+  color: $slotLocked;
+}
+
 #trickNamingContent {
   .resp-table a {
     color: black;

@@ -30,10 +30,20 @@ export class Scoreboard {
   }
 
   render() {
-    this.$points.html(this.points);
+    //this.$points.html(this.points);
     this.$spinsRemaining.html(this.spins);
     this.$locksRemaining.html(this.locks);
+    if (this.locks < 0) {
+      this.$locksRemaining.addClass("token-in-minus");
+    } else {
+      this.$locksRemaining.removeClass("token-in-minus");
+    }
     this.$removesRemaining.html(this.removes);
+    if (this.removes < 0) {
+      this.$removesRemaining.addClass("token-in-minus");
+    } else {
+      this.$removesRemaining.removeClass("token-in-minus");
+    }
     this.$spinsTotal.html(this.tokensTotal.spins);
     this.$locksTotal.html(this.tokensTotal.locks);
     this.$removesTotal.html(this.tokensTotal.removes);
@@ -55,6 +65,7 @@ export class Scoreboard {
   }
 
   setPoints(p) {
+    this.animateScore(this.points, this.points + p);
     this.points = this.points + p;
     this.render();
   }
@@ -65,5 +76,25 @@ export class Scoreboard {
 
   isValidTokensCount() {
     return this.removes >= 0 && this.locks >= 0;
+  }
+
+  animateScore(start, end, duration = 250) {
+    // animateValue( 100, 25, 5000);
+    if (start === end) {
+      return;
+    }
+    let range = end - start;
+    let current = start;
+    let increment = end > start ? 1 : -1;
+    const stepTime = Math.abs(Math.floor(duration / range));
+
+    let timer = setInterval(() => {
+      current += increment;
+      this.$points.html(current);
+      if (current == end) {
+        clearInterval(timer);
+      }
+    }, stepTime);
+    this.$points.html(this.points);
   }
 }
