@@ -143,8 +143,8 @@ class GrindTrickRandomizer {
 
     this.$trickHelpButton.on("click", () => {
       if (this.isEndScreen) {
-        this.screens.scrollDown();
-
+        // scrollUp: full tooltip visible, cant scroll on tooltip
+        this.screens.scrollUp();
         this.tooltips.showTooltip("endScreen");
       }
     });
@@ -154,8 +154,9 @@ class GrindTrickRandomizer {
         this.scoreboard.points,
         this.tricklist.getStorage()
       );
+      this.screens.scrollUp();
       this.screens.show("GameOver");
-      this.screens.scrollDown();
+     
     });
   }
 
@@ -174,11 +175,11 @@ class GrindTrickRandomizer {
         this.scoreboard.points,
         this.tricklist.getStorage()
       );
-      this.screens.show("GameOver");
+      this.screens.show("GameOver", "up");
     } else {
-      this.screens.show("Trick List");
+      this.screens.show("Trick List","up");
     }
-    this.screens.scrollDown();
+ 
   }
 
   turnSoundOn() {
@@ -278,7 +279,7 @@ class GrindTrickRandomizer {
     this.$endScreen.find("#endscreen-text").html(this.slotMachineResult.parsed);
     this.$endScreen.fadeIn(500, () => {
       if (animateBottom) {
-        $(".l-content").animate({ scrollTop: $(document).height() }, "fast");
+        this.screens.scrollDown();
       }
     });
   }

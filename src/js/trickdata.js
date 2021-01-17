@@ -907,7 +907,7 @@ const GLOSSARY = {
   Outspin: `Spin away from obstacle, "blindside". If the obstacle is on the left and approach is forwards, Outspin is clockwise. If the obstacle is on the right, Outspin is counter-clockwise.`,
   Switch: "Grinding in the unnatural mirrored position of a grind.",
   Fakie:
-    "Approach/Leave obstacle skating backwards. Also used for landing a Groove grind backwards with no rotation (Royale to Fakie).",
+    "Approach obstacle skating backwards. Also used for landing a Groove grind backwards with no rotation (Royale to Fakie).",
   Forwards: "Forwards is the opposite of Fakie.",
   Natural: "Natural is the opposite of Switch.",
 

@@ -4,6 +4,7 @@ import { AboutScreen } from "./about-screen";
 
 export class Screens {
   constructor() {
+    this.$scrollWrapper = $(".l-content")
     this.$helpBtn = $("#helpButton"); // dupe
     this.$tricklistBtn = $("#tricklistBtn"); // dupe
 
@@ -89,7 +90,7 @@ export class Screens {
         this.modalScreen.show("tricklist", "Trick List");
       });*/
   }
-  show(selected = "") {
+  show(selected = "", scrollTo="") {
     if (this.activeScreen === "Loading") {
       this.getScreen().$dom.fadeOut("slow");
     }
@@ -121,6 +122,11 @@ export class Screens {
     }
 
     this.activeScreen = selected;
+
+    if(scrollTo === "up") {
+      this.scrollUp();
+    }
+    else if(scrollTo === "down") {  this.scrollDown();}
   }
 
   disableNav() {
@@ -142,7 +148,11 @@ export class Screens {
     })[0];
   }
 
-  scrollDown() {
-    $(".l-content").animate({ scrollTop: 0 }, "fast");
+  scrollDown() { this.$scrollWrapper.animate({ scrollTop: $(document).height() }, "fast");
+   
   }
+  scrollUp() {  
+    this.$scrollWrapper.animate({ scrollTop: 0 }, "fast");
+  }
+ 
 }
