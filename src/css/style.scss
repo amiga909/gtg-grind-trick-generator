@@ -441,9 +441,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#156b2c', end
   h2 {
     font-size: $start-screen-controls-FS;
   }
-  margin-top: 8vh;
+  margin-top: 10px; //8vh; // does not work on old mobiles 
   @media only screen and (max-width: $bp_smallSmartphone) {
-    margin-top: 1vh;
+    //margin-top: 1vh;
   }
 }
 .start-screen-levels {
