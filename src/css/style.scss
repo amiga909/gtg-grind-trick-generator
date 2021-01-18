@@ -2,6 +2,13 @@
   //box-shadow: 0 2px 2px rgba(230, 6, 6, 0.8);
 }
 /*
+
+screens:: 
+JioPhone2 240x320
+iPhone4 320x480 
+Iphone5 320x568
+
+
 z-indices
 
 modal windows = 8
@@ -434,14 +441,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#156b2c', end
     padding-top: 12px;
   }
   padding-top: 28px;
- //padding-top: calc(100vh - 600px);
+  //padding-top: calc(100vh - 600px);
   max-width: 400px;
   margin: 0 auto;
   text-align: center;
   h2 {
     font-size: $start-screen-controls-FS;
   }
-  margin-top: 10px; //8vh; // does not work on old mobiles 
+  margin-top: 10px; //8vh; // does not work on old mobiles
   @media only screen and (max-width: $bp_smallSmartphone) {
     //margin-top: 1vh;
   }
@@ -824,7 +831,7 @@ body::-webkit-scrollbar-thumb {
   display: none;
 }
 .tippy-content {
- // pointer-events: none;
+  // pointer-events: none;
   font-size: $tippy-content-FS;
 }
 @media (min-width: $bp_tablet) {
@@ -866,7 +873,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 #tooltips-mask {
- 
   display: none;
   position: absolute;
   top: 0px;
@@ -874,21 +880,21 @@ body::-webkit-scrollbar-thumb {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 9; // 5 
-  
+  z-index: 9; // 5
 }
 
 #tooltips-slots-mask {
   //background:red;
-  padding-bottom: 25px;
-   display: none;
+
+  display: none;
   position: absolute;
   top: 0px;
   left: 0px;
-  width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-  z-index: 9; // 5 
-  
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9; // 5
+  //  background:red;
 }
 
 .slotBgIconContainer {
@@ -1367,7 +1373,6 @@ $gameOverKeyFrames3: $slotEnabled;
     text-shadow: none;
   }
 }
-
 
 .explainTrickName {
   font-weight: bold;

@@ -115,7 +115,7 @@ export class Tooltips {
     this.$mask = $("#tooltips-mask");
     // keep page scrollable while tooltip is open
     this.$explainTrickMask = $("#tooltips-slots-mask");
-
+    //this.$explainTrickMask.show()
     this.config = CONFIG;
     this.ERROR_MSG = ERROR_MSG;
     this.helpTooltips = [];
@@ -185,7 +185,9 @@ export class Tooltips {
         if (keepScrollable) {
           t.instance.setProps({
             onHide: () => {
-              this.$explainTrickMask.hide();
+              setTimeout(() => {
+                this.$explainTrickMask.hide();
+              }, 10);
             },
           });
 
@@ -219,7 +221,6 @@ export class Tooltips {
       }
 
       props.content = text;
-      //  $el.css({ 'text-decoration': 'underline' });
 
       let t = tippy($el[0], props);
       t.disable();
