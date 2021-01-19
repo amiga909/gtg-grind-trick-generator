@@ -33,7 +33,7 @@ const REFERENCES = [
   },
   {
     name: "Joker's trick book &#129313;",
-    url: `<a target="_blank" href="https://grind-trick-generator.herokuapp.com/assets/permutations.txt">List</a>`,
+    url: `<a target="_blank" href="http://www.aightgame.com/assets/permutations.txt">List</a>`,
   },
 ];
 export class AboutScreen {

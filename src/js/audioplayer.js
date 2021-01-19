@@ -1,6 +1,6 @@
 import { Howl } from "howler";
 
-const SOUND_PATH = "https://grind-trick-generator.herokuapp.com/assets/sounds/";
+const SOUND_PATH = "http://www.aightgame.com/assets/sounds/";
 const SOUNDS = [
   {
     start:
