@@ -425,6 +425,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#156b2c', end
   padding-top: 12px;
   z-index: -1;
   max-width: 500px;
+  width:95%; 
 
   margin: auto;
   //  position: absolute;
@@ -435,7 +436,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#156b2c', end
   //box-shadow: 0 0 0 1px white;
 }
 .start-screen-logo-img {
-  width: 95%;
+  width: 100%;
   height: auto;
 }
 
