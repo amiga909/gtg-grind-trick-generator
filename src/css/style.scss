@@ -3,6 +3,9 @@
 }
 /*
 
+svg https://maketext.io/
+Alfa Titan
+
 screens:: 
 JioPhone2 240x320
 iPhone4 320x480 
@@ -449,6 +452,18 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#156b2c', end
     font-size: $start-screen-controls-FS;
   }
   margin-top: 10px; //8vh; // does not work on old mobiles
+  @media only screen and (max-height: 480px) {
+    margin-top: 0px;
+  }
+  @media only screen and (max-height: 750px) {
+    margin-top: 12px;
+  }
+  @media only screen and (max-height: 900px) {
+    margin-top: 24px;
+  }
+  @media only screen and (max-height: 1024px) {
+    margin-top: 48px;
+  }
   @media only screen and (max-width: $bp_smallSmartphone) {
     //margin-top: 1vh;
   }
