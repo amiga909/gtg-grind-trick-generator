@@ -28,14 +28,12 @@ app.use("/build", express.static(__dirname + "/build"));
 app.use("/assets", express.static(__dirname + "/assets"));
 app.use("/fonts", express.static(__dirname + "/fonts"));
 app.use("/img", express.static(__dirname + "/img"));
-app.use("/index.html", express.static(__dirname + "/index.html"));
+app.use("./index.html", express.static(__dirname + "/index.html"));
 
 app.get("/", (request, response) => {
-  console.log("pp.get('/'");
   response.sendFile("index.html", {root: __dirname });
 });
 app.get("/index.html", (request, response) => {
-  console.log("pp.get('/'");
   response.sendFile("index.html", {root: __dirname });
 });
 
