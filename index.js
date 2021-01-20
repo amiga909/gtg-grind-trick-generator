@@ -31,7 +31,7 @@ app.use("/img", express.static(__dirname + "/img"));
 
 app.get("/", (request, response) => {
   console.log("pp.get('/'");
-  response.sendFile(__dirname + "/index.html");
+  response.sendFile("index.html", {root: __dirname });
 });
 
 // Start listening on the port
