@@ -8,6 +8,7 @@
     "npm": "6.x"
   },
   "dependencies": {
+    "express": "^4.17.1",
     "font-awesome": "^4.7.0",
     "howler": "^2.2.1",
     "jquery": "^3.5.1",
@@ -46,7 +47,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "scripts": {
-    "start": "npm run ./index.html",
+    "start": "node ./index.js",
     "build": "rm -rf build/*; node_modules/.bin/webpack --mode production",
     "dev": "rm -rf build/*; webpack --mode development --watch",
     "lint": "node_modules/.bin/eslint ./src/js --fix --ext .js;",
