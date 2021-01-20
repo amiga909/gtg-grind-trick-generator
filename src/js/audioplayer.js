@@ -1,6 +1,6 @@
 import { Howl } from "howler";
 
-const SOUND_PATH = "http://www.aightgame.com/assets/sounds/";
+const SOUND_PATH = "https://www.aightgame.com/assets/sounds/";
 const SOUNDS = [
   {
     start:
