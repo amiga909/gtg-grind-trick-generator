@@ -103,7 +103,6 @@ export class SlotMachine {
         slot.dom.closest(".bog-slot-header").removeClass("bog-slot-visible");
         this.renderScore(slot.dom, 0);
       }
-      
     });
   }
 
@@ -599,7 +598,6 @@ export class SlotMachine {
 
       name = this.slots[slotIndex].name === "Grind" ? name : s.name;
       name = s.name;
-
 
       let htmlSlot = `
         <div data-index="${index}" class="bogLink">
