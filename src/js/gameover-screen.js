@@ -1,10 +1,25 @@
 import { renderTable } from "./helperfunctions.js";
 
+const TEXTS = [
+  `Congrats, you got `,
+  `Noice, you got `,
+  `You laced it, you got `,
+  `Bonkers, that's  `,
+  `Call your mum, you got  `,
+  `Aight! You got  `,
+  `Lush! You have  `,
+  `Gnarly, you have  `,
+  `JULIEN BAM, das ballert!   `,
+  `Aragon was reborn and made   `,
+  `Once again, Eugen.. that's another   `, 
+];
+
 export class GameOverScreen {
   constructor() {
     this.$gameOverNewGameButton = $("#gameOverNewGameButton");
     this.$points = $("#gameOverPointsTotal");
     this.$tricks = $("#gameOverTricks");
+    this.$gameOverText = $("#gameOverText");
 
     this.registerListener();
   }
@@ -15,7 +30,8 @@ export class GameOverScreen {
     });
   }
   render(score, tricks) {
-    this.animateScore(score);
+    this.animateScore(parseInt(score,10));
+    this.$gameOverText.html(TEXTS[Math.floor(Math.random() * TEXTS.length)]);
     let rows = [];
     tricks.forEach((entry) => {
       let row = rows.push([entry.points, entry.parsed]);
@@ -24,7 +40,8 @@ export class GameOverScreen {
     this.$tricks.html(html);
   }
   animateScore(end, duration = 500) {
-    if (start === end) {
+    if (end === 0) {
+      this.$points.html("0");
       return;
     }
     let start = 0;
