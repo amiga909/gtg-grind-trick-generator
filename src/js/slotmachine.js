@@ -101,8 +101,9 @@ export class SlotMachine {
     this.slots.forEach((slot) => {
       if (slot.state !== SLOT_STATES.locked) {
         slot.dom.closest(".bog-slot-header").removeClass("bog-slot-visible");
+        this.renderScore(slot.dom, 0);
       }
-      this.renderScore(slot.dom, 0);
+      
     });
   }
 
@@ -599,7 +600,7 @@ export class SlotMachine {
       name = this.slots[slotIndex].name === "Grind" ? name : s.name;
       name = s.name;
 
-      //const scores = s.scores ? s.scores   : "";
+
       let htmlSlot = `
         <div data-index="${index}" class="bogLink">
           <div class="${iconClass}">${name}

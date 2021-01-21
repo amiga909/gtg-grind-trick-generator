@@ -1135,7 +1135,19 @@ body::-webkit-scrollbar-thumb {
 .scoreboard {
   font-size: $scoreboard-FS;
 
+  @media only screen and (min-width: $bp_tablet) {
+    
+    margin-top: 8px;
+  }
+
   //box-shadow: 0 0 1px 1px white; // margin-top: -10px;
+}
+#sb-total-points {
+  display:block;
+  @media only screen and (min-width: $bp_tablet) {
+    padding-left: 8px;
+    display:inline;
+  }
 }
 
 .scoreboard-left {
@@ -1165,12 +1177,12 @@ body::-webkit-scrollbar-thumb {
   @media only screen and (min-width: $bp_tablet) {
     display: flex;
     justify-content: space-between;
-    margin-top: 4px;
+    margin-top: 2px;
   }
   @media only screen and (min-width: $bp_desktop) {
     display: flex;
     justify-content: space-between;
-    margin-top: 4px;
+    margin-top: 2px;
   }
 }
 
