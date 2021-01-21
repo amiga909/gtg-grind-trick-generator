@@ -160,7 +160,8 @@ p {
   z-index: 0;
   height: 90px;
   left: 50%;
-  margin-left: -90px;    margin-top: -4px;
+  margin-left: -90px;
+  margin-top: -4px;
 }
 
 .banner-head {
@@ -587,6 +588,23 @@ body::-webkit-scrollbar-thumb {
   z-index: -1;
 
   filter: grayscale(1);
+  animation: greyScaleImage 10s infinite;
+}
+
+@keyframes greyScaleImage {
+  0% {
+    filter: grayscale(1);
+  }
+  50% {
+    filter: grayscale(0.8);
+  }
+  70% {
+    filter: grayscale(0.7);
+  }
+
+  100% {
+    filter: grayscale(1);
+  }
 }
 
 .l-content-modal {
@@ -1136,17 +1154,16 @@ body::-webkit-scrollbar-thumb {
   font-size: $scoreboard-FS;
 
   @media only screen and (min-width: $bp_tablet) {
-    
     margin-top: 8px;
   }
 
   //box-shadow: 0 0 1px 1px white; // margin-top: -10px;
 }
 #sb-total-points {
-  display:block;
+  display: block;
   @media only screen and (min-width: $bp_tablet) {
     padding-left: 8px;
-    display:inline;
+    display: inline;
   }
 }
 
