@@ -21,6 +21,12 @@ const ERROR_MSG = {
 const CONFIG = {
   // all screens
   soundButton: { screen: "all", text: "Toggle sound" },
+  
+  logoText: {
+    screen: "all",
+    text: "Home",
+    position: "",
+  },
   helpBtn: {
     screen: "all",
     text: "Explains in-screen controls",
@@ -29,9 +35,9 @@ const CONFIG = {
   scoreboard: {
     screen: "all",
     text: `Current score<br>
-    Remaining spins <i class="fa fa-play-circle fa-1x"></i><br>
-    Remaining locks <i class="fa fa-lock fa-1x"></i>  <br>
-    Remaining removes <i class="fa fa-ban fa-1x"></i> `, //props: { maxWidth: "50px" },
+    Remaining spins <i class="fa fa-play-circle fa-1x"></i> <br>
+    Remaining locks <i class="fa fa-lock fa-1x"></i> <br>
+    Remaining removes <i class="fa fa-ban fa-1x"></i> `, //props: { maxWidth: "150px" },
   },
   configButton: {
     screen: "all",
