@@ -526,8 +526,8 @@ export class SlotMachine {
     if (name === "Grind") {
       entries = CONFIG.GRINDS_FOR_SLOTS;
       if (this.includedTricks.heelRoll === "off") {
-        entries = entries.filter((e) => {
-          const isHeelRoll =
+        entries = entries.filter((e) => {  
+          const isExcluded =
             e.name.includes("Wheelbarrow") ||
             e.name.includes("Training Wheel") ||
             e.name.includes("Hot Dog") ||
@@ -535,8 +535,9 @@ export class SlotMachine {
             e.name.includes("Byn Soul") ||
             e.name.includes("Sidewalk") ||
             e.name.includes("Citric Acid");
+         const isAdded = this.grindsInTricklist.includes(e.name)
 
-          return !isHeelRoll;
+          return !isExcluded && !isAdded;
         });
       }
       entries = this.filterLocked(entries);
@@ -583,11 +584,11 @@ export class SlotMachine {
       this.slots[slotIndex].name,
       data
     );
-    const filteredTrickListData = this.filterTrickListData(
+    /* const filteredTrickListData = this.filterTrickListData(
       this.slots[slotIndex].name,
       filteredData
-    );
-    this.slots[slotIndex].data = filteredTrickListData;
+    );*/
+    this.slots[slotIndex].data = filteredData;
     let $node = this.slots[slotIndex].dom;
 
     if (this.slots[slotIndex].machine) {
