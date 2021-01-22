@@ -46,8 +46,14 @@ const CONFIG = {
   randomizeButton: {
     screen: "Slotmachine",
     text: "Spin the reels",
-    position: "",
   },
+  endGameButton: {
+    screen: "Slotmachine",
+    text:
+      "This is the last spin. If you can't to the trick, press this button to end the game.",
+      props:{maxWidth:"25vw"}
+  },
+
   addTricklistBtn: {
     screen: "Slotmachine",
     text: "Add trick to tricklist",
@@ -56,6 +62,11 @@ const CONFIG = {
     screen: "Slotmachine",
     text: "Show trick info",
   },
+  grindReel: {
+    screen: "Slotmachine",
+    text: `Press a reel to lock it ( <i class="fa fa-lock fa-1x"></i>), press again to disable (<i class="fa fa-ban fa-1x"></i>), press again to enable.`,
+  },
+
   //
   configSubmit: {
     screen: "Configuration",
@@ -115,7 +126,7 @@ export class Tooltips {
     this.$mask = $("#tooltips-mask");
     // keep page scrollable while tooltip is open
     this.$explainTrickMask = $("#tooltips-slots-mask");
-    //this.$explainTrickMask.show()
+
     this.config = CONFIG;
     this.ERROR_MSG = ERROR_MSG;
     this.helpTooltips = [];
@@ -156,9 +167,17 @@ export class Tooltips {
     this.helpTooltips.forEach((t) => {
       if (t.instance.props.content) {
         if (t.screen === "all" || t.screen === this.screens.activeScreen) {
-          t.instance.enable();
 
-          t.instance.show();
+          let isHideSpecial = false;
+          if (t.name === "randomizeButton") {
+            isHideSpecial = $("#randomizeButton2").is(":visible") === false;
+          } else if (t.name === "endGameButton") {
+            isHideSpecial = $("#endGameButton").is(":visible") === false;
+          }
+          if (isHideSpecial === false) {
+            t.instance.enable();
+            t.instance.show();
+          }
         }
       }
     });

@@ -23,7 +23,7 @@ export class SlotMachine {
     this.$grinds = $("#grinds");
     this.$grindVariations = $("#grindVariations");
     this.$spinsOffGrind = $("#spinsOffGrind");
-
+    this.grindsInTricklist = [];
     this.trickdata = new Trickdata();
     CONFIG = this.trickdata.get();
 
@@ -329,15 +329,19 @@ export class SlotMachine {
   }
 
   onCompleteSlot(resolve, slot, activeNodeIndex) {
+ 
     const index = this.getSlotIndexByName(slot.name);
     const $active = slot.dom.find(`.bogLink:eq(${activeNodeIndex + 1})`);
     const theWinner = slot.data[$active.data("index") - 1];
+    console.log("onCompleteSlot", "slot",slot, "äactive",$active, "theWinner",theWinner, "index", index)
     let score = theWinner.scores;
     this.slots[index].winner = theWinner;
 
     const data = null;
 
     if (slot.name === "Grind") {
+      console.log(theWinner.name)
+      this.grindsInTricklist.push(theWinner.name)
       // grind variations
       const filteredVariations = this.filterTrickConfiguration(
         "GrindVariation",
@@ -503,6 +507,19 @@ export class SlotMachine {
     return isSoulSpin;
   }
 
+  filterTrickListData(name, data){
+    let entries = data;  
+ 
+    if (name === "Grind"  ) {
+      entries = entries.filter((e) => {
+        const isAdded = this.grindsInTricklist.includes(e.name)
+      
+        return !isAdded;
+      });
+    }
+    return entries;
+  }
+
   filterTrickConfiguration(name, data) {
     let entries = data;
 
@@ -566,7 +583,11 @@ export class SlotMachine {
       this.slots[slotIndex].name,
       data
     );
-    this.slots[slotIndex].data = filteredData;
+    const filteredTrickListData = this.filterTrickListData(
+      this.slots[slotIndex].name,
+      filteredData
+    );
+    this.slots[slotIndex].data = filteredTrickListData;
     let $node = this.slots[slotIndex].dom;
 
     if (this.slots[slotIndex].machine) {

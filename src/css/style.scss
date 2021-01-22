@@ -158,10 +158,12 @@ p {
 .banner-head-logo-text {
   position: absolute;
   z-index: 0;
-  height: 90px;
-  left: 50%;
-  margin-left: -90px;
+  height: 30px;
+  
+  margin-left: -30px;
   margin-top: -4px;
+   cursor:pointer;
+ 
 }
 
 .banner-head {

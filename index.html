@@ -3,7 +3,7 @@
    <html lang="en">
       <head>
          <title>AIGHT - Aggressive Inline Grind Hammer Trickgame</title>
-         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> 
          <link rel="stylesheet" href="./build/font-awesome.min.css" />
          <link rel="stylesheet" href="./build/vendor.css" />
          <link rel="stylesheet" href="./build/style.min.css" />
@@ -30,7 +30,7 @@
             <div class="banner">
                <div class="banner-head">
                   <div class="banner-head-full-name" > 
-                    <img class="banner-head-logo-text" src="img/gtg-logo-banner-text.svg"></img> 
+                    <img id="banner-head-logo-text" class="banner-head-logo-text" src="img/gtg-logo-banner-text.svg"></img> 
                      &nbsp; 
                  <!--  <div class="banner-head-logo-text-sub  "> Beta  </div> --> 
                  <!--   <img class="banner-head-full-name-img" src="img/gtg-logo-banner-text.svg">    --> 
@@ -227,7 +227,7 @@
                      </div>
                   </div>
                   <div class="pure-u-1 ">
-                     <div class="   bog-slot bog-slot-free bog-slot-3" data-name="Grind">
+                     <div data-p-tooltip="grindReel"  class="bog-slot bog-slot-free bog-slot-3" data-name="Grind">
                         <div class="slotBgIconContainer"> 
                            <i style="display:none"  class=" slot-state-lock-bg-icon--disabled fa fa-ban fa-4x"></i> 
                            <i style="display:none"  class="slot-state-lock-bg-icon--locked   fa fa-lock fa-4x"></i> 
@@ -246,8 +246,8 @@
                   <div class="pure-u-1 ">
                      <div class="bog-slot bog-slot-free bog-slot-4" data-name="GrindVariation">
                         <div class="slotBgIconContainer"> 
-                           <i style="display:none"  class=" slot-state-lock-bg-icon--disabled fa fa-ban fa-4x"></i> 
-                           <i style="display:none"  class="slot-state-lock-bg-icon--locked   fa fa-lock fa-4x"></i> 
+                           <i style="display:none"  class="slot-state-lock-bg-icon--disabled fa fa-ban fa-4x"></i> 
+                           <i style="display:none"  class="slot-state-lock-bg-icon--locked fa fa-lock fa-4x"></i> 
                         </div>
                         <div class="slotBgIconContainerRight"></div>
                         <div   class="bog-slot-header">
@@ -307,7 +307,7 @@
                                     <h2>Spin next trick</h2>
                                  </div>
                                  <div style="display:none" class="endGameButton-container">
-                                    <button   id="endGameButton" class="pure-button pure-button-primary">
+                                    <button data-p-tooltip="endGameButton"  id="endGameButton" class="pure-button pure-button-primary">
                                     <i class="fa fa-close fa-2x"></i>
                                     </button>
                                     <h2>End game</h2>
@@ -347,7 +347,7 @@
                                  <option value="3">Nuts</option>
                               </select>
                               <label   for="spinsTotalInput">Spins per game</label>
-                              <input  min="1" max="99" class="config-number-input" id="spinsTotalInput" type="number"> 
+                              <input  min="1" max="20" class="config-number-input" id="spinsTotalInput" type="number"> 
                               <label   for="spinsLocksInput">Lock tokens per game</label>
                               <input  min="1" max="99"  class="config-number-input" id="spinsLocksInput" type="number"> 
                               <label   for="removesTotalInput">Remove tokens per game</label>

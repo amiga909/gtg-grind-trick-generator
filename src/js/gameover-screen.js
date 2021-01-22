@@ -2,16 +2,30 @@ import { renderTable } from "./helperfunctions.js";
 
 const TEXTS = [
   `Congrats, you got `,
-  `Noice, you got `,
+  `Sick, you got `,
   `You laced it, you got `,
   `Bonkers, that's  `,
   `Call your mum, you got  `,
   `Aight! You got  `,
   `Lush! You have  `,
   `Gnarly, you have  `,
-  `JULIEN BAM, das ballert!   `,
-  `Aragon was reborn and made   `,
-  `Once again, Eugen.. that's another   `, 
+  `JULIEN BAM, das ballert! `,
+  //`Aragon was reborn and made  `,
+  `Once again, Eugen.. that's another `,
+  `Banger! `, `Full send! `,
+  `Sick Sesh! `,
+  `You got the flow,  `,
+  `Stoked! `,
+  `Hyped! `,
+  `Dope! `,
+  `Aiiiiiit! `,
+  `Ayyyyy! `,
+  `Lit! `,
+  "Epic sesh!",
+  "You killed it and got ",
+  "What a nutter! ",
+  "You got the flow.", "Juiced stuff! "
+ 
 ];
 
 export class GameOverScreen {
@@ -30,7 +44,7 @@ export class GameOverScreen {
     });
   }
   render(score, tricks) {
-    this.animateScore(parseInt(score,10));
+    this.animateScore(parseInt(score, 10));
     this.$gameOverText.html(TEXTS[Math.floor(Math.random() * TEXTS.length)]);
     let rows = [];
     tricks.forEach((entry) => {
