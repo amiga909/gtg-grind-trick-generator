@@ -100,6 +100,8 @@ body {
   background-color: $bgBgColor;
   height: 100%;
   width: 100%;
+  // try fixing ipad scroll bug
+  overflow-x: hidden;
 }
 
 a {
@@ -497,6 +499,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#156b2c', end
 #addTricklistBtn {
   width: 60px;
   background-color: $redButton;
+  padding:0px;
 }
 #currentScore {
   margin-top: 2px;

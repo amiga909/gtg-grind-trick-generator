@@ -68,12 +68,14 @@ export class Tricklist {
     let row = this.renderRow(trickEntry);
 
     // wait for scroll up
+    /*
     setTimeout(() => {
       $(row)
         .hide()
         .insertAfter(this.$list.find(".row:nth-child(1)"))
         .fadeIn("slow");
-    }, 250);
+    }, 250);*/
+    $(row).insertAfter(this.$list.find(".row:nth-child(1)"));
   }
 
   hasTrick(parsedStr) {
