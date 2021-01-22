@@ -98,7 +98,6 @@ export class Configuration {
   }
 
   versionCheck() {
-  
     if (localStorage.getItem(VERSION_KEY) !== CURRENT_VERSION) {
       localStorage.clear();
       localStorage.setItem(VERSION_KEY, CURRENT_VERSION);

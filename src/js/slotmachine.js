@@ -332,24 +332,13 @@ export class SlotMachine {
     const index = this.getSlotIndexByName(slot.name);
     const $active = slot.dom.find(`.bogLink:eq(${activeNodeIndex + 1})`);
     const theWinner = slot.data[$active.data("index") - 1];
-    console.log(
-      "onCompleteSlot",
-      "slot",
-      slot,
-      "äactive",
-      $active,
-      "theWinner",
-      theWinner,
-      "index",
-      index
-    );
+
     let score = theWinner.scores;
     this.slots[index].winner = theWinner;
 
     const data = null;
 
     if (slot.name === "Grind") {
-      console.log(theWinner.name);
       this.grindsInTricklist.push(theWinner.name);
       // grind variations
       const filteredVariations = this.filterTrickConfiguration(

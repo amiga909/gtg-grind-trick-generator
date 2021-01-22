@@ -25,22 +25,14 @@ export class Tricklist {
       e.preventDefault();
       location.reload();
     });
-    /*  this.$clear.on("click", (e) => {
-      e.preventDefault();
-      this.clearList();
-    });*/
+
     this.$spinNext.on("click", (e) => {
       e.preventDefault();
       $("#randomizeButton2").trigger("click");
     });
 
     /*
-    $("body").on("click", ".clearTrick", (e) => {
-      e.preventDefault();
-      const index = $(e.currentTarget).data("index");
-      this.clearTrick(index);
-    });
-
+    
     this.$sendMail.on("click", (e) => {
       e.preventDefault();
       let mailBody = this.$list.text();
@@ -63,17 +55,6 @@ export class Tricklist {
     }
   }
 
-  toggleControlDisabled() {
-    return false;
-    if (this.results.length > 0) {
-      this.$tricklistBtn.removeClass("pure-button-disabled");
-      $("#start-screen-tricklistBtn-count").html(this.results.length);
-      this.$tricklistBtnStart.show();
-    } else {
-      this.$tricklistBtn.addClass("pure-button-disabled");
-    }
-  }
-
   clearList() {
     localStorage.removeItem(this.storageKey);
   }
@@ -92,7 +73,6 @@ export class Tricklist {
         .hide()
         .insertAfter(this.$list.find(".row:nth-child(1)"))
         .fadeIn("slow");
-      this.toggleControlDisabled();
     }, 250);
   }
 
@@ -102,24 +82,6 @@ export class Tricklist {
     });
     return found.length > 0;
   }
-  /*
-  render() {
-    let rows = [];
-
-    let i = 0;
-    this.getStorage().reverse().forEach((entry, index) => {
-      i = i + 1;
-      let row = rows.push([entry.points, entry.parsed, entry.orig]);
-    });
-    let html = renderTable(
-      "",
-      ["Points", "Name", "Description"],
-      rows
-    );
-     
-     this.$list.html("");
-     this.$list.html(html);
-  }*/
 
   renderRow(entry) {
     return `<div class="row"> 

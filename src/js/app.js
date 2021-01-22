@@ -117,15 +117,6 @@ class GrindTrickRandomizer {
       }
     });
 
-    /* document.body.addEventListener("keyup", (event) => {
-      if (event.keyCode === 13) {
-        event.preventDefault();
-        if (!this.$randomizeButton.hasClass("pure-button-disabled")) {
-          this.onClickStart();
-        }
-      }
-    });*/
-
     this.$soundOnOff.on("click", (e) => {
       e.preventDefault();
       $("#soundIconOn").toggle();

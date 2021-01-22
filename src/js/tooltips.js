@@ -49,6 +49,15 @@ const CONFIG = {
   },
   aboutBtn: { screen: "all", text: "How to play" }, //props: { maxWidth: "50px" },
   //
+  startLevelSelect: {
+    screen: "Start",
+    text: `Change difficulty. <br>Press <i class="fa fa-wrench fa-1x"></i>  for details.`,
+  },
+  startGame: {
+    screen: "Start",
+    text: "Start the game",
+  },
+  //
   randomizeButton: {
     screen: "Slotmachine",
     text: "Spin the reels",
