@@ -86,8 +86,14 @@ export class Tricklist {
     localStorage.setItem(this.storageKey, JSON.stringify(arr));
     let row = this.renderRow(trickEntry);
 
-    $(row).hide().insertAfter(this.$list.find(".row:nth-child(1)")).fadeIn();
-    this.toggleControlDisabled();
+    // wait for scroll up
+    setTimeout(() => {
+      $(row)
+        .hide()
+        .insertAfter(this.$list.find(".row:nth-child(1)"))
+        .fadeIn("slow");
+      this.toggleControlDisabled();
+    }, 250);
   }
 
   hasTrick(parsedStr) {

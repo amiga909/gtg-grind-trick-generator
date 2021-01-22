@@ -21,7 +21,7 @@ const ERROR_MSG = {
 const CONFIG = {
   // all screens
   soundButton: { screen: "all", text: "Toggle sound" },
-  
+
   logoText: {
     screen: "all",
     text: "Home",
