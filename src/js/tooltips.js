@@ -29,7 +29,7 @@ const CONFIG = {
   },
   helpBtn: {
     screen: "all",
-    text: "Explains in-screen controls",
+    text: "Explain in-screen controls",
     position: "",
   },
   scoreboard: {
