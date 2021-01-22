@@ -12,7 +12,8 @@ const TEXTS = [
   `JULIEN BAM, das ballert! `,
   //`Aragon was reborn and made  `,
   `Once again, Eugen.. that's another `,
-  `Banger! `, `Full send! `,
+  `Banger! `,
+  `Full send! `,
   `Sick Sesh! `,
   `You got the flow,  `,
   `Stoked! `,
@@ -24,8 +25,8 @@ const TEXTS = [
   "Epic sesh!",
   "You killed it and got ",
   "What a nutter! ",
-  "You got the flow.", "Juiced stuff! "
- 
+  "You got the flow.",
+  "Juiced stuff! ",
 ];
 
 export class GameOverScreen {

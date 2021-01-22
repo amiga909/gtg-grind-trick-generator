@@ -329,19 +329,28 @@ export class SlotMachine {
   }
 
   onCompleteSlot(resolve, slot, activeNodeIndex) {
- 
     const index = this.getSlotIndexByName(slot.name);
     const $active = slot.dom.find(`.bogLink:eq(${activeNodeIndex + 1})`);
     const theWinner = slot.data[$active.data("index") - 1];
-    console.log("onCompleteSlot", "slot",slot, "äactive",$active, "theWinner",theWinner, "index", index)
+    console.log(
+      "onCompleteSlot",
+      "slot",
+      slot,
+      "äactive",
+      $active,
+      "theWinner",
+      theWinner,
+      "index",
+      index
+    );
     let score = theWinner.scores;
     this.slots[index].winner = theWinner;
 
     const data = null;
 
     if (slot.name === "Grind") {
-      console.log(theWinner.name)
-      this.grindsInTricklist.push(theWinner.name)
+      console.log(theWinner.name);
+      this.grindsInTricklist.push(theWinner.name);
       // grind variations
       const filteredVariations = this.filterTrickConfiguration(
         "GrindVariation",
@@ -507,13 +516,13 @@ export class SlotMachine {
     return isSoulSpin;
   }
 
-  filterTrickListData(name, data){
-    let entries = data;  
- 
-    if (name === "Grind"  ) {
+  filterTrickListData(name, data) {
+    let entries = data;
+
+    if (name === "Grind") {
       entries = entries.filter((e) => {
-        const isAdded = this.grindsInTricklist.includes(e.name)
-      
+        const isAdded = this.grindsInTricklist.includes(e.name);
+
         return !isAdded;
       });
     }
@@ -526,7 +535,7 @@ export class SlotMachine {
     if (name === "Grind") {
       entries = CONFIG.GRINDS_FOR_SLOTS;
       if (this.includedTricks.heelRoll === "off") {
-        entries = entries.filter((e) => {  
+        entries = entries.filter((e) => {
           const isExcluded =
             e.name.includes("Wheelbarrow") ||
             e.name.includes("Training Wheel") ||
@@ -535,7 +544,7 @@ export class SlotMachine {
             e.name.includes("Byn Soul") ||
             e.name.includes("Sidewalk") ||
             e.name.includes("Citric Acid");
-         const isAdded = this.grindsInTricklist.includes(e.name)
+          const isAdded = this.grindsInTricklist.includes(e.name);
 
           return !isExcluded && !isAdded;
         });

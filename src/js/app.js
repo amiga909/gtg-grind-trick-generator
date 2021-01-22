@@ -40,7 +40,6 @@ class GrindTrickRandomizer {
     this.$levelStartSelect = $("#start-screen-levels");
     this.$levelStartSelect.val(this.configurator.getLevel());
     this.$bannerLogoText = $("#banner-head-logo-text");
-    
 
     this.slotSpeed = this.configurator.getSpeed();
     this.includedTricks = this.configurator.getIncludedTricks();
@@ -70,7 +69,7 @@ class GrindTrickRandomizer {
 
   registerListener() {
     this.$bannerLogoText.on("click", (e) => {
-      location.reload(); 
+      location.reload();
     });
 
     $(".bog-slot").on("click", (e) => {

@@ -51,7 +51,7 @@ const CONFIG = {
     screen: "Slotmachine",
     text:
       "This is the last spin. If you can't to the trick, press this button to end the game.",
-      props:{maxWidth:"25vw"}
+    props: { maxWidth: "25vw" },
   },
 
   addTricklistBtn: {
@@ -167,7 +167,6 @@ export class Tooltips {
     this.helpTooltips.forEach((t) => {
       if (t.instance.props.content) {
         if (t.screen === "all" || t.screen === this.screens.activeScreen) {
-
           let isHideSpecial = false;
           if (t.name === "randomizeButton") {
             isHideSpecial = $("#randomizeButton2").is(":visible") === false;
