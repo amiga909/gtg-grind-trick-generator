@@ -35,6 +35,9 @@ export class GameOverScreen {
     this.$points = $("#gameOverPointsTotal");
     this.$tricks = $("#gameOverTricks");
     this.$gameOverText = $("#gameOverText");
+    this.$facebookShareBtn = $("#facebookShareBtn");
+    this.$whatsappShareBtn = $("#whatsappShareBtn");
+    this.$mailShareBtn = $("#mailShareBtn");
 
     this.registerListener();
   }
@@ -53,6 +56,7 @@ export class GameOverScreen {
     });
     let html = renderTable("Tricks", ["Points", "Name"], rows);
     this.$tricks.html(html);
+    this.setSharingBar(score, tricks);
   }
   animateScore(end, duration = 500) {
     if (end === 0) {
@@ -73,5 +77,22 @@ export class GameOverScreen {
       }
     }, stepTime);
     this.$points.html(end);
+  }
+  setSharingBar(score, tricks) {
+    let rows = [];
+    tricks.forEach((entry) => {
+      let row = rows.push(entry.parsed);
+    });
+    let content = `My score: ${score}\r\n My tricks:\r\n${rows.join("\r\n")}`;
+    const fbLink = `https://www.facebook.com/sharer/sharer.php?u=aightgame.com/&quote=${encodeURIComponent(
+      content
+    )}`;
+    this.$facebookShareBtn.attr("href", fbLink);
+
+    const whatsappLink = `"whatsapp://send?text=${encodeURIComponent(content)}`;
+    this.$whatsappShareBtn.attr("href", whatsappLink);
+
+    const mailLink = `mailto:?subject=aightgame.com&body=${content}`;
+    this.$mailShareBtn.attr("href", mailLink);
   }
 }

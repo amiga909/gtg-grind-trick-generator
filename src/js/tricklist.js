@@ -30,20 +30,6 @@ export class Tricklist {
       e.preventDefault();
       $("#randomizeButton2").trigger("click");
     });
-
-    /*
-    
-    this.$sendMail.on("click", (e) => {
-      e.preventDefault();
-      let mailBody = this.$list.text();
-      mailBody = mailBody.replace(/\s/g, " ");
-      mailBody = mailBody.replace(/ {3}/g, " ");
-      mailBody = mailBody.replace(/ {7}/g, " ----- ");
-      mailBody = mailBody.replace(/ {2}/g, " ");
-
-      const title = `Tricklist made with ${document.location.href}`;
-      window.open(`mailto:?subject=${title}&body=${mailBody}`);
-    });*/
   }
 
   getStorage() {
