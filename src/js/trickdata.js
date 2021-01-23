@@ -916,8 +916,8 @@ const GLOSSARY = {
   "Backside/BS": "Backside",
   "Soul grinds":
     "Soul frame based grind wihtout a frontside or a backside variant.",
-  "Groove/Boot grinds":
-    "H-Block based grind with a frontside and a backside variant.",
+  "Groove grinds":
+    "(Boot/Frame grinds) H-Block based grind with a frontside and a backside variant.",
 };
 
 const GRINDS = [];
