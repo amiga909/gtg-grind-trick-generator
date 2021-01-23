@@ -488,11 +488,14 @@ p {
 }
 
 .myFooter {
-  padding-bottom: 20px;
-  padding-top: 20px; // android toolbar
+   padding-bottom: 20px;
+ // padding-top: 20px; // android toolbar
   margin: 0 auto;
   font-size: 16px;
   max-width: 1000px;
+}
+.footer-controls {
+  margin-top: 20px;
 }
 body::-webkit-scrollbar {
   width: 1em;
@@ -510,7 +513,7 @@ body::-webkit-scrollbar-thumb {
 #gameover-screen {
   display: none;
   color: white;
-  padding: 12px; padding-bottom: 40px;
+  padding: 12px;
   max-width: 1000px;
   margin: 0 auto;
   position: relative;
@@ -629,7 +632,7 @@ body::-webkit-scrollbar-thumb {
 .modal-screen-text {
   position: relative;
   padding: 24px;
-  padding-bottom: 20px;
+  padding-bottom: 0px;
 }
 
 #modal-screen--about,
