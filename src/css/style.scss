@@ -1442,7 +1442,9 @@ $gameOverKeyFrames3: $slotEnabled;
   font-weight: bold;
 }
 .explainTrickImage {
-  //float:left;
+  @media screen and (max-width: $bp_resp_table) {
+  float:left;
+}
 }
 
 .explainTrickComment {
