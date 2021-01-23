@@ -94,7 +94,7 @@ $startscreen-controls-text--desktop-FS: 20px;
   max-width: 1000px;
   margin: 0 auto; // try fixing ipad scroll bug
   position: relative;
-  height: 100vh; 
+  height: 100vh;
   max-height: 750px;
 }
 
@@ -447,6 +447,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#156b2c', end
   font-size: $endscreen-text-FS;
   padding: 6px;
 }
+.endscreen-controls {
+  padding-top: 0px;
+
+  @media (min-width: $bp_tablet) {
+    padding-top: 12px;
+  }
+}
+
 .start-screen-logo {
   border-bottom: 1px solid white;
   //border-bottom: 1px solid white;
@@ -578,7 +586,7 @@ body::-webkit-scrollbar-thumb {
   //padding: 16px;
   width: auto;
   padding: 8px;
-  margin: 0 auto; 
+  margin: 0 auto;
 }
 .gameover-screen-box::after {
   background-image: url('../img/thejokerblade-smaller-1x.jpg');
@@ -1103,6 +1111,12 @@ body::-webkit-scrollbar-thumb {
   .row--details-view {
     margin: 0;
     padding: 0;
+
+    @media screen and (max-width: $bp_resp_table) {
+      width: 100%;
+      display: inline-table;
+    }
+    // for small and if has img display: inline-table;
   }
 }
 
@@ -1441,9 +1455,11 @@ $gameOverKeyFrames3: $slotEnabled;
 .explainTrickName {
   font-weight: bold;
 }
-.explainTrickImage {float: left; padding:2px;
+.explainTrickImage {
+  float: left;
+  padding: 2px;
   @media screen and (max-width: $bp_resp_table) {
-    float: none;
+    float: left;
   }
 }
 

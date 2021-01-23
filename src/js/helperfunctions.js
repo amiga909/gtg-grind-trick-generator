@@ -19,7 +19,7 @@ export const renderThumb = (imageUrl = "", bogLink = "") => {
 export const renderTableNoHeader = (rows = [[], []], color = "blue") => {
   let rowsHtml = rows.map((r) => {
     let tds = r.map((rr) => {
-      return `<div class="cell cell--details-view"  > ${rr} </div>`;
+      return `<div class="cell cell--details-view"> ${rr} </div>`;
     });
     return `<div class="row row--details-view"> ${tds.join("")}</div>`;
   });
