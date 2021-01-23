@@ -50,13 +50,16 @@ export class Scoreboard {
   }
 
   set(stateCount = {}) {
-    if (stateCount[SLOT_STATES.disabled]) {
-      this.removes =
-        this.tokensTotal.removes - stateCount[SLOT_STATES.disabled];
-    }
-    if (stateCount[SLOT_STATES.locked]) {
-      this.locks = this.tokensTotal.locks - stateCount[SLOT_STATES.locked];
-    }
+    const disabledCnt = stateCount[SLOT_STATES.disabled]
+      ? stateCount[SLOT_STATES.disabled]
+      : 0;
+    const lockedCnt = stateCount[SLOT_STATES.locked]
+      ? stateCount[SLOT_STATES.locked]
+      : 0;
+
+    this.removes = this.tokensTotal.removes - disabledCnt;
+    this.locks = this.tokensTotal.locks - lockedCnt;
+
     this.render();
   }
   useSpin() {

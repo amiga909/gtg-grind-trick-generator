@@ -78,11 +78,10 @@ class GrindTrickRandomizer {
     $(".bog-slot").on("click", (e) => {
       if (this.isEndScreen) {
         const onResultChange = () => {
-          this.scoreboard.set(this.slotMachine.countSlotStates());
-
           this.showEndScreen(false);
         };
         const afterSlotChange = () => {
+          const states = this.slotMachine.countSlotStates();
           this.scoreboard.set(this.slotMachine.countSlotStates());
         };
         this.slotMachine.onClickSlot($(e.currentTarget), {
