@@ -104,7 +104,7 @@ body {
   height: 100%;
   width: 100%;
   touch-action: manipulation;
-  font-family: 'Arial, Helvetica, sans-serif';
+  font-family: Arial, Helvetica, sans-serif !important;
 }
 
 a {
@@ -510,7 +510,7 @@ body::-webkit-scrollbar-thumb {
 #gameover-screen {
   display: none;
   color: white;
-  padding: 12px;
+  padding: 12px; padding-bottom: 40px;
   max-width: 1000px;
   margin: 0 auto;
   position: relative;
@@ -629,7 +629,7 @@ body::-webkit-scrollbar-thumb {
 .modal-screen-text {
   position: relative;
   padding: 24px;
-  padding-bottom: 0px;
+  padding-bottom: 20px;
 }
 
 #modal-screen--about,
