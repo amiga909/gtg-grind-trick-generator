@@ -83,13 +83,13 @@ export class GameOverScreen {
     tricks.forEach((entry) => {
       let row = rows.push(entry.parsed);
     });
-    let content = `My score: ${score}\r\n My tricks:\r\n${rows.join("\r\n")}`;
+    let content = `My score: ${score}\r\nMy tricks:\r\n${rows.join("\r\n")}`;
     const fbLink = `https://www.facebook.com/sharer/sharer.php?u=aightgame.com/&quote=${encodeURIComponent(
       content
     )}`;
     this.$facebookShareBtn.attr("href", fbLink);
 
-    const whatsappLink = `whatsapp://send?text=${encodeURIComponent(content)}`;
+    const whatsappLink = `whatsapp://send?text=${encodeURIComponent(content)} https://aightgame.com/`;
     this.$whatsappShareBtn.attr("href", whatsappLink);
 
     const mailLink = `mailto:?subject=aightgame.com&body=${content}`;
