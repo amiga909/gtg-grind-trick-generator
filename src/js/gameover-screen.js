@@ -89,7 +89,7 @@ export class GameOverScreen {
     )}`;
     this.$facebookShareBtn.attr("href", fbLink);
 
-    const whatsappLink = `"whatsapp://send?text=${encodeURIComponent(content)}`;
+    const whatsappLink = `whatsapp://send?text=${encodeURIComponent(content)}`;
     this.$whatsappShareBtn.attr("href", whatsappLink);
 
     const mailLink = `mailto:?subject=aightgame.com&body=${content}`;
