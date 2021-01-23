@@ -93,12 +93,14 @@ const CONFIG = {
   },
   configLevelSelect: {
     screen: "Configuration",
-    text: "Choose a preset with included tricks and tokens per game. Press Apply button below to activate.",
-  }, configSpeedSelect: {
+    text:
+      "Choose a preset with included tricks and tokens per game. Press Apply button below to activate.",
+  },
+  configSpeedSelect: {
     screen: "Configuration",
     text: "Change duration of the slot machine spin animation.",
   },
-  
+
   //
   giveUpButton: {
     screen: "Trick List",
