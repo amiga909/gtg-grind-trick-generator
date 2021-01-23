@@ -1,5 +1,5 @@
 const VERSION_KEY = "aight-version";
-const CURRENT_VERSION = "1.2";
+const CURRENT_VERSION = "1.2.1";
 
 const LEVEL_CONFIG = {
   1: {

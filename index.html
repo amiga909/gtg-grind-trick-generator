@@ -351,20 +351,14 @@
                      <div style="display:none;" id="modal-screen--configuration" class="modal-screen-text">
                         <form action="#"   class="pure-form pure-form-stacked">
                            <fieldset>
-                              <label   for="levelSelect">Select Level</label>
-                              <select  class="config-level-select pure-select" id="levelSelect" >
+                              <label   for="levelSelect">Select options preset</label>
+                              <select data-p-tooltip="configLevelSelect" class="config-level-select pure-select" id="levelSelect" >
                                  <option value="1">Chill</option>
                                  <option value="2">Juicy</option>
                                  <option value="3">Nuts</option>
                               </select>
-                              <label   for="spinsTotalInput">Spins per game</label>
-                              <input  min="1" max="20" class="config-number-input" id="spinsTotalInput" type="number"> 
-                              <label   for="spinsLocksInput">Lock tokens per game</label>
-                              <input  min="1" max="99"  class="config-number-input" id="spinsLocksInput" type="number"> 
-                              <label   for="removesTotalInput">Remove tokens per game</label>
-                              <input min="1" max="99" class="config-number-input" id="removesTotalInput" type="number"> 
-                              <br> 
-                              <label>Configure Tricks</label> 
+                             <br>
+                               <label>Set options manually</label>  
                               <input  class="includeTricksCb"  id="switch-select" type="checkbox"><label for="switch-select"> Switch tricks</label><br/>
                               <input  class="includeTricksCb"  id="negative-select" type="checkbox"><label for="negative-select"> Negative grinds</label><br/>
                               <input  class="includeTricksCb"  id="spins360-select" type="checkbox"><label for="spins360-select">360/450 spins</label> <br/>
@@ -374,15 +368,22 @@
                               <input  class="includeTricksCb"  id="heelRoll-select" type="checkbox"><label for="heelRoll-select">Rare grinds <br>(Hot Dog, Citric Acid, Sidewalk, Wheelbarrow, Training Wheel, Biscuit, Byn Soul)</label> <br/>
                               <input  class="includeTricksCb"  id="channel-select" type="checkbox"><label for="channel-select">Channel grinds</label> <br/>
                               <input  class="includeTricksCb"  id="christ-select" type="checkbox"><label for="christ-select">Christ grinds</label> <br/>
-                              <br><br>
-                              <label   for="soundSelect">Select sound</label>
-                              <select id="soundSelect" class="pure-select">
+                              <br>
+                              <label   for="spinsTotalInput">Spins per game</label>
+                              <input maxlength="2" class="config-number-input" id="spinsTotalInput" inputmode="numeric" pattern="[0-9]{1,2}"> 
+                              <label   for="spinsLocksInput">Lock tokens per game</label>
+                              <input  maxlength="1"  class="config-number-input" id="spinsLocksInput" inputmode="numeric" pattern="[0-9]"> 
+                              <label   for="removesTotalInput">Remove tokens per game</label>
+                              <input maxlength="1"class="config-number-input" id="removesTotalInput" inputmode="numeric" pattern="[0-9]"> 
+                              <br> 
+                              <!--   <label   for="soundSelect">Select sound</label>
+                            <select id="soundSelect" class="pure-select">
                                  <option value="1">Joker</option>
                                  <option value="2">Spark</option>
-                                 <option value="3">Yippie!</option>
+                                 <option value="3">Yippie!</option>-->
                               </select>
                               <label   for="speedSelect">Select slot machine speed</label>
-                              <select id="speedSelect" class="pure-select">
+                              <select data-p-tooltip="configSpeedSelect" id="speedSelect" class="pure-select">
                                  <option value="500">Very Slow</option>
                                  <option value="300">Slow</option>
                                  <option selected value="150">Normal</option>
@@ -432,19 +433,19 @@
                         Press play and the slot machine spins a random grind trick for you.  
                         The game ends if you have used your last spin. 
                         <br>  If you can do the trick, do it and press the button to collect the points. 
-                        <br>  <br>  If you can not do the trick, you have two options: 
+                        <br>    If you can not do the trick, you have two options: 
                         <br>1)  Skip and spin another trick. This uses one of your <i class="fa fa-play-circle fa-1x"></i>  tokens.
                         <br>2) Use  <i class="fa fa-ban fa-1x"></i> tokens to disable reels and make the trick easier.
                      </p>
                    
-                        <h5>Tokens explained</h5>
+                        
                         <p>
                         There are three types of tokens 
                         <br>1) <i class="fa fa-play-circle fa-1x"></i> Spins 
                         <br>2) <i class="fa fa-lock fa-1x"></i> Locks
                         <br>3) <i class="fa fa-ban fa-1x"></i> Removes
                         <br>   After spinning the reels, you can press a reel to lock it. Press again to disable. Press again to enable.   
-                        <br>   If you disable a reel, the trick name changes.  
+                        <br>   If you disable a reel, the grind trick gets easier and you get less points.  
                         <br>   If you lock a reel, the reel remains unchanged when you start a new spin. 
                         
                         <br>   The Grind reel can not be disabled. If you do a grind, the grind is removed from the reel, so you can do every grind only once per session.
@@ -454,8 +455,8 @@
                 
 
                          
-                        <h5>Controls</h5>
-                        <h6>Main Screen</h6>
+                        <h5>Main Screen Controls</h5>
+               
                         <table class="pure-table">
                            <thead>
                               <tr>
@@ -583,7 +584,7 @@
                            -->
                        
                         <div id="aboutScreenReferences"></div>
-                        <h5>Enjoy!</h5>
+                        <h3>Enjoy!</h3>
                      </div>
                      <div style="display:none;"  id="modal-screen--reference" class="modal-screen-text">
                         <div   id="trickNamingContent"> </div>

@@ -85,12 +85,20 @@ const CONFIG = {
   //
   configSubmit: {
     screen: "Configuration",
-    text: "Apply the changes and restart the game",
+    text: "Apply the changes and restart the game.",
   },
   configReset: {
     screen: "Configuration",
-    text: "Reset all settings and restart game",
+    text: "Reset all settings and restart game.",
   },
+  configLevelSelect: {
+    screen: "Configuration",
+    text: "Choose a preset with included tricks and tokens per game. Press Apply button below to activate.",
+  }, configSpeedSelect: {
+    screen: "Configuration",
+    text: "Change duration of the slot machine spin animation.",
+  },
+  
   //
   giveUpButton: {
     screen: "Trick List",

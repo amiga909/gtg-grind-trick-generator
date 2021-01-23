@@ -16,6 +16,7 @@ import { GameOverScreen } from "./gameover-screen";
 import { Audioplayer } from "./audioplayer";
 
 let CONFIG = "";
+const DISABLE_SOUND = true
 
 class GrindTrickRandomizer {
   constructor() {
@@ -61,7 +62,11 @@ class GrindTrickRandomizer {
   }
 
   init() {
-    this.audioplayer.init(this.configurator.getSound());
+    if(DISABLE_SOUND) {
+      this.$soundOnOff.hide();
+    }
+    else {
+    this.audioplayer.init(this.configurator.getSound());}
     this.screens.show("Start"); //Start
 
     this.registerListener();

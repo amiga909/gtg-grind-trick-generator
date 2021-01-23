@@ -57,7 +57,9 @@ export class Audioplayer {
     if (this.howler.loop) {
       this.howler.loop.mute(muted);
     }
-    this.howler.start.mute(muted);
+    if (this.howler.start) {
+      this.howler.start.mute(muted);
+    }
   }
 
   unmute() {
@@ -71,10 +73,14 @@ export class Audioplayer {
     if (this.howler.loop) {
       this.howler.loop.stop();
     }
-    this.howler.start.stop();
+    if (this.howler.start) {
+      this.howler.start.stop();
+    }
   }
 
   play(part) {
-    this.howlerAudioSoundId = this.howler[part].play();
+    if (this.howler[part]) {
+      this.howlerAudioSoundId = this.howler[part].play();
+    }
   }
 }
