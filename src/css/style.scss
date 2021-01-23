@@ -92,7 +92,7 @@ $startscreen-controls-text--desktop-FS: 20px;
 
 .body-wrapper {
   max-width: 1000px;
-  margin: 0 auto; // try fixing ipad scroll bug
+  margin: 0 auto;
   position: relative;
   height: 100vh;
   max-height: 800px;
@@ -104,7 +104,7 @@ body {
   height: 100%;
   width: 100%;
   touch-action: manipulation;
-  font-family: "Arial, Helvetica, sans-serif";
+  font-family: 'Arial, Helvetica, sans-serif';
 }
 
 a {
@@ -122,9 +122,6 @@ p {
   line-height: 1.6em;
 }
 
-/*
-   * -- Layout Styles --
-   */
 .l-content {
   margin: 0 auto;
   position: absolute;
@@ -164,7 +161,6 @@ p {
   position: absolute;
   z-index: 0;
   height: 30px;
-
   margin-left: -55px;
   margin-top: -4px;
   cursor: pointer;
@@ -176,16 +172,12 @@ p {
   font-size: $banner-head-FS;
   color: $bannerFontColor;
   font-weight: 500;
-
   padding-bottom: 3px;
-  // border-bottom: 1px solid $bannerFontColor;
 }
 
 .banner-head-full-name {
   font-size: $banner-head-full-name-FS;
   text-align: center;
-  //margin-right: 8px;
-
   a {
     color: $slotLocked;
     cursor: pointer;
@@ -198,33 +190,14 @@ p {
 
 .banner {
   height: 90px;
-  /*
-  z-index: 6;
-  top: 0px;
-  left: 0px;
- 
-  right: 0px;
-  overflow: hidden;*/
-  //border-bottom: 1px solid white;
-
   background-color: $bannerBgColor;
   text-align: center;
   background-size: cover;
   background-position: center;
-
   width: 100%;
-  //  margin-bottom: 12px;
-
   display: table;
 }
-/*
-background: #156b2c; 
-background: -moz-linear-gradient(top,  #156b2c 0%, #2989d8 50%, #d6c122 61%, #f98686 99%);  
-background: -webkit-linear-gradient(top,  #156b2c 0%,#2989d8 50%,#d6c122 61%,#f98686 99%); 
-background: linear-gradient(to bottom,  #156b2c 0%,#2989d8 50%,#d6c122 61%,#f98686 99%);   
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#156b2c', endColorstr='#f98686',GradientType=0 ); 
- 
- */
+
 .banner-controls-row {
   z-index: 1;
 }
@@ -253,7 +226,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#156b2c', end
 
 .bog-slot-disabled {
   box-shadow: 8px 0 0px -2px $slotDisabled, -8px 0 0px -2px $slotDisabled;
-
   cursor: pointer;
 }
 .bog-slot-locked {
@@ -271,10 +243,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#156b2c', end
   overflow: hidden;
 }
 
-/*
-   * -- PRICING TABLE WRAPPER --
-   * This element wraps up all the pricing table elements
-   */
 .bog-slots,
 .information {
   max-width: 1000px;
@@ -282,7 +250,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#156b2c', end
 }
 .bog-slots {
   margin-top: 1px;
-  //margin-bottom: 12px;
   padding-left: 10px;
   padding-right: 10px;
   text-align: center;
@@ -291,7 +258,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#156b2c', end
 .bog-slot-1 .bog-slot-header {
   background: $slotApproach;
 }
-
 .bog-slot-2 .bog-slot-header {
   background: $slotSpinTo;
 }
@@ -308,31 +274,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#156b2c', end
 .bog-slot-6 .bog-slot-header {
   background: $slotSpinOff;
 }
-/*
-.bogLink-icon-clockwise:after {
-  content: '';
-  display: inline-block;
-  background-repeat: no-repeat;
-  background: url('../../img/clockwise.svg') no-repeat;
-  width: 24px;
-  height: 24px;
-  margin: 0px 0px 0px 12px;
-}
-.bogLink-icon-counterclock:after {
-  content: '';
-  display: inline-block;
-  background-repeat: no-repeat;
-  background: url('../../img/counterclock.svg') no-repeat;
-  width: 24px;
-  height: 24px;
-  margin: 0px 0px 0px 12px;
-}*/
 .bogLink {
   user-select: none;
-  // autoprefixer!
-  //-webkit-user-select: none;  /* Chrome all / Safari all */
-  // -moz-user-select: none;     /* Firefox all */
-  // -ms-user-select: none;
 }
 
 .bog-slot-header {
@@ -359,8 +302,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#156b2c', end
 }
 
 .bog-slot-machine {
- // font-size: $bog-slot-machine-FS;
- font-size: 29px;
+  // font-size: $bog-slot-machine-FS;
+  font-size: 29px;
   margin: 0.2em 0 0;
   font-weight: 100;
   height: 36px;
@@ -459,19 +402,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#156b2c', end
 
 .start-screen-logo {
   border-bottom: 1px solid white;
-  //border-bottom: 1px solid white;
   padding-top: 12px;
   z-index: -1;
   max-width: 500px;
   width: 95%;
-
   margin: auto;
-  //  position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-  //box-shadow: 0 0 0 1px white;
 }
 .start-screen-logo-img {
   width: 100%;
@@ -525,7 +464,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#156b2c', end
 }
 
 #start-screen {
-  // overflow: hidden;
   display: none;
   z-index: 3;
   opacity: 1;
@@ -541,7 +479,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#156b2c', end
   width: 100%;
 
   max-width: 600px;
-
   margin: auto;
   position: absolute;
   top: 0;
@@ -550,8 +487,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#156b2c', end
   right: 0;
 }
 
-.myFooter { 
-  padding-bottom: 20px; padding-top: 20px; // android toolbar
+.myFooter {
+  padding-bottom: 20px;
+  padding-top: 20px; // android toolbar
   margin: 0 auto;
   font-size: 16px;
   max-width: 1000px;
@@ -742,7 +680,7 @@ body::-webkit-scrollbar-thumb {
 
 .configurator-right-close {
   cursor: pointer;
-  right: 24px; // 64px;
+  right: 24px;
   top: 10px;
   position: absolute;
 }
@@ -828,7 +766,6 @@ body::-webkit-scrollbar-thumb {
   position: relative;
   display: inline-flex;
   cursor: pointer;
- // font-family: sans-serif;
   font-size: $ncludeTricksCb-FS;
 }
 .includeTricksCb + label:before {
@@ -895,7 +832,6 @@ body::-webkit-scrollbar-thumb {
   display: none;
 }
 .tippy-content {
-  // pointer-events: none;
   font-size: $tippy-content-FS;
 }
 @media (min-width: $bp_tablet) {
@@ -948,8 +884,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 #tooltips-slots-mask {
-  //background:red;
-
   display: none;
   position: absolute;
   top: 0px;
@@ -958,7 +892,6 @@ body::-webkit-scrollbar-thumb {
   height: 100vh;
   background: rgba(0, 0, 0, 0.5);
   z-index: 9; // 5
-  //  background:red;
 }
 
 .slotBgIconContainer {
@@ -998,7 +931,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 .tricktionary_thumb_grind_container {
-  /* width: 200px; */
 }
 
 .tricktionary_thumb_grind_img_container {
@@ -1094,9 +1026,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .resp-table-wrapper-details-view {
-  // padding-top:0px;
   .resp-table {
-    //margin: 0;
   }
   .tricktionary_thumb_img {
     width: 100px;
@@ -1117,9 +1047,8 @@ body::-webkit-scrollbar-thumb {
 
     @media screen and (max-width: $bp_resp_table) {
       width: 100%;
-      display: inline-table;
+      display: inline-table; // for small and if has img display: inline-table;
     }
-    // for small and if has img display: inline-table;
   }
 }
 
@@ -1155,7 +1084,6 @@ body::-webkit-scrollbar-thumb {
   border-radius: 50%;
   width: 34px;
   height: 34px;
-  //padding: 10px;
   background: #fff;
   border: 3px solid #000;
   color: #000;
@@ -1166,7 +1094,6 @@ body::-webkit-scrollbar-thumb {
   border-radius: 50%;
   width: 26px;
   height: 26px;
-  //padding: 10px;
   background: #fff;
   border: 3px solid #000;
   color: #000;
@@ -1176,12 +1103,9 @@ body::-webkit-scrollbar-thumb {
 
 .scoreboard {
   font-size: $scoreboard-FS;
-
   @media only screen and (min-width: $bp_tablet) {
     margin-top: 8px;
   }
-
-  //box-shadow: 0 0 1px 1px white; // margin-top: -10px;
 }
 #sb-total-points {
   display: block;
@@ -1199,7 +1123,6 @@ body::-webkit-scrollbar-thumb {
   color: white;
 }
 .scoreboard-title {
-  //text-decoration: underline;
 }
 .scoreboard-points {
   font-size: $scoreboard-FS;
@@ -1256,8 +1179,6 @@ body::-webkit-scrollbar-thumb {
 
 .start-game-button {
   background-color: $redButton;
-  //width: 90px;
-  // height: 52.5px;
 }
 
 .start-game-button {
@@ -1306,15 +1227,13 @@ body::-webkit-scrollbar-thumb {
 
 .spinsLeftAnimation {
   position: absolute;
-  top: 50%; /* position the top  edge of the element at the middle of the parent */
-  left: 50%; /* position the left edge of the element at the middle of the parent */
-
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
 }
 .animate {
   font-size: 50px;
   margin: 100px 0 0;
-  // border-bottom: 2px solid #ccc;
   z-index: 100;
   color: $slotDisabled;
 }
