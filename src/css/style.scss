@@ -1098,7 +1098,7 @@ body::-webkit-scrollbar-thumb {
   .tricktionary_thumb_img {
     width: 100px;
     height: 100px;
-    @media only screen and (min-width: $bp_tablet) {
+    @media only screen and (min-width: $bp_resp_table) {
       height: 150px;
       width: 150px;
     }
@@ -1457,7 +1457,7 @@ $gameOverKeyFrames3: $slotEnabled;
 }
 .explainTrickImage {
   float: left;
-  padding: 2px;
+  padding-right: 8px;
   @media screen and (max-width: $bp_resp_table) {
     float: left;
   }
