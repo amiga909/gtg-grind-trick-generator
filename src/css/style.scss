@@ -93,6 +93,9 @@ $startscreen-controls-text--desktop-FS: 20px;
 .body-wrapper {
   max-width: 1000px;
   margin: 0 auto; // try fixing ipad scroll bug
+  position: relative;
+  height: 100vh; 
+  max-height: 750px;
 }
 
 body {
