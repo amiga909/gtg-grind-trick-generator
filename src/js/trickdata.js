@@ -198,7 +198,7 @@ const SOUL_GRINDS = [
   {
     name: "Soul",
     repeat: EASY_REPEAT,
-    scores:1,
+    scores: 1,
     url: "http://skateyeg.com/bog/02.0_Soul.html",
     variations: {
       Topside: true,
@@ -212,7 +212,7 @@ const SOUL_GRINDS = [
   {
     name: "Acid",
     repeat: EASY_REPEAT,
-    scores:1,
+    scores: 1,
     url: "http://skateyeg.com/bog/05.0_Acid.html",
     variations: {
       Topside: true,
@@ -226,7 +226,7 @@ const SOUL_GRINDS = [
   {
     name: "Makio",
     repeat: EASY_REPEAT,
-    scores:1,
+    scores: 1,
     url: "http://skateyeg.com/bog/01.0_Makio.html",
     variations: {
       Topside: true,
@@ -310,7 +310,7 @@ const SOUL_GRINDS = [
   {
     name: "Mizou",
     repeat: EASY_REPEAT,
-    scores:1,
+    scores: 1,
     url: "http://skateyeg.com/bog/03.0_Mizou.html",
     variations: {
       Topside: true,
@@ -323,7 +323,7 @@ const SOUL_GRINDS = [
   },
   {
     name: "Sidewalk",
-    scores:1,
+    scores: 1,
     url: "http://skateyeg.com/bog/04.1_Sidewalk.html",
     variations: {
       Topside: true,
@@ -577,7 +577,7 @@ const GROOVE_GRINDS = [
   {
     name: "Backside",
     repeat: MEDIUM_REPEAT,
-    scores:1,
+    scores: 1,
     url: "http://skateyeg.com/bog/02.0_Backside.html",
     variations: {
       Channel: true,
@@ -586,7 +586,7 @@ const GROOVE_GRINDS = [
   {
     name: "Frontside",
     repeat: MEDIUM_REPEAT,
-    scores:1,
+    scores: 1,
     url: "http://skateyeg.com/bog/01.0_Frontside.html",
     variations: {
       Channel: true,
@@ -661,7 +661,7 @@ const GRIND_SYNONYMS = [
   {
     newName: "Top Teakettle",
     name: "PStar",
-    scores:1,
+    scores: 1,
     comment: "Rough Topside PStar",
     isTopside: true,
     isRough: true,

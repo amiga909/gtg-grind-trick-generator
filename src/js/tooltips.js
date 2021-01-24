@@ -104,7 +104,6 @@ const CONFIG = {
     screen: "Configuration",
     text: "Configure your own game.",
   },
-  
 
   //
   giveUpButton: {

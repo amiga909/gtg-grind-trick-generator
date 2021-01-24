@@ -44,9 +44,13 @@ class GrindTrickRandomizer {
 
     this.slotSpeed = this.configurator.getSpeed();
     this.includedTricks = this.configurator.getIncludedTricks();
-    
+
     this.audioplayer = new Audioplayer(this.$soundOnOff);
-    this.slotMachine = new SlotMachine(this.slotSpeed, this.includedTricks,this.configurator.hasNoApproachSlot());
+    this.slotMachine = new SlotMachine(
+      this.slotSpeed,
+      this.includedTricks,
+      this.configurator.hasNoApproachSlot()
+    );
     this.resultParser = new ResultParser();
 
     this.screens = new Screens();
@@ -96,7 +100,7 @@ class GrindTrickRandomizer {
 
     this.$levelStartSelect.on("change", (e) => {
       e.preventDefault();
-    
+
       this.configurator.setLevel(this.$levelStartSelect.val());
       this.configurator.submit();
     });

@@ -14,8 +14,9 @@ export const SLOT_STATES = {
 const SLOT_MACHINE_NO_OF_SPINS = 1;
 
 export class SlotMachine {
-  constructor(slotSpeed, includedTricks,hasNoApproachSlot=false) {
+  constructor(slotSpeed, includedTricks, hasNoApproachSlot = false) {
     this.includedTricks = includedTricks;
+    this.hasNoApproachSlot = hasNoApproachSlot;
     this.slotSpeed = slotSpeed;
     this.$slots = $(".bog-slot");
     this.$approaches = $("#approaches");
@@ -30,13 +31,15 @@ export class SlotMachine {
     this.slots = [];
 
     this.initSlots();
-    if(hasNoApproachSlot) {
+    if (this.hasNoApproachSlot) {
       $(".bog-slot-1").hide();
-    } else { $(".bog-slot-1").show();} 
+    } else {
+      $(".bog-slot-1").show();
+    }
   }
 
   initSlots() {
-  //  this.configurator.hasNoApproachSlot()
+    //  this.configurator.hasNoApproachSlot()
     this.slots = [
       {
         name: "Grind",
@@ -49,7 +52,7 @@ export class SlotMachine {
       },
       {
         name: "GrindVariation",
-        next: 2,
+        next: this.hasNoApproachSlot ? 3 : 2,
         machine: null,
         dom: this.$grindVariations,
         data: null, // depends on grind

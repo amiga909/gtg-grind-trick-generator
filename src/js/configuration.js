@@ -81,7 +81,7 @@ export class Configuration {
     this.configs = [
       { $dom: this.$soundSelect, key: "soundSelect", value: 0 },
       { $dom: this.$speedSelect, key: "speedSelect", value: 0 },
-      { $dom: this.$fakieSelect, key: "fakieCheckbox", value: "off" },  
+      { $dom: this.$fakieSelect, key: "fakieCheckbox", value: "off" },
       { $dom: this.$switchSelect, key: "switchCheckbox", value: "off" },
       { $dom: this.$negativeSelect, key: "negativeCheckbox", value: "off" },
       { $dom: this.$roughSelect, key: "roughCheckbox", value: "off" },
@@ -90,7 +90,7 @@ export class Configuration {
       { $dom: this.$heelRollSelect, key: "heelRollCheckbox", value: "off" },
       { $dom: this.$spins540Select, key: "spins540Checkbox", value: "off" },
       { $dom: this.$channelSelect, key: "channelCheckbox", value: "off" },
-      { $dom: this.$christSelect, key: "christCheckbox", value: "off" },    
+      { $dom: this.$christSelect, key: "christCheckbox", value: "off" },
       { $dom: this.$levelSelect, key: "levelSelect", value: "1" },
       { $dom: this.$spinsTotal, key: "spinsTotal", value: 5 },
       { $dom: this.$removesTotal, key: "removesTotal", value: 3 },
@@ -218,7 +218,9 @@ export class Configuration {
   }
 
   hasNoApproachSlot() {
-    return !this.$switchSelect.is(":checked")   && !this.$fakieSelect.is(":checked");
+    return (
+      !this.$switchSelect.is(":checked") && !this.$fakieSelect.is(":checked")
+    );
   }
 
   getIncludedTricks() {

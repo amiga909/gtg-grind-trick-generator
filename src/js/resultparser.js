@@ -20,7 +20,7 @@ export class ResultParser {
       slots.filter((s) => s && s.name === "GrindVariation")[0] || null;
     let spinOff = slots.filter((s) => s && s.name === "SpinOff")[0] || null;
 
-    if (!approach) {
+    if (!approach || !approach.winner) {
       approach = { winner: { name: "Forwards" } };
     }
     if (approach) {

@@ -50,13 +50,13 @@ export class GameOverScreen {
   render(score, tricks) {
     this.animateScore(parseInt(score, 10));
     let txt = TEXTS[Math.floor(Math.random() * TEXTS.length)];
-    txt = score === 0 ? 'At least it can not get worse...' : txt;
+    txt = score === 0 ? "At least it can not get worse..." : txt;
     this.$gameOverText.html(txt);
     let rows = [];
     tricks.forEach((entry) => {
       let row = rows.push([entry.points, entry.parsed]);
     });
-    let html = renderTable("", ["Points", "Name"], rows, 'red');
+    let html = renderTable("", ["Points", "Name"], rows, "red");
     this.$tricks.html(html);
     this.setSharingBar(score, tricks);
   }
@@ -91,7 +91,9 @@ export class GameOverScreen {
     )}`;
     this.$facebookShareBtn.attr("href", fbLink);
 
-    const whatsappLink = `whatsapp://send?text=${encodeURIComponent(content)} https://aightgame.com/`;
+    const whatsappLink = `whatsapp://send?text=${encodeURIComponent(
+      content
+    )} https://aightgame.com/`;
     this.$whatsappShareBtn.attr("href", whatsappLink);
 
     const mailLink = `mailto:?subject=aightgame.com&body=${content}`;
