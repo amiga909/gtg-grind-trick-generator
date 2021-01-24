@@ -21,7 +21,7 @@ export class ResultParser {
     let spinOff = slots.filter((s) => s && s.name === "SpinOff")[0] || null;
 
     if (!approach) {
-      approach = { winner: { name: "Forwards & Natural" } };
+      approach = { winner: { name: "Forwards" } };
     }
     if (approach) {
       resultOrig.push(approach.winner.name);
@@ -122,6 +122,9 @@ export class ResultParser {
     // Zerospin BS Pudslide
     result = result.replace("Topside", "Top");
     result = result.replace("Alley-oop", "AO");
+
+    // Forwards
+    result = result.replace("Forwards ", "");
 
     result = result.replace(/  /g, " ");
     result = result.replace(/  /g, " ");

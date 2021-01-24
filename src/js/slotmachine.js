@@ -14,7 +14,7 @@ export const SLOT_STATES = {
 const SLOT_MACHINE_NO_OF_SPINS = 1;
 
 export class SlotMachine {
-  constructor(slotSpeed, includedTricks) {
+  constructor(slotSpeed, includedTricks,hasNoApproachSlot=false) {
     this.includedTricks = includedTricks;
     this.slotSpeed = slotSpeed;
     this.$slots = $(".bog-slot");
@@ -30,9 +30,13 @@ export class SlotMachine {
     this.slots = [];
 
     this.initSlots();
+    if(hasNoApproachSlot) {
+      $(".bog-slot-1").hide();
+    } else { $(".bog-slot-1").show();} 
   }
 
   initSlots() {
+  //  this.configurator.hasNoApproachSlot()
     this.slots = [
       {
         name: "Grind",
@@ -367,7 +371,6 @@ export class SlotMachine {
       }
       this.slots[1].data = filteredVariations;
 
-      // approach
       this.slots[2].data = CONFIG.APPROACHES;
       if (theWinner.noSwitch === true) {
         this.slots[2].data = this.slots[2].data.filter(
@@ -375,14 +378,11 @@ export class SlotMachine {
         );
       }
 
-      // spinTo
       const grindSlot = this.slots[this.getSlotIndexByName("Grind")];
       this.slots[3].data = this.trickdata.getSpinToData(grindSlot.winner);
 
-      // spinOff
       this.slots[4].data = this.trickdata.getSpinOffData(grindSlot.winner);
     } else if (slot.name === "Approach") {
-      // spinTo
       const grindSlot = this.slots[this.getSlotIndexByName("Grind")];
       const approachSlot = this.slots[this.getSlotIndexByName("Approach")];
       this.slots[3].data = this.trickdata.getSpinToData(
@@ -390,7 +390,6 @@ export class SlotMachine {
         approachSlot.winner
       );
 
-      // spinOff
       this.slots[4].data = this.trickdata.getSpinOffData(grindSlot.winner);
     } else if (slot.name === "GrindVariation") {
       const variation = CONFIG.VARIATIONS.filter((v) => {
@@ -556,6 +555,9 @@ export class SlotMachine {
     } else if (name === "Approach") {
       if (this.includedTricks.switch === "off") {
         entries = entries.filter((e) => e.isSwitch !== true);
+      }
+      if (this.includedTricks.fakie === "off") {
+        entries = entries.filter((e) => e.isFakie !== true);
       }
     } else if (name === "GrindVariation") {
       if (this.includedTricks.negative === "off") {

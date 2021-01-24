@@ -56,7 +56,7 @@ export class GameOverScreen {
     tricks.forEach((entry) => {
       let row = rows.push([entry.points, entry.parsed]);
     });
-    let html = renderTable("Tricks", ["Points", "Name"], rows);
+    let html = renderTable("", ["Points", "Name"], rows, 'red');
     this.$tricks.html(html);
     this.setSharingBar(score, tricks);
   }

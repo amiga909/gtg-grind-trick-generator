@@ -3,6 +3,13 @@ const MEDIUM_REPEAT = 1;
 
 const APPROACHES = [
   {
+    name: "Forwards",
+    repeat: EASY_REPEAT,
+    isFakie: false,
+    isSwitch: false,
+    scores: 0,
+  },
+  {
     name: "Fakie",
     repeat: MEDIUM_REPEAT,
     url: "http://skateyeg.com/bog/05.0_Fakie.html",

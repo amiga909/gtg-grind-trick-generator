@@ -14,6 +14,7 @@ const LEVEL_CONFIG = {
     spins360Checkbox: "off",
     spins540Checkbox: "off",
     switchCheckbox: "off",
+    fakieCheckbox: "off",
     toughCheckbox: "off",
   },
   2: {
@@ -28,6 +29,7 @@ const LEVEL_CONFIG = {
     spins360Checkbox: "on",
     spins540Checkbox: "off",
     switchCheckbox: "on",
+    fakieCheckbox: "on",
     toughCheckbox: "off",
   },
   3: {
@@ -41,6 +43,7 @@ const LEVEL_CONFIG = {
     roughCheckbox: "on",
     spins360Checkbox: "on",
     spins540Checkbox: "on",
+    fakieCheckbox: "on",
     switchCheckbox: "on",
     toughCheckbox: "on",
   },
@@ -68,6 +71,7 @@ export class Configuration {
     this.$switchSelect = $("#switch-select");
     this.$channelSelect = $("#channel-select");
     this.$christSelect = $("#christ-select");
+    this.$fakieSelect = $("#fakie-select");
 
     this.$levelSelect = $("#levelSelect");
     this.$spinsTotal = $("#spinsTotalInput");
@@ -77,6 +81,7 @@ export class Configuration {
     this.configs = [
       { $dom: this.$soundSelect, key: "soundSelect", value: 0 },
       { $dom: this.$speedSelect, key: "speedSelect", value: 0 },
+      { $dom: this.$fakieSelect, key: "fakieCheckbox", value: "off" },  
       { $dom: this.$switchSelect, key: "switchCheckbox", value: "off" },
       { $dom: this.$negativeSelect, key: "negativeCheckbox", value: "off" },
       { $dom: this.$roughSelect, key: "roughCheckbox", value: "off" },
@@ -85,7 +90,7 @@ export class Configuration {
       { $dom: this.$heelRollSelect, key: "heelRollCheckbox", value: "off" },
       { $dom: this.$spins540Select, key: "spins540Checkbox", value: "off" },
       { $dom: this.$channelSelect, key: "channelCheckbox", value: "off" },
-      { $dom: this.$christSelect, key: "christCheckbox", value: "off" },
+      { $dom: this.$christSelect, key: "christCheckbox", value: "off" },    
       { $dom: this.$levelSelect, key: "levelSelect", value: "1" },
       { $dom: this.$spinsTotal, key: "spinsTotal", value: 5 },
       { $dom: this.$removesTotal, key: "removesTotal", value: 3 },
@@ -212,9 +217,14 @@ export class Configuration {
     return value;
   }
 
+  hasNoApproachSlot() {
+    return !this.$switchSelect.is(":checked")   && !this.$fakieSelect.is(":checked");
+  }
+
   getIncludedTricks() {
     return {
       switch: this.$switchSelect.is(":checked") ? "on" : "off",
+      fakie: this.$fakieSelect.is(":checked") ? "on" : "off",
       negative: this.$negativeSelect.is(":checked") ? "on" : "off",
       rough: this.$roughSelect.is(":checked") ? "on" : "off",
       tough: this.$toughSelect.is(":checked") ? "on" : "off",
