@@ -108,7 +108,8 @@ export class SlotMachine {
     this.slots.forEach((slot) => {
       if (slot.state !== SLOT_STATES.locked) {
         slot.dom.closest(".bog-slot-header").removeClass("bog-slot-visible");
-        this.renderScore(slot.dom, 0);
+        this.resetScore(slot.dom);
+         
       }
     });
   }
@@ -272,8 +273,14 @@ export class SlotMachine {
   showScores($slot) {
     $slot.find(".slotBgIconContainerRight").show();
   }
-
-  renderScore($slot, score = 0) {
+  resetScore($slot){
+    $slot
+    .parent()
+    .parent()
+    .find(".slotBgIconContainerRight")
+    .html("")
+  }
+  renderScore($slot, score = 0 ) {
     if (score) {
       const html = `<img class="bogSlot-score-img"  src="img/score-${score}.svg"></img>`; //`<span class="number-circle-slot">${scores}</span>`
 
