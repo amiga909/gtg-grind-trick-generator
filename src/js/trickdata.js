@@ -191,6 +191,7 @@ const SOUL_GRINDS = [
   {
     name: "Soul",
     repeat: EASY_REPEAT,
+    scores:1,
     url: "http://skateyeg.com/bog/02.0_Soul.html",
     variations: {
       Topside: true,
@@ -204,6 +205,7 @@ const SOUL_GRINDS = [
   {
     name: "Acid",
     repeat: EASY_REPEAT,
+    scores:1,
     url: "http://skateyeg.com/bog/05.0_Acid.html",
     variations: {
       Topside: true,
@@ -217,6 +219,7 @@ const SOUL_GRINDS = [
   {
     name: "Makio",
     repeat: EASY_REPEAT,
+    scores:1,
     url: "http://skateyeg.com/bog/01.0_Makio.html",
     variations: {
       Topside: true,
@@ -276,6 +279,7 @@ const SOUL_GRINDS = [
   },
   {
     name: "Citric Acid",
+    scores: 3,
     url: "http://skateyeg.com/bog/05.1_Citric_Acid.html",
     variations: {
       Topside: true,
@@ -299,6 +303,7 @@ const SOUL_GRINDS = [
   {
     name: "Mizou",
     repeat: EASY_REPEAT,
+    scores:1,
     url: "http://skateyeg.com/bog/03.0_Mizou.html",
     variations: {
       Topside: true,
@@ -311,6 +316,7 @@ const SOUL_GRINDS = [
   },
   {
     name: "Sidewalk",
+    scores:1,
     url: "http://skateyeg.com/bog/04.1_Sidewalk.html",
     variations: {
       Topside: true,
@@ -443,6 +449,7 @@ const GROOVE_GRINDS = [
   },
   {
     name: "BS Cab driver",
+    scores: 3,
     comment: "Also called Cowboy Grind",
     url: "http://skateyeg.com/bog/09.1_Backside_Cab_driver.html",
     variations: { Channel: true },
@@ -472,6 +479,7 @@ const GROOVE_GRINDS = [
   {
     name: "BS Pudslide",
     url: "http://skateyeg.com/bog/11.1_Backside_Pudslide.html",
+    scores: 3,
     variations: {
       Grab: true,
       Rocket: true,
@@ -488,6 +496,7 @@ const GROOVE_GRINDS = [
   },
   {
     name: "BS Fastslide",
+    scores: 3,
     url: "http://skateyeg.com/bog/10.1_Backside_Fastslide.html",
     variations: {
       Grab: true,
@@ -523,6 +532,7 @@ const GROOVE_GRINDS = [
   },
   {
     name: "FS Fastslide",
+    scores: 3,
     url: "http://skateyeg.com/bog/10.0_Fastslide.html",
     variations: {
       Grab: true,
@@ -534,6 +544,7 @@ const GROOVE_GRINDS = [
   },
   {
     name: "FS Cab driver",
+    scores: 3,
     comment: "Also called Cowboy Grind",
     url: "http://skateyeg.com/bog/09.0_Cab_driver.html",
     variations: { Channel: true },
@@ -541,6 +552,7 @@ const GROOVE_GRINDS = [
   {
     name: "FS Pudslide",
     url: "http://skateyeg.com/bog/11.0_Pudslide.html",
+    scores: 3,
     variations: {
       Grab: true,
       Rocket: true,
@@ -558,6 +570,7 @@ const GROOVE_GRINDS = [
   {
     name: "Backside",
     repeat: MEDIUM_REPEAT,
+    scores:1,
     url: "http://skateyeg.com/bog/02.0_Backside.html",
     variations: {
       Channel: true,
@@ -566,6 +579,7 @@ const GROOVE_GRINDS = [
   {
     name: "Frontside",
     repeat: MEDIUM_REPEAT,
+    scores:1,
     url: "http://skateyeg.com/bog/01.0_Frontside.html",
     variations: {
       Channel: true,
@@ -640,6 +654,7 @@ const GRIND_SYNONYMS = [
   {
     newName: "Top Teakettle",
     name: "PStar",
+    scores:1,
     comment: "Rough Topside PStar",
     isTopside: true,
     isRough: true,
@@ -933,7 +948,7 @@ GROOVE_GRINDS.forEach((g) => {
 const GRINDS_FOR_SLOTS = [];
 GRINDS.forEach((g) => {
   g.thumbUrl = g.noThumb !== true ? getThumbUrl(g.name) : "";
-  g.scores = 1;
+  g.scores = g.scores ? g.scores : 2;
   GRINDS_FOR_SLOTS.push(g);
   // duplicate soul grinds to even out cause groove grinds have fs/bs
   if (g.isGrooveGrind !== true && g.isSoulGroove !== true) {
