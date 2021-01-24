@@ -100,6 +100,11 @@ const CONFIG = {
     screen: "Configuration",
     text: "Change duration of the slot machine spin animation.",
   },
+  configManualOptions: {
+    screen: "Configuration",
+    text: "Configure your own game.",
+  },
+  
 
   //
   giveUpButton: {
