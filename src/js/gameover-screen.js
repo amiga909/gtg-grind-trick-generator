@@ -49,7 +49,9 @@ export class GameOverScreen {
   }
   render(score, tricks) {
     this.animateScore(parseInt(score, 10));
-    this.$gameOverText.html(TEXTS[Math.floor(Math.random() * TEXTS.length)]);
+    let txt = TEXTS[Math.floor(Math.random() * TEXTS.length)];
+    txt = score === 0 ? 'At least it can not get worse...' : txt;
+    this.$gameOverText.html(txt);
     let rows = [];
     tricks.forEach((entry) => {
       let row = rows.push([entry.points, entry.parsed]);
