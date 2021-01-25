@@ -376,14 +376,14 @@ const SOUL_GRINDS = [
   {
     name: "BS Darkslide",
     url: "http://skateyeg.com/bog/14.1_Backside_Darkslide.html",
-    comment: HYBRID_COMMENT,
+    comment: "(Acid Rain) " + HYBRID_COMMENT,
     isSoulGroove: true,
     variations: { Channel: true },
   },
   {
     name: "FS Darkslide",
     url: "http://skateyeg.com/bog/14.0_Darkslide.html",
-    comment: HYBRID_COMMENT,
+    comment: "(Acid Rain) " + HYBRID_COMMENT,
     isSoulGroove: true,
     variations: { Channel: true },
   },
@@ -927,7 +927,7 @@ const GLOSSARY = {
   Inspin:
     "Spin towards obstacle. If the obstacle is on the left and approach is forwards, Inspin is counter-clockwise. If the obstacle is on the right, Inspin is clockwise.",
   Outspin: `Spin away from obstacle, "blindside". If the obstacle is on the left and approach is forwards, Outspin is clockwise. If the obstacle is on the right, Outspin is counter-clockwise.`,
-  Switch: "Grinding in the unnatural mirrored position of a grind.",
+  Switch: "(Unnatural) Grinding in the unnatural mirrored position of a grind.",
   Fakie:
     "Approach obstacle skating backwards. Also used for landing a groove grind backwards with no rotation (Royale to Fakie).",
   Forwards: "Forwards is the opposite of Fakie.",
