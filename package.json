@@ -14,7 +14,8 @@
     "jquery": "^3.5.1",
     "jquery-slotmachine": "^4.0.1",
     "purecss": "^2.0.3",
-    "tippy.js": "^6.2.7"
+    "tippy.js": "^6.2.7",
+    "workbox-cli": "^6.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
