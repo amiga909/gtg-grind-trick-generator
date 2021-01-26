@@ -24,17 +24,20 @@ app.use((req, res, next) => {
 });
 
 // Allow static files
+app.use(express.static(__dirname + '/public'));
+/*
 app.use("/build", express.static(__dirname + "/build"));
 app.use("/assets", express.static(__dirname + "/assets"));
 app.use("/fonts", express.static(__dirname + "/fonts"));
 app.use("/img", express.static(__dirname + "/img"));
 app.use("./index.html", express.static(__dirname + "/index.html"));
+*/
 
 app.get("/", (request, response) => {
-  response.sendFile("index.html", {root: __dirname });
+  response.sendFile("public/index.html", {root: __dirname });
 });
 app.get("/index.html", (request, response) => {
-  response.sendFile("index.html", {root: __dirname });
+  response.sendFile("public/index.html", {root: __dirname });
 });
 
 // Start listening on the port

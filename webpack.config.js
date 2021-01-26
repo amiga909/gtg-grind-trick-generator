@@ -1,7 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const outputPath = "./build/";
+const outputPath = "public/build/";
 
 module.exports = (env = {}, argv) => {
   const isProduction = argv.mode === "production";
@@ -21,7 +21,7 @@ module.exports = (env = {}, argv) => {
       }),
     ],
     output: {
-      path: path.resolve(__dirname, "build"),
+      path: path.resolve(__dirname, outputPath),
       publicPath: "",
       filename: "./[name].js",
     },
