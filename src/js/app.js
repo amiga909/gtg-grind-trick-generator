@@ -145,8 +145,7 @@ class GrindTrickRandomizer {
 
     this.$trickHelpButton.on("click", () => {
       if (this.isEndScreen) {
-        // scrollUp: full tooltip visible, cant scroll on tooltip
-        //this.screens.scrollUp();
+        
         this.tooltips.showTooltip("endScreen", true);
       }
     });

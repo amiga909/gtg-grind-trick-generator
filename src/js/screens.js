@@ -153,6 +153,6 @@ export class Screens {
     this.$scrollWrapper.animate({ scrollTop: $(document).height() }, "fast");
   }
   scrollUp() {
-    this.$scrollWrapper.animate({ scrollTop: 0 }, "fast");
+    this.$scrollWrapper.scrollTop(0);
   }
 }
