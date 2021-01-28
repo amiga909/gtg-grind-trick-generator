@@ -237,7 +237,6 @@ export class Tooltips {
               }, 10);
             },
           });
-
           this.$explainTrickMask.show();
         } else {
           this.$mask.show();

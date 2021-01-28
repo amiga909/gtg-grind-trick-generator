@@ -354,9 +354,9 @@ export class ResultParser {
       return parseString.includes(s.newName);
     })[0];
 
-    const variations = CONFIG.VARIATIONS_THUMB.filter((s) => {
+    const variation = CONFIG.VARIATIONS_THUMB.filter((s) => {
       return parseString.includes(s.name);
-    });
+    })[0];
     if (grindSynonym) {
       rows.push(
         this.renderHelpTableRow(
@@ -376,14 +376,12 @@ export class ResultParser {
       parseString = parseString.replace(grind.name, "");
     }
 
-    if (variations) {
-      variations.forEach((v) => {
-        if (parseString.includes(v.name) && !v.name.includes(" ")) {
-          rows.push(this.renderHelpTableRow(v.name, v.thumbUrl, v.comment));
+    if (variation) {
+      if (parseString.includes(variation.name) ) {
+        rows.push(this.renderHelpTableRow(variation.name, variation.thumbUrl, variation.comment));
 
-          parseString = parseString.replace(v.name, "");
-        }
-      });
+        parseString = parseString.replace(variation.name, "");
+      }
     }
 
     return renderTableNoHeader(rows);
