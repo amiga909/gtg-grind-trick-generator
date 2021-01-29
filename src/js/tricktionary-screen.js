@@ -29,9 +29,12 @@ const MORE = [
     term: "Step",
     comment:
       "Exists but I do not understand it at all. <a target='_blank' href='http://skateyeg.com/bog/10.0_Step.html'>Book of Grinds</a>",
-  }, {
-  term: "Thread the Needle",
-  comment: "Cross grabbing one foot and then jumping the other foot through the hole while maintaining the grab. Can be done with Gaps and Grinds."}
+  },
+  {
+    term: "Thread the Needle",
+    comment:
+      "Cross grabbing one foot and then jumping the other foot through the hole while maintaining the grab. Can be done with Gaps and Grinds.",
+  },
 ];
 
 export class TricktionaryScreen {

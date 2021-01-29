@@ -75,15 +75,15 @@ module.exports = (env = {}, argv) => {
               loader: 'sass-loader', options: { sourceMap: true }
             }
           ],
-        },
+        },  
         {
           test: /\.css$/,
-          exclude: /font-awesome/,
+          exclude: /@fontawesome/,
           use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
-        },
+        },  
         {
           test: /\.css$/,
-          include: /font-awesome/,
+          include: /@fontawesome/,
           use: [
             {
               loader: "file-loader",
@@ -92,7 +92,7 @@ module.exports = (env = {}, argv) => {
               },
             },
           ],
-        },
+        }, 
         {
           test: /\.(gif|png|jpe?g|svg)$/i,
           exclude: /node_modules/,

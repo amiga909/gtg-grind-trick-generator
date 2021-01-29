@@ -1,3 +1,10 @@
+$fa-font-path: '../fonts'; 
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/brands';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+
+
 * {
   // box-shadow: 0 2px 2px rgba(230, 6, 6, 0.8);
 }
@@ -341,12 +348,12 @@ p {
   height: 35px;
 }
 .pure-button {
-  padding: 0em 1em;
+  padding: 0;
 }
 .pure-button-audioOn {
   opacity: 0.5;
 }
-
+ 
 .information-head {
   color: black;
   font-weight: 500;
@@ -693,8 +700,17 @@ body::-webkit-scrollbar-thumb {
   cursor: pointer;
   right: 24px;
   top: 10px;
-  position: absolute;
+  //position: absolute;
+
+  position: fixed;
+    top: 110px;
+    margin-right: 26px;
+    z-index: 10000;
 }
+.configurator-right-close-btn {
+  padding: 0 16px;
+}
+
 
 .loading-screen {
   z-index: 20;

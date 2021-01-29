@@ -133,13 +133,13 @@ export class Screens {
   disableNav() {
     this.$helpBtn.addClass("pure-button-disabled");
     this.$configButton.addClass("pure-button-disabled");
-    // this.$randomizeButton.addClass("pure-button-disabled");
+    this.$aboutBtn.addClass("pure-button-disabled");
     this.$trickNamingBtn.addClass("pure-button-disabled");
   }
   enableNav() {
     this.$helpBtn.removeClass("pure-button-disabled");
     this.$configButton.removeClass("pure-button-disabled");
-    // this.$randomizeButton.addClass("pure-button-disabled");
+    this.$aboutBtn.removeClass("pure-button-disabled");
     this.$trickNamingBtn.removeClass("pure-button-disabled");
   }
 

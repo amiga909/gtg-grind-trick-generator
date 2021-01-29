@@ -377,8 +377,14 @@ export class ResultParser {
     }
 
     if (variation) {
-      if (parseString.includes(variation.name) ) {
-        rows.push(this.renderHelpTableRow(variation.name, variation.thumbUrl, variation.comment));
+      if (parseString.includes(variation.name)) {
+        rows.push(
+          this.renderHelpTableRow(
+            variation.name,
+            variation.thumbUrl,
+            variation.comment
+          )
+        );
 
         parseString = parseString.replace(variation.name, "");
       }

@@ -626,7 +626,7 @@ export const testData = [
           isSwitch: false,
         },
       },
-      { name: "Grind", winner: { name: "BS Royale" } }, 
+      { name: "Grind", winner: { name: "BS Royale" } },
       { name: "SpinOff", winner: { name: "Forwards" } },
     ],
   },
@@ -641,7 +641,7 @@ export const testData = [
           isSwitch: false,
         },
       },
-      { name: "Grind", winner: { name: "Soul" } },  
+      { name: "Grind", winner: { name: "Soul" } },
     ],
   },
 ];

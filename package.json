@@ -7,10 +7,8 @@
     "node": "v14.13.*",
     "npm": "6.x"
   },
-
   "dependencies": {
     "express": "^4.17.1",
-    "font-awesome": "^4.7.0",
     "howler": "^2.2.1",
     "jquery": "^3.5.1",
     "jquery-slotmachine": "^4.0.1",
@@ -18,10 +16,9 @@
     "tippy.js": "^6.2.7"
   },
   "devDependencies": {
-    "workbox-cli": "^6.0.2",
-    "workbox-webpack-plugin": "^6.0.2",
     "@babel/core": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
+    "@fortawesome/fontawesome-free": "^5.15.2",
     "autoprefixer": "^10.1.0",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.2",
@@ -47,7 +44,9 @@
     "style-loader": "^2.0.0",
     "webpack": "^5.12.2",
     "webpack-cli": "^4.3.0",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.0",
+    "workbox-cli": "^6.0.2",
+    "workbox-webpack-plugin": "^6.0.2"
   },
   "scripts": {
     "start": "node ./index.js",

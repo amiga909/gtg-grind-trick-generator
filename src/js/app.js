@@ -1,9 +1,6 @@
 import "purecss/build/pure-min.css";
 import "purecss/build/grids-responsive-min.css";
 
-import "font-awesome/css/font-awesome.min.css";
-//import "../css/style.scss";
-
 import { Configuration } from "./configuration";
 import { SlotMachine } from "./slotmachine";
 import { ResultParser } from "./resultparser";
@@ -145,7 +142,6 @@ class GrindTrickRandomizer {
 
     this.$trickHelpButton.on("click", () => {
       if (this.isEndScreen) {
-        
         this.tooltips.showTooltip("endScreen", true);
       }
     });
