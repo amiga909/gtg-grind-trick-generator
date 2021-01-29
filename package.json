@@ -7,6 +7,7 @@
     "node": "v14.13.*",
     "npm": "6.x"
   },
+
   "dependencies": {
     "express": "^4.17.1",
     "font-awesome": "^4.7.0",
@@ -18,6 +19,7 @@
   },
   "devDependencies": {
     "workbox-cli": "^6.0.2",
+    "workbox-webpack-plugin": "^6.0.2",
     "@babel/core": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
     "autoprefixer": "^10.1.0",
@@ -49,7 +51,7 @@
   },
   "scripts": {
     "start": "node ./index.js",
-    "build": "rm -rf public/build/*; node_modules/.bin/webpack --mode production",
+    "build": "rm -rf public/build/*; node_modules/.bin/webpack --mode production && node_modules/.bin/workbox generateSW",
     "dev": "rm -rf public/build/*; webpack --mode development --watch",
     "lint": "node_modules/.bin/eslint ./src/js --fix --ext .js;",
     "permutations": "node -r esm tools/permutations.js",

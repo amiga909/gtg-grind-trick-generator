@@ -1,5 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
+const {GenerateSW} = require('workbox-webpack-plugin');
+
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const outputPath = "public/build/";
 
@@ -19,6 +21,7 @@ module.exports = (env = {}, argv) => {
         jQuery: "jquery",
         "window.jQuery": "jquery",
       }),
+      new GenerateSW()
     ],
     output: {
       path: path.resolve(__dirname, outputPath),
