@@ -96,7 +96,11 @@ export class GameOverScreen {
     )} https://aightgame.com/`;
     this.$whatsappShareBtn.attr("href", whatsappLink);
 
-    const mailLink = `mailto:?subject=aightgame.com&body=${content}`;
-    this.$mailShareBtn.attr("href", mailLink);
+    let contentTelegram = `My score: ${score}. My tricks: ${rows.join(", ")}`;
+    const telegramLink = `https://t.me/share/url?url=https://aightgame.com&text=${encodeURIComponent(
+      contentTelegram
+    )}`;
+
+    this.$mailShareBtn.attr("href", telegramLink);
   }
 }

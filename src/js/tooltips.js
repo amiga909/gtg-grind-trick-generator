@@ -89,7 +89,7 @@ const CONFIG = {
   },
   configReset: {
     screen: "Configuration",
-    text: "Reset all settings and restart game.",
+    text: "Factory reset. Resets settings and app cache.",
   },
   configLevelSelect: {
     screen: "Configuration",

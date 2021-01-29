@@ -156,6 +156,12 @@ export class Configuration {
 
     this.$reset.on("click", (e) => {
       e.preventDefault();
+      // clear sw app cache
+      caches.keys().then(function (names) {
+        for (let name of names) {
+          caches.delete(name);
+        }
+      });
       localStorage.clear();
       location.reload();
     });
