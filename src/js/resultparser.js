@@ -125,6 +125,7 @@ export class ResultParser {
 
     // Forwards
     result = result.replace(/^Forwards /, "");
+    result = result.replace(/to Forwards out/g, "");
 
     result = result.replace(/  /g, " ");
     result = result.replace(/  /g, " ");

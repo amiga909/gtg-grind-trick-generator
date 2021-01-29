@@ -1,6 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
-const {GenerateSW} = require('workbox-webpack-plugin');
+const { GenerateSW } = require("workbox-webpack-plugin");
 
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const outputPath = "public/build/";
@@ -12,7 +12,6 @@ module.exports = (env = {}, argv) => {
     context: path.resolve(__dirname, "./"),
     entry: {
       app: ["./src/js/app.js", "./src/css/style.scss"],
- 
     },
     plugins: [
       new MiniCssExtractPlugin({}),
@@ -21,7 +20,7 @@ module.exports = (env = {}, argv) => {
         jQuery: "jquery",
         "window.jQuery": "jquery",
       }),
-      new GenerateSW()
+      new GenerateSW(),
     ],
     output: {
       path: path.resolve(__dirname, outputPath),
@@ -55,32 +54,32 @@ module.exports = (env = {}, argv) => {
             },
           },
         },
-         {
+        {
           test: /\.scss$/,
           exclude: /node_modules/,
           use: [
             {
               loader: "file-loader",
-              options: { name: '[name].min.css'}
+              options: { name: "[name].min.css" },
             },
-            
+
             {
-              loader: 'postcss-loader',
+              loader: "postcss-loader",
               options: {
                 sourceMap: true,
-                 
-              }
+              },
             },
             {
-              loader: 'sass-loader', options: { sourceMap: true }
-            }
+              loader: "sass-loader",
+              options: { sourceMap: true },
+            },
           ],
-        },  
+        },
         {
           test: /\.css$/,
           exclude: /@fontawesome/,
           use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
-        },  
+        },
         {
           test: /\.css$/,
           include: /@fontawesome/,
@@ -92,7 +91,7 @@ module.exports = (env = {}, argv) => {
               },
             },
           ],
-        }, 
+        },
         {
           test: /\.(gif|png|jpe?g|svg)$/i,
           exclude: /node_modules/,

@@ -534,7 +534,7 @@ export const testData = [
     ],
   },
   {
-    expected: "Fakie 270 BS Royale to Forwards out",
+    expected: "Fakie 270 BS Royale",
     data: [
       {
         name: "Approach",
@@ -616,7 +616,7 @@ export const testData = [
   },
 
   {
-    expected: "BS Royale to Forwards out",
+    expected: "BS Royale",
     data: [
       {
         name: "Approach",
