@@ -34,6 +34,13 @@
       <img src="/img/score-13.svg"> 
       <img src="/img/score-14.svg"> 
       </span>
+
+      <script>
+         if ('serviceWorker' in navigator) {
+           navigator.serviceWorker.register('./sw.js');
+         }
+       </script>
+
       <!-- Global site tag (gtag.js) - Google Analytics -->
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-6ZDNNV6Q5M"></script>
       <script>

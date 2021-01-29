@@ -33,9 +33,7 @@ app.use("/img", express.static(__dirname + "/img"));
 app.use("./index.html", express.static(__dirname + "/index.html"));
 */
 
-app.get("/sw.js", (request, response) => {
-  response.sendFile("./sw.js", {root: __dirname });
-});
+ 
 
 app.get("/", (request, response) => {
   response.sendFile("public/index.html", {root: __dirname });
