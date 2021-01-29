@@ -50,12 +50,13 @@ export class AboutScreen {
     let html = renderTable("References", ["Name", "URL"], rows);
     html += renderTable(
       "Author",
-      ["Name", "Github", "Contact"],
+      ["Name", "Github", "Contact", "Media"],
       [
         [
-          "2020 by Roman Hatz",
+          "Copyright (c) 2020 Roman Hatz",
           `<a target="_blank" href="https://github.com/amiga909/gtg-grind-trick-generator"> Source Code </a>`,
           `<a href="mailto:aight.bladegame@gmail.com">aight.bladegame@gmail.com</a>`,
+          `<a target="_blank" href="https://www.youtube.com/watch?v=tVDT8YBsSo8">Teaser Video</a>`,
         ],
       ]
     );
