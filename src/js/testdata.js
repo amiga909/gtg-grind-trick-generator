@@ -534,6 +534,22 @@ export const testData = [
     ],
   },
   {
+    expected: "Fakie 270 BS Royale to Forwards out",
+    data: [
+      {
+        name: "Approach",
+        winner: {
+          name: "Fakie & Natural",
+          isFakie: true,
+          isSwitch: false,
+        },
+      },
+      { name: "Grind", winner: { name: "BS Royale", isGrooveGrind: true } },
+      { name: "SpinTo", winner: { name: "Inspin 270" } },
+      { name: "SpinOff", winner: { name: "Forwards" } },
+    ],
+  },
+  {
     expected: "True BS Tabernacle",
     data: [
       {
@@ -596,6 +612,36 @@ export const testData = [
           isSoulGroove: true,
         },
       },
+    ],
+  },
+
+  {
+    expected: "BS Royale to Forwards out",
+    data: [
+      {
+        name: "Approach",
+        winner: {
+          name: "Forwards",
+          isFakie: false,
+          isSwitch: false,
+        },
+      },
+      { name: "Grind", winner: { name: "BS Royale" } }, 
+      { name: "SpinOff", winner: { name: "Forwards" } },
+    ],
+  },
+  {
+    expected: "Soul",
+    data: [
+      {
+        name: "Approach",
+        winner: {
+          name: "Forwards",
+          isFakie: false,
+          isSwitch: false,
+        },
+      },
+      { name: "Grind", winner: { name: "Soul" } },  
     ],
   },
 ];

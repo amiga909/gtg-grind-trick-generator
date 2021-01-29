@@ -124,7 +124,7 @@ export class ResultParser {
     result = result.replace("Alley-oop", "AO");
 
     // Forwards
-    result = result.replace("Forwards ", "");
+    result = result.replace(/^Forwards /, "");
 
     result = result.replace(/  /g, " ");
     result = result.replace(/  /g, " ");
