@@ -1,3 +1,7 @@
 # gtg-grind-trick-generator
-https://cdnjs.com/libraries/font-awesome/4.7.0
-more to come
+- PWA Web App (Node.js, JS, HTML, CSS)
+- Chrome, Safari, Firefox, Edge (Android, iOS, MacOS, Windows) 
+- Works offline 
+- Android App 
+- Made with Google Workbox, Webpack
+ 

@@ -1,5 +1,4 @@
-import { renderThumb, renderTable } from "./helperfunctions.js";
-
+import { renderThumb, renderTable, renderTOC } from "./helperfunctions.js";
 const REFERENCES = [
   {
     name: "Book of Grinds",
@@ -28,18 +27,32 @@ const REFERENCES = [
   },
 
   {
+    name: "Art of Rolling Skate Dice",
+    url: `<a target="_blank" href="https://www.be-mag.com/news/products/art-of-rolling-skate-dice-free-android-app/">be-mag.com</a>`,
+  },
+  {
+    name: "Grindlocker",
+    url: `<a target="_blank" href="http://grindlocker.com/">grindlocker.com</a>`,
+  },
+  {
     name: "SVG Editor",
     url: `<a target="_blank" href="https://svg-edit.github.io/">svg-edit</a>`,
   },
   {
-    name: "Joker's trick book &#129313;",
+    name: "AIGHT trick book",
     url: `<a target="_blank" href="http://www.aightgame.com/assets/permutations.txt">List</a>`,
   },
+  {
+    name: "Rollerblading Rollerblading FB Group - Poll for hard grinds",
+    url: `<a target="_blank" href="https://www.facebook.com/groups/790993714317553/permalink/3764459683637593/">facebook.com</a>`,
+  },
 ];
+
 export class AboutScreen {
   constructor() {
     this.$references = $("#aboutScreenReferences");
     this.render();
+    renderTOC($("#modal-screen--about"));
   }
 
   render() {
@@ -49,14 +62,14 @@ export class AboutScreen {
     });
     let html = renderTable("References", ["Name", "URL"], rows);
     html += renderTable(
-      "Author",
-      ["Name", "Github", "Contact", "Media"],
+      "About AIGHT",
+      ["Author", "Github", "Contact", "Media"],
       [
         [
           "Copyright (c) 2020 Roman Hatz",
           `<a target="_blank" href="https://github.com/amiga909/gtg-grind-trick-generator"> Source Code </a>`,
           `<a href="mailto:aight.bladegame@gmail.com">aight.bladegame@gmail.com</a>`,
-          `<a target="_blank" href="https://www.youtube.com/watch?v=tVDT8YBsSo8">Teaser Video</a>`,
+          `<a target="_blank" href="https://www.youtube.com/watch?v=tVDT8YBsSo8">Youtube Teaser</a>, <a target="_blank" href="https://soundcloud.com/thaumatorg/aight-game-trailer-music/s-sTRsXBkie3F">Drum'n'Bass Track</a>`,
         ],
       ]
     );

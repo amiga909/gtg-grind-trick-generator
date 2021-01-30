@@ -1,5 +1,5 @@
 import { Trickdata } from "./trickdata.js";
-import { renderThumb, renderTable } from "./helperfunctions.js";
+import { renderThumb, renderTable, renderTOC } from "./helperfunctions.js";
 let CONFIG = null;
 const MORE = [
   {
@@ -50,37 +50,7 @@ export class TricktionaryScreen {
     this.renderVariations();
     this.renderNotImplemented();
 
-    this.renderTOC();
-  }
-
-  renderTOC() {
-    let tocs = [];
-
-    this.$dom.find("h3").each((i, section) => {
-      let $section = $(section);
-      let display = $section.text();
-      let anchor = display.replace(" ", "");
-      $section.html(`<a class="toc-anchor" name="${anchor}"></a> ${display} `);
-      tocs.push(
-        `<a class="pure-menu-link" href="#${anchor}"> </
-        <li class="pure-menu-item">${display} </li> 
-        </a>`
-      );
-    });
-    let html = `
-    <div class="pure-menu  tricktionary-toc">
-      <span class="pure-menu-heading">TOC</span> 
-      <ul class="pure-menu-list"> 
-        ${tocs.join("")}
-      </ul>
-      <p>
-      All 3D rendered graphics are screenshots taken from the awesome <a target="_blank" href='http://skateyeg.com/bog/'>Book of Grinds</a>.
-      Click on an image to open the Book of Grind page for the trick.   
-      </p> 
-   </div>
-  `;
-
-    $(html).prependTo(this.$dom);
+    renderTOC(this.$dom.parent());
   }
 
   renderNotImplemented() {

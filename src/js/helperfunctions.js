@@ -64,4 +64,29 @@ export const renderTable = (
      `;
 };
 
-export const addRowToTop = (rows = []) => {};
+export const renderTOC = ($dom) => {
+  let tocs = [];
+
+  $dom.find("h3").each((i, section) => {
+    let $section = $(section);
+    let display = $section.text();
+    let anchor = display.replace(" ", "");
+    $section.html(`<a class="toc-anchor" name="${anchor}"></a> ${display} `);
+    tocs.push(
+      `<a class="pure-menu-link" href="#${anchor}"> </
+      <li class="pure-menu-item">${display} </li> 
+      </a>`
+    );
+  });
+  let html = `
+  <div class="pure-menu  tricktionary-toc">
+    <span class="pure-menu-heading">TOC</span> 
+    <ul class="pure-menu-list"> 
+      ${tocs.join("")}
+    </ul>
+   
+ </div>
+`;
+
+  $(html).prependTo($dom);
+};
