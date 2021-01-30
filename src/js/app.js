@@ -13,6 +13,7 @@ import { GameOverScreen } from "./gameover-screen";
 import { Audioplayer } from "./audioplayer";
 
 let CONFIG = "";
+console.log("test sw cache");
 const DISABLE_SOUND = true;
 
 class GrindTrickRandomizer {
