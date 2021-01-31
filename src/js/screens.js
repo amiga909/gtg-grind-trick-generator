@@ -133,10 +133,29 @@ export class Screens {
     })[0];
   }
 
-  scrollDown() {
-    this.$scrollWrapper.animate({ scrollTop: $(document).height() }, "fast");
+  scrollDown(targetElement) {
+    if (targetElement && this.isElementInViewport(targetElement)) {
+    } else {
+      this.$scrollWrapper.animate({ scrollTop: $(document).height() }, "fast");
+    }
   }
   scrollUp() {
     this.$scrollWrapper.scrollTop(0);
+  }
+
+  isElementInViewport(el) {
+    const topOffset = 100;
+    let rect = el.getBoundingClientRect();
+    console.log(rect.top, rect.bottom);
+    return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom + topOffset <=
+        (window.innerHeight ||
+          document.documentElement.clientHeight) /* or $(window).height() */ &&
+      rect.right <=
+        (window.innerWidth ||
+          document.documentElement.clientWidth) /* or $(window).width() */
+    );
   }
 }

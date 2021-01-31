@@ -60,7 +60,7 @@ const CONFIG = {
   //
   randomizeButton: {
     screen: "Slotmachine",
-    text: "Spin the reels",
+    text: "Skip this trick",
   },
   endGameButton: {
     screen: "Slotmachine",

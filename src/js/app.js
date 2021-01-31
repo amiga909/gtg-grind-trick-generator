@@ -276,7 +276,9 @@ class GrindTrickRandomizer {
     this.$endScreen.find("#endscreen-text").html(this.slotMachineResult.parsed);
     this.$endScreen.fadeIn(500, () => {
       if (animateBottom) {
-        this.screens.scrollDown();
+        setTimeout(() => {
+          this.screens.scrollDown($("#tricklistBtn-count")[0]);
+        }, 100);
       }
     });
   }
