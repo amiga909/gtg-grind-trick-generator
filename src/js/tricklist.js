@@ -5,11 +5,6 @@ export class Tricklist {
     this.$tricklistBtn = $tricklistBtn;
     this.$tricklistBtnStart = $("#start-screen-tricklistBtn-container");
 
-    //this.$clear = $("#trickList-clearlistBtn");
-    //this.$sendMail = $("#trickList-sendMailBtn");
-    this.$spinNext = $("#trickList-continueBtn");
-    this.$abortButton = $("#abortButton");
-
     this.$list = $("#tricklist-table");
 
     this.storageKey = "tricklist-serialized";
@@ -21,15 +16,7 @@ export class Tricklist {
   }
 
   registerListener() {
-    this.$abortButton.on("click", (e) => {
-      e.preventDefault();
-      location.reload();
-    });
-
-    this.$spinNext.on("click", (e) => {
-      e.preventDefault();
-      $("#randomizeButton2").trigger("click");
-    });
+   
   }
 
   getStorage() {

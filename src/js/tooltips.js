@@ -81,6 +81,15 @@ const CONFIG = {
     screen: "Slotmachine",
     text: `Press a reel to lock it ( <i class="fa fa-lock fa-1x"></i>), press again to disable (<i class="fa fa-ban fa-1x"></i>), press again to enable.`,
   },
+  tricklistBtn: {
+    screen: "Slotmachine",
+    text: `Show tricklist`,
+  },
+  giveUpButton: {
+    screen: "Slotmachine",
+    text: "Abort the game",
+  },
+  
 
   //
   configSubmit: {
@@ -106,14 +115,8 @@ const CONFIG = {
   },
 
   //
-  giveUpButton: {
-    screen: "Trick List",
-    text: "Abort the game",
-  },
-  trickListContinueBtn: {
-    screen: "Trick List",
-    text: "Continue the game and spin next trick",
-  },
+ 
+   
   //
   endScreen: {
     screen: "manual",
@@ -198,7 +201,7 @@ export class Tooltips {
         if (t.screen === "all" || t.screen === this.screens.activeScreen) {
           let isHideSpecial = false;
           if (t.name === "randomizeButton") {
-            isHideSpecial = $("#randomizeButton2").is(":visible") === false;
+            isHideSpecial = $("#randomizeButton").is(":visible") === false;
           } else if (t.name === "endGameButton") {
             isHideSpecial = $("#endGameButton").is(":visible") === false;
           }

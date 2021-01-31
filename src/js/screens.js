@@ -6,7 +6,7 @@ export class Screens {
   constructor() {
     this.$scrollWrapper = $(".l-content");
     this.$helpBtn = $("#helpButton"); // dupe
-    this.$tricklistBtn = $("#tricklistBtn"); // dupe
+    this.$tricklistBtn = $("#showTricklistButton");   
 
     this.$aboutBtn = $("#aboutBtn");
     this.$trickNamingBtn = $("#trickNamingBtn");
@@ -50,7 +50,6 @@ export class Screens {
       },
       {
         name: "Trick List",
-        noCloseButton: true,
         modal: {
           title: "Trick List",
           id: "tricklist",
@@ -82,13 +81,10 @@ export class Screens {
 
     this.$tricklistBtn.on("click", (e) => {
       e.preventDefault();
-      this.show("Tricklist", "up");
+      this.show("Trick List", "up");
     });
 
-    /*this.$tricklistBtnStart.on("click", (e) => {
-        e.preventDefault();
-        this.modalScreen.show("tricklist", "Trick List");
-      });*/
+    
   }
   show(selected = "", scrollTo = "") {
     if (this.activeScreen === "Loading") {
@@ -110,16 +106,8 @@ export class Screens {
       this.lastNonModalScreen = selected;
       newScreen.$dom.show();
     }
-    // Trick List is not a modal, dont return to Slotmachine screen
-    if (newScreen.name === "Trick List") {
-      this.lastNonModalScreen = selected;
-    }
-
-    if (newScreen.noCloseButton === true) {
-      this.$modalCloseBtn.hide();
-    } else {
-      this.$modalCloseBtn.show();
-    }
+    
+ 
 
     this.activeScreen = selected;
 

@@ -13,23 +13,25 @@ import { GameOverScreen } from "./gameover-screen";
 import { Audioplayer } from "./audioplayer";
 
 let CONFIG = "";
-console.log("test sw cache3");
+
 const DISABLE_SOUND = true;
 
 class GrindTrickRandomizer {
   constructor() {
-    this.$randomizeButton = $("#randomizeButton");
+   
     this.$randomizeButtonStart = $("#randomizeButtonStart");
-    this.$randomizeButtonStartContainer = $(".randomizeButton2-container");
-    this.$randomizeButtonSlots = $("#randomizeButton2");
+    this.$randomizeButtonStartContainer = $(".randomizeButton-container");
+    this.$randomizeButtonSlots = $("#randomizeButton");
 
     this.$soundOnOff = $("#sound");
 
-    this.$tricklistBtn = $("#tricklistBtn");
+  
     this.$addTricklistBtn = $("#addTricklistBtn");
     this.$helpBtn = $("#helpButton");
     this.$endGameButton = $("#endGameButton");
     this.$endGameButtonContainer = $(".endGameButton-container");
+     this.$spinNextButton = $("#trickList-continueBtn");
+     this.$abortButton = $("#abortButton");
 
     this.$endScreen = $("#endScreen");
     this.$trickHelpButton = $("#trickHelpButton");
@@ -103,10 +105,7 @@ class GrindTrickRandomizer {
       this.configurator.submit();
     });
 
-    this.$randomizeButton.on("click", (e) => {
-      e.preventDefault();
-      this.onClickStart();
-    });
+     
 
     this.$randomizeButtonStart.on("click", (e) => {
       e.preventDefault();
@@ -155,6 +154,16 @@ class GrindTrickRandomizer {
 
       this.screens.show("GameOver", "up");
     });
+
+    this.$abortButton.on("click", (e) => {
+      e.preventDefault();
+      location.reload();
+    });
+
+    this.$spinNextButton.on("click", (e) => {
+      e.preventDefault();
+      this.$randomizeButtonSlots.trigger("click");
+    });
   }
 
   addToTricklist() {
@@ -174,7 +183,7 @@ class GrindTrickRandomizer {
       );
       this.screens.show("GameOver", "up");
     } else {
-      this.screens.show("Trick List", "up");
+      this.$randomizeButtonSlots.trigger("click")
     }
   }
 
