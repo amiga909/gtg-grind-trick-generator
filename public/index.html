@@ -304,10 +304,18 @@
                               <div class="randomizeButton-container">
                                  <button data-p-tooltip="randomizeButton" class="pure-button pure-button-primary  pure-button-primary-nav randomizeButton"
                                   id="randomizeButton">
-                                 <i class="fa fa-play-circle fa-2x"></i>
+                                 <i class="fa fa-forward fa-2x"></i>
                                  </button>
-                                 <h2>Next spin</h2>
+                                 <h2>Skip Trick</h2>
                               </div>
+
+                              <div style="display:none" class="endGameButton-container">
+                                 <button data-p-tooltip="endGameButton"  id="endGameButton" class="pure-button pure-button-primary-nav pure-button-primary">
+                                 <i class="fa fa-times fa-2x"></i>
+                                 </button>
+                                 <h2>End game</h2>
+                              </div>
+
                            </div>
 
 
@@ -343,7 +351,7 @@
                            id="showTricklistButton">
                         <i class="fa fa-question-circle fa-2x"></i>
                         </button>
-                        <h2>Tricklist (0) </h2>
+                        <h2>Tricklist (<span id="tricklistBtn-count">0</span>) </h2>
 
                              
                            </div>

@@ -18,20 +18,18 @@ const DISABLE_SOUND = true;
 
 class GrindTrickRandomizer {
   constructor() {
-   
     this.$randomizeButtonStart = $("#randomizeButtonStart");
-    this.$randomizeButtonStartContainer = $(".randomizeButton-container");
+
     this.$randomizeButtonSlots = $("#randomizeButton");
 
     this.$soundOnOff = $("#sound");
 
-  
     this.$addTricklistBtn = $("#addTricklistBtn");
     this.$helpBtn = $("#helpButton");
     this.$endGameButton = $("#endGameButton");
-    this.$endGameButtonContainer = $(".endGameButton-container");
-     this.$spinNextButton = $("#trickList-continueBtn");
-     this.$abortButton = $("#abortButton");
+
+    this.$spinNextButton = $("#trickList-continueBtn");
+    this.$abortButton = $("#abortButton");
 
     this.$endScreen = $("#endScreen");
     this.$trickHelpButton = $("#trickHelpButton");
@@ -54,7 +52,7 @@ class GrindTrickRandomizer {
     this.resultParser = new ResultParser();
 
     this.screens = new Screens();
-    this.tricklist = new Tricklist(this.$tricklistBtn);
+    this.tricklist = new Tricklist();
     this.tooltips = new Tooltips(this.$helpBtn, this.screens);
     this.scoreboard = new Scoreboard(this.configurator.getGameConfig());
     this.gameOverScreen = new GameOverScreen();
@@ -104,8 +102,6 @@ class GrindTrickRandomizer {
       this.configurator.setLevel(this.$levelStartSelect.val());
       this.configurator.submit();
     });
-
-     
 
     this.$randomizeButtonStart.on("click", (e) => {
       e.preventDefault();
@@ -183,7 +179,7 @@ class GrindTrickRandomizer {
       );
       this.screens.show("GameOver", "up");
     } else {
-      this.$randomizeButtonSlots.trigger("click")
+      this.$randomizeButtonSlots.trigger("click");
     }
   }
 
@@ -272,10 +268,6 @@ class GrindTrickRandomizer {
     const winners = this.slotMachine.getWinnerSlots();
 
     this.updateTrickScore();
-    if (this.scoreboard.isLastSpin()) {
-      this.$randomizeButtonStartContainer.hide();
-      this.$endGameButtonContainer.show();
-    }
 
     this.slotMachineResult = this.resultParser.parse(winners);
     const text = this.resultParser.getHelpTableForTrick(this.slotMachineResult);

@@ -2,9 +2,10 @@ import { renderTable } from "./helperfunctions.js";
 
 export class Tricklist {
   constructor($tricklistBtn) {
-    this.$tricklistBtn = $tricklistBtn;
+    this.$tricklistBtn = $("#showTricklistButton");
+    this.$tricklistBtn.addClass("pure-button-disabled");
     this.$tricklistBtnStart = $("#start-screen-tricklistBtn-container");
-
+    this.$count = $("#tricklistBtn-count");
     this.$list = $("#tricklist-table");
 
     this.storageKey = "tricklist-serialized";
@@ -15,9 +16,7 @@ export class Tricklist {
     this.$list.html(html);
   }
 
-  registerListener() {
-   
-  }
+  registerListener() {}
 
   getStorage() {
     if (localStorage.getItem(this.storageKey)) {
@@ -41,6 +40,8 @@ export class Tricklist {
     let row = this.renderRow(trickEntry);
 
     $(row).insertAfter(this.$list.find(".row:nth-child(1)"));
+    this.$count.html(parseInt(this.$count.text(), 10) + 1);
+    this.$tricklistBtn.removeClass("pure-button-disabled");
   }
 
   hasTrick(parsedStr) {

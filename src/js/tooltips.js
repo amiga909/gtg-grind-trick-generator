@@ -89,7 +89,6 @@ const CONFIG = {
     screen: "Slotmachine",
     text: "Abort the game",
   },
-  
 
   //
   configSubmit: {
@@ -115,8 +114,7 @@ const CONFIG = {
   },
 
   //
- 
-   
+
   //
   endScreen: {
     screen: "manual",

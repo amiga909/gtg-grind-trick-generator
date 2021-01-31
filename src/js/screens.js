@@ -6,7 +6,7 @@ export class Screens {
   constructor() {
     this.$scrollWrapper = $(".l-content");
     this.$helpBtn = $("#helpButton"); // dupe
-    this.$tricklistBtn = $("#showTricklistButton");   
+    this.$tricklistBtn = $("#showTricklistButton");
 
     this.$aboutBtn = $("#aboutBtn");
     this.$trickNamingBtn = $("#trickNamingBtn");
@@ -83,8 +83,6 @@ export class Screens {
       e.preventDefault();
       this.show("Trick List", "up");
     });
-
-    
   }
   show(selected = "", scrollTo = "") {
     if (this.activeScreen === "Loading") {
@@ -106,8 +104,6 @@ export class Screens {
       this.lastNonModalScreen = selected;
       newScreen.$dom.show();
     }
-    
- 
 
     this.activeScreen = selected;
 
