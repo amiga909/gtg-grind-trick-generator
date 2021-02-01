@@ -491,7 +491,8 @@ const SOUL_GRINDS = [
     name: "BS Byn Soul",
     url: "",
     comment:
-      "(Neighborhood) Turning the soul foot on a soul grind into a torque. "+HYBRID_COMMENT,
+      "(Neighborhood) Turning the soul foot on a soul grind into a torque. " +
+      HYBRID_COMMENT,
     isSoulGroove: true,
     variations: { Channel: true },
   },
@@ -499,7 +500,8 @@ const SOUL_GRINDS = [
     name: "FS Byn Soul",
     url: "",
     comment:
-      "(Neighborhood) Turning the soul foot on a soul grind into a torque. "+HYBRID_COMMENT,
+      "(Neighborhood) Turning the soul foot on a soul grind into a torque. " +
+      HYBRID_COMMENT,
     isSoulGroove: true,
     variations: { Channel: true },
   },

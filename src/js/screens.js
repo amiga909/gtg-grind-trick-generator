@@ -147,7 +147,7 @@ export class Screens {
   isElementInViewport(el) {
     const topOffset = 100;
     let rect = el.getBoundingClientRect();
-    console.log(rect.top, rect.bottom);
+    //console.log(rect.top, rect.bottom);
     return (
       rect.top >= 0 &&
       rect.left >= 0 &&

@@ -659,4 +659,81 @@ export const testData = [
       { name: "Grind", winner: { name: "Soul" } },
     ],
   },
+  {
+    expected: "540 True Soul",
+    data: [
+      {
+        name: "Approach",
+        winner: {
+          name: "Forwards",
+          isFakie: false,
+          isSwitch: false,
+        },
+      },
+      { name: "Grind", winner: { name: "Soul" } },
+      { name: "SpinTo", winner: { name: "Outspin 540" } },
+    ],
+  },
+  {
+    expected: "Hurricane 720 Soul",
+    data: [
+      {
+        name: "Approach",
+        winner: {
+          name: "Forwards",
+          isFakie: false,
+          isSwitch: false,
+        },
+      },
+      { name: "Grind", winner: { name: "Soul" } },
+      { name: "SpinTo", winner: { name: "Outspin 720" } },
+    ],
+  },
+
+  {
+    expected: "Fakie Hurricane 720 Soul",
+    data: [
+      {
+        name: "Approach",
+        winner: {
+          name: "Fakie & Natural",
+          isFakie: true,
+          isSwitch: false,
+        },
+      },
+      { name: "Grind", winner: { name: "Soul" } },
+      { name: "SpinTo", winner: { name: "Outspin 720" } },
+    ],
+  },
+  {
+    expected: "Fakie 720 Soul",
+    data: [
+      {
+        name: "Approach",
+        winner: {
+          name: "Fakie & Natural",
+          isFakie: true,
+          isSwitch: false,
+        },
+      },
+      { name: "Grind", winner: { name: "Soul" } },
+      { name: "SpinTo", winner: { name: "Inspin 720" } },
+    ],
+  },
+
+  {
+    expected: "900 True Soul",
+    data: [
+      {
+        name: "Approach",
+        winner: {
+          name: "Forwards",
+          isFakie: false,
+          isSwitch: false,
+        },
+      },
+      { name: "Grind", winner: { name: "Soul" } },
+      { name: "SpinTo", winner: { name: "Outspin 900" } },
+    ],
+  },
 ];

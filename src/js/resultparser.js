@@ -156,8 +156,18 @@ export class ResultParser {
     result = result.replace("Inspin 270", "270");
     result = result.replace("Outspin 450", "450");
     result = result.replace("Inspin 450", "450");
+    result = result.replace("Inspin 450", "450");
+    result = result.replace("Inspin 720", " 720");
+
+    result = result.replace("Inspin 540", "540");
+    result = result.replace("Inspin 720", "720");
+    result = result.replace("Inspin 900", "900");
+    result = result.replace("Outspin 720", "Hurricane 720");
+
     result = result.replace("Outspin 630", "630");
     result = result.replace("Inspin 630", "630");
+    result = result.replace("Outspin 810", "810");
+    result = result.replace("Inspin 810", "810");
     return result;
   }
 
@@ -201,6 +211,17 @@ export class ResultParser {
         spinTo.winner.name.includes("540")
       ) {
         spinName = "540 True";
+      }
+
+      if (isInspin && spinTo && spinTo.winner.name.includes("900")) {
+        spinName = "900 Alley-oop";
+      } else if (
+        !isInspin &&
+        spinTo &&
+        spinTo &&
+        spinTo.winner.name.includes("900")
+      ) {
+        spinName = "900 True";
       }
 
       if (!isInspin && spinTo && spinTo.winner.name.includes("360")) {
