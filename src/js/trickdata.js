@@ -995,6 +995,26 @@ const SPINS_OFF_GRIND = [
     scores: 3,
     url: "",
   },
+  {
+    name: "Outspin 720",
+    scores: 3,
+    url: "",
+  },
+  {
+    name: "Inspin 720",
+    scores: 3,
+    url: "",
+  },
+  {
+    name: "Outspin 900",
+    scores: 3,
+    url: "",
+  },
+  {
+    name: "Inspin 900",
+    scores: 3,
+    url: "",
+  },
 ];
 
 const SPINS_OFF_GROOVE_GRIND = [
@@ -1020,6 +1040,11 @@ const SPINS_OFF_GROOVE_GRIND = [
   },
   {
     name: "630",
+    scores: 3,
+    url: "",
+  },
+  {
+    name: "810",
     scores: 3,
     url: "",
   },
