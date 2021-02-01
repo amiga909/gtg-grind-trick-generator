@@ -1,5 +1,5 @@
 [{
       "relation": ["delegate_permission/common.handle_all_urls"],
-      "target" : { "namespace": "android_app", "package_name": "com.aightgame.www.twa",
-                   "sha256_cert_fingerprints": ["6E:B9:0E:B8:51:C3:CD:29:74:0A:51:1E:BA:9B:9E:40:F0:87:9C:30:60:2A:3C:4C:E8:2D:5A:1F:03:0F:BF:9D"] }
+      "target" : { "namespace": "android_app", "package_name": "com.aightgame.twa",
+                   "sha256_cert_fingerprints": ["CF:9A:2C:CE:E4:06:B8:E3:FE:50:4B:AB:0F:1C:F2:AE:92:38:35:1E:4B:9D:45:F5:0B:BD:95:BB:9C:2C:11:CE"] }
     }]
