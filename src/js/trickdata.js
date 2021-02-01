@@ -72,6 +72,26 @@ const SPINS_TO_GRIND = [
     scores: 3,
     url: "",
   },
+  {
+    name: "Inspin 720",
+    scores: 3,
+    url: "",
+  },
+  {
+    name: "Outspin 720",
+    scores: 3,
+    url: "",
+  },
+  {
+    name: "Inspin 900",
+    scores: 3,
+    url: "",
+  },
+  {
+    name: "Outspin 900",
+    scores: 3,
+    url: "",
+  },
 ];
 const SPINS_FAKIE_TO_GRIND = [
   {
@@ -97,6 +117,26 @@ const SPINS_FAKIE_TO_GRIND = [
     scores: 2,
     url: "",
   },
+  {
+    name: "Inspin 720",
+    scores: 3,
+    url: "",
+  },
+  {
+    name: "Outspin 720",
+    scores: 3,
+    url: "",
+  },
+  {
+    name: "Inspin 900",
+    scores: 3,
+    url: "",
+  },
+  {
+    name: "Outspin 900",
+    scores: 3,
+    url: "",
+  },
 ];
 
 const SPINS_TO_GRIND_GROOVE_FS = [
@@ -120,6 +160,10 @@ const SPINS_TO_GRIND_GROOVE_FS = [
     name: "Outspin 630",
     scores: 3,
     url: "",
+  },{
+    name: "Inspin 810",
+    scores: 3,
+    url: "",
   },
 ];
 const SPINS_TO_GRIND_GROOVE_BS = [
@@ -141,6 +185,10 @@ const SPINS_TO_GRIND_GROOVE_BS = [
   },
   {
     name: "Inspin 630",
+    scores: 3,
+    url: "",
+  },{
+    name: "Outspin 810",
     scores: 3,
     url: "",
   },
@@ -167,6 +215,11 @@ const SPINS_FAKIE_TO_GRIND_GROOVE_FS = [
     scores: 3,
     url: "",
   },
+  {
+    name: "Inspin 810",
+    scores: 3,
+    url: "",
+  },
 ];
 const SPINS_FAKIE_TO_GRIND_GROOVE_BS = [
   {
@@ -187,6 +240,11 @@ const SPINS_FAKIE_TO_GRIND_GROOVE_BS = [
   },
   {
     name: "Inspin 630",
+    scores: 3,
+    url: "",
+  },
+  {
+    name: "Outspin 810",
     scores: 3,
     url: "",
   },

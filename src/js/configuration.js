@@ -1,5 +1,5 @@
 const VERSION_KEY = "aight-version";
-const CURRENT_VERSION = "1.2.1";
+const CURRENT_VERSION = "1.2.2";
 
 const LEVEL_CONFIG = {
   1: {
@@ -13,6 +13,8 @@ const LEVEL_CONFIG = {
     roughCheckbox: "off",
     spins360Checkbox: "off",
     spins540Checkbox: "off",
+    spins720Checkbox: "off",
+    spins900Checkbox: "off",
     switchCheckbox: "off",
     fakieCheckbox: "off",
     toughCheckbox: "off",
@@ -28,6 +30,8 @@ const LEVEL_CONFIG = {
     roughCheckbox: "off",
     spins360Checkbox: "on",
     spins540Checkbox: "off",
+    spins720Checkbox: "off",
+    spins900Checkbox: "off",
     switchCheckbox: "on",
     fakieCheckbox: "on",
     toughCheckbox: "off",
@@ -43,6 +47,8 @@ const LEVEL_CONFIG = {
     roughCheckbox: "on",
     spins360Checkbox: "on",
     spins540Checkbox: "on",
+    spins720Checkbox: "on",
+    spins900Checkbox: "off",
     fakieCheckbox: "on",
     switchCheckbox: "on",
     toughCheckbox: "on",
@@ -67,6 +73,8 @@ export class Configuration {
     this.$heelRollSelect = $("#heelRoll-select");
     this.$spins360Select = $("#spins360-select");
     this.$spins540Select = $("#spins540-select");
+    this.$spins720Select = $("#spins720-select");
+    this.$spins900Select = $("#spins900-select");
     this.$negativeSelect = $("#negative-select");
     this.$switchSelect = $("#switch-select");
     this.$channelSelect = $("#channel-select");
@@ -87,8 +95,10 @@ export class Configuration {
       { $dom: this.$roughSelect, key: "roughCheckbox", value: "off" },
       { $dom: this.$toughSelect, key: "toughCheckbox", value: "off" },
       { $dom: this.$spins360Select, key: "spins360Checkbox", value: "off" },
-      { $dom: this.$heelRollSelect, key: "heelRollCheckbox", value: "off" },
       { $dom: this.$spins540Select, key: "spins540Checkbox", value: "off" },
+      { $dom: this.$spins720Select, key: "spins720Checkbox", value: "off" },
+      { $dom: this.$spins900Select, key: "spins900Checkbox", value: "off" },
+      { $dom: this.$heelRollSelect, key: "heelRollCheckbox", value: "off" },
       { $dom: this.$channelSelect, key: "channelCheckbox", value: "off" },
       { $dom: this.$christSelect, key: "christCheckbox", value: "off" },
       { $dom: this.$levelSelect, key: "levelSelect", value: "1" },
@@ -239,6 +249,8 @@ export class Configuration {
       heelRoll: this.$heelRollSelect.is(":checked") ? "on" : "off",
       spins360: this.$spins360Select.is(":checked") ? "on" : "off",
       spins540: this.$spins540Select.is(":checked") ? "on" : "off",
+      spins720: this.$spins720Select.is(":checked") ? "on" : "off",
+      spins900: this.$spins900Select.is(":checked") ? "on" : "off",
       channel: this.$channelSelect.is(":checked") ? "on" : "off",
       christ: this.$christSelect.is(":checked") ? "on" : "off",
     };

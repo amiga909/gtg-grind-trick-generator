@@ -143,6 +143,7 @@ export class Screens {
     this.$scrollWrapper.scrollTop(0);
   }
 
+  // to do: alternatively: always scroll but have container with min padding, so it does not scroll unnecessary
   isElementInViewport(el) {
     const topOffset = 100;
     let rect = el.getBoundingClientRect();

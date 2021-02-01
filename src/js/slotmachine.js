@@ -549,14 +549,25 @@ export class SlotMachine {
     } else if (name === "SpinTo" || name === "SpinOff") {
       if (this.includedTricks.spins360 === "off") {
         entries = entries.filter(
-          (e) => !e.name.includes("360") && !e.name.includes("450")
+          (e) => !e.name.includes("360") && !e.name.includes("270")
         );
       }
       if (this.includedTricks.spins540 === "off") {
         entries = entries.filter(
-          (e) => !e.name.includes("540") && !e.name.includes("630")
+          (e) => !e.name.includes("540") && !e.name.includes("450")
         );
       }
+      if (this.includedTricks.spins720 === "off") {
+        entries = entries.filter(
+          (e) => !e.name.includes("720") && !e.name.includes("630")
+        );
+      }
+      if (this.includedTricks.spins900 === "off") {
+        entries = entries.filter(
+          (e) => !e.name.includes("900") && !e.name.includes("810")
+        );
+      }
+
     } else if (name === "Approach") {
       if (this.includedTricks.switch === "off") {
         entries = entries.filter((e) => e.isSwitch !== true);

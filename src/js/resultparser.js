@@ -150,8 +150,8 @@ export class ResultParser {
     result = result.replace("to Inspin 450", "to 450");
     // spinTo
     result = result.replace("Inspin 360", "360");
-    result = result.replace("Outspin 90", "");
-    result = result.replace("Inspin 90", "");
+    result = result.replace("Outspin 90 ", "");
+    result = result.replace("Inspin 90 ", "");
     result = result.replace("Outspin 270", "270");
     result = result.replace("Inspin 270", "270");
     result = result.replace("Outspin 450", "450");
