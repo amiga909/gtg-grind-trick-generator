@@ -567,7 +567,6 @@ export class SlotMachine {
           (e) => !e.name.includes("900") && !e.name.includes("810")
         );
       }
-
     } else if (name === "Approach") {
       if (this.includedTricks.switch === "off") {
         entries = entries.filter((e) => e.isSwitch !== true);

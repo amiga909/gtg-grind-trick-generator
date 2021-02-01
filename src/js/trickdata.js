@@ -160,7 +160,8 @@ const SPINS_TO_GRIND_GROOVE_FS = [
     name: "Outspin 630",
     scores: 3,
     url: "",
-  },{
+  },
+  {
     name: "Inspin 810",
     scores: 3,
     url: "",
@@ -187,7 +188,8 @@ const SPINS_TO_GRIND_GROOVE_BS = [
     name: "Inspin 630",
     scores: 3,
     url: "",
-  },{
+  },
+  {
     name: "Outspin 810",
     scores: 3,
     url: "",
@@ -255,6 +257,8 @@ const HYBRID_COMMENT =
 const SOUL_GRINDS = [
   {
     name: "Soul",
+    comment:
+      "The back foot rests on the soulplate and the front foot slides on the h-block, pointing toward the obstacle.",
     repeat: EASY_REPEAT,
     scores: 1,
     url: "http://skateyeg.com/bog/02.0_Soul.html",
@@ -269,8 +273,10 @@ const SOUL_GRINDS = [
   },
   {
     name: "Acid",
+    comment: "Like a Soul but the leading foot is in the opposite position.",
     repeat: EASY_REPEAT,
     scores: 1,
+
     url: "http://skateyeg.com/bog/05.0_Acid.html",
     variations: {
       Topside: true,
@@ -284,6 +290,7 @@ const SOUL_GRINDS = [
   {
     name: "Makio",
     repeat: EASY_REPEAT,
+    comment: "Simple one-footed soul grind.",
     scores: 1,
     url: "http://skateyeg.com/bog/01.0_Makio.html",
     variations: {
@@ -305,6 +312,8 @@ const SOUL_GRINDS = [
   },
   {
     name: "PStar",
+    comment:
+      "The soul foot is in front and the trailing foot is pointing toward the obstacle.",
     repeat: EASY_REPEAT,
     url: "http://skateyeg.com/bog/04.0_PStar.html",
     variations: {
@@ -318,6 +327,8 @@ const SOUL_GRINDS = [
   },
   {
     name: "Torque Soul",
+    comment:
+      "The trailing foot is placed on the soul while the leading foot is placed on the backslide plate.",
     repeat: MEDIUM_REPEAT,
     url: "http://skateyeg.com/bog/08.0_Torque_Soul.html",
     variations: {
@@ -331,6 +342,8 @@ const SOUL_GRINDS = [
   },
   {
     name: "Mistrial",
+    comment:
+      "Like a Mizou but the the trailing foot is pointing towards the obstacle. Both feet should be close together.",
     repeat: MEDIUM_REPEAT,
     url: "http://skateyeg.com/bog/07.0_Mistrial.html",
     variations: {
@@ -344,22 +357,25 @@ const SOUL_GRINDS = [
   },
   {
     name: "Citric Acid",
+    comment:
+      "Wrapping the leading foot around the back of the soul foot and placing it in front in an acid position.",
     scores: 3,
     url: "http://skateyeg.com/bog/05.1_Citric_Acid.html",
     variations: {
-      Topside: true,
+      // Topside: true,
       Negative: true,
-      Rough: true,
-      Tough: true,
-      "Rough Topside": true,
-      "Tough Topside": true,
+      //  Rough: true,
+      // Tough: true,
+      // "Rough Topside": true,
+      // "Tough Topside": true,
     },
   },
   {
     name: "Hot Dog",
     noSwitch: true,
     url: "http://skateyeg.com/bog/11.0_Hot_Dog.html",
-    comment: "Easier to do on a narrow box that can be grinded on both sides.",
+    comment:
+      "Grinding on both negative soul plates. Easier to do on a narrow box that can be grinded on both sides.",
     variations: {
       Rough: true,
       Tough: true,
@@ -367,6 +383,8 @@ const SOUL_GRINDS = [
   },
   {
     name: "Mizou",
+    comment:
+      "(Miszou) The soul foot is in front and the trailing foot rests on the h-block, pointing away from the obstacle.",
     repeat: EASY_REPEAT,
     scores: 1,
     url: "http://skateyeg.com/bog/03.0_Mizou.html",
@@ -382,14 +400,16 @@ const SOUL_GRINDS = [
   {
     name: "Sidewalk",
     scores: 1,
+    comment:
+      "Oldschool trick. Like a PStar but with the back foot all the way down on its laces. A topside Sidewalk is called Tendon Tear.",
     url: "http://skateyeg.com/bog/04.1_Sidewalk.html",
     variations: {
       Topside: true,
       Negative: true,
       Rough: true,
-      Tough: true,
-      "Rough Topside": true,
-      "Tough Topside": true,
+      // Tough: true,
+      //  "Rough Topside": true,
+      // "Tough Topside": true,
     },
   },
   {
@@ -397,7 +417,7 @@ const SOUL_GRINDS = [
     repeat: MEDIUM_REPEAT,
     url: "http://skateyeg.com/bog/06.0_X_Grind.html",
     comment:
-      "A regular X-Grind has the front foot Topside. A Topside X-Grind has the back foot Topside. A Negative X-Grind is called Stub Soul.",
+      "X-Grinds are done on the souls of both skates. A regular X-Grind has the front foot topside. A topside X-Grind has the back foot topside.",
     variations: {
       Topside: true,
       Negative: true,
@@ -412,7 +432,6 @@ const SOUL_GRINDS = [
   {
     name: "Training Wheel",
     url: "",
-
     comment:
       "The front skate is rolling on the wheel on the heel, the back skate is on Topside soul.",
     variations: { Rough: true, Tough: true },
@@ -420,14 +439,18 @@ const SOUL_GRINDS = [
   {
     name: "BS Tabernacle",
     url: "http://skateyeg.com/bog/12.1_Backside_Tabernacle.html",
-    comment: HYBRID_COMMENT,
+    comment:
+      "Like a Mizou but with the leading soul foot in acid position. " +
+      HYBRID_COMMENT,
     isSoulGroove: true,
     variations: { Channel: true },
   },
   {
     name: "FS Tabernacle",
+    comment:
+      "Like a Mizou but with the leading soul foot in acid position. " +
+      HYBRID_COMMENT,
     url: "http://skateyeg.com/bog/12.0_Tabernacle.html",
-    comment: HYBRID_COMMENT,
     isSoulGroove: true,
     variations: { Channel: true },
   },
@@ -448,14 +471,18 @@ const SOUL_GRINDS = [
   {
     name: "BS Wheelbarrow",
     url: "http://skateyeg.com/bog/15.1_Backside_Wheelbarrow.html",
-    comment: HYBRID_COMMENT,
+    comment:
+      "A backslide with the front foot rolling on the back wheel. " +
+      HYBRID_COMMENT,
     isSoulGroove: true,
     variations: { Channel: true },
   },
   {
     name: "FS Wheelbarrow",
     url: "http://skateyeg.com/bog/15.0_Wheelbarrow.html",
-    comment: HYBRID_COMMENT,
+    comment:
+      "A backslide with the front foot rolling on the back wheel. " +
+      HYBRID_COMMENT,
     isSoulGroove: true,
     variations: { Channel: true },
   },
@@ -463,14 +490,16 @@ const SOUL_GRINDS = [
   {
     name: "BS Byn Soul",
     url: "",
-    comment: "Turning the soul foot on a soul grind into a torque",
+    comment:
+      "(Neighborhood) Turning the soul foot on a soul grind into a torque. "+HYBRID_COMMENT,
     isSoulGroove: true,
     variations: { Channel: true },
   },
   {
     name: "FS Byn Soul",
     url: "",
-    comment: "Turning the soul foot on a soul grind into a torque",
+    comment:
+      "(Neighborhood) Turning the soul foot on a soul grind into a torque. "+HYBRID_COMMENT,
     isSoulGroove: true,
     variations: { Channel: true },
   },
@@ -490,18 +519,23 @@ const SOUL_GRINDS = [
 const GROOVE_GRINDS = [
   {
     name: "FS Royale",
+    comment:
+      "(Shifty) Grinding on the inside edge of the front skate, and on the outside edge of the trailing skate.",
     repeat: MEDIUM_REPEAT,
     url: "http://skateyeg.com/bog/03.0_Royale.html",
     variations: { Channel: true },
   },
   {
     name: "FS Unity",
+    comment:
+      "(Buddha) Crossed legs on both backslide plates with the trailing foot going over the leading foot.",
     repeat: MEDIUM_REPEAT,
     url: "http://skateyeg.com/bog/07.0_Unity.html",
     variations: { Channel: true },
   },
   {
     name: "FS Torque",
+    comment: "Like a one-ooted Full Torque",
     repeat: MEDIUM_REPEAT,
     url: "http://skateyeg.com/bog/05.0_Torque.html",
     variations: {
@@ -515,12 +549,14 @@ const GROOVE_GRINDS = [
   {
     name: "BS Cab driver",
     scores: 3,
-    comment: "Also called Cowboy Grind",
+    comment:
+      "(Cowboy) Sliding a torque and backslide at the same time without crossing your legs.",
     url: "http://skateyeg.com/bog/09.1_Backside_Cab_driver.html",
     variations: { Channel: true },
   },
   {
     name: "BS Backslide",
+    comment: "Like an one-footed Royale, grinding on the trailing foot.",
     url: "http://skateyeg.com/bog/06.1_Backside_Backslide.html",
     variations: {
       Grab: true,
@@ -532,6 +568,7 @@ const GROOVE_GRINDS = [
   },
   {
     name: "FS Backslide",
+    comment: "Like an one-footed Royale, grinding on the trailing foot.",
     url: "http://skateyeg.com/bog/06.0_Backslide.html",
     variations: {
       Grab: true,
@@ -543,6 +580,8 @@ const GROOVE_GRINDS = [
   },
   {
     name: "BS Pudslide",
+    comment:
+      "Like a Backslide but with the ankle bent outwards instead of inwards.",
     url: "http://skateyeg.com/bog/11.1_Backside_Pudslide.html",
     scores: 3,
     variations: {
@@ -556,12 +595,14 @@ const GROOVE_GRINDS = [
     name: "BS Full Torque",
     repeat: MEDIUM_REPEAT,
     url: "http://skateyeg.com/bog/04.1_Backside_Full_Torque.html",
-    comment: "Same as Fahrvergnuegen, Farhve, Nugen",
+    comment: "(Fahrvergnuegen, Farhve, Nugen) Like a Royale grinded reverse.",
     variations: { Channel: true },
   },
   {
     name: "BS Fastslide",
     scores: 3,
+    comment:
+      "Like a Torque but without the foot resting on the backslide plate (straightened out ankle).",
     url: "http://skateyeg.com/bog/10.1_Backside_Fastslide.html",
     variations: {
       Grab: true,
@@ -573,12 +614,15 @@ const GROOVE_GRINDS = [
   },
   {
     name: "BS Unity",
+    comment:
+      "(Buddha) Crossed legs on both backslide plates with the trailing foot going over the leading foot.",
     repeat: MEDIUM_REPEAT,
     url: "http://skateyeg.com/bog/07.1_Backside_Unity.html",
     variations: { Channel: true },
   },
   {
     name: "BS Torque",
+    comment: "Like a one-footed Full Torque",
     repeat: MEDIUM_REPEAT,
     url: "http://skateyeg.com/bog/05.1_Backside_Torque.html",
     variations: {
@@ -591,12 +635,16 @@ const GROOVE_GRINDS = [
   },
   {
     name: "BS Royale",
+    comment:
+      "(Shifty) Grinding on the inside edge of the front skate, and on the outside edge of the trailing skate.",
     repeat: MEDIUM_REPEAT,
     url: "http://skateyeg.com/bog/03.1_Backside_Royale.html",
     variations: { Channel: true },
   },
   {
     name: "FS Fastslide",
+    comment:
+      "Like a Torque but without the foot resting on the backslide plate (straightened out ankle).",
     scores: 3,
     url: "http://skateyeg.com/bog/10.0_Fastslide.html",
     variations: {
@@ -610,12 +658,15 @@ const GROOVE_GRINDS = [
   {
     name: "FS Cab driver",
     scores: 3,
-    comment: "Also called Cowboy Grind",
+    comment:
+      "(Cowboy) Sliding a torque and backslide at the same time without crossing your legs.",
     url: "http://skateyeg.com/bog/09.0_Cab_driver.html",
     variations: { Channel: true },
   },
   {
     name: "FS Pudslide",
+    comment:
+      "Like a Backslide but with the ankle bent outwards instead of inwards.",
     url: "http://skateyeg.com/bog/11.0_Pudslide.html",
     scores: 3,
     variations: {
@@ -629,11 +680,13 @@ const GROOVE_GRINDS = [
     name: "FS Full Torque",
     repeat: MEDIUM_REPEAT,
     url: "http://skateyeg.com/bog/04.0_Full_Torque.html",
-    comment: "Same as Fahrvergnuegen, Farhve, Nugen",
+    comment: "(Fahrvergnuegen, Farhve, Nugen) Like a Royale grinded reverse.",
     variations: { Channel: true },
   },
   {
     name: "Backside",
+    comment:
+      "The skater spins 90° and slides perpendicular to the obstacle with his/her back turned to the obstacle.",
     repeat: MEDIUM_REPEAT,
     scores: 1,
     url: "http://skateyeg.com/bog/02.0_Backside.html",
@@ -643,6 +696,8 @@ const GROOVE_GRINDS = [
   },
   {
     name: "Frontside",
+    comment:
+      "The skater spins 90° and lands in the space between the middle wheels, with both feet facing the obstacle.",
     repeat: MEDIUM_REPEAT,
     scores: 1,
     url: "http://skateyeg.com/bog/01.0_Frontside.html",
@@ -652,11 +707,15 @@ const GROOVE_GRINDS = [
   },
   {
     name: "FS Savannah",
+    comment:
+      "Crossed legs on both backslide plates with the trailing foot going behind the leading foot.",
     url: "http://skateyeg.com/bog/09.0_Savannah_(AO_Unity).html",
     variations: { Channel: true },
   },
   {
     name: "BS Savannah",
+    comment:
+      "Crossed legs on both backslide plates with the trailing foot going behind the leading foot.",
     url: "http://skateyeg.com/bog/09.1_Backside_Savannah_(AO_BS_Unity).html",
     variations: { Channel: true },
   },
@@ -750,7 +809,7 @@ const GRIND_SYNONYMS = [
   // X-Grind
   {
     newName: "Stub Soul",
-    comment: "Negative X-Grind",
+    comment: "An X-Grind with one foot grinding the negative soul plate.",
     name: "X-Grind",
     isNegative: true,
     url: "http://skateyeg.com/bog/10.0_Stub_Soul.html",
@@ -809,7 +868,7 @@ const VARIATIONS = [
     repeat: EASY_REPEAT,
     scores: 1,
     url: "http://skateyeg.com/bog/17.0_Grabbed.html",
-    comment: "Grabbing the free foot while doing a one-footed grind.",
+    comment: "Grabbing the free foot while doing an one-footed grind.",
   },
   {
     name: "Cross-Grab",

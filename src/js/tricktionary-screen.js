@@ -35,6 +35,15 @@ const MORE = [
     comment:
       "Cross grabbing one foot and then jumping the other foot through the hole while maintaining the grab. Can be done with Gaps and Grinds.",
   },
+  {
+    term: "Crosswalk",
+    comment: "Like a Sidewalk but with the leading foot in acid position.",
+  },
+  {
+    term: "Sui-slide",
+    comment:
+      "Like a Fastslide but with the trailing foot instead of the leading foot.",
+  },
 ];
 
 export class TricktionaryScreen {

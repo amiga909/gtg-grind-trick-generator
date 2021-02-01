@@ -504,6 +504,21 @@ export const testData = [
     ],
   },
   {
+    expected: "Fakie 630 BS Savannah",
+    data: [
+      {
+        name: "Approach",
+        winner: {
+          name: "Fakie & Natural",
+          isFakie: true,
+          isSwitch: false,
+        },
+      },
+      { name: "Grind", winner: { name: "BS Savannah", isGrooveGrind: true } },
+      { name: "SpinTo", winner: { name: "Outspin 630" } },
+    ],
+  },
+  {
     expected: "Fakie Switch 450 BS Royale",
     data: [
       {
