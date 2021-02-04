@@ -8,7 +8,7 @@ export const testData = [
     ],
   },
   {
-    expected: "540 True Cloudy Night",
+    expected: "540 Hurricane Cloudy Night",
     data: [
       { name: "Grind", winner: { name: "PStar", isGrooveGrind: false } },
       { name: "SpinTo", winner: { name: "Outspin 540" } },
@@ -29,7 +29,7 @@ export const testData = [
     data: [
       { name: "Grind", winner: { name: "Acid", isGrooveGrind: false } },
       { name: "SpinTo", winner: { name: "Inspin 180" } },
-      { name: "SpinOff", winner: { name: "Outspin 360" } },
+      { name: "SpinOff", winner: { name: "360 revert" } },
     ],
   },
 
@@ -38,7 +38,7 @@ export const testData = [
     data: [
       { name: "Grind", winner: { name: "Soul" } },
       { name: "SpinTo", winner: { name: "Inspin 180" } },
-      { name: "SpinOff", winner: { name: "Inspin 360" } },
+      { name: "SpinOff", winner: { name: "360" } },
     ],
   },
   {
@@ -49,12 +49,12 @@ export const testData = [
     ],
   },
   {
-    expected: "Kindgrind to 180 out",
+    expected: "Kindgrind to Fakie out",
     data: [
       { name: "Grind", winner: { name: "Mizou" } },
       { name: "GrindVariation", winner: { name: "Topside" } },
       { name: "SpinTo", winner: { name: "Inspin 180" } },
-      { name: "SpinOff", winner: { name: "Inspin 180" } },
+      { name: "SpinOff", winner: { name: "Fakie" } },
     ],
   },
   {
@@ -74,12 +74,12 @@ export const testData = [
     ],
   },
   {
-    expected: "360 Sweatstance to 180 revert out",
+    expected: "360 Sweatstance to Fakie",
     data: [
       { name: "Grind", winner: { name: "Mizou" } },
       { name: "GrindVariation", winner: { name: "Topside" } },
       { name: "SpinTo", winner: { name: "Inspin 360" } },
-      { name: "SpinOff", winner: { name: "Outspin 180" } },
+      { name: "SpinOff", winner: { name: "Fakie" } },
     ],
   },
 
@@ -207,7 +207,7 @@ export const testData = [
     ],
   },
   {
-    expected: "Zerospin Christ Fishbrain to 180 out",
+    expected: "Zerospin Christ Fishbrain to Fakie",
     data: [
       {
         name: "Approach",
@@ -219,17 +219,17 @@ export const testData = [
       },
       { name: "Grind", winner: { name: "Makio", isGrooveGrind: false } },
       { name: "GrindVariation", winner: { name: "Christ Topside" } },
-      { name: "SpinOff", winner: { name: "Outspin 180" } },
+      { name: "SpinOff", winner: { name: "Fakie" } },
     ],
   },
 
   {
-    expected: "AO Fishbrain to 180 revert out",
+    expected: "AO Fishbrain to 360 revert out",
     data: [
       { name: "Grind", winner: { name: "Makio" } },
       { name: "GrindVariation", winner: { name: "Topside" } },
       { name: "SpinTo", winner: { name: "Inspin 180" } },
-      { name: "SpinOff", winner: { name: "Outspin 180" } },
+      { name: "SpinOff", winner: { name: "360 revert" } },
     ],
   },
 
@@ -258,12 +258,12 @@ export const testData = [
   },
 
   {
-    expected: "360 Negative Soul to 180 revert out",
+    expected: "360 Negative Soul to Fakie",
     data: [
       { name: "Grind", winner: { name: "Soul", isGrooveGrind: false } },
       { name: "GrindVariation", winner: { name: "Negative" } },
       { name: "SpinTo", winner: { name: "Inspin 360" } },
-      { name: "SpinOff", winner: { name: "Outspin 180" } },
+      { name: "SpinOff", winner: { name: "Fakie" } },
     ],
   },
 
@@ -305,14 +305,14 @@ export const testData = [
     ],
   },
   {
-    expected: "True Soyale to 180 out",
+    expected: "True Soyale to Fakie",
     data: [
       {
         name: "Grind",
         winner: { name: "Torque Soul", isGrooveGrind: false },
       },
       { name: "SpinTo", winner: { name: "Outspin 180" } },
-      { name: "SpinOff", winner: { name: "Outspin 180" } },
+      { name: "SpinOff", winner: { name: "Fakie" } },
     ],
   },
   {
@@ -331,11 +331,11 @@ export const testData = [
         winner: { name: "Torque Soul", isGrooveGrind: false },
       },
       { name: "SpinTo", winner: { name: "Outspin 360" } },
-      { name: "SpinOff", winner: { name: "Inspin 540" } },
+      { name: "SpinOff", winner: { name: "540 revert" } },
     ],
   },
   {
-    expected: "True Fullcab Top Soyale to 180 out",
+    expected: "True Fullcab Top Soyale to Fakie",
     data: [
       {
         name: "Approach",
@@ -351,7 +351,7 @@ export const testData = [
       },
       { name: "SpinTo", winner: { name: "Outspin 360" } },
       { name: "GrindVariation", winner: { name: "Topside" } },
-      { name: "SpinOff", winner: { name: "Outspin 180" } },
+      { name: "SpinOff", winner: { name: "Fakie" } },
     ],
   },
   {
@@ -470,7 +470,7 @@ export const testData = [
         },
       },
       { name: "Grind", winner: { name: "Acid", isGrooveGrind: false } },
-      { name: "SpinOff", winner: { name: "Outspin 360" } },
+      { name: "SpinOff", winner: { name: "360" } },
     ],
   },
   {
@@ -485,7 +485,7 @@ export const testData = [
         },
       },
       { name: "Grind", winner: { name: "Acid", isGrooveGrind: false } },
-      { name: "SpinOff", winner: { name: "Inspin 360" } },
+      { name: "SpinOff", winner: { name: "360" } },
     ],
   },
   {
@@ -736,4 +736,60 @@ export const testData = [
       { name: "SpinTo", winner: { name: "Outspin 900" } },
     ],
   },
+
+  {
+    expected: "Fakie 540 Top Soul",
+    data: [
+      {
+        name: "Approach",
+        winner: {
+          name: "Fakie",
+          isFakie: true,
+          isSwitch: false,
+        },
+      },
+      { name: "Grind", winner: { name: "Soul" } },
+      { name: "SpinTo", winner: { name: "540" } },
+      { name: "GrindVariation", winner: { name: "Topside" } },
+    ],
+  },
+
+  {
+    expected: "Fakie 540 Top Soul",
+    data: [
+      {
+        name: "Approach",
+        winner: {
+          name: "Fakie",
+          isFakie: true,
+          isSwitch: false,
+        },
+      },
+      { name: "Grind", winner: { name: "Soul" } },
+      { name: "SpinTo", winner: { name: "Inspin 540" } },
+      { name: "GrindVariation", winner: { name: "Topside" } },
+    ],
+  },
+
+  { 
+    expected: "540 Hurricane Top Soul", // "540 Hurricane Top Soul", ?
+    data: [
+      {
+        name: "Approach",
+        winner: {
+          name: "Forwards",
+          isFakie: false,
+          isSwitch: false,
+        },
+      },
+      { name: "Grind", winner: { name: "Soul" } },
+      { name: "SpinTo", winner: { name: "Outspin 540" } },
+      { name: "GrindVariation", winner: { name: "Topside" } },
+    ],
+  },
+  
+ // Fakie 630 Royale (Leading the Blind) 
+ //  David Sizemore (Hurricane Fish)
+//  Cyril Daniel (Disaster 450 Back Royale)
+
 ];

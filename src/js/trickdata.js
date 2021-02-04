@@ -1,9 +1,10 @@
 const EASY_REPEAT = 2;
 const MEDIUM_REPEAT = 1;
+const EMPTY_SLOT_VALUE = "None";
 
 const APPROACHES = [
   {
-    name: "Forwards",
+    name: EMPTY_SLOT_VALUE,
     repeat: EASY_REPEAT,
     isFakie: false,
     isSwitch: false,
@@ -41,9 +42,9 @@ const APPROACHES = [
 
 const SPINS_TO_GRIND = [
   {
-    name: "Outspin 180",
-    repeat: MEDIUM_REPEAT,
-    scores: 1,
+    name: EMPTY_SLOT_VALUE,
+    repeat: EASY_REPEAT,
+    scores: 0,
   },
   {
     name: "Inspin 180",
@@ -51,7 +52,11 @@ const SPINS_TO_GRIND = [
     scores: 1,
     url: "",
   },
-
+  {
+    name: "Outspin 180",
+    repeat: MEDIUM_REPEAT,
+    scores: 1,
+  },
   {
     name: "Inspin 360",
     scores: 2,
@@ -74,26 +79,31 @@ const SPINS_TO_GRIND = [
   },
   {
     name: "Inspin 720",
-    scores: 3,
+    scores: 4,
     url: "",
   },
   {
     name: "Outspin 720",
-    scores: 3,
+    scores: 4,
     url: "",
   },
   {
     name: "Inspin 900",
-    scores: 3,
+    scores: 5,
     url: "",
   },
   {
     name: "Outspin 900",
-    scores: 3,
+    scores: 5,
     url: "",
   },
 ];
 const SPINS_FAKIE_TO_GRIND = [
+  {
+    name: EMPTY_SLOT_VALUE,
+    repeat: EASY_REPEAT,
+    scores: 1,
+  },
   {
     name: "Inspin 180",
     repeat: EASY_REPEAT,
@@ -129,19 +139,18 @@ const SPINS_FAKIE_TO_GRIND = [
   },
   {
     name: "Inspin 900",
-    scores: 3,
+    scores: 4,
     url: "",
   },
   {
     name: "Outspin 900",
-    scores: 3,
+    scores: 4,
     url: "",
   },
 ];
-
 const SPINS_TO_GRIND_GROOVE_FS = [
   {
-    name: "Inspin 90",
+    name: EMPTY_SLOT_VALUE,
     repeat: EASY_REPEAT,
     scores: 0,
     url: "",
@@ -149,6 +158,7 @@ const SPINS_TO_GRIND_GROOVE_FS = [
   {
     name: "Outspin 270",
     scores: 1,
+    repeat: MEDIUM_REPEAT,
     url: "",
   },
   {
@@ -163,19 +173,20 @@ const SPINS_TO_GRIND_GROOVE_FS = [
   },
   {
     name: "Inspin 810",
-    scores: 3,
+    scores: 4,
     url: "",
   },
 ];
 const SPINS_TO_GRIND_GROOVE_BS = [
   {
-    name: "Outspin 90",
+    name: EMPTY_SLOT_VALUE,
     repeat: EASY_REPEAT,
     scores: 0,
     url: "",
   },
   {
     name: "Inspin 270",
+    repeat: MEDIUM_REPEAT,
     scores: 1,
     url: "",
   },
@@ -191,19 +202,20 @@ const SPINS_TO_GRIND_GROOVE_BS = [
   },
   {
     name: "Outspin 810",
-    scores: 3,
+    scores: 4,
     url: "",
   },
 ];
 const SPINS_FAKIE_TO_GRIND_GROOVE_FS = [
   {
-    name: "Inspin 90",
+    name: EMPTY_SLOT_VALUE,
     repeat: EASY_REPEAT,
     scores: 0,
     url: "",
   },
   {
     name: "Outspin 270",
+    repeat: MEDIUM_REPEAT,
     scores: 1,
     url: "",
   },
@@ -219,19 +231,20 @@ const SPINS_FAKIE_TO_GRIND_GROOVE_FS = [
   },
   {
     name: "Inspin 810",
-    scores: 3,
+    scores: 4,
     url: "",
   },
 ];
 const SPINS_FAKIE_TO_GRIND_GROOVE_BS = [
   {
-    name: "Outspin 90",
+    name: EMPTY_SLOT_VALUE,
     repeat: EASY_REPEAT,
     scores: 0,
     url: "",
   },
   {
     name: "Inspin 270",
+    repeat: MEDIUM_REPEAT,
     scores: 1,
     url: "",
   },
@@ -247,13 +260,114 @@ const SPINS_FAKIE_TO_GRIND_GROOVE_BS = [
   },
   {
     name: "Outspin 810",
+    scores: 4,
+    url: "",
+  },
+];
+
+// @TODO: Revert only if Inspin
+const SPINS_OFF_GRIND = [
+  {
+    name: EMPTY_SLOT_VALUE,
+    repeat: EASY_REPEAT,
+    scores: 0,
+    url: "",
+  },
+  {
+    name: "Fakie",
+    repeat: EASY_REPEAT,
+    scores: 0,
+    url: "",
+  },
+
+  {
+    name: "360",
+    repeat: MEDIUM_REPEAT,
+    scores: 1,
+    url: "",
+  },
+  {
+    name: "360 reverse",
+    repeat: MEDIUM_REPEAT,
+    scores: 1,
+    url: "",
+  },
+  {
+    name: "540",
+    scores: 2,
+    url: "",
+  },
+  {
+    name: "540 reverse",
+    scores: 2,
+    url: "",
+  },
+  {
+    name: "720",
     scores: 3,
+    url: "",
+  },
+  {
+    name: "720 reverse",
+    scores: 3,
+    url: "",
+  },
+  {
+    name: "900",
+    scores: 4,
+    url: "",
+  },
+  {
+    name: "900 reverse",
+    scores: 4,
+    url: "",
+  },
+];
+
+const SPINS_OFF_GROOVE_GRIND = [
+  {
+    name: EMPTY_SLOT_VALUE,
+    repeat: EASY_REPEAT,
+    scores: 0,
+    url: "",
+  },
+  {
+    name: "Fakie",
+    repeat: EASY_REPEAT,
+    scores: 0,
+    url: "",
+  },
+  {
+    name: "Forwards",
+    repeat: EASY_REPEAT,
+    scores: 0,
+    url: "",
+  },
+  {
+    name: "270",
+    repeat: MEDIUM_REPEAT,
+    scores: 1,
+    url: "",
+  },
+  {
+    name: "450",
+    scores: 2,
+    url: "",
+  },
+  {
+    name: "630",
+    scores: 3,
+    url: "",
+  },
+  {
+    name: "810",
+    scores: 4,
     url: "",
   },
 ];
 
 const HYBRID_COMMENT =
-  "Treated like a soul grind (AO, Truespin, Zerospin) not like a groove grind (270, 450) because the trick has not a different name when grinded in reverse direction.";
+  "Treated like a soul grind (AO, Truespin, Zerospin, ..) not like a groove grind (270, 450) because the trick has not a different name when grinded in reverse direction.";
 const SOUL_GRINDS = [
   {
     name: "Soul",
@@ -963,92 +1077,6 @@ const OBSTACLE_VARIATIONS = [
     url: "http://skateyeg.com/bog/14.0_Disaster.html",
   },
 ];
-// @TODO: Revert only if Inspin
-const SPINS_OFF_GRIND = [
-  {
-    name: "Inspin 180",
-    scores: 1,
-    url: "",
-  },
-  {
-    name: "Outspin 180 ",
-    scores: 1,
-    url: "",
-  },
-  {
-    name: "Outspin 360",
-    scores: 2,
-    url: "",
-  },
-  {
-    name: "Inspin 360",
-    scores: 2,
-    url: "",
-  },
-  {
-    name: "Outspin 540",
-    scores: 3,
-    url: "",
-  },
-  {
-    name: "Inspin 540",
-    scores: 3,
-    url: "",
-  },
-  {
-    name: "Outspin 720",
-    scores: 3,
-    url: "",
-  },
-  {
-    name: "Inspin 720",
-    scores: 3,
-    url: "",
-  },
-  {
-    name: "Outspin 900",
-    scores: 3,
-    url: "",
-  },
-  {
-    name: "Inspin 900",
-    scores: 3,
-    url: "",
-  },
-];
-
-const SPINS_OFF_GROOVE_GRIND = [
-  {
-    name: "Fakie",
-    scores: 1,
-    url: "",
-  },
-  {
-    name: "Forwards",
-    scores: 0,
-    url: "",
-  },
-  {
-    name: "270",
-    scores: 1,
-    url: "",
-  },
-  {
-    name: "450",
-    scores: 2,
-    url: "",
-  },
-  {
-    name: "630",
-    scores: 3,
-    url: "",
-  },
-  {
-    name: "810",
-    scores: 3,
-    url: "",
-  },
-];
 
 const GLOSSARY = {
   // parsed tokens
@@ -1166,6 +1194,7 @@ export class Trickdata {
       GRIND_SYNONYMS,
       GRIND_SYNONYMS_THUMB,
       GLOSSARY,
+      EMPTY_SLOT_VALUE
     };
   } /*
   filterSoulGrinds() {

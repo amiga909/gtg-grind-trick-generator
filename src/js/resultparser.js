@@ -23,7 +23,7 @@ export class ResultParser {
     if (!approach || !approach.winner) {
       approach = { winner: { name: "Forwards" } };
     }
-    if (approach) {
+    if (approach && approach.name !== CONFIG.EMPTY_SLOT_VALUE) {
       resultOrig.push(approach.winner.name);
     }
     if (spinTo) {
