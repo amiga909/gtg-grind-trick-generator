@@ -8,7 +8,7 @@ export const testData = [
     ],
   },
   {
-    expected: "540 True Cloudy Night",
+    expected: "540 Hurricane Cloudy Night",
     data: [
       { name: "Grind", winner: { name: "PStar", isGrooveGrind: false } },
       { name: "SpinTo", winner: { name: "Outspin 540" } },
@@ -736,4 +736,81 @@ export const testData = [
       { name: "SpinTo", winner: { name: "Outspin 900" } },
     ],
   },
+
+
+  {
+    expected: "Fakie 540 Top Soul",
+    data: [
+      {
+        name: "Approach",
+        winner: {
+          name: "Fakie",
+          isFakie: true,
+          isSwitch: false,
+        },
+      },
+      { name: "Grind", winner: { name: "Soul" } },
+      { name: "SpinTo", winner: { name: "Inspin 540" } },
+      { name: "GrindVariation", winner: { name: "Topside" } },
+    ],
+  },
+
+  { 
+    expected: "540 Hurricane Top Soul",  
+    data: [
+      {
+        name: "Approach",
+        winner: {
+          name: "Forwards",
+          isFakie: false,
+          isSwitch: false,
+        },
+      },
+      { name: "Grind", winner: { name: "Soul" } },
+      { name: "SpinTo", winner: { name: "Outspin 540" } },
+      { name: "GrindVariation", winner: { name: "Topside" } },
+    ],
+  },
+
+  { 
+    expected: "True Fullcab 720 Sweatstance", 
+    data: [
+      {
+        name: "Approach",
+        winner: {
+          name: "Fakie",
+          isFakie: true,
+          isSwitch: false,
+        },
+      },
+      { name: "Grind", winner: { name: "Mizou" } },
+      { name: "SpinTo", winner: { name: "Outspin 720" } },
+      { name: "GrindVariation", winner: { name: "Topside" } },
+    ],
+  },
+
+ //  David Sizemore (Hurricane Fish)
+  { 
+    expected: "Hurricane Fishbrain", 
+    data: [
+      {
+        name: "Approach",
+        winner: {
+          name: "Forwards",
+          isFakie: false,
+          isSwitch: false,
+        },
+      },
+      { name: "Grind", winner: { name: "Makio" } },
+      { name: "SpinTo", winner: { name: "Outspin 360" } },
+      { name: "GrindVariation", winner: { name: "Topside" } },
+    ],
+  },
+
+ // Fakie 630 Royale (Leading the Blind) 
+ //  David Sizemore (Hurricane Fish)
+//  Cyril Daniel (Disaster 450 Back Royale)
+
+
+
 ];

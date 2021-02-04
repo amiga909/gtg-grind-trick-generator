@@ -74,22 +74,22 @@ const SPINS_TO_GRIND = [
   },
   {
     name: "Inspin 720",
-    scores: 3,
+    scores: 4,
     url: "",
   },
   {
     name: "Outspin 720",
-    scores: 3,
+    scores: 4,
     url: "",
   },
   {
     name: "Inspin 900",
-    scores: 3,
+    scores: 5,
     url: "",
   },
   {
     name: "Outspin 900",
-    scores: 3,
+    scores: 5,
     url: "",
   },
 ];
@@ -116,25 +116,34 @@ const SPINS_FAKIE_TO_GRIND = [
     name: "Outspin 360",
     scores: 2,
     url: "",
+  },  {
+    name: "Inspin 540",
+    scores: 3,
+    url: "",
+  },
+  {
+    name: "Outspin 540",
+    scores: 3,
+    url: "",
   },
   {
     name: "Inspin 720",
-    scores: 3,
+    scores: 4,
     url: "",
   },
   {
     name: "Outspin 720",
-    scores: 3,
+    scores: 4,
     url: "",
   },
   {
     name: "Inspin 900",
-    scores: 3,
+    scores: 5,
     url: "",
   },
   {
     name: "Outspin 900",
-    scores: 3,
+    scores: 5,
     url: "",
   },
 ];
@@ -148,22 +157,22 @@ const SPINS_TO_GRIND_GROOVE_FS = [
   },
   {
     name: "Outspin 270",
-    scores: 1,
-    url: "",
-  },
-  {
-    name: "Inspin 450",
     scores: 2,
     url: "",
   },
   {
-    name: "Outspin 630",
+    name: "Inspin 450",
     scores: 3,
     url: "",
   },
   {
+    name: "Outspin 630",
+    scores: 4,
+    url: "",
+  },
+  {
     name: "Inspin 810",
-    scores: 3,
+    scores: 5,
     url: "",
   },
 ];
@@ -176,22 +185,22 @@ const SPINS_TO_GRIND_GROOVE_BS = [
   },
   {
     name: "Inspin 270",
-    scores: 1,
-    url: "",
-  },
-  {
-    name: "Outspin 450",
     scores: 2,
     url: "",
   },
   {
-    name: "Inspin 630",
+    name: "Outspin 450",
     scores: 3,
     url: "",
   },
   {
+    name: "Inspin 630",
+    scores: 4,
+    url: "",
+  },
+  {
     name: "Outspin 810",
-    scores: 3,
+    scores: 5,
     url: "",
   },
 ];
@@ -204,22 +213,22 @@ const SPINS_FAKIE_TO_GRIND_GROOVE_FS = [
   },
   {
     name: "Outspin 270",
-    scores: 1,
+    scores: 3,
     url: "",
   },
   {
     name: "Inspin 450",
-    scores: 2,
+    scores: 3,
     url: "",
   },
   {
     name: "Outspin 630",
-    scores: 3,
+    scores: 4,
     url: "",
   },
   {
     name: "Inspin 810",
-    scores: 3,
+    scores: 5,
     url: "",
   },
 ];
@@ -232,22 +241,107 @@ const SPINS_FAKIE_TO_GRIND_GROOVE_BS = [
   },
   {
     name: "Inspin 270",
-    scores: 1,
-    url: "",
-  },
-  {
-    name: "Outspin 450",
     scores: 2,
     url: "",
   },
   {
-    name: "Inspin 630",
+    name: "Outspin 450",
     scores: 3,
     url: "",
   },
   {
+    name: "Inspin 630",
+    scores: 4,
+    url: "",
+  },
+  {
     name: "Outspin 810",
+    scores: 5,
+    url: "",
+  },
+];
+
+const SPINS_OFF_GRIND = [
+  {
+    name: "Inspin 180",
+    scores: 1,
+    url: "",
+  },
+  {
+    name: "Outspin 180 ",
+    scores: 1,
+    url: "",
+  },
+  {
+    name: "Outspin 360",
+    scores: 2,
+    url: "",
+  },
+  {
+    name: "Inspin 360",
+    scores: 2,
+    url: "",
+  },
+  {
+    name: "Outspin 540",
     scores: 3,
+    url: "",
+  },
+  {
+    name: "Inspin 540",
+    scores: 3,
+    url: "",
+  },
+  {
+    name: "Outspin 720",
+    scores: 4,
+    url: "",
+  },
+  {
+    name: "Inspin 720",
+    scores: 4,
+    url: "",
+  },
+  {
+    name: "Outspin 900",
+    scores: 5,
+    url: "",
+  },
+  {
+    name: "Inspin 900",
+    scores: 5,
+    url: "",
+  },
+];
+
+const SPINS_OFF_GROOVE_GRIND = [  {
+  name: "Forwards",
+  scores: 0,
+  url: "",
+},
+  {
+    name: "Fakie",
+    scores: 1,
+    url: "",
+  },
+  {
+    name: "270",
+    scores: 2,
+    url: "",
+  },
+  {
+    name: "450",
+    scores: 3,
+    url: "",
+  },
+  {
+    name: "630",
+    scores: 4,
+    url: "",
+  },
+  {
+    name: "810",
+    scores: 5,
     url: "",
   },
 ];
@@ -963,92 +1057,8 @@ const OBSTACLE_VARIATIONS = [
     url: "http://skateyeg.com/bog/14.0_Disaster.html",
   },
 ];
-// @TODO: Revert only if Inspin
-const SPINS_OFF_GRIND = [
-  {
-    name: "Inspin 180",
-    scores: 1,
-    url: "",
-  },
-  {
-    name: "Outspin 180 ",
-    scores: 1,
-    url: "",
-  },
-  {
-    name: "Outspin 360",
-    scores: 2,
-    url: "",
-  },
-  {
-    name: "Inspin 360",
-    scores: 2,
-    url: "",
-  },
-  {
-    name: "Outspin 540",
-    scores: 3,
-    url: "",
-  },
-  {
-    name: "Inspin 540",
-    scores: 3,
-    url: "",
-  },
-  {
-    name: "Outspin 720",
-    scores: 3,
-    url: "",
-  },
-  {
-    name: "Inspin 720",
-    scores: 3,
-    url: "",
-  },
-  {
-    name: "Outspin 900",
-    scores: 3,
-    url: "",
-  },
-  {
-    name: "Inspin 900",
-    scores: 3,
-    url: "",
-  },
-];
+ 
 
-const SPINS_OFF_GROOVE_GRIND = [
-  {
-    name: "Fakie",
-    scores: 1,
-    url: "",
-  },
-  {
-    name: "Forwards",
-    scores: 0,
-    url: "",
-  },
-  {
-    name: "270",
-    scores: 1,
-    url: "",
-  },
-  {
-    name: "450",
-    scores: 2,
-    url: "",
-  },
-  {
-    name: "630",
-    scores: 3,
-    url: "",
-  },
-  {
-    name: "810",
-    scores: 3,
-    url: "",
-  },
-];
 
 const GLOSSARY = {
   // parsed tokens
@@ -1167,29 +1177,7 @@ export class Trickdata {
       GRIND_SYNONYMS_THUMB,
       GLOSSARY,
     };
-  } /*
-  filterSoulGrinds() {
-    const filteredGrinds = GRINDS_FOR_SLOTS.filter((g) => {
-      return v.isGrooveGrind === false;
-    });
-    return filteredGrinds;
-  }
-  filterGrooveGrinds() {
-    const filteredGrinds = GRINDS_FOR_SLOTS.filter((g) => {
-      return v.isGrooveGrind === true;
-    });
-    return filteredGrinds;
-  }
-
-  filterGrindsByVariationName(grindVariationName) {
-    const filteredGrinds = GRINDS_FOR_SLOTS.filter((g) => {
-      let v = g.variations;
-      if (v.includes(grindVariationName)) {
-        return v;
-      }
-    });
-    return filteredGrinds;
-  }*/
+  }  
 
   getSpinToData(grind, approach = null) {
     let data = null;
