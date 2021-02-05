@@ -72,7 +72,7 @@ export class ResultParser {
       hasSpin,
       isGrooveGrind
     );
-    const spinName = this.parseSpinName(
+    const spinName = this.parseSpinTo(
       spinTo,
       isGrooveGrind,
       isInspin,
@@ -82,10 +82,10 @@ export class ResultParser {
 
     if (
       approachName &&
-      (spinName === "Halfcab" ||
-        spinName === "Fullcab" ||
-        spinName === "True Halfcab" ||
-        spinName === "True Fullcab")
+      (spinName.includes("Halfcab") ||
+        spinName.includes("Fullcab" )||
+        spinName.includes("True Halfcab") ||
+        spinName.includes("True Fullcab"))
     ) {
       approachName = approachName.replace("Fakie", "").replace(" ", "");
     }
@@ -116,17 +116,15 @@ export class ResultParser {
       isRough: isRough || false,
     });
 
-    result = this.parseSpinsAfter(result);
 
     // Fakie Switch Outspin 360 Tough Soul to 180 revert out
     // Zerospin BS Pudslide
     result = result.replace("Topside", "Top");
     result = result.replace("Alley-oop", "AO");
 
-    // Forwards
-    result = result.replace(/^Forwards /, "");
-    result = result.replace(/to Forwards out/g, "");
-
+    result = result.replace(/to Forwards out/g, ""); 
+    result = result.replace(/Forwards/g, ""); 
+    result = result.replace(/90 /, ""); 
     result = result.replace(/  /g, " ");
     result = result.replace(/  /g, " ");
     return {
@@ -134,42 +132,7 @@ export class ResultParser {
       orig: resultOrig.join(" | "),
     };
   }
-  parseSpinsAfter(result) {
-    //spinOff
-    result = result.replace("to Outspin 180", "to 180");
-    result = result.replace("to Inspin 180", "to 180");
-    result = result.replace("to Outspin 360", "to 360");
-    result = result.replace("to Inspin 360", "to 360");
-    result = result.replace("to Outspin 540", "to 540");
-    result = result.replace("to Inspin 540", "to 540");
-    result = result.replace("to Outspin 90 out", "");
-    result = result.replace("to Inspin 90 out", "");
-    result = result.replace("to Outspin 270", "to 270");
-    result = result.replace("to Inspin 270", "to 270");
-    result = result.replace("to Outspin 450", "to 450");
-    result = result.replace("to Inspin 450", "to 450");
-    // spinTo
-    result = result.replace("Inspin 360", "360");
-    result = result.replace("Outspin 90 ", "");
-    result = result.replace("Inspin 90 ", "");
-    result = result.replace("Outspin 270", "270");
-    result = result.replace("Inspin 270", "270");
-    result = result.replace("Outspin 450", "450");
-    result = result.replace("Inspin 450", "450");
-    result = result.replace("Inspin 450", "450");
-    result = result.replace("Inspin 720", " 720");
-
-    result = result.replace("Inspin 540", "540");
-    result = result.replace("Inspin 720", "720");
-    result = result.replace("Inspin 900", "900");
-    result = result.replace("Outspin 720", "Hurricane 720");
-
-    result = result.replace("Outspin 630", "630");
-    result = result.replace("Inspin 630", "630");
-    result = result.replace("Outspin 810", "810");
-    result = result.replace("Inspin 810", "810");
-    return result;
-  }
+   
 
   parseApproachName(approach, isFakie, hasSpin, isGrooveGrind) {
     let approachName =
@@ -193,91 +156,96 @@ export class ResultParser {
     return approachName;
   }
 
-  parseSpinName(spinTo, isGrooveGrind, isInspin, isOutspin, isFakie) {
+  parseSpinTo(spinTo, isGrooveGrind, isInspin, isOutspin, isFakie) {
     let spinName = spinTo && spinTo.winner.name ? spinTo.winner.name : "";
+    if (spinName === "") {
+      return spinName;
+    }
     if (!isGrooveGrind && !isFakie) {
-      if (isInspin && spinTo && spinTo.winner.name.includes("180")) {
-        spinName = "Alley-oop";
-      } else if (!isInspin && spinTo && spinTo.winner.name.includes("180")) {
-        spinName = "True";
-      }
-
-      if (isInspin && spinTo && spinTo.winner.name.includes("540")) {
-        spinName = "540 Alley-oop";
-      } else if (
-        !isInspin &&
-        spinTo &&
-        spinTo &&
-        spinTo.winner.name.includes("540")
-      ) {
-        spinName = "540 True";
-      }
-
-      if (isInspin && spinTo && spinTo.winner.name.includes("900")) {
-        spinName = "900 Alley-oop";
-      } else if (
-        !isInspin &&
-        spinTo &&
-        spinTo &&
-        spinTo.winner.name.includes("900")
-      ) {
-        spinName = "900 True";
-      }
-
-      if (!isInspin && spinTo && spinTo.winner.name.includes("360")) {
-        spinName = "Hurricane";
-      }
-      if (
-        isInspin &&
-        spinTo &&
-        spinTo.winner.name.includes("360") &&
-        !isFakie &&
-        !isGrooveGrind
-      ) {
-        spinName = "360";
+      if (spinTo.winner.name.includes("180")) {
+        if (isInspin) {
+          spinName = "Alley-oop";
+        } else {
+          spinName = "True";
+        }
+      } else if (spinTo.winner.name.includes("360")) {
+        if (isInspin) {
+          // ?
+          spinName = "360";
+        } else {
+          spinName = "Hurricane";
+        }
+      } else if (spinTo.winner.name.includes("540")) {
+        if (isInspin) {
+          // ?
+          spinName = "540 Alley-oop";
+        } else {
+          spinName = "540 Hurricane";
+        }
+      } else if (spinTo.winner.name.includes("720")) {
+        if (isInspin) {
+          // ?
+          spinName = "720";
+        } else {
+          spinName = "720 Hurricane";
+        }
+      } else if (spinTo.winner.name.includes("900")) {
+        if (isInspin) {
+          // ?
+          spinName = "900 Alley-oop";
+        } else {
+          spinName = "900 Hurricane";
+        }
       }
     }
 
     if (!isGrooveGrind && isFakie) {
-      if (isInspin && spinTo && spinTo.winner.name.includes("180")) {
+      if (isInspin && spinTo.winner.name.includes("180")) {
         spinName = "Halfcab";
       }
-      if (isInspin && spinTo && spinTo.winner.name.includes("360")) {
+      if (isInspin && spinTo.winner.name.includes("360")) {
         spinName = "Fullcab";
       }
-      if (isOutspin && spinTo && spinTo.winner.name.includes("180")) {
+      if (isOutspin && spinTo.winner.name.includes("180")) {
         spinName = "True Halfcab";
       }
-      if (isOutspin && spinTo && spinTo.winner.name.includes("360")) {
+      if (isOutspin && spinTo.winner.name.includes("360")) {
         spinName = "True Fullcab";
       }
+      if (isOutspin && spinTo.winner.name.includes("540")) {
+        spinName = "True Fullcab 540";
+      }
+      if (isOutspin && spinTo.winner.name.includes("720")) {
+        spinName = "True Fullcab 720";
+      }
+      if (isOutspin && spinTo.winner.name.includes("900")) {
+        spinName = "True Fullcab 900";
+      }
     }
-
+    //spinName = spinName.replace("90 ", " ");
+    spinName = spinName.replace("Inspin", "");
+    spinName = spinName.replace("Outspin", "");
+    
+     // spinName = spinName.replace("Forwards", ""); 
     return spinName;
   }
 
   parseSpinOff(spinOff, hasSpin, isInspin) {
-    let spinOffStr = spinOff.winner.name;
+    let spinName = spinOff.winner.name;
+    let isRevert = false;
     if (hasSpin) {
-      // get revert out
-      if (isInspin && spinOff.winner.name.includes("Inspin")) {
-        spinOffStr = spinOffStr.replace("Inspin", "");
-      }
       if (isInspin && spinOff.winner.name.includes("Outspin")) {
-        spinOffStr = spinOffStr.replace("Outspin", "");
-        spinOffStr += " revert";
-      }
-
-      if (!isInspin && spinOff.winner.name.includes("Inspin")) {
-        spinOffStr = spinOffStr.replace("Inspin", "");
-        spinOffStr += " revert";
-      }
-      if (!isInspin && spinOff.winner.name.includes("Outspin")) {
-        spinOffStr = spinOffStr.replace("Outspin", "");
+        isRevert = true;
+      } else if (!isInspin && spinOff.winner.name.includes("Inspin")) {
+        isRevert = true;
       }
     }
-
-    return spinOffStr;
+    spinName = spinName.replace("Inspin", "");
+    spinName = spinName.replace("Outspin", "");
+    spinName = isRevert ? spinName + " revert" : spinName;
+      // Forwards
+     // spinName = spinName.replace("Forwards", ""); 
+    return spinName;
   }
 
   meetsSynonymProps(syn, props) {
@@ -357,6 +325,15 @@ export class ResultParser {
     let html = "";
     let parseString = result.parsed.replace("Top ", "Topside");
     let rows = [];
+
+    let orig = result.orig; 
+    if(result.orig.includes("Inspin")) {
+      rows.push(this.renderHelpTableRow("Inspin", "", CONFIG.GLOSSARY.Inspin));
+    }
+    if(result.orig.includes("Outspin")) {
+      rows.push(this.renderHelpTableRow("Outspin", "", CONFIG.GLOSSARY.Outspin));
+    }
+ 
 
     for (const [term, comment] of Object.entries(CONFIG.GLOSSARY)) {
       if (

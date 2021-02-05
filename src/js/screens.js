@@ -145,7 +145,7 @@ export class Screens {
 
   // to do: alternatively: always scroll but have container with min padding, so it does not scroll unnecessary
   isElementInViewport(el) {
-    const topOffset = 100;
+    const topOffset = 65;
     let rect = el.getBoundingClientRect();
     //console.log(rect.top, rect.bottom);
     return (

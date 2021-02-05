@@ -660,7 +660,7 @@ export const testData = [
     ],
   },
   {
-    expected: "540 True Soul",
+    expected: "540 Hurricane Soul",
     data: [
       {
         name: "Approach",
@@ -675,7 +675,7 @@ export const testData = [
     ],
   },
   {
-    expected: "Hurricane 720 Soul",
+    expected: "720 Hurricane Soul",
     data: [
       {
         name: "Approach",
@@ -691,7 +691,7 @@ export const testData = [
   },
 
   {
-    expected: "Fakie Hurricane 720 Soul",
+    expected: "True Fullcab 720 Soul",
     data: [
       {
         name: "Approach",
@@ -722,7 +722,7 @@ export const testData = [
   },
 
   {
-    expected: "900 True Soul",
+    expected: "900 Hurricane Soul",
     data: [
       {
         name: "Approach",
@@ -811,6 +811,20 @@ export const testData = [
  //  David Sizemore (Hurricane Fish)
 //  Cyril Daniel (Disaster 450 Back Royale)
 
-
+{ 
+  expected: "True Fullcab 900 Makio", 
+  data: [
+    {
+      name: "Approach",
+      winner: {
+        name: "Fakie",
+        isFakie: true,
+        isSwitch: false,
+      },
+    },
+    { name: "Grind", winner: { name: "Makio" } },
+    { name: "SpinTo", winner: { name: "Outspin 900" } }, 
+  ],
+},
 
 ];
