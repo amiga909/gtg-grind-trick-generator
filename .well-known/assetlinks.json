@@ -3,7 +3,7 @@
     "relation": ["delegate_permission/common.handle_all_urls"],
     "target": {
       "namespace": "android_app",
-      "package_name": "com.aightgame.twa",
+      "package_name": "com.aightgame.www.twa",
       "sha256_cert_fingerprints": [
         "6E:B9:0E:B8:51:C3:CD:29:74:0A:51:1E:BA:9B:9E:40:F0:87:9C:30:60:2A:3C:4C:E8:2D:5A:1F:03:0F:BF:9D",
         "CF:A5:99:11:25:A7:40:5B:79:84:0A:09:07:E7:63:B9:CA:29:E2:87:F9:87:2B:D7:28:7F:D6:DB:FA:22:86:D4"
