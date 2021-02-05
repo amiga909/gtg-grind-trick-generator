@@ -1079,8 +1079,8 @@ const GLOSSARY = {
   810: "720 spin to/off a groove grind. The longer way (720 + 90 degrees).",
   630: "720 spin to/off a groove grind. The shorter way (720 - 90 degrees).",
   Inspin:
-    "If the obstacle is on the left, Inspin is to the left (counter-clockwise). If the obstacle is on the right,  Inspin is to the right (clockwise). Vice versa if approach is Fakie.",
-  Outspin: `("Blindside") If the obstacle is on the left, Outspin is to the right (clockwise). If the obstacle is on the right, Outspin is to the left (counter-clockwise). Vice versa if approach is Fakie.`,
+    "If the obstacle is on the left, Inspin is to the left (counter-clockwise). If the obstacle is on the right,  Inspin is to the right (clockwise).",
+  Outspin: `("Blindside") If the obstacle is on the left, Outspin is to the right (clockwise). If the obstacle is on the right, Outspin is to the left (counter-clockwise).`,
   Switch: "(Unnatural) Grinding in the unnatural mirrored position of a grind.",
   Fakie:
     "Approach obstacle skating backwards. Also used for landing a groove grind backwards with no rotation (Royale to Fakie).",
