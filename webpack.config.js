@@ -1,6 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
-const { GenerateSW } = require("workbox-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
+const {InjectManifest} = require('workbox-webpack-plugin');
 
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const outputPath = "public/build/";
@@ -20,7 +21,18 @@ module.exports = (env = {}, argv) => {
         jQuery: "jquery",
         "window.jQuery": "jquery",
       }),
-      new GenerateSW(),
+      new InjectManifest({
+        swSrc: '/src/service-worker.js',
+        swDest: './service-worker.js', 
+      }),
+      // for inject manifest
+      new CopyPlugin({
+        patterns: [
+          { from: "public/assets", to: "public/assets" },
+          { from: "public/img", to: "public/img" },
+          { from: "public/fonts", to: "public/img" },
+        ],
+      }),
     ],
     output: {
       path: path.resolve(__dirname, outputPath),
@@ -128,6 +140,28 @@ module.exports = (env = {}, argv) => {
             },
           ],
         },
+       /* {
+          test: /\.(html)$/,
+          use: {
+            loader: "html-loader",
+            options: {
+              
+              attributes: {root: 'public',
+                list: [
+                  {
+                    tag: "img",
+                    attribute: "src",
+                    type: "src",
+                  },
+                   
+                ],
+                urlFilter: (attribute, value, resourcePath) => {
+                  //console.log(value)
+                },
+              },
+            },
+          },
+        },*/
       ],
     },
   };
