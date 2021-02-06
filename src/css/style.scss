@@ -160,13 +160,7 @@ p {
   background-repeat: no-repeat;
   position: absolute;
 }
-.banner-head-logo-text-sub {
-  position: absolute;
-  right: 0;
-  top: 0;
-  margin-top: 10px;
-  margin-right: 19px;
-}
+ 
 .banner-head-logo-text {
   position: absolute;
   z-index: 0;
@@ -193,10 +187,7 @@ p {
     cursor: pointer;
   }
 }
-.banner-head-full-name-img {
-  position: absolute;
-  height: 30px;
-}
+ 
 
 .banner {
   height: 90px;
@@ -214,6 +205,23 @@ p {
 
 .banner-controls-container {
   margin-top: 12px;
+}
+
+.banner-about-text{
+  position: absolute;
+  bottom: 0px;
+  top: 0;
+  max-width: 30vw;
+  right: 0;
+    
+  text-align: right;
+  color: white;
+  margin-top: 8px;
+  margin-right: 10px;
+  font-size: 8px;
+  @media (min-width: $bp_tablet) {
+    font-size: 12px;
+  }
 }
 
 .bog-slot {
