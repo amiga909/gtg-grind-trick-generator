@@ -166,6 +166,7 @@ export class Configuration {
 
     this.$reset.on("click", (e) => {
       e.preventDefault();
+      $("body").html("reset app..");
       // clear sw app cache
       caches.keys().then(function (names) {
         for (let name of names) {
