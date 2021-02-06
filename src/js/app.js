@@ -1,5 +1,6 @@
 import "purecss/build/pure-min.css";
 import "purecss/build/grids-responsive-min.css";
+//import html from '../../public/index.html';
 
 import { Configuration } from "./configuration";
 import { SlotMachine } from "./slotmachine";
@@ -39,6 +40,7 @@ class GrindTrickRandomizer {
     this.$levelStartSelect = $("#start-screen-levels");
     this.$levelStartSelect.val(this.configurator.getLevel());
     this.$bannerLogoText = $("#banner-head-logo-text");
+    this.$bannerLogoAbout = $("#banner-about-text-link");
 
     this.slotSpeed = this.configurator.getSpeed();
     this.includedTricks = this.configurator.getIncludedTricks();
@@ -76,6 +78,10 @@ class GrindTrickRandomizer {
     this.$bannerLogoText.on("click", (e) => {
       location.reload();
     });
+    this.$bannerLogoAbout.on("click", (e) => {
+      location.reload();
+    });
+    
 
     $(".bog-slot").on("click", (e) => {
       if (this.isEndScreen) {
@@ -158,7 +164,7 @@ class GrindTrickRandomizer {
 
     this.$spinNextButton.on("click", (e) => {
       e.preventDefault();
-      this.$randomizeButtonSlots.trigger("click");
+     this.triggerNextSpin();
     });
   }
 
@@ -171,7 +177,11 @@ class GrindTrickRandomizer {
       this.slotMachineResult.orig,
       score
     );
+this.triggerNextSpin();
+ 
+  }
 
+  triggerNextSpin(){
     if (this.scoreboard.isLastSpin()) {
       this.gameOverScreen.render(
         this.scoreboard.points,
