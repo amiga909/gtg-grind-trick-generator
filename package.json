@@ -14,11 +14,7 @@
     "jquery-slotmachine": "^4.0.1",
     "purecss": "^2.0.3",
     "tippy.js": "^6.2.7",
-    "workbox-google-analytics": "^6.1.0",
-    "workbox-precaching": "^6.1.0",
-    "workbox-recipes": "^6.1.0",
-    "workbox-routing": "^6.1.0",
-    "workbox-strategies": "^6.1.0"
+    "workbox-google-analytics": "^6.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
@@ -57,7 +53,7 @@
   },
   "scripts": {
     "start": "node ./index.js",
-    "build": "rm -rf public/build/*; node_modules/.bin/webpack --mode production",
+    "build": "rm -rf public/*; node_modules/.bin/webpack --mode production",
     "dev": "rm -rf public/build/*; webpack --mode development --watch",
     "dev-no-watch": "rm -rf public/build/*; webpack --mode development",
     "lint": "node_modules/.bin/eslint ./src/js --fix --ext .js;",

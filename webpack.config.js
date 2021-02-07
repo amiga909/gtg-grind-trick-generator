@@ -4,7 +4,7 @@ const CopyPlugin = require("copy-webpack-plugin");
 const {InjectManifest} = require('workbox-webpack-plugin');
 
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const outputPath = "public/build/";
+const outputPath = "public/";
 
 module.exports = (env = {}, argv) => {
   const isProduction = argv.mode === "production";
@@ -21,16 +21,17 @@ module.exports = (env = {}, argv) => {
         jQuery: "jquery",
         "window.jQuery": "jquery",
       }),
-      new InjectManifest({
+      new InjectManifest({ 
         swSrc: '/src/service-worker.js',
-        swDest: './service-worker.js', 
+        swDest: '../../sw.js', 
       }),
       // for inject manifest
       new CopyPlugin({
         patterns: [
-          { from: "public/assets", to: "public/assets" },
-          { from: "public/img", to: "public/img" },
-          { from: "public/fonts", to: "public/img" },
+          { from: "src/assets", to: "assets" },
+          { from: "src/img", to: "img" },
+          { from: "src/fonts", to: "fonts" },
+          { from: "src/index.html", to: "index.html" },
         ],
       }),
     ],
