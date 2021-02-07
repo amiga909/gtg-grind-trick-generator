@@ -108,7 +108,7 @@ export class SlotMachine {
     this.slots.forEach((slot) => {
       if (slot.state === SLOT_STATES.disabled) { 
         // reset disabled before spin 
-        this.setSlotState(slot.name, SLOT_STATES.enabled, slot.dom.closest(".bog-slot"));
+       // this.setSlotState(slot.name, SLOT_STATES.enabled, slot.dom.closest(".bog-slot"));
       }
       if (slot.state !== SLOT_STATES.locked) {
         
