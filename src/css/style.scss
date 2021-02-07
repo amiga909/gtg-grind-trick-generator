@@ -507,12 +507,8 @@ p {
   color: #888;
   text-align: center;
   position: fixed;
-  @media (min-width: $bp_tablet) {
-    // android bug?
-    //position: absolute;
-    bottom: 200px;
-    
-  }
+  
+  
   bottom: 0px;
   height: 60px;
 
