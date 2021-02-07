@@ -58,7 +58,7 @@ const CONFIG = {
     text: "Start the game",
   },
   //
-  randomizeButton: {
+  "trickList-continueBtn": {
     screen: "Slotmachine",
     text: "Skip this trick",
   },
@@ -197,16 +197,8 @@ export class Tooltips {
     this.helpTooltips.forEach((t) => {
       if (t.instance.props.content) {
         if (t.screen === "all" || t.screen === this.screens.activeScreen) {
-          let isHideSpecial = false;
-          if (t.name === "randomizeButton") {
-            isHideSpecial = $("#randomizeButton").is(":visible") === false;
-          } else if (t.name === "endGameButton") {
-            isHideSpecial = $("#endGameButton").is(":visible") === false;
-          }
-          if (isHideSpecial === false) {
-            t.instance.enable();
-            t.instance.show();
-          }
+          t.instance.enable();
+          t.instance.show();
         }
       }
     });

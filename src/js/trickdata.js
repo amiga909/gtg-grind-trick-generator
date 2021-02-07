@@ -116,7 +116,8 @@ const SPINS_FAKIE_TO_GRIND = [
     name: "Outspin 360",
     scores: 2,
     url: "",
-  },  {
+  },
+  {
     name: "Inspin 540",
     scores: 3,
     url: "",
@@ -314,11 +315,12 @@ const SPINS_OFF_GRIND = [
   },
 ];
 
-const SPINS_OFF_GROOVE_GRIND = [  {
-  name: "Forwards",
-  scores: 0,
-  url: "",
-},
+const SPINS_OFF_GROOVE_GRIND = [
+  {
+    name: "Forwards",
+    scores: 0,
+    url: "",
+  },
   {
     name: "Fakie",
     scores: 0,
@@ -1057,8 +1059,6 @@ const OBSTACLE_VARIATIONS = [
     url: "http://skateyeg.com/bog/14.0_Disaster.html",
   },
 ];
- 
-
 
 const GLOSSARY = {
   // parsed tokens
@@ -1177,7 +1177,7 @@ export class Trickdata {
       GRIND_SYNONYMS_THUMB,
       GLOSSARY,
     };
-  }  
+  }
 
   getSpinToData(grind, approach = null) {
     let data = null;

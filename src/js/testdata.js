@@ -737,7 +737,6 @@ export const testData = [
     ],
   },
 
-
   {
     expected: "Fakie 540 Top Soul",
     data: [
@@ -755,8 +754,8 @@ export const testData = [
     ],
   },
 
-  { 
-    expected: "540 Hurricane Top Soul",  
+  {
+    expected: "540 Hurricane Top Soul",
     data: [
       {
         name: "Approach",
@@ -772,8 +771,8 @@ export const testData = [
     ],
   },
 
-  { 
-    expected: "True Fullcab 720 Sweatstance", 
+  {
+    expected: "True Fullcab 720 Sweatstance",
     data: [
       {
         name: "Approach",
@@ -789,9 +788,9 @@ export const testData = [
     ],
   },
 
- //  David Sizemore (Hurricane Fish)
-  { 
-    expected: "Hurricane Fishbrain", 
+  //  David Sizemore (Hurricane Fish)
+  {
+    expected: "Hurricane Fishbrain",
     data: [
       {
         name: "Approach",
@@ -807,24 +806,23 @@ export const testData = [
     ],
   },
 
- // Fakie 630 Royale (Leading the Blind) 
- //  David Sizemore (Hurricane Fish)
-//  Cyril Daniel (Disaster 450 Back Royale)
+  // Fakie 630 Royale (Leading the Blind)
+  //  David Sizemore (Hurricane Fish)
+  //  Cyril Daniel (Disaster 450 Back Royale)
 
-{ 
-  expected: "True Fullcab 900 Makio", 
-  data: [
-    {
-      name: "Approach",
-      winner: {
-        name: "Fakie",
-        isFakie: true,
-        isSwitch: false,
+  {
+    expected: "True Fullcab 900 Makio",
+    data: [
+      {
+        name: "Approach",
+        winner: {
+          name: "Fakie",
+          isFakie: true,
+          isSwitch: false,
+        },
       },
-    },
-    { name: "Grind", winner: { name: "Makio" } },
-    { name: "SpinTo", winner: { name: "Outspin 900" } }, 
-  ],
-},
-
+      { name: "Grind", winner: { name: "Makio" } },
+      { name: "SpinTo", winner: { name: "Outspin 900" } },
+    ],
+  },
 ];

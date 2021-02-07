@@ -400,7 +400,7 @@ p {
   padding: 6px;
 }
 .endscreen-controls {
-  padding-top: 0px;padding-bottom: 8px;
+  padding-top: 4px;padding-bottom: 8px;
 
   @media (min-width: $bp_tablet) {
     padding-top: 12px;
@@ -671,7 +671,7 @@ body::-webkit-scrollbar-thumb {
   margin-left: -14px;
 }
 #trickList-continueBtn {
-  background-color: $slotLocked;
+  
 }
 .tricklist-controls {
   color: white;
@@ -1221,6 +1221,12 @@ body::-webkit-scrollbar-thumb {
   background-color: $redButton;
 }
 
+.add-trick-animation {
+  animation: startGameAnim 2s infinite;
+}
+.skip-trick-animation {
+  animation: startGameAnim 2s infinite;
+}
 .start-game-button {
   text-shadow: 0px 1px 0px #faffc7;
 
@@ -1351,6 +1357,12 @@ body::-webkit-scrollbar-thumb {
   font-size: 36px;
 }
 #gameOverTricks {
+  .resp-table-wrapper {
+    padding-top: 0;
+  }
+  h3 {
+    display: none;
+  }
   @media screen and (min-width: $bp_smartphone) {
     .resp-table {
       text-align: left;

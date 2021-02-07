@@ -21,13 +21,10 @@ class GrindTrickRandomizer {
   constructor() {
     this.$randomizeButtonStart = $("#randomizeButtonStart");
 
-    this.$randomizeButtonSlots = $("#randomizeButton");
-
     this.$soundOnOff = $("#sound");
 
     this.$addTricklistBtn = $("#addTricklistBtn");
     this.$helpBtn = $("#helpButton");
-    this.$endGameButton = $("#endGameButton");
 
     this.$spinNextButton = $("#trickList-continueBtn");
     this.$abortButton = $("#abortButton");
@@ -81,7 +78,6 @@ class GrindTrickRandomizer {
     this.$bannerLogoAbout.on("click", (e) => {
       location.reload();
     });
-    
 
     $(".bog-slot").on("click", (e) => {
       if (this.isEndScreen) {
@@ -115,12 +111,6 @@ class GrindTrickRandomizer {
       this.tricklist.clearList();
       this.onClickStart();
     });
-    this.$randomizeButtonSlots.on("click", (e) => {
-      e.preventDefault();
-      if (!this.hasTokenErrorPrompt()) {
-        this.onClickStart();
-      }
-    });
 
     this.$soundOnOff.on("click", (e) => {
       e.preventDefault();
@@ -148,15 +138,6 @@ class GrindTrickRandomizer {
       }
     });
 
-    this.$endGameButton.on("click", (e) => {
-      this.gameOverScreen.render(
-        this.scoreboard.points,
-        this.tricklist.getStorage()
-      );
-
-      this.screens.show("GameOver", "up");
-    });
-
     this.$abortButton.on("click", (e) => {
       e.preventDefault();
       location.reload();
@@ -164,7 +145,7 @@ class GrindTrickRandomizer {
 
     this.$spinNextButton.on("click", (e) => {
       e.preventDefault();
-     this.triggerNextSpin();
+      this.triggerNextSpin();
     });
   }
 
@@ -177,19 +158,18 @@ class GrindTrickRandomizer {
       this.slotMachineResult.orig,
       score
     );
-this.triggerNextSpin();
- 
+    this.triggerNextSpin();
   }
 
-  triggerNextSpin(){
+  triggerNextSpin() {
     if (this.scoreboard.isLastSpin()) {
       this.gameOverScreen.render(
         this.scoreboard.points,
         this.tricklist.getStorage()
       );
       this.screens.show("GameOver", "up");
-    } else {
-      this.$randomizeButtonSlots.trigger("click");
+    } else if (!this.hasTokenErrorPrompt()) {
+      this.onClickStart();
     }
   }
 

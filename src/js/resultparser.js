@@ -83,7 +83,7 @@ export class ResultParser {
     if (
       approachName &&
       (spinName.includes("Halfcab") ||
-        spinName.includes("Fullcab" )||
+        spinName.includes("Fullcab") ||
         spinName.includes("True Halfcab") ||
         spinName.includes("True Fullcab"))
     ) {
@@ -116,15 +116,14 @@ export class ResultParser {
       isRough: isRough || false,
     });
 
-
     // Fakie Switch Outspin 360 Tough Soul to 180 revert out
     // Zerospin BS Pudslide
     result = result.replace("Topside", "Top");
     result = result.replace("Alley-oop", "AO");
 
-    result = result.replace(/to Forwards out/g, ""); 
-    result = result.replace(/Forwards/g, ""); 
-    result = result.replace(/90 /, ""); 
+    result = result.replace(/to Forwards out/g, "");
+    result = result.replace(/Forwards/g, "");
+    result = result.replace(/90 /, "");
     result = result.replace(/  /g, " ");
     result = result.replace(/  /g, " ");
     return {
@@ -132,7 +131,6 @@ export class ResultParser {
       orig: resultOrig.join(" | "),
     };
   }
-   
 
   parseApproachName(approach, isFakie, hasSpin, isGrooveGrind) {
     let approachName =
@@ -225,8 +223,8 @@ export class ResultParser {
     //spinName = spinName.replace("90 ", " ");
     spinName = spinName.replace("Inspin", "");
     spinName = spinName.replace("Outspin", "");
-    
-     // spinName = spinName.replace("Forwards", ""); 
+
+    // spinName = spinName.replace("Forwards", "");
     return spinName;
   }
 
@@ -243,8 +241,8 @@ export class ResultParser {
     spinName = spinName.replace("Inspin", "");
     spinName = spinName.replace("Outspin", "");
     spinName = isRevert ? spinName + " revert" : spinName;
-      // Forwards
-     // spinName = spinName.replace("Forwards", ""); 
+    // Forwards
+    // spinName = spinName.replace("Forwards", "");
     return spinName;
   }
 
@@ -326,14 +324,15 @@ export class ResultParser {
     let parseString = result.parsed.replace("Top ", "Topside");
     let rows = [];
 
-    let orig = result.orig; 
-    if(result.orig.includes("Inspin")) {
+    let orig = result.orig;
+    if (result.orig.includes("Inspin")) {
       rows.push(this.renderHelpTableRow("Inspin", "", CONFIG.GLOSSARY.Inspin));
     }
-    if(result.orig.includes("Outspin")) {
-      rows.push(this.renderHelpTableRow("Outspin", "", CONFIG.GLOSSARY.Outspin));
+    if (result.orig.includes("Outspin")) {
+      rows.push(
+        this.renderHelpTableRow("Outspin", "", CONFIG.GLOSSARY.Outspin)
+      );
     }
- 
 
     for (const [term, comment] of Object.entries(CONFIG.GLOSSARY)) {
       if (
