@@ -26,7 +26,10 @@ app.use((req, res, next) => {
 app.get("/sw.js", (request, response) => {
   response.sendFile("./sw.js", {root: __dirname });
 });
- 
+app.get("/sw.js.map", (request, response) => {
+  response.sendFile("./sw.js.map", {root: __dirname });
+});
+
 app.use(express.static(__dirname + '/public'));
  
  
