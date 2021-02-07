@@ -5,7 +5,7 @@ $fa-font-path: '../fonts';
 @import '~@fortawesome/fontawesome-free/scss/regular';
 
 * {
-  // box-shadow: 0 2px 2px rgba(230, 6, 6, 0.8);
+   //box-shadow: 0 2px 2px rgba(230, 6, 6, 0.8);
 }
 /*
 
@@ -33,6 +33,8 @@ modal / loading-screen / l-content-modal = 3
 1025px — 1200px: Desktops, large screens.
 */
 
+$maxWidthContent: 1000px; 
+$maxHeightContent: 1000px; 
 // breakpoints
 $bp_smallSmartphone: 320px;
 $bp_smartphone: 481px; // used for resp_table (580)
@@ -97,11 +99,12 @@ $startscreen-controls-text--tablet-FS: 18px;
 $startscreen-controls-text--desktop-FS: 20px;
 
 .body-wrapper {
-  max-width: 1000px;
+  /*
+  max-width: $maxWidthContent;
   margin: 0 auto;
   position: relative;
   height: 100vh;
-  max-height: 1000px;
+  max-height: 1000px;*/
 }
 
 body {
@@ -142,6 +145,7 @@ p {
   overflow: auto;
   margin-left: 12px;
   margin-right: 12px;
+  max-height: 1000px;
 }
 
 .pure-menu {
@@ -263,7 +267,7 @@ p {
 
 .bog-slots,
 .information {
-  max-width: 1000px;
+  max-width: $maxWidthContent;
   margin: 0 auto;
 }
 .bog-slots {
@@ -474,7 +478,7 @@ p {
   background-color: #111;
   color: white;
   width: 100%;
-  max-width: 1000px;
+  max-width: $maxWidthContent;
   margin: 0 auto;
 }
 
@@ -495,7 +499,7 @@ p {
   // padding-top: 20px; // android toolbar
   margin: 0 auto;
   font-size: 16px;
-  max-width: 1000px;
+  max-width:$maxWidthContent;
 }
 .footer {
   background: #111;
@@ -504,7 +508,9 @@ p {
   position: fixed;
   @media (min-width: $bp_tablet) {
     // android bug?
-    position: absolute;
+    //position: absolute;
+    bottom: 200px;
+    
   }
   bottom: 0px;
   height: 60px;
@@ -536,7 +542,7 @@ body::-webkit-scrollbar-thumb {
   display: none;
   color: white;
   padding: 12px;
-  max-width: 1000px;
+  max-width: $maxWidthContent;
   margin: 0 auto;
   position: relative;
   text-align: center;
@@ -623,23 +629,17 @@ body::-webkit-scrollbar-thumb {
 }
 
 .modal-screen {
-  max-width: 1000px;
+  max-width: $maxWidthContent;
   margin: 0 auto;
-  // overflow: auto;
-  //  max-height: 88vh !important;
-  //height: 100%;
+ 
   min-height: 100vh;
   z-index: 8;
-  // min-height: 100vh;
-  //  max-width: 950px;
-  //  margin: 0 auto;
+   
   display: none;
-  // position: relative;
+ 
   background-color: $bgFontColor;
 
-  //top: 90px;
-  // left: 0;
-  //  width: 100%;
+  
 
   // padding: 24px;
   color: white;
@@ -712,7 +712,7 @@ body::-webkit-scrollbar-thumb {
   top: 110px;
   // margin-right: 26px;
   z-index: 10000;
-  @media (min-width: 1000px) {
+  @media (min-width: $maxWidthContent) {
     position: absolute;
     top: 10px;
     right: 12px;

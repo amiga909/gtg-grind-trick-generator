@@ -4,7 +4,7 @@ const CURRENT_VERSION = "1.2.2";
 const LEVEL_CONFIG = {
   1: {
     spinsTotal: "5",
-    locksTotal: "2",
+    locksTotal: "4",
     removesTotal: "3",
     channelCheckbox: "off",
     christCheckbox: "off",
