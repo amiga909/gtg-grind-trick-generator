@@ -1,6 +1,5 @@
 import "purecss/build/pure-min.css";
 import "purecss/build/grids-responsive-min.css";
-//import html from '../../public/index.html';
 
 import { Configuration } from "./configuration";
 import { SlotMachine } from "./slotmachine";
@@ -13,7 +12,7 @@ import { Scoreboard } from "./scoreboard";
 import { GameOverScreen } from "./gameover-screen";
 import { Audioplayer } from "./audioplayer";
 
-console.log("test 2")
+console.log("test 4")
 let CONFIG = "";
 
 const DISABLE_SOUND = true;
