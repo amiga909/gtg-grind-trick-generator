@@ -13,8 +13,7 @@
     "jquery": "^3.5.1",
     "jquery-slotmachine": "^4.0.1",
     "purecss": "^2.0.3",
-    "tippy.js": "^6.2.7",
-    "workbox-google-analytics": "^6.1.0"
+    "tippy.js": "^6.2.7"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
@@ -48,17 +47,18 @@
     "webpack": "^5.12.2",
     "webpack-cli": "^4.3.0",
     "webpack-dev-server": "^3.11.0",
-    "workbox-cli": "^6.0.2",
-    "workbox-webpack-plugin": "^6.0.2"
+    "workbox-build": "^6.1.0",
+    "workbox-cli": "^6.0.2"
   },
   "scripts": {
     "start": "node ./index.js",
-    "build": "rm -rf public/*; node_modules/.bin/webpack --mode production",
+    "build": "rm -rf public/*; node_modules/.bin/webpack --mode production && npm run build-sw",
     "dev": "rm -rf public/build/*; webpack --mode development --watch",
-    "dev-no-watch": "rm -rf public/build/*; webpack --mode development",
+    "dev-sw": "rm -rf public/build/*; webpack --mode development && npm run build-sw",
+    "build-sw": "node workbox-build.js",
     "lint": "node_modules/.bin/eslint ./src/js --fix --ext .js;",
     "permutations": "node -r esm tools/permutations.js",
-    "heroku-postbuild": " npm run build"
+    "heroku-postbuild": "npm run build"
   },
   "author": "RH",
   "license": "ISC"

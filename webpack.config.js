@@ -1,7 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
-const CopyPlugin = require("copy-webpack-plugin");
-const {InjectManifest} = require('workbox-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin"); 
 
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const outputPath = "public/";
@@ -21,11 +20,8 @@ module.exports = (env = {}, argv) => {
         jQuery: "jquery",
         "window.jQuery": "jquery",
       }),
-      new InjectManifest({ 
-        swSrc: '/src/service-worker.js',
-        swDest: '../../sw.js', 
-      }),
-      // for inject manifest
+     
+      // for injectManifest
       new CopyPlugin({
         patterns: [
           { from: "src/assets", to: "assets" },
