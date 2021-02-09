@@ -24,10 +24,10 @@ app.use((req, res, next) => {
 });
 
 app.get("/sw.js", (request, response) => {
-  response.sendFile("./sw.js", {root: __dirname });
+  response.sendFile("public/sw.js", {root: __dirname });
 });
 app.get("/sw.js.map", (request, response) => {
-  response.sendFile("./sw.js.map", {root: __dirname });
+  response.sendFile("public/sw.js.map", {root: __dirname });
 });
 
 app.get("/vendor/workbox-v6.1.0/workbox-core.prod.js", (request, response) => {
