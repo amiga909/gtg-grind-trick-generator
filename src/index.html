@@ -40,6 +40,7 @@
       <img src="/img/score-20.svg"> 
       </span>
       <script>
+         console.log("v11 html")
          var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
          if (isChrome && 'serviceWorker' in navigator) {
            navigator.serviceWorker.register('./sw.js');
