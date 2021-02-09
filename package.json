@@ -55,7 +55,7 @@
     "build": "rm -rf public/*; node_modules/.bin/webpack --mode production && npm run build-sw",
     "dev": "rm -rf public/build/*; webpack --mode development --watch",
     "dev-sw": "rm -rf public/build/*; webpack --mode development && npm run build-sw",
-    "build-sw": "node workbox-build.js",
+    "build-sw": "node_modules/.bin/workbox generateSW workbox-config.js",
     "lint": "node_modules/.bin/eslint ./src/js --fix --ext .js;",
     "permutations": "node -r esm tools/permutations.js",
     "heroku-postbuild": "npm run build"

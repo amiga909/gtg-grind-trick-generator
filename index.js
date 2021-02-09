@@ -30,6 +30,11 @@ app.get("/sw.js.map", (request, response) => {
   response.sendFile("./sw.js.map", {root: __dirname });
 });
 
+app.get("/vendor/workbox-v6.1.0/workbox-core.prod.js", (request, response) => {
+  response.sendFile("./vendor/workbox-v6.1.0/workbox-core.prod.js", {root: __dirname });
+});
+
+
 app.use(express.static(__dirname + '/public'));
  
  
