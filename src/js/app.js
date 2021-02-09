@@ -12,7 +12,7 @@ import { Scoreboard } from "./scoreboard";
 import { GameOverScreen } from "./gameover-screen";
 import { Audioplayer } from "./audioplayer";
 
-alert("9")
+alert("10")
 let CONFIG = "";
 
 const DISABLE_SOUND = true;
