@@ -7,7 +7,7 @@ generateSW({
   globPatterns: [
     "**/*.{png,ico,json,txt,mp3,js,css,woff,ttf,woff2,jpg,svg,html}",
   ],
-  // Other configuration options...
+  mode: "production"
 }).then(({ count, size }) => {
   console.log(
     `Generated ${swDest}, which will precache ${count} files, totaling ${size} bytes.`
