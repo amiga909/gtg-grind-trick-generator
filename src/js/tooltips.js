@@ -15,7 +15,7 @@ const ERROR_MSG = {
     Toggle the reels to remove <i class="fa fa-lock fa-1x"></i> and 
     <i class="fa fa-ban fa-1x"></i> tokens from the slot machine.</span>`,
   dupeTrick: `<span style="color:${ERROR_MSG_COLOR};">Error. You already got that trick. 
-    Toggle the reels to change the trick or spin a new trick if you have spins left.</span>`,
+    Toggle the reels to change the trick or press skip to skip this spin.</span>`,
 };
 
 const CONFIG = {
@@ -24,20 +24,19 @@ const CONFIG = {
 
   logoText: {
     screen: "all",
-    text: "Home",
-    position: "",
+    text: "Home",    props: { placement: "left" },
   },
   helpBtn: {
     screen: "all",
     text: "Explain in-screen controls",
-    position: "",
   },
-  scoreboard: {
+  scoreboard_score: {
     screen: "all",
-    text: `Current score<br>
-    Remaining spins <i class="fa fa-play-circle fa-1x"></i> <br>
-    Remaining locks <i class="fa fa-lock fa-1x"></i> <br>
-    Remaining removes <i class="fa fa-ban fa-1x"></i> `, //props: { maxWidth: "150px" },
+    text: `Current score `,    props: { placement: "bottom" },
+  },
+  scoreboard_spins: {
+    screen: "all",
+    text: `Current spin / Total spins `,  
   },
   configButton: {
     screen: "all",

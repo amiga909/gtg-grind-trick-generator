@@ -200,14 +200,7 @@ class GrindTrickRandomizer {
 
   hasTokenErrorPrompt() {
     let hasPrompt = false;
-    if (!this.slotMachine.isValidState()) {
-      hasPrompt = true;
-      this.tooltips.updateTooltip(
-        "errorMsgTokens",
-        this.tooltips.ERROR_MSG.noMoreSpinningReels
-      );
-      this.tooltips.showTooltip("errorMsgTokens");
-    } else if (!this.scoreboard.isValidTokensCount()) {
+     if (!this.scoreboard.isValidTokensCount()) {
       hasPrompt = true;
       this.tooltips.updateTooltip(
         "errorMsgTokens",

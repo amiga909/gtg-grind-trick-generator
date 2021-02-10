@@ -83,7 +83,7 @@
                      </button> -->
                </div>
                <div class="pure-u-1-3 banner-controls-row">
-                  <div class="scoreboard scoreboard-active" data-p-tooltip="scoreboard">
+                  <div class="scoreboard scoreboard-active" >
 
                      <div style="display:none;" class="spinsLeftAnimation">
                         <div class="animateSpinsLeft animateSpinsLeftOne">
@@ -98,13 +98,13 @@
                         <div  class="pure-u-1-2 scoreboard-left">
                            <div class="scoreboard-points">
                               Score   
-                              <div id="sb-total-points"> 0 </div>
+                              <div data-p-tooltip="scoreboard_score"id="sb-total-points"> 0 </div>
                            </div>
                         </div>
                         <div   data-p-tooltip="errorMsgTokens" class="sb-tokens-container  pure-u-1-2 ">
                            <div class="scoreboard-spins">
                               Spins   
-                              <div class="scoreboard-spins-text"> 
+                              <div data-p-tooltip="scoreboard_spins" class="scoreboard-spins-text"> 
                               <span id="sb-spins-remaining">10</span> / <span id="sb-spins-total">10</span></div>
                                </div>
                            
@@ -126,7 +126,7 @@
                   </div>
                </div>
                <div class="pure-u-1-3 banner-controls-row">
-                  <button  data-p-tooltip="helpBtn" 
+                  <button 
                      class="pure-button pure-button-primary pure-button-primary-nav" 
                      id="helpButton">
                   <i class="fa fa-comments fa-2x"></i>
@@ -505,44 +505,41 @@
                         <li class="pure-menu-item"> Earn points </li>
                         <li class="pure-menu-item"> Compete with friends or practice alone </li>
                      </ul>
-                        
-                        </p>  
-                        Features
-                     <div class="pure-menu  ">
-                        <ul class="aboutScreen-ul">
-                         
-                           <li class="pure-menu-item">  Slot machine interface</li>
-                           <li class="pure-menu-item">  Tricktionary</li>
-                           <li class="pure-menu-item">  Trick Configurator</li>
-                           <li class="pure-menu-item"> 50'000+ unique grind tricks </li>
-                           <li class="pure-menu-item"> Android App (link t.b.d) </li>
-                           <li class="pure-menu-item"> Web App: iOS, Mac, Windows (Chrome, Safari, Edge) </li>
-                           <li class="pure-menu-item"> Works offline (PWA App) </li>
-
-                        </ul>
                         <br>
-                     </div>
+                        </p>  
+                      
                      <h3>How to play</h3>
                      <p>
-                        The goal is to get the highest score possible. 
+                        The goal is to aim for the highest score possible and having fun mucking around with new tricks. 
+                        <br>
+                        
+                        Press start game and the slot machine spins a random grind trick. 
+
+
+                        If you can do the trick, do it and press the "AIGHT! I got this" button to collect the points. 
+                        <br>
+ 
+                        If you do not know what the trick is, press "Explain trick". 
                         <br>
                      
-                        Press start game and the slot machine spins a random grind trick. 
+                        If you want to do trick but make it easier, toggle the reels to disable parts of the trick. 
+                        The easier the trick gets, the fewer points you get. 
                         <br>
-                        Toggle the reels to disable parts of the trick. The easier the trick gets, the fewer points you get. 
-                        The grind reel in the middle can not be disabled. If you can not do the basic grind, you have to skip the trick. 
+                        If you still can not do the trick, press the "Skip" button to advance the game. 
 
-                        If you can do the trick, do it and press the button to collect the points and open your trick list. 
-                        Press the next spin button to continue the game. If you have used your last spin, the game ends.  
                         <br>
-                        If you can not do the trick, you can skip and spin another trick. This uses one of your <i class="fa fa-play-circle fa-1x"></i> tokens.
-                        If you have used your last spin, the game ends. 
-                    
+
+                        The grind reel in the middle can not be disabled. If you can not do the basic grind, you have to skip the trick.
+                        By pressing the grind reel you can lock a grind for the next spin. You can use this to do another trick with this grind.
+                        Beware, you can only do a specific trick once per game. 
+
+ 
                         <br>
                         You can change the game settings in the configuration menu (<i class="fa fa-wrench fa-1x"></i>). 
 
                          
                      </p>  <br>
+                     <!-- 
                      <h3>Game Rules </h3>
                     
                      To add a trick and collect the points all must be true: 
@@ -567,7 +564,7 @@
                         <br>   The Grind reel can not be disabled. If you do a grind, the grind is removed from the reel, so you can do every grind only once per game.
                         You can use a <i class="fa fa-lock fa-1x"></i> token to do multiple variations with the same grind.   
                      </p>
-
+-->
 
                      
                     <!--   
@@ -671,6 +668,22 @@
                    
                      <div id="aboutScreenReferences"></div>
                      <p>
+
+                        Features
+                        <div class="pure-menu  ">
+                           <ul class="aboutScreen-ul">
+                            
+                              <li class="pure-menu-item">  Slot machine interface</li>
+                              <li class="pure-menu-item">  Tricktionary</li>
+                              <li class="pure-menu-item">  Trick Configurator</li>
+                              <li class="pure-menu-item"> 50'000+ unique grind tricks </li>
+                              <li class="pure-menu-item"> Android App (link t.b.d) </li>
+                              <li class="pure-menu-item"> Web App: iOS, Mac, Windows (Chrome, Safari, Edge) </li>
+                              <li class="pure-menu-item"> Works offline (PWA App, Chrome only) </li>
+   
+                           </ul>
+                          
+                        </div>
 <!--
                         I started the project to learn about grind tricks.  
                         I wanted to know on how much grind tricks I am missing out. 
@@ -678,7 +691,7 @@
                         
                         The app demonstrates the possibility of a rule based blade trick generator. 
                         Total waste of time? Yeah, it is a freestyle sport, if there was 
- -->
+ --> <p>  
                         The main idea is to split every grind trick into 5 phases: approach, spin to grind, grind, grind variation and spin off grind. 
                         Then, randomize the phases individually and translate the randomized phases back to a blading trick name.
                          <br> The app is just about single grind tricks and does not consider jumps or switch ups. 
