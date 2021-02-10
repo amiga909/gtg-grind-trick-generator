@@ -80,7 +80,7 @@ const CONFIG = {
   },
   grindReel: {
     screen: "Slotmachine",
-    text: `Press a reel to lock it ( <i class="fa fa-lock fa-1x"></i>), press again to disable (<i class="fa fa-ban fa-1x"></i>), press again to enable.`,
+    text: `Press a reel to disable (<i class="fa fa-ban fa-1x"></i>), press again to enable. Press the GRIND reel to lock ( <i class="fa fa-lock fa-1x"></i>), press again to unlock`,
   },
   tricklistBtn: {
     screen: "Slotmachine",
