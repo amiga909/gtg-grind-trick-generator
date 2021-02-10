@@ -31,10 +31,11 @@ export class Scoreboard {
 
   render() {
     // +1 show actual spin
-    let spinNo = parseInt(this.spins,10);
-  
-    spinNo = spinNo === parseInt(this.tokensTotal.spins,10) ? spinNo : spinNo + 1; 
-  
+    let spinNo = parseInt(this.spins, 10);
+
+    spinNo =
+      spinNo === parseInt(this.tokensTotal.spins, 10) ? spinNo : spinNo + 1;
+
     this.$spinsRemaining.html(spinNo);
     this.$locksRemaining.html(this.locks);
     if (this.locks < 0) {

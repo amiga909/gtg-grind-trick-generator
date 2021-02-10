@@ -420,11 +420,12 @@
                            <br>
                            <label   for="spinsTotalInput">Spins per game</label>
                            <input maxlength="2" class="config-number-input" id="spinsTotalInput" inputmode="numeric" pattern="[0-9]{1,2}"> 
+                          <span style="display:none;"> 
                            <label   for="spinsLocksInput">Lock tokens per game</label>
                            <input  maxlength="1"  class="config-number-input" id="spinsLocksInput" inputmode="numeric" pattern="[0-9]"> 
                            <label   for="removesTotalInput">Remove tokens per game</label>
                            <input maxlength="1"class="config-number-input" id="removesTotalInput" inputmode="numeric" pattern="[0-9]"> 
-                           <br> 
+                        </span>  <br> 
                            <!--   <label   for="soundSelect">Select sound</label>
                               <select id="soundSelect" class="pure-select">
                                    <option value="1">Joker</option>
@@ -500,10 +501,10 @@
                        <br> -->
                      This is a dice game app for blading. 
                        <ul class="aboutScreen-ul">
-                        <li class="pure-menu-item">  Spin the slot machine </li>
-                        <li class="pure-menu-item">  Do the tricks </li>
-                        <li class="pure-menu-item"> Earn points </li>
-                        <li class="pure-menu-item"> Compete with friends or practice alone </li>
+                        <li class="pure-menu-item">  <p> Spin the slot machine  </p> </li>
+                        <li class="pure-menu-item">   <p> Do the tricks </p> </li>
+                        <li class="pure-menu-item">  <p> Earn points  </p></li>
+                        <li class="pure-menu-item">  <p> Compete with friends or practice alone </p> </li>
                      </ul>
                         <br>
                         </p>  
@@ -567,8 +568,8 @@
 -->
 
                      
-                    <!--   
-                     <h5>Main Screen Controls</h5>
+<h3>Controls</h3>
+                     <h5>Navigation</h5>
                      <table class="pure-table">
                         <thead>
                            <tr>
@@ -577,17 +578,17 @@
                            </tr>
                         </thead>
                         <tbody>
-                           <tr>
+                         <!--   <tr>
                               <td> <i class="fa fa-volume-up  fa-2x"></i> </td>
                               <td>Unmute/Mute sound effects</td>
                            </tr>
                            <tr>
                               <td> <i class="fa fa-play-circle fa-2x"></i> </td>
                               <td>Generate a new random grind trick </td>
-                           </tr>
+                           </tr>-->
                            <tr>
                               <td> <i class="fa fa-comments fa-2x"></i> </td>
-                              <td>Display info about on-screen controls   </td>
+                              <td>Display info about on-screen controls.   </td>
                            </tr>
                            <tr>
                               <td> <i class="fa fa-wrench  fa-2x"></i> </td>
@@ -595,16 +596,16 @@
                            </tr>
                            <tr>
                               <td> <i class="fa fa-book fa-2x"></i> </td>
-                              <td>Look up trick names</td>
+                              <td>Look up trick names and trick naming discussions.</td>
                            </tr>
                            <tr>
                               <td><i class="fa fa-info-circle fa-2x"></i> </td>
-                              <td>About this web app</td>
+                              <td>Show this screen.</td>
                            </tr>
                         </tbody>
                      </table>
                     
-                        <h5><i class="fa fa-wrench  fa-2x"></i> Configuration screen</h5>
+                        <h5>Slot machine</h5>
                         <table class="pure-table">
                            <thead>
                               <tr>
@@ -613,8 +614,35 @@
                               </tr>
                            </thead>
                            <tbody>
+                              <tr>
+                                 <td> <i class="fa fa-question-circle   fa-2x"></i> </td>
+                                 <td>Show description of the current trick.</td>
+                              </tr>
+
+                              <tr>
+                                 <td> <i class="fa fa-forward   fa-2x"></i> </td>
+                                 <td>Skip this trick and spin the next trick. If this is the last spin, the game ends.</td>
+                              </tr>
+
+                              <tr>
+                                 <td> <img  class="bogSlot-score-img" src="img/score-1.svg"> </td>
+                                 <td>Do the trick and collect the points. The trick is added to your tricklist. If this is the last spin, the game ends.</td>
+                              </tr>
+
+
+                              <tr>
+                                 <td> <i class="fa fa-eject   fa-2x"></i> </td>
+                                 <td>Give up and restart the game.</td>
+                              </tr>
+
+
+                              <tr>
+                                 <td> <i class="fa fa-list-ul    fa-2x"></i> </td>
+                                 <td>Show the tricks you have done so far.</td>
+                              </tr>
                            </tbody>
                         </table>
+                        <!-- 
                         <h5><i class="fa fa-list fa-1x"></i> Trick List screen</h5>
                         <table class="pure-table">
                            <thead>
@@ -643,7 +671,7 @@
                                  <td> <i class="fa fa-times  fa-2x"></i> </td>
                                  <td>Close screen</td>
                               </tr>
-                           </tbody>
+                           </tbody> 
                         </table>
                         <h5><i class="fa fa-info-circle fa-1x"></i> About screen</h5>
                         <table class="pure-table">
@@ -661,8 +689,8 @@
                            </tbody>
                         </table>
                         
-                        
                         -->
+                       
                      <br>
                      
                    
@@ -772,9 +800,7 @@
                         <li>
                            <p> Average grinds: all the other grinds  </p>
                         </li>
-                        <li>
-                           <p> The other parts of the trick (approach, spin to, variation, spin off) also have a rating of 1, 2 or 3. The maximum score for a trick is 15 points.</p>
-                        </li>
+                        
                      </ul>
                      </p>
                   </div>

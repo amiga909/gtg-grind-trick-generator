@@ -12,7 +12,7 @@ import { Scoreboard } from "./scoreboard";
 import { GameOverScreen } from "./gameover-screen";
 import { Audioplayer } from "./audioplayer";
 
-console.log("v.11")
+console.log("v.11");
 let CONFIG = "";
 
 const DISABLE_SOUND = true;
@@ -127,7 +127,8 @@ class GrindTrickRandomizer {
     }
 
     this.$addTricklistBtn.on("click", () => {
-      if  (!this.hasTrickDupeErrorPrompt()) { // (!this.hasTokenErrorPrompt() &&
+      if (!this.hasTrickDupeErrorPrompt()) {
+        // (!this.hasTokenErrorPrompt() &&
         this.addToTricklist(this.scoreboard.isLastSpin());
       }
     });
@@ -200,7 +201,7 @@ class GrindTrickRandomizer {
 
   hasTokenErrorPrompt() {
     let hasPrompt = false;
-     if (!this.scoreboard.isValidTokensCount()) {
+    if (!this.scoreboard.isValidTokensCount()) {
       hasPrompt = true;
       this.tooltips.updateTooltip(
         "errorMsgTokens",

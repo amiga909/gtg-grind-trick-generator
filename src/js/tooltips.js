@@ -24,7 +24,8 @@ const CONFIG = {
 
   logoText: {
     screen: "all",
-    text: "Home",    props: { placement: "left" },
+    text: "Home",
+    props: { placement: "left" },
   },
   helpBtn: {
     screen: "all",
@@ -32,11 +33,12 @@ const CONFIG = {
   },
   scoreboard_score: {
     screen: "all",
-    text: `Current score `,    props: { placement: "bottom" },
+    text: `Current score `,
+    props: { placement: "bottom" },
   },
   scoreboard_spins: {
     screen: "all",
-    text: `Current spin / Total spins `,  
+    text: `Current spin / Total spins `,
   },
   configButton: {
     screen: "all",

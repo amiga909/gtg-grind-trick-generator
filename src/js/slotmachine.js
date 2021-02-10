@@ -39,7 +39,6 @@ export class SlotMachine {
   }
 
   initSlots() {
- 
     this.slots = [
       {
         name: "Grind",
@@ -55,7 +54,7 @@ export class SlotMachine {
         next: this.hasNoApproachSlot ? 3 : 2,
         machine: null,
         dom: this.$grindVariations,
-        data: null, 
+        data: null,
         state: SLOT_STATES.enabled,
         winner: null,
       },
@@ -106,15 +105,13 @@ export class SlotMachine {
   }
   onSpinStart() {
     this.slots.forEach((slot) => {
-      if (slot.state === SLOT_STATES.disabled) { 
-        // reset disabled before spin 
-       // this.setSlotState(slot.name, SLOT_STATES.enabled, slot.dom.closest(".bog-slot"));
+      if (slot.state === SLOT_STATES.disabled) {
+        // reset disabled before spin
+        // this.setSlotState(slot.name, SLOT_STATES.enabled, slot.dom.closest(".bog-slot"));
       }
       if (slot.state !== SLOT_STATES.locked) {
-        
         slot.dom.closest(".bog-slot-header").removeClass("bog-slot-visible");
         this.resetScore(slot.dom);
-        
       }
     });
   }
@@ -170,22 +167,23 @@ export class SlotMachine {
   getNextState(state, slotName) {
     let newState = "";
 
-    if(slotName === "Grind" ) {
-      return state === SLOT_STATES.locked ? SLOT_STATES.enabled  : SLOT_STATES.locked 
-    } 
+    if (slotName === "Grind") {
+      return state === SLOT_STATES.locked
+        ? SLOT_STATES.enabled
+        : SLOT_STATES.locked;
+    }
     if (state === SLOT_STATES.unavailable) {
       console.error("unavailable slot state", slotName, state);
     } else if (state === SLOT_STATES.enabled) {
       newState = SLOT_STATES.disabled;
     } else if (state === SLOT_STATES.disabled) {
-      newState =SLOT_STATES.enabled 
-       
+      newState = SLOT_STATES.enabled;
     } else if (state === SLOT_STATES.locked) {
       newState = SLOT_STATES.enabled;
     } else {
       console.error("invalid slot state", slotName, state);
     }
-    
+
     return newState;
   }
 
@@ -321,13 +319,13 @@ export class SlotMachine {
       this.hideScores($slot);
     }
 
-    if (state === SLOT_STATES.locked) { 
+    if (state === SLOT_STATES.locked) {
       $slot.find(".slot-state-lock-bg-icon--locked ").show();
       this.showScores($slot);
     } else {
       $slot.find(".slot-state-lock-bg-icon--locked").hide();
     }
-    if (state === SLOT_STATES.disabled) { 
+    if (state === SLOT_STATES.disabled) {
       $slot.find(".slot-state-lock-bg-icon--disabled").show();
       this.hideScores($slot);
     } else {
