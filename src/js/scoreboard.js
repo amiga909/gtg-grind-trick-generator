@@ -30,8 +30,12 @@ export class Scoreboard {
   }
 
   render() {
-    //this.$points.html(this.points);
-    this.$spinsRemaining.html(this.spins);
+    // +1 show actual spin
+    let spinNo = parseInt(this.spins,10);
+  
+    spinNo = spinNo === parseInt(this.tokensTotal.spins,10) ? spinNo : spinNo + 1; 
+  
+    this.$spinsRemaining.html(spinNo);
     this.$locksRemaining.html(this.locks);
     if (this.locks < 0) {
       this.$locksRemaining.addClass("token-in-minus");

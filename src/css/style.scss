@@ -1161,14 +1161,23 @@ body::-webkit-scrollbar-thumb {
 }
 .scoreboard-title {
 }
-.scoreboard-points {
-  font-size: $scoreboard-FS;
-  font-weight: bold;
+.scoreboard-points, .scoreboard-spins {
+  font-size: 18px;
+
   @media only screen and (min-width: $bp_tablet) {
     font-size: $scoreboard--tablet-FS;
   }
   @media only screen and (min-width: $bp_desktop) {
     font-size: $scoreboard--desktop-FS;
+  }
+}
+.scoreboard-points {
+  font-weight: bold;
+}
+.scoreboard-spins-text {
+  display: block;
+  @media only screen and (min-width: $bp_tablet) {
+    display:inline;
   }
 }
 
@@ -1178,12 +1187,12 @@ body::-webkit-scrollbar-thumb {
   @media only screen and (min-width: $bp_tablet) {
     display: flex;
     justify-content: space-between;
-    margin-top: 3px;
+   // margin-top: 3px;
   }
   @media only screen and (min-width: $bp_desktop) {
     display: flex;
     justify-content: space-between;
-    margin-top: 3px;
+   // margin-top: 3px;
   }
 }
 

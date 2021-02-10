@@ -1,5 +1,5 @@
 const VERSION_KEY = "aight-version";
-const CURRENT_VERSION = "1.2.2";
+const CURRENT_VERSION = "1.2.3";
 
 const LEVEL_CONFIG = {
   1: {
@@ -22,7 +22,7 @@ const LEVEL_CONFIG = {
   2: {
     spinsTotal: "5",
     locksTotal: "1",
-    removesTotal: "2",
+    removesTotal: "5",
     channelCheckbox: "off",
     christCheckbox: "on",
     heelRollCheckbox: "on",
@@ -39,7 +39,7 @@ const LEVEL_CONFIG = {
   3: {
     spinsTotal: "5",
     locksTotal: "1",
-    removesTotal: "1",
+    removesTotal: "5",
     channelCheckbox: "on",
     christCheckbox: "on",
     heelRollCheckbox: "on",
