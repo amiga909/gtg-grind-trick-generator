@@ -12,6 +12,8 @@ import { Scoreboard } from "./scoreboard";
 import { GameOverScreen } from "./gameover-screen";
 import { Audioplayer } from "./audioplayer";
 
+ 
+
 console.log("v.11");
 let CONFIG = "";
 
