@@ -1,0 +1,4 @@
+screencapture -x -R240,188,400,400 ./FSTabernacle.png
+mogrify    -format jpg  *.png
+mogrify   -path 200x200   -thumbnail 200x200  *
+mogrify   -path upped800  -resample 144 -resize 800x800  *

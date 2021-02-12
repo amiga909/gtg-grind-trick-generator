@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>AIGHT - Aggressive Inline Grind Hammer Trickgame</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+      <meta property="og:title"  content="AIGHT - Aggressive Inline Grind Hammer Trickgame" />
+      <meta property="og:description" content="" />
+      <meta property="og:image"    content="img/gtg-logo.svg" />
+      <link rel="manifest" href="assets/manifest.json">
+      <link rel="stylesheet" href="vendor.css" />
+      <link rel="stylesheet" href="style.min.css" />
+      <script src="vendor.js"></script>
+      <script src="app.js"></script>
+      <link rel="icon" type="image/png" href="img/favicon.png"/>
+   </head>
+   <body>
+      <!-- Preload Images -->
+      <span style="display:none;">
+      <img src="/img/thejokerblade-smaller-1x.jpg"> 
+      <img src="/img/thejokerblade-big.jpg"> 
+      <img src="/img/score-1.svg">
+      <img src="/img/score-2.svg">
+      <img src="/img/score-3.svg">
+      <img src="/img/score-4.svg">
+      <img src="/img/score-5.svg">
+      <img src="/img/score-6.svg">
+      <img src="/img/score-7.svg">
+      <img src="/img/score-8.svg">
+      <img src="/img/score-9.svg">
+      <img src="/img/score-10.svg"> 
+      <img src="/img/score-11.svg"> 
+      <img src="/img/score-12.svg"> 
+      <img src="/img/score-13.svg"> 
+      <img src="/img/score-14.svg">
+      <img src="/img/score-15.svg"> 
+      <img src="/img/score-16.svg"> 
+      <img src="/img/score-17.svg"> 
+      <img src="/img/score-18.svg"> 
+      <img src="/img/score-19.svg"> 
+      <img src="/img/score-20.svg"> 
+      </span>
+      <script>
+         var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+         if (isChrome && "serviceWorker" in navigator) {
+            // keep the page load performant
+            window.addEventListener("load", () => {
+               navigator.serviceWorker.register("/sw.js");
+            });
+         }
+      </script>
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-6ZDNNV6Q5M"></script>
+      <script>
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+         gtag('js', new Date());
+         
+         gtag('config', 'G-6ZDNNV6Q5M');
+      </script>
+      <div   class="body-wrapper">
+         <div id="tooltips-mask"> </div>
+         <div class="banner-logo"></div>
+
+         <div class="banner-about-text">
+            <a id="banner-about-text-link" href="#">Aggressive Inline Grind Hammer Trickgame v1.0</a>
+         </div>
+
+         <div class="banner">
+            <div class="banner-head">
+               
+               <div class="banner-head-full-name" >
+                  <img data-p-tooltip="logoText" id="banner-head-logo-text" class="banner-head-logo-text" src="img/gtg-logo-banner-text.svg"></img> 
+                  &nbsp; 
+                  
+                 
+               </div>
+            </div>
+            <div class="pure-g banner-controls-container">
+               <div class="pure-u-1-3 banner-controls-row" >
+                  <!-- 
+                     <button data-p-tooltip="soundButton"  class="pure-button pure-button-primary  pure-button-primary-nav pure-button-audioOn"
+                        id="sound">  
+                     <i style="display:none;" id="soundIconOn" class="fa fa-volume-up fa-2x"></i> <i id="soundIconOff"
+                        class="fa fa-volume-off fa-2x"></i>
+                     </button> -->
+               </div>
+               <div class="pure-u-1-3 banner-controls-row">
+                  <div class="scoreboard scoreboard-active" >
+
+                     <div style="display:none;" class="spinsLeftAnimation">
+                        <div class="animateSpinsLeft animateSpinsLeftOne">
+                           <span>9</span><span>&nbsp;</span> 
+                           <span> S</span><span>p</span><span>i</span><span>n</span><span>s</span><span>&nbsp;</span> 
+                         <span>l</span><span>e</span><span>f</span><span>t</span> 
+                     </div></div> 
+
+
+                     <!--    <div class="scoreboard-title">Scoreboard</div>     --> 
+                     <div class="pure-g  ">
+                        <div  class="pure-u-1-2 scoreboard-left">
+                           <div class="scoreboard-points">
+                              Score   
+                              <div data-p-tooltip="scoreboard_score"id="sb-total-points"> 0 </div>
+                           </div>
+                        </div>
+                        <div   data-p-tooltip="errorMsgTokens" class="sb-tokens-container  pure-u-1-2 ">
+                           <div class="scoreboard-spins">
+                              Spins   
+                              <div data-p-tooltip="scoreboard_spins" class="scoreboard-spins-text"> 
+                              <span id="sb-spins-remaining">10</span> / <span id="sb-spins-total">10</span></div>
+                               </div>
+                           
+                        <!--   <div class="sb-tokens sb-spins-total">  
+                              <i class="fa fa-play-circle fa-1x"></i> 
+                              
+                           </div>--> 
+                           <div style="display:none;" class="sb-tokens sb-locks-total">   
+                              <i class="fa fa-lock fa-1x"></i>&nbsp;
+                              <span id="sb-locks-remaining">10</span>/<span id="sb-locks-total">10</span>&nbsp;
+                           </div>
+                           <div style="display:none;" class="sb-tokens sb-removes-total">   
+                              <i class="fa fa-ban fa-1x"></i>&nbsp;
+                                
+                              <span id="sb-removes-remaining">10</span>/<span id="sb-removes-total">10</span>&nbsp;
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="pure-u-1-3 banner-controls-row">
+                  <button 
+                     class="pure-button pure-button-primary pure-button-primary-nav" 
+                     id="helpButton">
+                  <i class="fa fa-comments fa-2x"></i>
+                  </button>
+               </div>
+            </div>
+         </div>
+         <div class="l-content" >
+            <div class="  start-screen" id="start-screen">
+               <div class="start-screen-logo">  <img class="start-screen-logo-img"  src="img/gtg-logo.svg">  
+               </div>
+               <div   class="start-screen-controls">
+                  <div class="pure-g">
+                     <div class="pure-u-1-3">
+                        <!--      <div class="number-circle">1</div> --> 
+                        <button class="pure-button pure-button-primary pure-button-primary-nav " id="helpButtonStart">
+                        <i class="fa fa-comments fa-2x"></i> 
+                        </button> 
+                        <h2 >Show help</h2>
+                        <!--     
+                          
+                           "Be Gentle!"
+                           "Bring it on!"
+                           "I Own Doom!"
+                           "Watch Me Die!"
+                           
+                           Lame
+                           Wicked
+                           Insane
+                           
+                           Timid
+                           Simple
+                           Normal
+                           Heroic
+                           Legendary
+                                
+                           Tourist
+                           Easy
+                           Medium
+                           Hard
+                           Serious
+                           Mental.
+                           
+                           Sweet
+                           Mild
+                           Bitter
+                           
+                             <option selected>Be Gentle! (x1)</option>
+                                 <option >Bring it on!(x2)</option>
+                                 <option>I Own Doom!(x3)</option>
+                                 <option>Watch Me Die!(x4)</option>
+                           
+                              
+                              Chill
+                              wired
+                              chipped
+                              Fragged
+                              Freakers
+                              Jacked-In
+                              Drekky
+                              Shazzy
+                           
+                              
+                              Chill
+                              Wired
+                              Fragged
+                           
+                           -->
+                     </div>
+                     <div class="pure-u-1-3"  >
+                        <form class="pure-form pure-form-stacked">
+                           <fieldset>
+                              <select  data-p-tooltip="startLevelSelect"  class="start-screen-levels"   id="start-screen-levels">
+                                 <option value="1" selected>Chill</option>
+                                 <option value="2">Juicy</option>
+                                 <option value="3">Nuts</option>
+                              </select>
+                              <h2 >Select Level </h2>
+                           </fieldset>
+                        </form>
+                     </div>
+                     <div class="pure-u-1-3">
+                        <button  data-p-tooltip="startGame" class="start-game-button pure-button pure-button-primary pure-button-primary-nav " id="randomizeButtonStart">
+                        <i class="fa fa-play-circle fa-2x"></i>
+                        </button>
+                        <h2 >Start Game  </h2>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div id="slotmachine" class="bog-slots pure-g">
+               
+                 
+               <div id="tooltips-slots-mask"> </div>
+               <div class="pure-u-1 ">
+                  <div class="bog-slot bog-slot-1" data-name="Approach">
+                     <div class="slotBgIconContainer"> 
+                        <i style="display:none"  class=" slot-state-lock-bg-icon--disabled fa fa-ban fa-4x"></i> 
+                        <i style="display:none"  class="slot-state-lock-bg-icon--locked   fa fa-lock fa-4x"></i> 
+                     </div>
+                     <div class="slotBgIconContainerRight"></div>
+                     <div  class="bog-slot-header" >
+                        <h2  >
+                           <i style="display:none" class="slot-state-lock-icon fa fa-lock fa-1x"></i> 
+                           Approach / Switch
+                           <i style="display:none" class="slot-state-lock-icon fa fa-lock fa-1x"></i> 
+                        </h2>
+                        <div class="slot bog-slot-machine" id="approaches"></div>
+                     </div>
+                  </div>
+               </div>
+               <div class="pure-u-1 ">
+                  <div  class=" bog-slot bog-slot-free bog-slot-2" data-name="SpinTo">
+                     <div class="slotBgIconContainer"> 
+                        <i style="display:none"  class=" slot-state-lock-bg-icon--disabled fa fa-ban fa-4x"></i> 
+                        <i style="display:none"  class="slot-state-lock-bg-icon--locked   fa fa-lock fa-4x"></i> 
+                     </div>
+                     <div class="slotBgIconContainerRight"></div>
+                     <div  class="bog-slot-header">
+                        <h2   >
+                           <i style="display:none" class="slot-state-lock-icon fa fa-lock fa-1x"></i> 
+                           Spin to Grind  
+                           <i style="display:none" class="slot-state-lock-icon fa fa-lock fa-1x"></i> 
+                        </h2>
+                        <div   class="slot bog-slot-machine" id="spinsToGrind"></div>
+                     </div>
+                  </div>
+               </div>
+               <div class="pure-u-1 ">
+                  <div  class="bog-slot bog-slot-free bog-slot-3" data-name="Grind">
+                     <div class="slotBgIconContainer"> 
+                        <i style="display:none"  class=" slot-state-lock-bg-icon--disabled fa fa-ban fa-4x"></i> 
+                        <i style="display:none"  class="slot-state-lock-bg-icon--locked   fa fa-lock fa-4x"></i> 
+                     </div>
+                     <div class="slotBgIconContainerRight"></div>
+                     <div  class="bog-slot-header">
+                        <h2 >
+                           <i style="display:none" class="slot-state-lock-icon fa fa-lock fa-1x"></i> 
+                           Grind  
+                           <i style="display:none" class="slot-state-lock-icon fa fa-lock fa-1x"></i> 
+                        </h2>
+                        <div class="slot bog-slot-machine" id="grinds"></div>
+                     </div>
+                  </div>
+               </div>
+               <div class="pure-u-1 ">
+                  <div class="bog-slot bog-slot-free bog-slot-4" data-name="GrindVariation">
+                     <div class="slotBgIconContainer"> 
+                        <i style="display:none"  class="slot-state-lock-bg-icon--disabled fa fa-ban fa-4x"></i> 
+                        <i style="display:none"  class="slot-state-lock-bg-icon--locked fa fa-lock fa-4x"></i> 
+                     </div>
+                     <div class="slotBgIconContainerRight"></div>
+                     <div   class="bog-slot-header">
+                        <h2  >
+                           <i style="display:none" class="slot-state-lock-icon fa fa-lock fa-1x"></i> 
+                           Variation
+                           <i style="display:none" class="slot-state-lock-icon fa fa-lock fa-1x"></i> 
+                        </h2>
+                        <div class="slot bog-slot-machine" id="grindVariations"></div>
+                     </div>
+                  </div>
+               </div>
+               <div class="pure-u-1  ">
+                  <div data-p-tooltip="grindReel"  class="bog-slot bog-slot-free bog-slot-6" data-name="SpinOff">
+                     <div class="slotBgIconContainer"> 
+                        <i style="display:none"  class=" slot-state-lock-bg-icon--disabled fa fa-ban fa-4x"></i> 
+                        <i style="display:none"  class="slot-state-lock-bg-icon--locked   fa fa-lock fa-4x"></i> 
+                     </div>
+                     <div class="slotBgIconContainerRight"></div>
+                     <div  class="bog-slot-header">
+                        <h2   >
+                           <i style="display:none" class="slot-state-lock-icon fa fa-lock fa-1x"></i> 
+                           Spin off Grind
+                           <i style="display:none" class="slot-state-lock-icon fa fa-lock fa-1x"></i> 
+                        </h2>
+                        <div class="slot bog-slot-machine" id="spinsOffGrind"></div>
+                     </div>
+                  </div>
+               </div>
+               <div   class="pure-u-1 ">
+                  <div id="endScreen" >
+                     <div class="bog-slot-header-end" >
+                        <div class="slot"  data-p-tooltip="endScreen" id="endscreen-text"></div>
+                        <div class="pure-g endscreen-controls">
+                           <div class="pure-u-1-3">
+
+
+                              <button  data-p-tooltip="explainTrick"  class="  pure-button pure-button-primary  pure-button-primary-nav " 
+                              id="trickHelpButton">
+                           <i class="fa fa-question-circle fa-2x"></i>
+                           </button>
+                           <h2>Explain</h2>
+
+                           </div>
+                           <div class="pure-u-1-3">
+                              <div class="randomizeButton-container">
+                                 <button data-p-tooltip="trickList-continueBtn" class="skip-trick-animation pure-button pure-button-primary  pure-button-primary-nav  "
+                                  id="trickList-continueBtn">
+                                 <i style=" margin-left: 6px;" class="fa fa-forward fa-2x"></i>
+                                 </button>
+                                 <h2>Skip</h2>
+                              </div>
+ 
+
+                           </div>
+
+
+                           <div class="pure-u-1-3">
+                            
+                           <button   data-p-tooltip="addTricklistBtn" class="add-trick-animation pure-button pure-button-primary pure-button-primary-nav" id="addTricklistBtn">
+                              <img id="currentScore" class="bogSlot-score-img"> 
+                              </button>
+                              <h2>Aight! I got this</h2>
+
+                        </div>
+                        </div>
+                        <div class="pure-g endscreen-controls">
+                           <div class="pure-u-1-3">
+                              
+
+                              <button  data-p-tooltip="giveUpButton" id="abortButton" class="pure-button pure-button-primary pure-button-primary-nav">
+                                 <i class="fa fa-eject fa-2x"></i>
+                                 </button>
+                                 <h2>  Give up</h2>
+
+                           </div>
+                           <div class="pure-u-1-3">
+                           
+
+                           </div>
+                           <div class="pure-u-1-3">
+                        
+                         
+
+
+                           <button  data-p-tooltip="tricklistBtn"  class="  pure-button pure-button-primary  pure-button-primary-nav " 
+                           id="showTricklistButton">
+                        <i data-p-tooltip="errorMsgTricklist" class="fa fa-list-ul fa-2x"></i>
+                        </button>
+                        <h2>Show tricklist (<span id="tricklistBtn-count">0</span>) </h2>
+
+                             
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="pure-u-1 ">
+               </div>
+               <!-- end bog-slots -->
+            </div>
+            <div style="display:none;" id="modal-screen-window" class="modal-screen configuration-modal">
+               <div class="configuration-modal-text modal-screen-text modal-screen-header">
+                  <div class="configurator-right-close">
+                     <button id="modal-screen-close-btn" class="configurator-right-close-btn pure-button pure-button-primary">
+                     <i class="fa fa-times fa-2x"></i>
+                     </button>
+                  </div>
+                  <form action="#" class="pure-form pure-form-stacked">
+                     <fieldset>
+                        <legend class="tab-legend-configuration">
+                           <i id="modal-screen-title-icon" class=""></i> <span id="modal-screen-title"></span>
+                        </legend>
+                     </fieldset>
+                  </form>
+               </div>
+               <div id="modal-screen-content">
+                  <div style="display:none;" id="modal-screen--configuration" class="modal-screen-text">
+                     <form action="#"   class="pure-form pure-form-stacked">
+                        <fieldset>
+                           <label   for="levelSelect">Select options preset</label>
+                           <select data-p-tooltip="configLevelSelect" class="config-level-select pure-select" id="levelSelect" >
+                              <option value="1">Chill</option>
+                              <option value="2">Juicy</option>
+                              <option value="3">Nuts</option>
+                           </select>
+                           <br>
+                           <label data-p-tooltip="configManualOptions" >Set options manually</label>  
+                           <input  class="includeTricksCb"  id="fakie-select" type="checkbox"><label for="fakie-select"> Fakie tricks</label><br/>
+                           <input  class="includeTricksCb"  id="switch-select" type="checkbox"><label for="switch-select"> Switch tricks</label><br/>
+                           <input  class="includeTricksCb"  id="negative-select" type="checkbox"><label for="negative-select"> Negative grinds</label><br/>
+                           <input  class="includeTricksCb"  id="spins360-select" type="checkbox"><label for="spins360-select">360/270 spins</label> <br/>
+                           <input  class="includeTricksCb"  id="spins540-select" type="checkbox"><label for="spins540-select">540/450 spins</label> <br/>
+                           <input  class="includeTricksCb"  id="spins720-select" type="checkbox"><label for="spins720-select">720/630 spins</label> <br/>
+                           <input  class="includeTricksCb"  id="spins900-select" type="checkbox"><label for="spins900-select">900/810 spins</label> <br/>
+                           <input  class="includeTricksCb"  id="rough-select" type="checkbox"  ><label for="rough-select"> Rough/Heel grinds<br> (Teakettle, Rough Mizou, ..)</label> <br/>
+                           <input  class="includeTricksCb"  id="tough-select" type="checkbox"  ><label for="tough-select"> Tough/Toe grinds <br>(Tough Soyale, ..)</label> <br/>
+                           <input  class="includeTricksCb"  id="heelRoll-select" type="checkbox"><label for="heelRoll-select">Rare grinds <br>(Hot Dog, Citric Acid, Sidewalk, Wheelbarrow, Training Wheel, Biscuit, Byn Soul)</label> <br/>
+                           <input  class="includeTricksCb"  id="channel-select" type="checkbox"><label for="channel-select">Channel grinds</label> <br/>
+                           <input  class="includeTricksCb"  id="christ-select" type="checkbox"><label for="christ-select">Christ grinds</label> <br/>
+                           <br>
+                           <label   for="spinsTotalInput">Spins per game</label>
+                           <input maxlength="2" class="config-number-input" id="spinsTotalInput" inputmode="numeric" pattern="[0-9]{1,2}"> 
+                          <span style="display:none;"> 
+                           <label   for="spinsLocksInput">Lock tokens per game</label>
+                           <input  maxlength="1"  class="config-number-input" id="spinsLocksInput" inputmode="numeric" pattern="[0-9]"> 
+                           <label   for="removesTotalInput">Remove tokens per game</label>
+                           <input maxlength="1"class="config-number-input" id="removesTotalInput" inputmode="numeric" pattern="[0-9]"> 
+                        </span>  <br> 
+                           <!--   <label   for="soundSelect">Select sound</label>
+                              <select id="soundSelect" class="pure-select">
+                                   <option value="1">Joker</option>
+                                   <option value="2">Spark</option>
+                                   <option value="3">Yippie!</option>-->
+                           </select>
+                           <label   for="speedSelect">Select slot machine speed</label>
+                           <select data-p-tooltip="configSpeedSelect" id="speedSelect" class="pure-select">
+                              <option value="500">Very Slow</option>
+                              <option value="300">Slow</option>
+                              <option selected value="150">Normal</option>
+                              <option value="50">Fast</option>
+                              <option value="30">Very Fast</option>
+                           </select>
+                           <button data-p-tooltip="configSubmit" id="config-submit" class="pure-button pure-button-primary pure-button-disabled"
+                              >Apply&Restart</button>
+                           <button data-p-tooltip="configReset" id="config-reset"  
+                              class="pure-button pure-button-primary">Reset</button>
+                        </fieldset>
+                     </form>
+                  </div>
+                  <div style="display:none;"   id="modal-screen--tricklist" class="modal-screen-text">
+                     
+                     <div id="tricklist-table"></div>
+                     <div class="pure-g  tricklist-controls tricklist-controls-low ">
+                        <div class="pure-u-1-3  "></div>
+                        <div class="pure-u-1-3  ">
+                           
+                        </div>
+                        <div class="pure-u-1-3  "></div>
+                     </div>
+                  </div>
+                  <div style="display:none;"  id="modal-screen--about" class="modal-screen-text">
+
+                   <!--  
+                     <div class="pure-menu  tricktionary-toc">
+                        <span class="pure-menu-heading">TOC</span> 
+                        <ul class="pure-menu-list"> 
+                          <a class="pure-menu-link" href="#theGame">  The Game  
+                          </a>
+                          
+                          <a class="pure-menu-link" href="#howToPlay">  How to play
+                        </a>
+
+
+                        <a class="pure-menu-link" href="#rules">  Game rules 
+                        </a>
+
+                        <a class="pure-menu-link" href="#about">  References 
+                        </a>
+
+                        <a class="pure-menu-link" href="#about">  About AIGHT 
+                        </a>
+                          
+                        </ul>
+                        
+                     </div>-->
+                 
+
+                     <h3>The Game</h3>
+                   <!--     <p>  This is an aggressive inline grind trick game made for fun.  <br>
+                        Do you want to be rich? Really rich? Like, Bill Gates rich? Play this game if you are ready for a lifetime of obscene wealth. 
+                     </p>-->
+
+                        <p> 
+                            Once upon a time there was the kingdom of blade, it was full of splendor and joy. 
+                            Evil forces have cast a dark shadow over the lands, and you must save the kingdom. 
+                           Cross the seven rivers of silver silk, pass the fiery mountains of gloom and slay the dragon of bail 
+                           to collect the golden soul plate of eternity.
+                        <br>
+                        <br>
+                       Well.. if this sounds like too much trouble, just have some fun with this 
+                       nutty little blading dice game.
+                       <br>  
+                    
+                       <ul class="aboutScreen-ul">
+                        <li class="pure-menu-item">  <p> Spin the slot machine  </p> </li>
+                        <li class="pure-menu-item">   <p> Do the tricks </p> </li>
+                        <li class="pure-menu-item">  <p> Earn points  </p></li>
+                        <li class="pure-menu-item">  <p> Compete with friends or practice alone </p> </li>
+                     </ul>
+                        <br>
+                        </p>  
+                      
+                     <h3>How to play</h3>
+                     <p>
+                        The goal is to aim for the highest score possible and having fun mucking around with grind tricks. 
+                        <br>
+                        
+                        Press start game and the slot machine spins a random grind trick. 
+
+
+                        If you can do the trick, do it and press the "AIGHT! I got this" button to collect the points. 
+                        <br>
+ 
+                        If you do not know what the trick is, press "Explain trick". 
+                        <br>
+                     
+                        If you want to do trick but make it easier, toggle the reels to disable parts of the trick. 
+                        The easier the trick gets, the fewer points you get. 
+                        <br>
+                        If you still can not do the trick, press the "Skip" button to advance the game. 
+
+                        <br>
+
+                        The grind reel in the middle can not be disabled. If you can not do the basic grind, you have to skip the trick.
+                        By pressing the grind reel you can lock a grind for the next spin. You can use this to do another trick with this grind.
+                        Beware, you can only do a specific trick once per game. 
+
+ 
+                        <br>
+                        You can change the game settings in the configuration menu (<i class="fa fa-wrench fa-1x"></i>). 
+
+                         
+                     </p>  <br>
+                     <!-- 
+                     <h3>Game Rules </h3>
+                    
+                     To add a trick and collect the points all must be true: 
+                     <ul class="aboutScreen-ul">  
+<li> The trick is not already in the trick list.   </li>
+<li> The amount of remaining <i class="fa fa-lock fa-1x"></i> lock and <i class="fa fa-ban fa-1x"></i> remove tokens is not below zero.  </li>
+<li> The slot machine has at least one reel to spin. You may not lock or remove all reels.  </li>
+                     </ul>
+                  
+                       There are three types of tokens 
+                     <ul class="aboutScreen-ul">  
+                        <li> <i class="fa fa-play-circle fa-1x"></i> Spin tokens   </li>
+                        <li> <i class="fa fa-lock fa-1x"></i> Lock tokens   </li>
+                        <li> <i class="fa fa-ban fa-1x"></i> Remove tokens   </li>
+                     </ul> 
+                     <p>
+                        Per game, you get a limited amount of tokens. The more tokens you have the easier the game gets.
+
+                            After spinning the reels, you can press a reel to lock it. Press again to disable. Press again to enable.   
+                          If you disable a reel, the grind trick gets easier, and you get less points.  
+                           If you lock a reel, the reel remains unchanged when you start a new spin. 
+                        <br>   The Grind reel can not be disabled. If you do a grind, the grind is removed from the reel, so you can do every grind only once per game.
+                        You can use a <i class="fa fa-lock fa-1x"></i> token to do multiple variations with the same grind.   
+                     </p>
+-->
+
+                     
+<h3>Controls</h3>
+                     <h5>Navigation</h5>
+                     <table class="pure-table">
+                        <thead>
+                           <tr>
+                              <th>Icon</th>
+                              <th>Function</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                         <!--   <tr>
+                              <td> <i class="fa fa-volume-up  fa-2x"></i> </td>
+                              <td>Unmute/Mute sound effects</td>
+                           </tr>
+                           <tr>
+                              <td> <i class="fa fa-play-circle fa-2x"></i> </td>
+                              <td>Generate a new random grind trick </td>
+                           </tr>-->
+                           <tr>
+                              <td> <i class="fa fa-comments fa-2x"></i> </td>
+                              <td>Display info about on-screen controls.   </td>
+                           </tr>
+                           <tr>
+                              <td> <i class="fa fa-wrench  fa-2x"></i> </td>
+                              <td>Include and exclude tricks and set game options. Choose a preset and modify. The settings are saved to the device.  </td>
+                           </tr>
+                           <tr>
+                              <td> <i class="fa fa-book fa-2x"></i> </td>
+                              <td>Look up trick names and trick naming discussions.</td>
+                           </tr>
+                           <tr>
+                              <td><i class="fa fa-info-circle fa-2x"></i> </td>
+                              <td>Show this screen.</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                    
+                        <h5>Slot machine</h5>
+                        <table class="pure-table">
+                           <thead>
+                              <tr>
+                                 <th>Icon</th>
+                                 <th>Function</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td> <i class="fa fa-question-circle   fa-2x"></i> </td>
+                                 <td>Show description of the current trick.</td>
+                              </tr>
+
+                              <tr>
+                                 <td> <i class="fa fa-forward   fa-2x"></i> </td>
+                                 <td>Skip this trick and spin the next trick. If this is the last spin, the game ends.</td>
+                              </tr>
+
+                              <tr>
+                                 <td> <img  class="bogSlot-score-img" src="img/score-1.svg"> </td>
+                                 <td>Do the trick and collect the points. The trick is added to your tricklist. If this is the last spin, the game ends.</td>
+                              </tr>
+
+
+                              <tr>
+                                 <td> <i class="fa fa-eject   fa-2x"></i> </td>
+                                 <td>Give up and restart the game.</td>
+                              </tr>
+
+
+                              <tr>
+                                 <td> <i class="fa fa-list-ul    fa-2x"></i> </td>
+                                 <td>Show the tricks you have done so far.</td>
+                              </tr>
+                           </tbody>
+                        </table>
+                        <!-- 
+                        <h5><i class="fa fa-list fa-1x"></i> Trick List screen</h5>
+                        <table class="pure-table">
+                           <thead>
+                              <tr>
+                                 <th>Icon</th>
+                                 <th>Function</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td> <i class="fa fa-times  fa-2x"></i> </td>
+                                 <td>Close screen</td>
+                              </tr>
+                           </tbody>
+                        </table>
+                        <h5><i class="fa fa-book fa-1x"></i> Tricktionary screen</h5>
+                        <table class="pure-table">
+                           <thead>
+                              <tr>
+                                 <th>Icon</th>
+                                 <th>Function</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td> <i class="fa fa-times  fa-2x"></i> </td>
+                                 <td>Close screen</td>
+                              </tr>
+                           </tbody> 
+                        </table>
+                        <h5><i class="fa fa-info-circle fa-1x"></i> About screen</h5>
+                        <table class="pure-table">
+                           <thead>
+                              <tr>
+                                 <th>Icon</th>
+                                 <th>Function</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td> <i class="fa fa-times  fa-2x"></i> </td>
+                                 <td>Close screen</td>
+                              </tr>
+                           </tbody>
+                        </table>
+                        
+                        -->
+                       
+                     <br>
+                     
+                   
+                     <div id="aboutScreenReferences"></div>
+                     <p>
+
+                        Features
+                        <div class="pure-menu  ">
+                           <ul class="aboutScreen-ul">
+                              
+                              <li class="pure-menu-item">  Slot machine interface</li>
+                              <li class="pure-menu-item">  Tricktionary</li>
+                              <li class="pure-menu-item">  Share results</li>
+                              <li class="pure-menu-item">  More than 30 grinds</li>
+                              <li class="pure-menu-item"> More than 50'000 unique grind tricks </li>
+                              
+                             
+                      
+   
+                           </ul>
+                          
+                        </div>
+
+                        Tech Specs
+                        <div class="pure-menu  ">
+                           <ul class="aboutScreen-ul">
+                            
+                              <li class="pure-menu-item"> Web App for iOS, Mac, Windows (Chrome, Safari, Edge) </li>
+                              <li class="pure-menu-item"> Android App (link t.b.d) </li>
+                              <li class="pure-menu-item"> Works offline (PWA App) </li>
+   
+                           </ul>
+                          
+                        </div>
+<!--
+                        I started the project to learn about grind tricks.  
+                        I wanted to know on how much grind tricks I am missing out. 
+                         there are. I am too old to learn all of them, at least I need to know what I am missing. 
+                        
+                        The app demonstrates the possibility of a rule based blade trick generator. 
+                        Total waste of time? Yeah, it is a freestyle sport, if there was 
+ --> <p>  
+                        The main idea is to split every grind trick into 5 phases: approach, spin to grind, grind, grind variation and spin off grind. 
+                        Then, randomize the phases individually and translate the randomized phases back to a blading trick name.
+                         <br> The app is just about single grind tricks and does not consider jumps or switch ups. 
+                         <br>  
+                        The app demonstrates the possibility of a rule based blade trick generator, check this list if you want to see 
+                         <a target="_blank" href="https://www.aightgame.com/assets/permutations.txt"> all permutations</a>. 
+                        <br>    
+                        Many thanks to all of you who supported this app with your feedback.  
+                       Thanks to <a target="_blank" href="https://www.youtube.com/user/MartinBommeli">Martin Bommeli</a> for the video review. &#128591;
+
+                        <br> It was amazing to learn how variable grind tricks are. I love this sport. &#128151;  
+
+                        <h4>Enjoy grinding</h4>
+                     </p>
+
+                     <!-- 
+                        <br>  
+                        I do not aim to define how all the tricks should be named, this should be done by bladers that can actually do them. &#128517;
+                        <br>
+                        Big thanks to Martin, Dean, Kris and all bladers that helped me out a lot with testing, feedback and patience for my trick name questions. &#128591;
+                        <br> It was amazing for me to learn how variable grind tricks are. I love this sport. &#128151; <br> 
+                        -->
+                    
+                    
+                  </div>
+                  <div style="display:none;"  id="modal-screen--reference" class="modal-screen-text">
+                     <p>
+                        All 3D rendered graphics are screenshots taken from the awesome <a target="_blank" href='http://skateyeg.com/bog/'>Book of Grinds</a>.
+                        Click on an image to open the Book of Grind page for the trick.   
+                        </p> 
+                     <div   id="trickNamingContent"> </div>
+
+                   
+                    
+                     <h3>Naming details and scoring</h3>
+                     <h4>Naming discussions</h4>
+                     <p>  If you have different names for different stuff in mind, please forget anything you knew about blading because I am here to explain it for you. 
+                        Get schooled by a guy who can't do most of the more advanced tricks in his own app. <br>
+                        Irony aside: I needed to define stuff to make this app work and tried to reference sources where possible. 
+                        Please be merciful with the naming definitions made for this app and let me know about stuff that is out in left field.   
+                     </p>
+                     <h5>  "Savannah" vs "AO Unity"   </h5>
+                     <p>
+                        This app goes with the solution proposed by <a target="_blank" href="http://skateyeg.com/bog/09.1_Backside_Savannah_(AO_BS_Unity).html">skateyeg.com</a>. 
+                        I opt for Savannah/Unity instead of AO Unity/Unity.  Also pointed out by <a target="_blank" href="https://www.youtube.com/watch?v=IsE1dyXi7nM">Butch Lehman</a>.
+                        Unity is a groove grind. Groove grinds usually do not use the term Alley-oop.
+                        I assume most would agree there is no AO Royale. A Royale grinded reverse is a Full Torque, a Torque grinded reverse is a Backslide.
+                        This is usually not the case for souls, an AO Soul ist still a Soul, an AO Acid still an Acid.
+                        "Usually": both souls and grooves have exceptions though, some souls have a different name when grinded reverse. 
+                        For example Soyale (AO Torque Soul), Misfit (AO Top Mistrial), Kindgrind (AO Top Mizou) 
+                        do not have another name when grinded reverse (=> for groove exceptions check "True Tabernacle Discussion"). 
+                     </p>
+                     <h5>  "AO/True Tabernacle" vs "270/450 Tabernacle"   </h5>
+                     <p>
+                        Tricks like Tabernacle, Wheelbarrow, Darkslide, Fastslide, Byn Soul, Neighborhood or Acid Rain are hybrids between groove and soul grinds. They are 
+                        <a target="_blank" href="https://archive.be-mag.com/gossip/43744-what-s-the-opposite-of-a-byn-soul">
+                        "h-block tricks that are done like AO/Truespin."</a>. 
+                        They are hybrids because they have a BS and FS variant as every groove grind but also have an Alley-Oop variant when grinded reverse as every soul grind (=> The "Savannah" discussion). 
+                        This app solves this by treating these hybrids as "FS" and "BS" soul tricks. 
+                        Therefore, there is no 'True Tabernacle' but a 'True BS Tabernacle' or 'True FS Tabernacle'.
+                     </p>
+                     <br>
+                     <h4>Scoring</h4>
+                     <p>     The score you get is the final answer to all your blading ambitions. Naturally, the scoring system is designed by 
+                        a comittee of highly qualified experts and approved by the International Olympic Committee (IOC).  
+                        <br>
+                        The scoring is actually just for fun and somewhat oversimplified.
+                     <ul>
+                        <li>
+                           <p> Grinds are separated in easy, average and hard. Easy gets 1, average 2 and hard 3 points. </p>
+                        </li>
+                        <li>
+                           <p> Easy grinds: Makio, Mizou, Soul, Acid, Sidewalk, PStar, Frontside, Backside </p>
+                        </li>
+                        <li>
+                           <p>  Hard grinds: as voted on <a target="_blank" href="https://www.facebook.com/groups/790993714317553/permalink/3764459683637593/">Facebook</a>  </p>
+                        </li>
+                        <li>
+                           <p> Average grinds: all the other grinds  </p>
+                        </li>
+                        
+                     </ul>
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <div class="gameover-screen   " id="gameover-screen">
+               <div    class="gameover-screen-box">
+                  <div class="pure-g gameover-controls-container">
+                     <div class="pure-u-1-1 gameover-controls-row" >
+                        <div class="gameOverTitle">
+                           <h3>Game over</h3>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="pure-g gameover-controls-container">
+                     <div class="pure-u-1-1 gameover-controls-row" >
+                        <h3 id="gameOverText">  </h3>
+                        <h3> <span id="gameOverPointsTotal"></span> Points </h3>
+                     </div>
+                  </div>
+                  <div class="pure-g gameover-controls-container">
+                     <div class="pure-u-1-1 gameover-controls-row" > 
+                        <span id="gameOverTricks"></span>
+                     </div>
+                  </div>
+                  <div class="pure-g gameover-controls-container">
+                     <div class="pure-u-1-3 gameover-controls-row" >
+                        <button class="pure-button pure-button-primary pure-button-primary-nav " id="gameOverNewGameButton">
+                        <i class="fa fa-play-circle fa-2x"></i>
+                        </button>
+                        <h3> Start new game</h3>
+                     </div>
+                  </div>
+                  <div class="pure-g gameover-controls-container">
+                     <div class="pure-u-1-3 " >
+                        <button class="pure-button pure-button-primary pure-button-primary-nav " >
+                        <a  id="mailShareBtn"  target="_blank" href="#"> <i style="margin-top: 4px;"   class="fa fa-plane fa-2x"></i></a>
+                        </button>
+                        <h4> Share via Telegram</h4>
+                     </div>
+                     <div class="pure-u-1-3  " >
+                        <button class="pure-button pure-button-primary pure-button-primary-nav " >
+                        <a  data-action="share/whatsapp/share" id="whatsappShareBtn" target="_blank" href="#">  <i style="margin-top: 2px;"  class="fa fa-whatsapp fa-2x"></i></a>
+                        </button>
+                        <h4> Share via Whatsapp</h4>
+                     </div>
+                     <div class="pure-u-1-3  " >
+                        <button class="pure-button pure-button-primary pure-button-primary-nav " >
+                        <a  id="facebookShareBtn"  target="_blank" href="#">   <i style="margin-top: 4px;"  class="fa fa-facebook fa-2x"></i></a>
+                        </button>
+                        <h4> Share via FB</h4>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="myFooter footer l-box">
+            <div   class="pure-g footer-controls">
+               <div class="pure-u-1-3">
+                  <button  data-p-tooltip="configButton" class="pure-button pure-button-primary pure-button-primary-nav configButton" id="configButton">
+                  <i class="fa fa-wrench fa-2x"></i>
+                  </button>
+               </div>
+               <div class="pure-u-1-3">
+                  <button data-p-tooltip="trickNamingBtn" class="pure-button pure-button-primary  pure-button-primary-nav " id="trickNamingBtn">
+                  <i class="fa fa-book fa-2x"></i>
+                  </button>
+               </div>
+               <div class="pure-u-1-3">
+                  <button data-p-tooltip="aboutBtn" class="pure-button pure-button-primary pure-button-primary-nav aboutBtn" id="aboutBtn">
+                  <i class="fa fa-info-circle fa-2x"></i>
+                  </button>
+               </div>
+            </div>
+         </div>
+         <div id="loading-screen" class="loading-screen">
+            <div class="loading-screen-text">
+               <div class="lds-ring">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
