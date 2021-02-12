@@ -1,7 +1,7 @@
 import { Workbox, messageSkipWaiting, getSW } from "workbox-window";
 
 window.addEventListener("load", () => {
-  var isChrome =
+  let isChrome =
     /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
   if (isChrome && "serviceWorker" in navigator) {
     handleSW();
@@ -10,10 +10,10 @@ window.addEventListener("load", () => {
 
 function handleSW() {
   const wb = new Workbox("/sw.js");
-  wb.getSW().then( (sw)=>{
-    console.log("getSW",sw)
+  wb.getSW().then((sw) => {
+    console.log("getSW", sw);
     document.getElementById("sw-info-text").innerHTML = sw.state;
-  })
+  });
   wb.addEventListener("waiting", (event) => {
     console.log("skip waiting");
     wb.messageSkipWaiting();
@@ -35,16 +35,12 @@ function handleSW() {
     console.log("message", event);
   });
   wb.addEventListener("controlling", (event) => {
-    console.log("controlling",event);
+    console.log("controlling", event);
   });
   wb.addEventListener("activated", (event) => {
     document.getElementById("sw-info-text").innerHTML = "activated";
-    console.log("activated ",event);
+    console.log("activated ", event);
   });
 
   wb.register();
- 
-   
-
- 
 }

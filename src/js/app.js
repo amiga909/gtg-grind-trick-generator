@@ -3,9 +3,6 @@ import "purecss/build/grids-responsive-min.css";
 
 import "./sw-handler";
 
-
-
-
 import { Configuration } from "./configuration";
 import { SlotMachine } from "./slotmachine";
 import { ResultParser } from "./resultparser";
@@ -16,8 +13,6 @@ import { Tooltips } from "./tooltips";
 import { Scoreboard } from "./scoreboard";
 import { GameOverScreen } from "./gameover-screen";
 import { Audioplayer } from "./audioplayer";
-
- 
 
 console.log("v.11");
 let CONFIG = "";
