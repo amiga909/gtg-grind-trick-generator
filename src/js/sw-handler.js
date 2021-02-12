@@ -12,7 +12,7 @@ function handleSW() {
   const wb = new Workbox("/sw.js");
   wb.getSW().then((sw) => {
     console.log("getSW", sw);
-    document.getElementById("sw-info-text").innerHTML = sw.state;
+    //document.getElementById("sw-info-text").innerHTML = sw.state;
   });
   wb.addEventListener("waiting", (event) => {
     console.log("skip waiting");
@@ -38,7 +38,7 @@ function handleSW() {
     console.log("controlling", event);
   });
   wb.addEventListener("activated", (event) => {
-    document.getElementById("sw-info-text").innerHTML = "activated";
+    //document.getElementById("sw-info-text").innerHTML = "activated";
     console.log("activated ", event);
   });
 
