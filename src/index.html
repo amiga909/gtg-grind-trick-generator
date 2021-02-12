@@ -39,15 +39,7 @@
       <img src="/img/score-19.svg"> 
       <img src="/img/score-20.svg"> 
       </span>
-      <script>
-         var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
-         if (isChrome && "serviceWorker" in navigator) {
-            // keep the page load performant
-            window.addEventListener("load", () => {
-               navigator.serviceWorker.register("/sw.js");
-            });
-         }
-      </script>
+      
       <!-- Global site tag (gtag.js) - Google Analytics -->
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-6ZDNNV6Q5M"></script>
       <script>
@@ -61,8 +53,9 @@
          <div id="tooltips-mask"> </div>
          <div class="banner-logo"></div>
 
-         <div class="banner-about-text">
-            <a id="banner-about-text-link" href="#">Aggressive Inline Grind Hammer Trickgame v1.0</a>
+         <div id="sw-info-text" class="banner-about-text">
+            
+<!--             <a id="banner-about-text-link" href="#">Aggressive Inline Grind Hammer Trickgame v1.0</a>-->
          </div>
 
          <div class="banner">
