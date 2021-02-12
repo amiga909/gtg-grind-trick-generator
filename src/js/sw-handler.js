@@ -4,7 +4,8 @@ window.addEventListener("load", () => {
   let isChrome =
     /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
   if (isChrome && "serviceWorker" in navigator) {
-    handleSW();
+    navigator.serviceWorker.register("/sw.js");
+   // handleSW();
   }
 });
 
