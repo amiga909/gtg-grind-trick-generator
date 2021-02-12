@@ -5,6 +5,6 @@ module.exports = {
   ],
   swDest: "public/sw.js",
   directoryIndex: "public/index.html",
-  cleanupOutdatedCaches: true,
+  //cleanupOutdatedCaches: true,
  // offlineGoogleAnalytics: true,
 };
