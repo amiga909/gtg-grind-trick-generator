@@ -17,7 +17,7 @@ function handleSW() {
   wb.addEventListener("waiting", (event) => {
     console.log("skip waiting");
     wb.messageSkipWaiting();
-    window.location.reload();
+    //window.location.reload();
   });
 
   wb.addEventListener("installed", (event) => {
