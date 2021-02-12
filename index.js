@@ -41,6 +41,10 @@ app.use(express.static(__dirname + '/public'));
 app.get("/.well-known/assetlinks.json", (request, response) => {
   response.sendFile(".well-known/assetlinks.json", {root: __dirname });
 });
+
+app.get("/", (request, response) => {
+  response.sendFile("public/index.html", {root: __dirname });
+});
  
 
 app.get("/index.html", (request, response) => {
