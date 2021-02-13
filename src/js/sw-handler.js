@@ -5,6 +5,7 @@ window.addEventListener("load", () => {
     /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
   if (isChrome && "serviceWorker" in navigator) {
     navigator.serviceWorker.register("/sw.js");
+    // does not work on Android Chrome
    // handleSW();
   }
 });
@@ -18,6 +19,7 @@ function handleSW() {
   wb.addEventListener("waiting", (event) => {
     console.log("skip waiting");
     wb.messageSkipWaiting();
+    // can lead to loop of reloading (Android)
     //window.location.reload();
   });
 
