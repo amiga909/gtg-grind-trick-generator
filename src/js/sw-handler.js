@@ -6,7 +6,7 @@ window.addEventListener("load", () => {
   if (isChrome && "serviceWorker" in navigator) {
     navigator.serviceWorker.register("/sw.js");
     // does not work on Android Chrome
-   // handleSW();
+    // handleSW();
   }
 });
 
