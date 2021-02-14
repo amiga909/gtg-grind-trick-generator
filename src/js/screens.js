@@ -139,8 +139,12 @@ export class Screens {
       this.$scrollWrapper.animate({ scrollTop: $(document).height() }, "fast");
     }
   }
-  scrollUp() {
-    this.$scrollWrapper.scrollTop(0);
+  scrollUp(animated) {
+    if (animated) {
+      this.$scrollWrapper.animate({ scrollTop: 0 }, "fast");
+    } else {
+      this.$scrollWrapper.scrollTop(0);
+    }
   }
 
   // to do: alternatively: always scroll but have container with min padding, so it does not scroll unnecessary

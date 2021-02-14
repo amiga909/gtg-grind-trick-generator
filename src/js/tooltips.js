@@ -114,12 +114,9 @@ const CONFIG = {
     text: "Configure your own game.",
   },
 
-  //
-
-  //
+  // manual
   endScreen: {
     screen: "manual",
-
     text: "",
     props: { offset: 8, maxWidth: "90vw" },
   },

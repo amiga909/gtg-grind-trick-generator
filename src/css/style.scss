@@ -5,7 +5,7 @@ $fa-font-path: '../fonts';
 @import '~@fortawesome/fontawesome-free/scss/regular';
 
 * {
-   //box-shadow: 0 2px 2px rgba(230, 6, 6, 0.8);
+  //box-shadow: 0 2px 2px rgba(230, 6, 6, 0.8);
 }
 /*
 
@@ -33,8 +33,8 @@ modal / loading-screen / l-content-modal = 3
 1025px — 1200px: Desktops, large screens.
 */
 
-$maxWidthContent: 1000px; 
-$maxHeightContent: 1000px; 
+$maxWidthContent: 1000px;
+$maxHeightContent: 1000px;
 // breakpoints
 $bp_smallSmartphone: 320px;
 $bp_smartphone: 481px; // used for resp_table (580)
@@ -164,7 +164,7 @@ p {
   background-repeat: no-repeat;
   position: absolute;
 }
- 
+
 .banner-head-logo-text {
   position: absolute;
   z-index: 0;
@@ -191,7 +191,6 @@ p {
     cursor: pointer;
   }
 }
- 
 
 .banner {
   height: 90px;
@@ -211,14 +210,14 @@ p {
   margin-top: 12px;
 }
 
-.banner-about-text{
- // display:none;
+.banner-about-text {
+  // display:none;
   position: absolute;
   bottom: 0px;
   top: 0;
   max-width: 30vw;
   right: 0;
-    
+
   text-align: right;
   color: white;
   margin-top: 8px;
@@ -393,7 +392,7 @@ p {
   position: relative;
   display: none;
   margin-top: 20px;
- // padding-bottom: 20px;
+  // padding-bottom: 20px;
 }
 
 #endscreen-text {
@@ -401,7 +400,8 @@ p {
   padding: 6px;
 }
 .endscreen-controls {
-  padding-top: 4px;padding-bottom: 8px;
+  padding-top: 4px;
+  padding-bottom: 8px;
 
   @media (min-width: $bp_tablet) {
     padding-top: 12px;
@@ -500,15 +500,14 @@ p {
   // padding-top: 20px; // android toolbar
   margin: 0 auto;
   font-size: 16px;
-  max-width:$maxWidthContent;
+  max-width: $maxWidthContent;
 }
 .footer {
   background: #111;
   color: #888;
   text-align: center;
   position: fixed;
-  
-  
+
   bottom: 0px;
   height: 60px;
 
@@ -628,15 +627,13 @@ body::-webkit-scrollbar-thumb {
 .modal-screen {
   max-width: $maxWidthContent;
   margin: 0 auto;
- 
+
   min-height: 100vh;
   z-index: 8;
-   
-  display: none;
- 
-  background-color: $bgFontColor;
 
-  
+  display: none;
+
+  background-color: $bgFontColor;
 
   // padding: 24px;
   color: white;
@@ -668,7 +665,6 @@ body::-webkit-scrollbar-thumb {
   margin-left: -14px;
 }
 #trickList-continueBtn {
-  
 }
 .tricklist-controls {
   color: white;
@@ -1063,7 +1059,9 @@ body::-webkit-scrollbar-thumb {
 }
 
 .resp-table-wrapper-details-view {
+  padding-top: 2px;
   .resp-table {
+    margin-bottom: 0;
   }
   .tricktionary_thumb_img {
     width: 100px;
@@ -1084,7 +1082,7 @@ body::-webkit-scrollbar-thumb {
 
     @media screen and (max-width: $bp_resp_table) {
       width: 100%;
-      display: inline-table; // for small and if has img display: inline-table;
+      display: inline-table;
     }
   }
 }
@@ -1161,7 +1159,8 @@ body::-webkit-scrollbar-thumb {
 }
 .scoreboard-title {
 }
-.scoreboard-points, .scoreboard-spins {
+.scoreboard-points,
+.scoreboard-spins {
   font-size: 18px;
 
   @media only screen and (min-width: $bp_tablet) {
@@ -1177,7 +1176,7 @@ body::-webkit-scrollbar-thumb {
 .scoreboard-spins-text {
   display: block;
   @media only screen and (min-width: $bp_tablet) {
-    display:inline;
+    display: inline;
   }
 }
 
@@ -1187,12 +1186,12 @@ body::-webkit-scrollbar-thumb {
   @media only screen and (min-width: $bp_tablet) {
     display: flex;
     justify-content: space-between;
-   // margin-top: 3px;
+    // margin-top: 3px;
   }
   @media only screen and (min-width: $bp_desktop) {
     display: flex;
     justify-content: space-between;
-   // margin-top: 3px;
+    // margin-top: 3px;
   }
 }
 
@@ -1265,18 +1264,18 @@ body::-webkit-scrollbar-thumb {
   position: absolute;
   z-index: 1;
   border: dotted red 1px;
-    margin: 0 auto;
-    /* left: 50%; */
-    /* transform: translate(-50%, -50%); */
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    width: 400px;
+  margin: 0 auto;
+  /* left: 50%; */
+  /* transform: translate(-50%, -50%); */
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
 }
 .animateSpinsLeft {
   font-size: 36px;
-  
+
   z-index: 100;
   color: white;
 }

@@ -292,7 +292,7 @@
                <div   class="pure-u-1 ">
                   <div id="endScreen" >
                      <div class="bog-slot-header-end" >
-                        <div class="slot"  data-p-tooltip="endScreen" id="endscreen-text"></div>
+                        <div class="slot"   id="endscreen-text"></div>
                         <div class="pure-g endscreen-controls">
                            <div class="pure-u-1-3">
                               <button  data-p-tooltip="explainTrick"  class="  pure-button pure-button-primary  pure-button-primary-nav " 
@@ -389,12 +389,7 @@
                            <label   for="removesTotalInput">Remove tokens per game</label>
                            <input maxlength="1" class="config-number-input" id="removesTotalInput" inputmode="numeric" pattern="[0-9]"> 
                            </span>  <br> 
-                           <!--   <label   for="soundSelect">Select sound</label>
-                              <select id="soundSelect" class="pure-select">
-                                   <option value="1">Joker</option>
-                                   <option value="2">Spark</option>
-                                   <option value="3">Yippie!</option>
-                           </select>-->
+                         
                            <label   for="speedSelect">Select slot machine speed</label>
                            <select data-p-tooltip="configSpeedSelect" id="speedSelect" class="pure-select">
                               <option value="500">Very Slow</option>
@@ -420,33 +415,9 @@
                      </div>
                   </div>
                   <div style="display:none;"  id="modal-screen--about" class="modal-screen-text">
-                     <!--  
-                        <div class="pure-menu  tricktionary-toc">
-                           <span class="pure-menu-heading">TOC</span> 
-                           <ul class="pure-menu-list"> 
-                             <a class="pure-menu-link" href="#theGame">  The Game  
-                             </a>
-                             
-                             <a class="pure-menu-link" href="#howToPlay">  How to play
-                           </a>
-                        
-                        
-                           <a class="pure-menu-link" href="#rules">  Game rules 
-                           </a>
-                        
-                           <a class="pure-menu-link" href="#about">  References 
-                           </a>
-                        
-                           <a class="pure-menu-link" href="#about">  About AIGHT 
-                           </a>
-                             
-                           </ul>
-                           
-                        </div>-->
+                   
                      <h3>The Game</h3>
-                     <!--     <p>  This is an aggressive inline grind trick game made for fun.  <br>
-                        Do you want to be rich? Really rich? Like, Bill Gates rich? Play this game if you are ready for a lifetime of obscene wealth. 
-                        </p>-->
+                   
                      <p> 
                         Once upon a time there was the kingdom of blade, it was full of splendor and joy. 
                         Evil forces have cast a dark shadow over the lands, and you must save the kingdom. 
@@ -527,32 +498,7 @@
                      
                      </p>
                      <br>
-                     <!-- 
-                        <h3>Game Rules </h3>
-                        
-                        To add a trick and collect the points all must be true: 
-                        <ul class="aboutScreen-ul">  
-                        <li> The trick is not already in the trick list.   </li>
-                        <li> The amount of remaining <i class="fa fa-lock fa-1x"></i> lock and <i class="fa fa-ban fa-1x"></i> remove tokens is not below zero.  </li>
-                        <li> The slot machine has at least one reel to spin. You may not lock or remove all reels.  </li>
-                        </ul>
-                        
-                          There are three types of tokens 
-                        <ul class="aboutScreen-ul">  
-                           <li> <i class="fa fa-play-circle fa-1x"></i> Spin tokens   </li>
-                           <li> <i class="fa fa-lock fa-1x"></i> Lock tokens   </li>
-                           <li> <i class="fa fa-ban fa-1x"></i> Remove tokens   </li>
-                        </ul> 
-                        <p>
-                           Per game, you get a limited amount of tokens. The more tokens you have the easier the game gets.
-                        
-                               After spinning the reels, you can press a reel to lock it. Press again to disable. Press again to enable.   
-                             If you disable a reel, the grind trick gets easier, and you get less points.  
-                              If you lock a reel, the reel remains unchanged when you start a new spin. 
-                           <br>   The Grind reel can not be disabled. If you do a grind, the grind is removed from the reel, so you can do every grind only once per game.
-                           You can use a <i class="fa fa-lock fa-1x"></i> token to do multiple variations with the same grind.   
-                        </p>
-                        -->
+                     
                      <h3>Controls</h3>
                      <h5>Navigation</h5>
                      <table class="pure-table">
@@ -563,14 +509,7 @@
                            </tr>
                         </thead>
                         <tbody>
-                           <!--   <tr>
-                              <td> <i class="fa fa-volume-up  fa-2x"></i> </td>
-                              <td>Unmute/Mute sound effects</td>
-                              </tr>
-                              <tr>
-                              <td> <i class="fa fa-play-circle fa-2x"></i> </td>
-                              <td>Generate a new random grind trick </td>
-                              </tr>-->
+                          
                            <tr>
                               <td> <i class="fa fa-comments fa-2x"></i> </td>
                               <td>Display info about on-screen controls.   </td>
@@ -620,54 +559,7 @@
                            </tr>
                         </tbody>
                      </table>
-                     <!-- 
-                        <h5><i class="fa fa-list fa-1x"></i> Trick List screen</h5>
-                        <table class="pure-table">
-                           <thead>
-                              <tr>
-                                 <th>Icon</th>
-                                 <th>Function</th>
-                              </tr>
-                           </thead>
-                           <tbody>
-                              <tr>
-                                 <td> <i class="fa fa-times  fa-2x"></i> </td>
-                                 <td>Close screen</td>
-                              </tr>
-                           </tbody>
-                        </table>
-                        <h5><i class="fa fa-book fa-1x"></i> Tricktionary screen</h5>
-                        <table class="pure-table">
-                           <thead>
-                              <tr>
-                                 <th>Icon</th>
-                                 <th>Function</th>
-                              </tr>
-                           </thead>
-                           <tbody>
-                              <tr>
-                                 <td> <i class="fa fa-times  fa-2x"></i> </td>
-                                 <td>Close screen</td>
-                              </tr>
-                           </tbody> 
-                        </table>
-                        <h5><i class="fa fa-info-circle fa-1x"></i> About screen</h5>
-                        <table class="pure-table">
-                           <thead>
-                              <tr>
-                                 <th>Icon</th>
-                                 <th>Function</th>
-                              </tr>
-                           </thead>
-                           <tbody>
-                              <tr>
-                                 <td> <i class="fa fa-times  fa-2x"></i> </td>
-                                 <td>Close screen</td>
-                              </tr>
-                           </tbody>
-                        </table>
-                        
-                        -->
+                    
                      <br>
                      <div id="aboutScreenReferences"></div>
                      <p>
@@ -688,14 +580,7 @@
                            <li class="pure-menu-item"> Works offline (Chrome only) </li>
                         </ul>
                      </div>
-                     <!--
-                        I started the project to learn about grind tricks.  
-                        I wanted to know on how much grind tricks I am missing out. 
-                         there are. I am too old to learn all of them, at least I need to know what I am missing. 
-                        
-                        The app demonstrates the possibility of a rule based blade trick generator. 
-                        Total waste of time? Yeah, it is a freestyle sport, if there was 
-                        --> 
+                    
                      <p>
                         The main idea is to split every grind trick into 5 phases: approach, spin to grind, grind, grind variation and spin off grind. 
                         Then, randomize the phases individually and translate the randomized phases back to a blading trick name.
@@ -704,21 +589,15 @@
                         The app demonstrates the possibility of a rule based blade trick generator, check this list if you want to see 
                         <a target="_blank" href="https://www.aightgame.com/assets/permutations.txt"> all permutations</a>. 
                         <br>    
-                        <!-- 
+                        
                            Many thanks to all of you who supported this app with your feedback.  
-                           Thanks to <a target="_blank" href="https://www.youtube.com/user/MartinBommeli">Martin Bommeli</a> for the video review. &#128591;
+                           Thanks to <a target="_blank" href="https://www.youtube.com/user/MartinBommeli">Martin Bommeli</a> for the video review.  
                            
                            <br> It was amazing to learn how variable grind tricks are. I love this sport. &#128151;  
-                           -->
+                           
                      <h4>Enjoy grinding</h4>
                       
-                     <!-- 
-                        <br>  
-                        I do not aim to define how all the tricks should be named, this should be done by bladers that can actually do them. &#128517;
-                        <br>
-                        Big thanks to Martin, Dean, Kris and all bladers that helped me out a lot with testing, feedback and patience for my trick name questions. &#128591;
-                        <br> It was amazing for me to learn how variable grind tricks are. I love this sport. &#128151; <br> 
-                        -->
+                    
                   </div>
                   <div style="display:none;"  id="modal-screen--reference" class="modal-screen-text">
                      <p>
@@ -779,7 +658,7 @@
                   </div>
                </div>
             </div>
-            <div class="gameover-screen   " id="gameover-screen">
+            <div class="gameover-screen" id="gameover-screen">
                <div    class="gameover-screen-box">
                   <div class="pure-g gameover-controls-container">
                      <div class="pure-u-1-1 gameover-controls-row" >
@@ -837,7 +716,7 @@
                   <i class="fa fa-wrench fa-2x"></i>
                   </button>
                </div>
-               <div class="pure-u-1-3">
+               <div data-p-tooltip="endScreen" class="pure-u-1-3">
                   <button data-p-tooltip="trickNamingBtn" class="pure-button pure-button-primary  pure-button-primary-nav " id="trickNamingBtn">
                   <i class="fa fa-book fa-2x"></i>
                   </button>

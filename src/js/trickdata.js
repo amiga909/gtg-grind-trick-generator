@@ -348,8 +348,7 @@ const SPINS_OFF_GROOVE_GRIND = [
   },
 ];
 
-const HYBRID_COMMENT =
-  "Treated like a soul grind (AO, Truespin, Zerospin) not like a groove grind (270, 450) because the trick has not a different name when grinded in reverse direction.";
+const HYBRID_COMMENT = "Treated as a soul grind.";
 const SOUL_GRINDS = [
   {
     name: "Soul",
@@ -1079,8 +1078,8 @@ const GLOSSARY = {
   810: "720 spin to/off a groove grind. The longer way (720 + 90 degrees).",
   630: "720 spin to/off a groove grind. The shorter way (720 - 90 degrees).",
   Inspin:
-    "If the obstacle is on the left, Inspin is to the left. If the obstacle is on the right,  Inspin is to the right. Vice versa if approach is Fakie.",
-  Outspin: `("Blindside") If the obstacle is on the left, Outspin is to the right. If the obstacle is on the right, Outspin is to the left. Vice versa if approach is Fakie.`,
+    "Spin to the obstacle. If the obstacle is approached on the left, Inspin is to the left.",
+  Outspin: `("Blindside") Spin away from the obstacle. If the obstacle is approached on the left, Outspin is to the right.`,
   Switch: "(Unnatural) Grinding in the unnatural mirrored position of a grind.",
   Fakie:
     "Approach obstacle skating backwards. Also used for landing a groove grind backwards with no rotation (Royale to Fakie).",
