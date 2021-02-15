@@ -348,7 +348,7 @@ const SPINS_OFF_GROOVE_GRIND = [
   },
 ];
 
-const HYBRID_COMMENT = "Treated as a soul grind.";
+const HYBRID_COMMENT = "";
 const SOUL_GRINDS = [
   {
     name: "Soul",
