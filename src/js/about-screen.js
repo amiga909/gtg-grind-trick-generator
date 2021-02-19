@@ -63,13 +63,13 @@ export class AboutScreen {
     let html = renderTable("References", ["Name", "URL"], rows);
     html += renderTable(
       "About AIGHT",
-      ["Author", "Github", "Contact", "Media"],
+      ["Author", "Github", "Contact", "Media" ],
       [
         [
           "Copyright (c) 2021 Roman Hatz",
           `<a target="_blank" href="https://github.com/amiga909/gtg-grind-trick-generator"> Source Code </a>`,
           `<a href="mailto:aight.bladegame@gmail.com">aight.bladegame@gmail.com</a>`,
-          `<a target="_blank" href="https://www.youtube.com/watch?v=Pz2Ker7KUSw">App Video</a>, 
+          `<a target="_blank" href="https://www.youtube.com/watch?v=Pz2Ker7KUSw ">App Video</a>, 
           <a target="_blank" href="https://www.youtube.com/watch?v=tVDT8YBsSo8">Video Teaser</a>, <a target="_blank" href="https://soundcloud.com/thaumatorg/aight-game-trailer-music/s-sTRsXBkie3F">Drum'n'Bass Track</a>`,
         ],
       ]
