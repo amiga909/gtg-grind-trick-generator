@@ -523,22 +523,27 @@ export class SlotMachine {
 
     if (name === "Grind") {
       entries = CONFIG.GRINDS_FOR_SLOTS;
-      if (this.includedTricks.heelRoll === "off") {
-        entries = entries.filter((e) => {
-          const isExcluded =
-            e.name.includes("Wheelbarrow") ||
+
+      entries = entries.filter((e) => {
+        const isExcluded =
+          this.includedTricks.heelRoll === "off" &&
+          (e.name.includes("Wheelbarrow") ||
             e.name.includes("Training Wheel") ||
             e.name.includes("Hot Dog") ||
-            e.name.includes("Biscuit") ||
+            e.name.includes("Double Inner") ||
+            e.name.includes("Double Outer") ||
             e.name.includes("Byn Soul") ||
             e.name.includes("Sidewalk") ||
-            e.name.includes("Citric Acid");
-          const isAdded = this.grindsInTricklist.includes(e.name);
+            e.name.includes("Citric Acid"));
+        const isAdded = this.grindsInTricklist.includes(e.name);
 
-          return !isExcluded && !isAdded;
-        });
-      }
+        return !isExcluded && !isAdded;
+      });
       entries = this.filterLocked(entries);
+      if (entries.length === 0) {
+        // all grinds used, reset
+        entries = CONFIG.GRINDS_FOR_SLOTS;
+      }
 
       // check if locked grindvariation exists and filter that shit.
       // or locked spin (with 270/450)

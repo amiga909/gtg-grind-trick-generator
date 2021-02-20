@@ -73,7 +73,7 @@ export class TricktionaryScreen {
       const thumb = v.thumbUrl ? v.thumbUrl : "";
       rows.push([
         v.name,
-        url ? `<a  target="_blank" href="${url}">Book of Grinds</a>` : "",
+        url ? `<a target="_blank" href="${url}">Book of Grinds</a>` : "",
       ]);
     });
 

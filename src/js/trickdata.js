@@ -527,8 +527,9 @@ const SOUL_GRINDS = [
   {
     name: "Training Wheel",
     url: "",
-    comment:
-      "The front skate is rolling on the wheel on the heel, the back skate is on Topside soul.",
+    comment: `The front skate is rolling on the wheel on the heel, the back skate is on Topside soul.
+      Image: Chris Haffey, AO Training Wheel, 
+      <a target="_blank" href="https://www.youtube.com/watch?v=Dv00GSmm0gk">B.L.A.D.E. Aragon</a>`,
     variations: { Rough: true, Tough: true },
   },
   {
@@ -585,29 +586,34 @@ const SOUL_GRINDS = [
   {
     name: "BS Byn Soul",
     url: "",
-    comment:
-      "(Neighborhood) Turning the soul foot on a soul grind into a torque. " +
-      HYBRID_COMMENT,
+    comment: `(Neighborhood) Turning the soul foot on a soul grind into a torque. 
+      <a target="_blank" href="https://www.picuki.com/media/2251667102534778405">Image</a>. ${HYBRID_COMMENT}`,
     isSoulGroove: true,
     variations: { Channel: true },
   },
   {
     name: "FS Byn Soul",
     url: "",
-    comment:
-      "(Neighborhood) Turning the soul foot on a soul grind into a torque. " +
-      HYBRID_COMMENT,
+    comment: `(Neighborhood) Turning the soul foot on a soul grind into a torque. 
+    <a target="_blank" href="https://www.picuki.com/media/2251667102534778405">Image</a>. ${HYBRID_COMMENT}`,
     isSoulGroove: true,
     variations: { Channel: true },
   },
   {
-    name: "Biscuit",
+    name: "Double Inner",
+    noSwitch: true,
+    url: "",
+    comment: `(Biscuit, Closed Book, Impossible Grind, Snub Soul) Grinding on the soul plates with both feet, with toes facing each other. Image: Aaron Dizom, 
+      <a target="_blank" href="https://www.youtube.com/watch?v=L3H5E13UkBw">United Front</a>`,
+    variations: { Rough: true, Tough: true, Topside: true },
+  },
+  {
+    name: "Double Outer",
     noThumb: true,
     noSwitch: true,
     url: "",
-    comment:
-      "(Snub Soul) Grinding on the soul plates with both feet, with toes facing each other.",
-    variations: { Rough: true, Tough: true },
+    comment: `(Open Book) Grinding on the soul plates with both feet, with heels facing each other.`,
+    variations: { Rough: true, Tough: true, Topside: true },
   },
 ];
 // GROOVE_GRINDS

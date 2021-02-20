@@ -20,7 +20,10 @@ const REFERENCES = [
     name: "Aggressive Inline Skating Terms",
     url: `<a target="_blank" href="https://www.angelfire.com/home/amandalane/sports/aggressiveinline/terms.html/">angelfire.com</a>`,
   },
-
+  {
+    name: "BE-MAG message board",
+    url: `<a target="_blank" href=" https://archive.be-mag.com">archive.be-mag.com</a>`,
+  },
   {
     name: "The Grab and Grind Chart Aggressive Skating",
     url: `<a target="_blank" href="https://lurch17.tripod.com/skchart.htm">lurch17.tripod.com</a>`,
@@ -63,7 +66,7 @@ export class AboutScreen {
     let html = renderTable("References", ["Name", "URL"], rows);
     html += renderTable(
       "About AIGHT",
-      ["Author", "Github", "Contact", "Media" ],
+      ["Author", "Github", "Contact", "Media"],
       [
         [
           "Copyright (c) 2021 Roman Hatz",
