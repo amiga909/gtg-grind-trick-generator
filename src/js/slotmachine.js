@@ -530,8 +530,8 @@ export class SlotMachine {
           (e.name.includes("Wheelbarrow") ||
             e.name.includes("Training Wheel") ||
             e.name.includes("Hot Dog") ||
-            e.name.includes("Double Inner") ||
-            e.name.includes("Double Outer") ||
+            e.name.includes("Closed Book") ||
+            e.name.includes("Open Book") ||
             e.name.includes("Byn Soul") ||
             e.name.includes("Sidewalk") ||
             e.name.includes("Citric Acid"));

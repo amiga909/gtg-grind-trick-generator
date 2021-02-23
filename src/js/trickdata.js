@@ -600,20 +600,20 @@ const SOUL_GRINDS = [
     variations: { Channel: true },
   },
   {
-    name: "Double Inner",
+    name: "Closed Book",
     noSwitch: true,
     url: "",
-    comment: `(Biscuit, Closed Book, Impossible Grind, Snub Soul) Grinding on the soul plates with both feet, with toes facing each other. Image: Aaron Dizom, 
-      <a target="_blank" href="https://www.youtube.com/watch?v=L3H5E13UkBw">United Front</a>`,
-    variations: { Rough: true, Tough: true, Topside: true },
+    comment: `(Biscuit, Double Inner, Impossible Grind, Snub Soul) Grinding on the soul plates with both feet, with toes facing each other. 
+    Image: Aaron Dizom, <a target="_blank" href="https://www.youtube.com/watch?v=L3H5E13UkBw">United Front</a>`,
+    variations: { Rough: true, Tough: true, Topside: true, Negative: true },
   },
   {
-    name: "Double Outer",
-    noThumb: true,
+    name: "Open Book",
     noSwitch: true,
     url: "",
-    comment: `(Open Book) Grinding on the soul plates with both feet, with heels facing each other.`,
-    variations: { Rough: true, Tough: true, Topside: true },
+    comment: `(Crab, Crab Stance, Double Outer) Grinding on the soul plates with both feet, with heels facing each other.
+    Image: <a target="_blank" href="https://www.youtube.com/channel/UC_cMnM6u3xJ3yeW1jzIHgaQ">Ricardo Lino</a>`, 
+    variations: { Rough: true, Tough: true, Topside: true, Negative: true },
   },
 ];
 // GROOVE_GRINDS
