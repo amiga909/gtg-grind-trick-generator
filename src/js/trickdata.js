@@ -612,7 +612,7 @@ const SOUL_GRINDS = [
     noSwitch: true,
     url: "",
     comment: `(Crab, Crab Stance, Double Outer) Grinding on the soul plates with both feet, with heels facing each other.
-    Image: <a target="_blank" href="https://www.youtube.com/channel/UC_cMnM6u3xJ3yeW1jzIHgaQ">Ricardo Lino</a>`, 
+    Image: <a target="_blank" href="https://www.youtube.com/channel/UC_cMnM6u3xJ3yeW1jzIHgaQ">Ricardo Lino</a>`,
     variations: { Rough: true, Tough: true, Topside: true, Negative: true },
   },
 ];

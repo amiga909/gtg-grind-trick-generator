@@ -167,11 +167,6 @@ export class SlotMachine {
   getNextState(state, slotName) {
     let newState = "";
 
-    if (slotName === "Grind") {
-      return state === SLOT_STATES.locked
-        ? SLOT_STATES.enabled
-        : SLOT_STATES.locked;
-    }
     if (state === SLOT_STATES.unavailable) {
       console.error("unavailable slot state", slotName, state);
     } else if (state === SLOT_STATES.enabled) {
@@ -182,6 +177,11 @@ export class SlotMachine {
       newState = SLOT_STATES.enabled;
     } else {
       console.error("invalid slot state", slotName, state);
+    }
+
+    // disable grind reel lock
+    if (slotName === "Grind") {
+      newState = SLOT_STATES.enabled;
     }
 
     return newState;
@@ -662,10 +662,15 @@ export class SlotMachine {
     });
     const shuffleArray = (arr) => arr.sort(() => Math.random() - 0.5);
     $node.html(shuffleArray(reelRows).join(""));
+    // dont animate disabled reels this.slotSpeed
+    let delay = this.slotSpeed;
+    if (this.slots[slotIndex].state === SLOT_STATES.disabled) {
+      delay = 0;
+    }
 
     this.slots[slotIndex].machine = $node.slotMachine({
       active: 0,
-      delay: this.slotSpeed,
+      delay: delay,
       spins: SLOT_MACHINE_NO_OF_SPINS,
     });
   }

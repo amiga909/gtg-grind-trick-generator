@@ -15,7 +15,7 @@ const ERROR_MSG = {
     Toggle the reels to remove <i class="fa fa-lock fa-1x"></i> and 
     <i class="fa fa-ban fa-1x"></i> tokens from the slot machine.</span>`,
   dupeTrick: `<span style="color:${ERROR_MSG_COLOR};">Error. You already got that trick. 
-    Toggle the reels to change the trick or press skip to skip this spin.</span>`,
+    Toggle the reels to change the trick or press skip to generate a new trick.</span>`,
 };
 
 const CONFIG = {
@@ -80,7 +80,7 @@ const CONFIG = {
   },
   grindReel: {
     screen: "Slotmachine",
-    text: `Press a reel to disable (<i class="fa fa-ban fa-1x"></i>), press again to enable. Press the GRIND reel to lock ( <i class="fa fa-lock fa-1x"></i>), press again to unlock`,
+    text: `Press a reel to disable (<i class="fa fa-ban fa-1x"></i>), press again to enable. The GRIND reel can not be disabled.`,
   },
   tricklistBtn: {
     screen: "Slotmachine",
