@@ -638,7 +638,7 @@ const GROOVE_GRINDS = [
   },
   {
     name: "FS Torque",
-    comment: "Like a one-ooted Full Torque",
+    comment: "Like an one-footed Full Torque",
     repeat: MEDIUM_REPEAT,
     url: "http://skateyeg.com/bog/05.0_Torque.html",
     variations: {
@@ -725,7 +725,7 @@ const GROOVE_GRINDS = [
   },
   {
     name: "BS Torque",
-    comment: "Like a one-footed Full Torque",
+    comment: "Like an one-footed Full Torque",
     repeat: MEDIUM_REPEAT,
     url: "http://skateyeg.com/bog/05.1_Backside_Torque.html",
     variations: {
