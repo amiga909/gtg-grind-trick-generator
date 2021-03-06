@@ -260,6 +260,10 @@ p {
     opacity: 0.2;
   }
 }
+.bog-slot-3 {
+  cursor:none; 
+  pointer-events: none;
+}
 
 #grindVariations {
   overflow: hidden;
