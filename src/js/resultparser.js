@@ -325,24 +325,34 @@ export class ResultParser {
     let rows = [];
 
     let orig = result.orig;
-    if (result.orig.includes("Inspin")) {
-      rows.push(this.renderHelpTableRow("Inspin", "", CONFIG.GLOSSARY.Inspin));
-    }
-    if (result.orig.includes("Outspin")) {
+    if (result.orig.includes("Inspin") || result.orig.includes("Outspin")) {
       rows.push(
-        this.renderHelpTableRow("Outspin", "", CONFIG.GLOSSARY.Outspin)
+        this.renderHelpTableRow(
+          "Inspin/Outspin",
+          "",
+          "Inspin is a spin to the right (clockwise) if the obstacle is on the right of you, Outspin is a spin to the left. Vice versa if obstacle is on the left. "
+        )
       );
     }
 
+    let glossaryTerms = [];
     for (const [term, comment] of Object.entries(CONFIG.GLOSSARY)) {
-      if (
-        parseString.toLowerCase().includes(term.toLowerCase()) &&
-        !term.includes(" ")
-      ) {
+      if (parseString.toLowerCase().includes(term.toLowerCase())) {
+        glossaryTerms.push(term);
+        if (
+          (parseString.includes("True Fullcab") ||
+            parseString.includes("True Halfcab")) &&
+          (term === "True" || term === "Halfcab" || term === "Fullcab")
+        ) {
+          continue;
+        }
+
         rows.push(this.renderHelpTableRow(term, "", comment));
         parseString = parseString.replace(term, "");
       }
     }
+
+    // replace true fullcab, true halfcab
 
     const grind = this.getSortedByStrLen(CONFIG.GRINDS).filter((g) => {
       return parseString.includes(g.name);

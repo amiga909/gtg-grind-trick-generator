@@ -256,7 +256,7 @@ class GrindTrickRandomizer {
 
     this.slotMachineResult = this.resultParser.parse(winners);
     let text = this.resultParser.getHelpTableForTrick(this.slotMachineResult);
-    text = `<span style="font-weight: bold;">${this.slotMachineResult.parsed}</span> ${text}`;
+    text = `<span style="font-weight: bold;text-decoration: underline;">${this.slotMachineResult.parsed}</span> ${text}`;
     this.tooltips.updateTooltip("endScreen", text);
 
     this.$endScreen.find("#endscreen-text").html(this.slotMachineResult.parsed);

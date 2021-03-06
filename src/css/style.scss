@@ -261,7 +261,7 @@ p {
   }
 }
 .bog-slot-3 {
-  cursor:none; 
+  cursor: none;
   pointer-events: none;
 }
 
@@ -1080,6 +1080,10 @@ body::-webkit-scrollbar-thumb {
   .cell--details-view {
     padding: 2px;
     margin: 0;
+    @media screen and (max-width: $bp_resp_table) {
+      padding: 1px;
+      margin-top: -4px;
+    }
   }
   .row--details-view {
     margin: 0;
