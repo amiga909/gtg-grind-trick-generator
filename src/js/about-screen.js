@@ -5,6 +5,10 @@ const REFERENCES = [
     url: `<a target="_blank" href="http://skateyeg.com/">skateyeg.com</a>`,
   },
   {
+    name: "Tricks Trainer - Aggressive Inline (Android Game by Duff Apps)",
+    url: `<a target="_blank" href="https://play.google.com/store/apps/details?id=com.dufflagaramot.trickstrainer">play.google.com</a>`,
+  },
+  {
     name: "1997 Aggressive inline skating dictionary",
     url: `<a target="_blank" href="http://toxboe.net/all/1997-aggressive-inline-skating-dictionary">toxboe.net</a>`,
   },
@@ -46,7 +50,7 @@ const REFERENCES = [
     url: `<a target="_blank" href="http://www.aightgame.com/assets/permutations.txt">List</a>`,
   },
   {
-    name: "Rollerblading Rollerblading FB Group - Poll for hard grinds",
+    name: "Rollerblading Rollerblading FB group - vote grind scores",
     url: `<a target="_blank" href="https://www.facebook.com/groups/790993714317553/permalink/3764459683637593/">facebook.com</a>`,
   },
 ];
