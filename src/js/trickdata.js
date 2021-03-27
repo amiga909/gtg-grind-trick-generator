@@ -429,9 +429,9 @@ const SOUL_GRINDS = [
     variations: {
       Topside: true,
       Negative: true,
-     // Rough: true,
+      // Rough: true,
       Tough: true,
-     // "Rough Topside": true,
+      // "Rough Topside": true,
       "Tough Topside": true,
     },
   },
@@ -1091,8 +1091,7 @@ const GLOSSARY = {
   Natural: "Natural is the opposite of Switch.",
 
   // unparsed tokens
-  Inspin:
-    `Spin towards the obstacle. 
+  Inspin: `Spin towards the obstacle. 
     If the obstacle is on the left of you, Inspin is a spin to the left (counter clockwise). 
     If the obstacle is on the right, Inspin is a spin to the right (clockwise). `,
   Outspin: `Spin away from the obstacle, also called "Blindside" in other sports. 

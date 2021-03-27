@@ -169,8 +169,7 @@ class GrindTrickRandomizer {
         this.tricklist.getStorage()
       );
       this.screens.show("GameOver", "up");
-    }  
-    else {
+    } else {
       this.onClickStart();
     }
   }
