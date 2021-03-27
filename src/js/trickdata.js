@@ -376,9 +376,9 @@ const SOUL_GRINDS = [
     variations: {
       Topside: true,
       Negative: true,
-      Rough: true,
+      //Rough: true,
       Tough: true,
-      "Rough Topside": true,
+      //"Rough Topside": true,
       "Tough Topside": true,
     },
   },
@@ -429,9 +429,9 @@ const SOUL_GRINDS = [
     variations: {
       Topside: true,
       Negative: true,
-      Rough: true,
+     // Rough: true,
       Tough: true,
-      "Rough Topside": true,
+     // "Rough Topside": true,
       "Tough Topside": true,
     },
   },
@@ -457,7 +457,7 @@ const SOUL_GRINDS = [
     scores: 3,
     url: "http://skateyeg.com/bog/05.1_Citric_Acid.html",
     variations: {
-      // Topside: true,
+      Topside: true,
       Negative: true,
       //  Rough: true,
       // Tough: true,
@@ -474,6 +474,7 @@ const SOUL_GRINDS = [
     variations: {
       Rough: true,
       Tough: true,
+      "Tough&Rough": true,
     },
   },
   {
@@ -1090,10 +1091,13 @@ const GLOSSARY = {
   Natural: "Natural is the opposite of Switch.",
 
   // unparsed tokens
-  Inspin: `Spin towards the obstacle. If the obstacle is approached on the left, Inspin is to the left (counter clockwise). 
-    If the obstacle is approached on the right, Inspin is to the right (clockwise). `,
-  Outspin: `("Blindside") Spin away from the obstacle. If the obstacle is approached on the left, Outspin is to the right (clockwise).
-  If the obstacle is approached on the right, Outspin is to the left (counter clockwise).`,
+  Inspin:
+    `Spin towards the obstacle. 
+    If the obstacle is on the left of you, Inspin is a spin to the left (counter clockwise). 
+    If the obstacle is on the right, Inspin is a spin to the right (clockwise). `,
+  Outspin: `Spin away from the obstacle, also called "Blindside" in other sports. 
+  If the obstacle is on the left of you, Outspin is a spin to the right (clockwise).
+  If the obstacle is on the right, Outspin is a spin to the left (counter clockwise).`,
   "Frontside/FS": "Frontside",
   "Backside/BS": "Backside",
   "Soul grinds":

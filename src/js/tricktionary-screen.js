@@ -14,7 +14,7 @@ const MORE = [
   },
   {
     term: "Negative Topside",
-    comment: "Exists but I do not understand it at all.",
+    comment: "Negative Sweatstance, ..",
   },
   {
     term: "Medspin",

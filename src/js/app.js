@@ -129,7 +129,6 @@ class GrindTrickRandomizer {
 
     this.$addTricklistBtn.on("click", () => {
       if (!this.hasTrickDupeErrorPrompt()) {
-        // (!this.hasTokenErrorPrompt() &&
         this.addToTricklist(this.scoreboard.isLastSpin());
       }
     });
@@ -170,7 +169,8 @@ class GrindTrickRandomizer {
         this.tricklist.getStorage()
       );
       this.screens.show("GameOver", "up");
-    } else if (!this.hasTokenErrorPrompt()) {
+    }  
+    else {
       this.onClickStart();
     }
   }
@@ -200,6 +200,7 @@ class GrindTrickRandomizer {
     return hasPrompt;
   }
 
+  // unused
   hasTokenErrorPrompt() {
     let hasPrompt = false;
     if (!this.scoreboard.isValidTokensCount()) {
