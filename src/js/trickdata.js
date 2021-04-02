@@ -360,10 +360,12 @@ const SOUL_GRINDS = [
     variations: {
       Topside: true,
       Negative: true,
-      Rough: true,
       Tough: true,
-      "Rough Topside": true,
       "Tough Topside": true,
+       // does not exist?
+       //Rough: true,
+       //"Rough Topside": true,
+     
     },
   },
   {
@@ -376,10 +378,12 @@ const SOUL_GRINDS = [
     variations: {
       Topside: true,
       Negative: true,
+     
+      Tough: true,"Tough Topside": true,
+       // does not exist?
       //Rough: true,
-      Tough: true,
       //"Rough Topside": true,
-      "Tough Topside": true,
+      
     },
   },
   {
@@ -408,15 +412,16 @@ const SOUL_GRINDS = [
   {
     name: "PStar",
     comment:
-      "The soul foot is in front and the trailing foot is pointing toward the obstacle.",
+      "(Pornstar) The soul foot is in front and the trailing foot is pointing toward the obstacle.",
     repeat: EASY_REPEAT,
     url: "http://skateyeg.com/bog/04.0_PStar.html",
     variations: {
       Topside: true,
       Negative: true,
       Rough: true,
-      Tough: true,
       "Rough Topside": true,
+       // not found but should be possible
+      Tough: true,
       "Tough Topside": true,
     },
   },
@@ -429,10 +434,13 @@ const SOUL_GRINDS = [
     variations: {
       Topside: true,
       Negative: true,
-      // Rough: true,
+      
       Tough: true,
-      // "Rough Topside": true,
       "Tough Topside": true,
+       // does not exist?
+      // Rough: true,
+      // "Rough Topside": true,
+      
     },
   },
   {
@@ -459,10 +467,12 @@ const SOUL_GRINDS = [
     variations: {
       Topside: true,
       Negative: true,
+      // not found but should be possible
+     Tough: true,"Tough Topside": true,
       //  Rough: true,
-      // Tough: true,
+     
       // "Rough Topside": true,
-      // "Tough Topside": true,
+      
     },
   },
   {

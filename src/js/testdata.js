@@ -825,4 +825,102 @@ export const testData = [
       { name: "SpinTo", winner: { name: "Outspin 900" } },
     ],
   },
+
+  {
+    expected: "Zerospin Soyale",
+    data: [
+      {
+        name: "Approach",
+        winner: {
+          name: "Fakie",
+          isFakie: true,
+          isSwitch: false,
+        },
+      },
+      { name: "Grind", winner: { name: "Torque Soul" } }, 
+    ],
+  },
+
+  {
+    expected: "Zerospin Kindgrind",
+    data: [
+      {
+        name: "Approach",
+        winner: {
+          name: "Fakie",
+          isFakie: true,
+          isSwitch: false,
+        },
+      },
+      { name: "Grind", winner: { name: "Mizou" } }, 
+      { name: "GrindVariation", winner: { name: "Topside" } },
+    ],
+  },
+
+  {
+    expected: "Zerospin Misfit",
+    data: [
+      {
+        name: "Approach",
+        winner: {
+          name: "Fakie",
+          isFakie: true,
+          isSwitch: false,
+        },
+      },
+      { name: "Grind", winner: { name: "Mistrial" } }, 
+      { name: "GrindVariation", winner: { name: "Topside" } },
+    ],
+  },
+  {
+    expected: "Zerospin Cloudy Night",
+    data: [
+      {
+        name: "Approach",
+        winner: {
+          name: "Fakie",
+          isFakie: true,
+          isSwitch: false,
+        },
+      },
+      { name: "Grind", winner: { name: "PStar" } }, 
+      { name: "GrindVariation", winner: { name: "Topside" } },
+    ],
+  },
+
+  {
+    expected: "True Fullcab Kindgrind",
+    data: [
+      {
+        name: "Approach",
+        winner: {
+          name: "Fakie",
+          isFakie: true,
+          isSwitch: false,
+        },
+      },
+      { name: "Grind", winner: { name: "Mizou" } }, 
+      { name: "GrindVariation", winner: { name: "Topside" } },
+      { name: "SpinTo", winner: { name: "Outspin 360" } },
+    ],
+  },
+
+
+  {
+    expected: "540 Hurricane Kindgrind",
+    data: [
+      {
+        name: "Approach",
+        winner: {
+          name: "Forwards",
+          isFakie: false,
+          isSwitch: false,
+        },
+      },
+      { name: "Grind", winner: { name: "Mizou" } }, 
+      { name: "GrindVariation", winner: { name: "Topside" } },
+      { name: "SpinTo", winner: { name: "Outspin 540" } },
+    ],
+  },
+   
 ];

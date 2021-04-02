@@ -57,7 +57,7 @@ export class ResultParser {
         (spinTo.winner.name.includes("180") ||
           spinTo.winner.name.includes("540"));
     } else if (!isGrooveGrind && isFakie) {
-      isReverse = spinTo && spinTo.winner.name.includes("360");
+      isReverse = spinTo && spinTo.winner.name.includes("360") ? true : false;
     }
     const isTopside =
       grindVariation && grindVariation.winner.name.includes("Topside");
@@ -72,6 +72,7 @@ export class ResultParser {
       hasSpin,
       isGrooveGrind
     );
+    isReverse = approachName === "Zerospin" ? true : isReverse; 
     const spinName = this.parseSpinTo(
       spinTo,
       isGrooveGrind,
@@ -108,7 +109,7 @@ export class ResultParser {
     }
 
     let result = tokens.join(" ");
-
+ 
     result = this.replaceGrindSynonyms(result, grind.winner.name, {
       isReverse: isReverse || false,
       isTopside: isTopside || false,
