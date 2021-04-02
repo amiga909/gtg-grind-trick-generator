@@ -837,7 +837,7 @@ export const testData = [
           isSwitch: false,
         },
       },
-      { name: "Grind", winner: { name: "Torque Soul" } }, 
+      { name: "Grind", winner: { name: "Torque Soul" } },
     ],
   },
 
@@ -852,7 +852,7 @@ export const testData = [
           isSwitch: false,
         },
       },
-      { name: "Grind", winner: { name: "Mizou" } }, 
+      { name: "Grind", winner: { name: "Mizou" } },
       { name: "GrindVariation", winner: { name: "Topside" } },
     ],
   },
@@ -868,7 +868,7 @@ export const testData = [
           isSwitch: false,
         },
       },
-      { name: "Grind", winner: { name: "Mistrial" } }, 
+      { name: "Grind", winner: { name: "Mistrial" } },
       { name: "GrindVariation", winner: { name: "Topside" } },
     ],
   },
@@ -883,7 +883,7 @@ export const testData = [
           isSwitch: false,
         },
       },
-      { name: "Grind", winner: { name: "PStar" } }, 
+      { name: "Grind", winner: { name: "PStar" } },
       { name: "GrindVariation", winner: { name: "Topside" } },
     ],
   },
@@ -899,12 +899,11 @@ export const testData = [
           isSwitch: false,
         },
       },
-      { name: "Grind", winner: { name: "Mizou" } }, 
+      { name: "Grind", winner: { name: "Mizou" } },
       { name: "GrindVariation", winner: { name: "Topside" } },
       { name: "SpinTo", winner: { name: "Outspin 360" } },
     ],
   },
-
 
   {
     expected: "540 Hurricane Kindgrind",
@@ -917,10 +916,9 @@ export const testData = [
           isSwitch: false,
         },
       },
-      { name: "Grind", winner: { name: "Mizou" } }, 
+      { name: "Grind", winner: { name: "Mizou" } },
       { name: "GrindVariation", winner: { name: "Topside" } },
       { name: "SpinTo", winner: { name: "Outspin 540" } },
     ],
   },
-   
 ];

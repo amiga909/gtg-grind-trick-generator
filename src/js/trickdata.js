@@ -362,10 +362,9 @@ const SOUL_GRINDS = [
       Negative: true,
       Tough: true,
       "Tough Topside": true,
-       // does not exist?
-       //Rough: true,
-       //"Rough Topside": true,
-     
+      // does not exist?
+      //Rough: true,
+      //"Rough Topside": true,
     },
   },
   {
@@ -378,12 +377,12 @@ const SOUL_GRINDS = [
     variations: {
       Topside: true,
       Negative: true,
-     
-      Tough: true,"Tough Topside": true,
-       // does not exist?
+
+      Tough: true,
+      "Tough Topside": true,
+      // does not exist?
       //Rough: true,
       //"Rough Topside": true,
-      
     },
   },
   {
@@ -420,7 +419,7 @@ const SOUL_GRINDS = [
       Negative: true,
       Rough: true,
       "Rough Topside": true,
-       // not found but should be possible
+      // not found but should be possible
       Tough: true,
       "Tough Topside": true,
     },
@@ -434,13 +433,12 @@ const SOUL_GRINDS = [
     variations: {
       Topside: true,
       Negative: true,
-      
+
       Tough: true,
       "Tough Topside": true,
-       // does not exist?
+      // does not exist?
       // Rough: true,
       // "Rough Topside": true,
-      
     },
   },
   {
@@ -468,11 +466,11 @@ const SOUL_GRINDS = [
       Topside: true,
       Negative: true,
       // not found but should be possible
-     Tough: true,"Tough Topside": true,
+      Tough: true,
+      "Tough Topside": true,
       //  Rough: true,
-     
+
       // "Rough Topside": true,
-      
     },
   },
   {

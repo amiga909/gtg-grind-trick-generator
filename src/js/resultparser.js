@@ -72,7 +72,7 @@ export class ResultParser {
       hasSpin,
       isGrooveGrind
     );
-    isReverse = approachName === "Zerospin" ? true : isReverse; 
+    isReverse = approachName === "Zerospin" ? true : isReverse;
     const spinName = this.parseSpinTo(
       spinTo,
       isGrooveGrind,
@@ -109,7 +109,7 @@ export class ResultParser {
     }
 
     let result = tokens.join(" ");
- 
+
     result = this.replaceGrindSynonyms(result, grind.winner.name, {
       isReverse: isReverse || false,
       isTopside: isTopside || false,
