@@ -360,8 +360,8 @@ const SOUL_GRINDS = [
     variations: {
       Topside: true,
       Negative: true,
-      Tough: true,
-      "Tough Topside": true,
+      Tough: true, // pic
+      "Tough Topside": true, // pic
       // does not exist?
       //Rough: true,
       //"Rough Topside": true,
@@ -377,14 +377,14 @@ const SOUL_GRINDS = [
     variations: {
       Topside: true,
       Negative: true,
-
       Tough: true,
       "Tough Topside": true,
       // does not exist?
       //Rough: true,
       //"Rough Topside": true,
     },
-  },
+  }, // https://www.youtube.com/watch?v=DbU-2hDUIgM
+  // https://vimeo.com/13842111
   {
     name: "Makio",
     repeat: EASY_REPEAT,
@@ -419,8 +419,7 @@ const SOUL_GRINDS = [
       Negative: true,
       Rough: true,
       "Rough Topside": true,
-      // not found but should be possible
-      Tough: true,
+      Tough: true, // not found but should be possible
       "Tough Topside": true,
     },
   },
@@ -433,9 +432,8 @@ const SOUL_GRINDS = [
     variations: {
       Topside: true,
       Negative: true,
-
-      Tough: true,
-      "Tough Topside": true,
+      Tough: true, // pic
+      "Tough Topside": true, // pic
       // does not exist?
       // Rough: true,
       // "Rough Topside": true,
@@ -450,10 +448,10 @@ const SOUL_GRINDS = [
     variations: {
       Topside: true,
       Negative: true,
-      Rough: true,
-      Tough: true,
+      Rough: true, // possible
       "Rough Topside": true,
-      "Tough Topside": true,
+      Tough: true, // pic
+      "Tough Topside": true, // pic
     },
   },
   {
@@ -465,11 +463,9 @@ const SOUL_GRINDS = [
     variations: {
       Topside: true,
       Negative: true,
-      // not found but should be possible
-      Tough: true,
-      "Tough Topside": true,
+      Tough: true, // not found but should be possible
+      "Tough Topside": true, // not found but should be possible
       //  Rough: true,
-
       // "Rough Topside": true,
     },
   },
@@ -495,10 +491,10 @@ const SOUL_GRINDS = [
     variations: {
       Topside: true,
       Negative: true,
-      Rough: true,
-      Tough: true,
+      Rough: true, // book of grinds
       "Rough Topside": true,
-      "Tough Topside": true,
+      //Tough: true,
+      //"Tough Topside": true,
     },
   },
   {
@@ -508,9 +504,9 @@ const SOUL_GRINDS = [
       "Oldschool trick. Like a PStar but with the back foot all the way down on its laces. A topside Sidewalk is called Tendon Tear.",
     url: "http://skateyeg.com/bog/04.1_Sidewalk.html",
     variations: {
-      Topside: true,
-      Negative: true,
-      Rough: true,
+      Topside: true, // ?
+      Negative: true, // ?
+      // Rough: true,  // ?
       // Tough: true,
       //  "Rough Topside": true,
       // "Tough Topside": true,
@@ -539,7 +535,9 @@ const SOUL_GRINDS = [
     comment: `The front skate is rolling on the wheel on the heel, the back skate is on Topside soul.
       Image: Chris Haffey, AO Training Wheel, 
       <a target="_blank" href="https://www.youtube.com/watch?v=Dv00GSmm0gk">B.L.A.D.E. Aragon</a>`,
-    variations: { Rough: true, Tough: true },
+    variations: {
+      Tough: true, // should be possible
+    },
   },
   {
     name: "BS Tabernacle",
@@ -614,7 +612,12 @@ const SOUL_GRINDS = [
     url: "",
     comment: `(Biscuit, Double Inner, Impossible Grind, Snub Soul) Grinding on the soul plates with both feet, with toes facing each other. 
     Image: Aaron Dizom, <a target="_blank" href="https://www.youtube.com/watch?v=L3H5E13UkBw">United Front</a>`,
-    variations: { Rough: true, Tough: true, Topside: true, Negative: true },
+    variations: {
+      Rough: true, // nf
+      Tough: true, // nf
+      Topside: true, // pic
+      Negative: true,
+    },
   },
   {
     name: "Open Book",
@@ -957,7 +960,7 @@ const VARIATIONS = [
     scores: 1,
     url: "http://skateyeg.com/bog/07.0_Tough_(Toe).html",
     comment:
-      "Grinding on the toe instead of the whole soul foot (Tough Acid, ..)",
+      "(Tokyo) Grinding on the toe instead of the whole soul foot (Tough Acid, ..)",
   },
 
   {
