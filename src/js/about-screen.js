@@ -50,6 +50,10 @@ const REFERENCES = [
     url: `<a target="_blank" href="http://www.aightgame.com/assets/permutations.txt">List</a>`,
   },
   {
+    name: "AIGHT Tricktionary",
+    url: `<a target="_blank" href="http://www.aightgame.com/tricktionary">Tricktionary</a>`,
+  },
+  {
     name: "Rollerblading Rollerblading FB group - vote grind scores",
     url: `<a target="_blank" href="https://www.facebook.com/groups/790993714317553/permalink/3764459683637593/">facebook.com</a>`,
   },
@@ -60,6 +64,12 @@ export class AboutScreen {
     this.$references = $("#aboutScreenReferences");
     this.render();
     renderTOC($("#modal-screen--about"));
+    $("#modal-screen--about")
+      .find(".toc-link")
+      .on("click", (e) => {
+        let element = $(e.currentTarget).data("anchor");
+        document.getElementById(element).scrollIntoView(true);
+      });
   }
 
   render() {

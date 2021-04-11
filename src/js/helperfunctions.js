@@ -71,9 +71,11 @@ export const renderTOC = ($dom) => {
     let $section = $(section);
     let display = $section.text();
     let anchor = display.replace(" ", "");
-    $section.html(`<a class="toc-anchor" name="${anchor}"></a> ${display} `);
+    $section.html(
+      `<a id="toc-${anchor}" class="toc-anchor" name="${anchor}"></a>${display} `
+    );
     tocs.push(
-      `<a class="pure-menu-link" href="#${anchor}"> </
+      `<a style="cursor:pointer" data-anchor="toc-${anchor}" class="pure-menu-link toc-link"  >  
       <li class="pure-menu-item">${display} </li> 
       </a>`
     );

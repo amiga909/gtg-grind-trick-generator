@@ -67,7 +67,11 @@ class GrindTrickRandomizer {
     if (!DISABLE_SOUND) {
       this.audioplayer.init(this.configurator.getSound());
     }
-    this.screens.show("Start"); //Start GameOver
+
+    this.screens.show("Start");
+    if (location.href.includes("tricktionary")) {
+      this.screens.show("Tricktionary");
+    }
 
     this.registerListener();
   }

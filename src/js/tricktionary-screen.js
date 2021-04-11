@@ -60,6 +60,13 @@ export class TricktionaryScreen {
     this.renderNotImplemented();
 
     renderTOC(this.$dom.parent());
+    this.$dom
+      .parent()
+      .find(".toc-link")
+      .on("click", (e) => {
+        let element = $(e.currentTarget).data("anchor");
+        document.getElementById(element).scrollIntoView(true);
+      });
   }
 
   renderNotImplemented() {

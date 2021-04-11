@@ -51,6 +51,12 @@ app.get("/index.html", (request, response) => {
   response.sendFile("public/index.html", {root: __dirname });
 });
 
+app.get("/tricktionary", (request, response) => {
+  response.sendFile("public/index.html", {root: __dirname });
+  res.redirect('/index?page=tricktionary');
+});
+
+
 // Start listening on the port
 var server = app.listen(port, () => {
   console.log(
