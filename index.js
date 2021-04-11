@@ -53,7 +53,7 @@ app.get("/index.html", (request, response) => {
 
 app.get("/tricktionary", (request, response) => {
   response.sendFile("public/index.html", {root: __dirname });
-  res.redirect('/index?page=tricktionary');
+  response.redirect('/?page=tricktionary');
 });
 
 
