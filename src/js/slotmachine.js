@@ -257,7 +257,7 @@ export class SlotMachine {
         const variation = CONFIG.VARIATIONS.filter((v) => {
           return v.name === w.winner.name;
         })[0];
-        score = variation.scores;
+        score = variation && variation.scores ? variation.scores : 0;
       }
       total = total + parseInt(score, 10);
     });
@@ -336,8 +336,12 @@ export class SlotMachine {
   onCompleteSlot(resolve, slot, activeNodeIndex) {
     const index = this.getSlotIndexByName(slot.name);
     const $active = slot.dom.find(`.bogLink:eq(${activeNodeIndex + 1})`);
-    const theWinner = slot.data[$active.data("index") - 1];
-
+    let theWinner = slot.data[$active.data("index") - 1];
+    //console.log($active.data("index"));
+    if (String($active.data("index")) === "-1") {
+      theWinner = { scores: 0, name: "None" };
+      console.log(theWinner);
+    }
     let score = theWinner.scores;
     this.slots[index].winner = theWinner;
 
@@ -396,7 +400,7 @@ export class SlotMachine {
       const variation = CONFIG.VARIATIONS.filter((v) => {
         return v.name === theWinner.name;
       })[0];
-      score = variation.scores;
+      score = variation && variation.scores ? variation.scores : 0;
     }
 
     this.renderScore(slot.dom, score);
@@ -625,7 +629,7 @@ export class SlotMachine {
     }
     let index = 0;
     let reelRows = [];
-    /*const html = */ filteredData.map((s) => {
+    filteredData.map((s) => {
       index += 1;
       let iconClass = s.icon ? `bogLink-icon-${s.icon}` : "";
       iconClass = "";
@@ -655,14 +659,28 @@ export class SlotMachine {
           for (let i = 0; i < variation.repeat; i++) {
             reelRows.push(htmlSlot);
           }
-          //htmlSlot = htmlSlot.repeat(variation.repeat);
         }
       }
+
       reelRows.push(htmlSlot);
     });
+    // None type
+    /*
+    if (this.slots[slotIndex].name !== "Grind") {
+      console.log("reelRows", reelRows, this.slots[slotIndex].name);
+      for (let i = 0; i < 4; i++) {
+        reelRows.push(`
+        <div data-index="-1" class="bogLink">
+          <div class="emptyRow">None
+          </div>
+        </div>
+        `);
+      }
+    }*/
+
     const shuffleArray = (arr) => arr.sort(() => Math.random() - 0.5);
     $node.html(shuffleArray(reelRows).join(""));
-    // dont animate disabled reels this.slotSpeed
+    // dont animate disabled reels
     let delay = this.slotSpeed;
     if (this.slots[slotIndex].state === SLOT_STATES.disabled) {
       delay = 0;
