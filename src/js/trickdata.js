@@ -934,7 +934,6 @@ const GRIND_SYNONYMS = [
 const VARIATIONS = [
   {
     name: "Topside",
-    repeat: EASY_REPEAT * 2,
     scores: 1,
     url: "http://skateyeg.com/bog/03.0_Topside_(Top).html",
     comment:
