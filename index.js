@@ -53,7 +53,10 @@ app.get("/index.html", (request, response) => {
 
 app.get("/tricktionary", (request, response) => {
   response.sendFile("public/index.html", {root: __dirname });
-  response.redirect('/?page=tricktionary');
+});
+
+app.get("/about", (request, response) => {
+  response.sendFile("public/index.html", {root: __dirname });
 });
 
 

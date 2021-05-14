@@ -65,8 +65,7 @@ const CONFIG = {
   },
   endGameButton: {
     screen: "Slotmachine",
-    text:
-      "This is the last spin. If you can't to the trick, press this button to end the game.",
+    text: "This is the last spin. If you can't to the trick, press this button to end the game.",
     props: { maxWidth: "25vw" },
   },
 
@@ -102,8 +101,7 @@ const CONFIG = {
   },
   configLevelSelect: {
     screen: "Configuration",
-    text:
-      "Choose a preset with included tricks and tokens per game. Press Apply button below to activate.",
+    text: "Choose a preset with included tricks and tokens per game. Press Apply button below to activate.",
   },
   configSpeedSelect: {
     screen: "Configuration",

@@ -63,6 +63,7 @@ export class Screens {
     this.$modalCloseBtn.on("click", (e) => {
       e.preventDefault();
       this.show(this.lastNonModalScreen);
+      this.handleDirectLinks();
     });
     this.$configButton.on("click", (e) => {
       e.preventDefault();
@@ -162,5 +163,15 @@ export class Screens {
         (window.innerWidth ||
           document.documentElement.clientWidth) /* or $(window).width() */
     );
+  }
+
+  handleDirectLinks() {
+    if (
+      window.history &&
+      (location.href.includes("tricktionary") ||
+        location.href.includes("about"))
+    ) {
+      window.history.replaceState({}, "", "/");
+    }
   }
 }
