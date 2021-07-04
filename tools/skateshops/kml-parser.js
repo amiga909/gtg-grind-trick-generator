@@ -2,14 +2,271 @@ const http = require("http");
 const fs = require('fs');
 const xml2js = require('xml2js');
 const axios = require('axios');
+const util = require('util');
+const { exec } = require('child_process');
 
+const jsdom = require("jsdom");
+const { JSDOM } = jsdom;
 
 const run = async function () {
   const parser = new xml2js.Parser();
+  const sourceFile = '/aggressive-brands.kml' // '/result-backlinks.kml'
   const data = fs.readFileSync(__dirname + '/result-backlinks.kml');
-  const parsed = await parser.parseStringPromise(data);
-  const processed = await processShops(parsed);
+  let parsed = await parser.parseStringPromise(data);
+  //const processed = await processShops(parsed);
+  parseHtmlFiles(parsed)
+  //  dataFetcha(parsed)
+  //const processed = await migrateShops(parsed);
+
+  //result = sortShops(parsed)
+  //console.log(result.kml.Document[0].Placemark)
+  //writeFile(result)
+
+  return false; 
+
+  const placemarks = parsed.kml.Document[0].Placemark
+
+  console.log(placemarks[124])
+  for (let v of placemarks) {
+    if (parseInt(v.ahrefsRank[0], 10) === 0) {
+      v.ahrefsRank = [2147483600];
+    }
+
+    v.styleUrl = [getStyleId(v.ahrefsRank[0])];
+
+    let obj = [
+      {
+        'Data': {
+          $: {
+            'name': 'URL'
+          },
+          value: v.ExtendedData[0].Data[0].value[0]
+        }
+      },
+      {
+        'Data': {
+          $: {
+            'name': 'Domain Rank'
+          },
+          value: v.ahrefsRank[0]
+        }
+      },
+      {
+        'Data': {
+          $: {
+            'name': 'Traffic Value'
+          },
+          value: v.trafficValue ? v.trafficValue[0] : 'n.a'
+        }
+      },
+      {
+        'Data': {
+          $: {
+            'name': 'Backlinks'
+          },
+          value: v.backlinkCount ? v.backlinkCount[0] : 'n.a'
+        }
+      },
+      {
+        'Data': {
+          $: {
+            'name': 'URL Rating'
+          },
+          value: v.urlRating ? v.urlRating[0] : 'n.a'
+        }
+      },
+      {
+        'Data': {
+          $: {
+            'name': 'Domain Rating'
+          },
+          value: v.domainRating ? v.domainRating[0] : 'n.a'
+        }
+      },
+      {
+        'Data': {
+          $: {
+            'name': 'Referring Domains'
+          },
+          value: v.backlinkDomains ? v.backlinkDomains[0] : 'n.a'
+        }
+      },
+
+    ]
+
+
+
+
+
+
+    v.ExtendedData = [obj]
+
+  }
+  parsed = sortShops(parsed)
+  const placemarks2 = parsed.kml.Document[0].Placemark
+  for (let v of placemarks2) {
+
+    console.log(v.ahrefsRank);
+  }
+
+
+  writeFile(parsed)
   console.log("done")
+}
+
+// run once
+const migrateShops = function (result) {
+  const placemarks = result.kml.Document[0].Placemark
+  for (let v of placemarks) {
+
+    let data = {
+      '$': { name: 'Backlinks' },
+      value: v.backlinkCount
+    }
+    data = { "Data": data };
+    v.ExtendedData.push(data)
+
+  }
+
+  for (let v of placemarks) {
+    v.styleUrl = [getStyleId(v.backlinkCount[0])];
+    // console.log(util.inspect(v.ExtendedData, { showHidden: false, depth: 5 }))
+  }
+  result = sortShops(result)
+
+  writeFile(result)
+}
+
+const dataFetcha = (result) => {
+  let placemarks = result.kml.Document[0].Placemark
+  let i = 0;
+  for (let v of placemarks) {
+    i++;
+    if (i > 139 && i < 2000) {
+      let shopUrl = v.ExtendedData[0].Data[0].value[0];
+      const domain = getDomain(shopUrl)
+      console.log("https://ahrefs.com/site-explorer/overview/v2/subdomains/live?target=" + domain)
+      //  await parseHtmlFile(domain)
+      /* var yourscript = exec('sh ./tools/skateshops/osa.sh '+ shopUrl,
+         (error, stdout, stderr) => {
+             console.log(stdout);
+             console.log(stderr);
+             if (error !== null) {
+                 console.log(`exec error: ${error}`);
+             }
+         });*/
+
+    }
+  }
+
+}
+
+
+
+const parseHtmlFiles = async function (result) {
+
+  let placemarks = result.kml.Document[0].Placemark
+  let i = 0;
+  for (let v of placemarks) {
+    //i++;if(i < 3) {
+    let shopUrl = v.ExtendedData[0].Data[0].value[0];
+    const domain = getDomain(shopUrl)
+    const ahrefsData = await parseHtmlFile(domain);
+
+
+
+    if (ahrefsData) {
+      v.ahrefsRank = [ahrefsData.rank]
+      v.trafficValue = [ahrefsData.trafficValue]
+      v.backlinkDomains = [ahrefsData.backlinkDomains]
+      v.urlRating = [ahrefsData.urlRating]
+      v.domainRating = [ahrefsData.domainRating]
+      v.backlinkCount = ahrefsData.backlinks;
+
+      v.styleUrl = [getStyleId(v.rank)];
+    }
+    else {
+      console.log("missing   ahrefsData   ", domain)
+    }
+
+  }
+  //}
+  result = sortShops(result)
+  //console.log(result.kml.Document[0].Placemark)
+  writeFile(result)
+}
+
+const parseHtmlFile = async function (domain) {
+  const files = fs.readdirSync(__dirname + "/ahrefs/");
+  for (file of files) {
+
+
+    if (file.includes(domain)) {
+      //const dom = await JSDOM.fromFile(__dirname + "/ahrefs/" + file, {}); 
+      return JSDOM.fromFile(__dirname + "/ahrefs/" + file, {}).then(dom => {
+        // console.log(dom.serialize());
+        const document = dom.window.document;
+
+        console.log("processing dom.." + domain)
+        let rank, trafficValue, backlinks, backlinkDomains, urlRating, domainRating;
+        try {
+          rank = document.querySelector("#topAhrefsRank").innerHTML;
+          rank = rank.replace(/,/g, "")
+          rank = parseInt(rank, 10)
+
+          trafficValue = document.querySelector("#numberOfOrganicTrafficCost").innerHTML || '';
+          backlinks = document.querySelector("#numberOfRefPages a").innerHTML || '';
+          backlinkDomains = document.querySelector("#numberOfRefDomains a").innerHTML || '';
+          urlRating = document.querySelector("#UrlRatingContainer span").innerHTML || '';
+          domainRating = document.querySelector("#DomainRatingContainer span").innerHTML || '';
+        }
+        catch (err) { }
+        return {
+          rank: rank || 0,
+          trafficValue: trafficValue || "",
+          backlinks: backlinks || "",
+          backlinkDomains: backlinkDomains || "",
+          urlRating: urlRating || "",
+          domainRating: domainRating || "",
+        };
+      });
+    }
+  };
+
+}
+const addDataNode = (val) => {
+  const data = {
+    '$': { name: 'Backlinks' },
+    value: [val]
+  }
+  return { "Data": data };
+}
+
+const sortShops = (result) => {
+  let placemarks = result.kml.Document[0].Placemark
+
+  placemarks.sort((a, b) => {
+
+    return ((parseInt(a.ahrefsRank[0], 10) > parseInt(b.ahrefsRank[0], 10)) ? 1 : -1)
+  });
+
+
+  return result;
+}
+const getStyleId = (rating) => {
+  rating = parseInt(rating, 10);
+  rating = Math.floor(rating / 1000);
+  let id = "#0";
+  if (rating < 2882) {
+    id = "#2";
+  }
+  else if (rating < 62898) {
+    id = "#1";
+  }
+  else {
+    id = "#0";
+  }
+  return id;
 }
 
 const processShops = async function (result) {
@@ -19,25 +276,40 @@ const processShops = async function (result) {
     i++;
     const hasDescription = v.description && v.description[0] !== ""
     v.description = hasDescription ? v.description : v.address;
+
+
     // write each fetch result due to Google rate limitatin
     if (!v.backlinkCount) {
       v.backlinkCount = await getBackLinkCount(v);
+      v.ExtendedData[1].Data[0].value[0] = v.backlinkCount;
       writeFile(result)
     }
+    if (v.backlinkCount) {
+      v.styleUrl = [getStyleId(v.rating[0])];
+    }
+
   }
+  result = sortShops(result)
+
+  writeFile(result)
   return result;
 }
-// https://www.seobility.net/de/preise/ 
+
+const getDomain = function (url) {
+  let res = url;
+  res = res.replace(/https:\/\//g, "")
+  res = res.replace(/http:\/\//g, "")
+  res = res.replace(/www\./g, "")
+  res = res.replace(/\//g, "")
+  res = encodeURI(res)
+  return res;
+}
+
 // https://developers.google.com/custom-search/v1/reference/rest/v1/cse/list#request
 // key: google-api-javascript-client  AIzaSyDk4cDi3vOfAs6YAhCSVfbg4aVI_Ag2BBk
-// https://www.googleapis.com/customsearch/v1?key=INSERT_YOUR_API_KEY&cx=017576662512468239146:omuauf_lfve&q=lectures
 const getBackLinkCount = async function (shop) {
   let shopUrl = shop.ExtendedData[0].Data[0].value[0];
-  shopUrl = shopUrl.replace(/https:\/\//g, "")
-  shopUrl = shopUrl.replace(/http:\/\//g, "")
-  shopUrl = shopUrl.replace(/www\./g, "")
-  shopUrl = shopUrl.replace(/\//g, "")
-  shopUrl = encodeURI(shopUrl)
+  shopUrl = getDomain(shopUrl)
   const cx = "543afbfdba3002b23"
   const key = "AIzaSyDk4cDi3vOfAs6YAhCSVfbg4aVI_Ag2BBk"
   let url = `https://www.googleapis.com/customsearch/v1?key=${key}&cx=${cx}&q=%22_SHOP_%22+-site%3A_SHOP_`
@@ -117,10 +389,27 @@ sola: 500
 
 "rollerwarehouse.com" -site:rollerwarehouse.com  9’430
 "xxxx" -site:xxxx
+"facebook.com/alohabeach.surfshop/" -site:facebook.com
+"warehouse-one.de" -site:warehouse-one.de
+
+https://www.facebook.com/MaverickShopMexico
+
+"jackroll.fr" -site:jackroll.fr
+"facebook.com/MaverickShopMexico" -site:facebook.com
+"facebook.com/patinesdlx" -site:facebook.com
+"role.hr" -site:role.hr
+"xxxx" -site:xxxx
+
+https://slides.lt
+
+"slides.lt" -site:slides.lt
+"xxxx" -site:xxxx
+"xxxx" -site:xxxx
 "xxxx" -site:xxxx
 "xxxx" -site:xxxx
 
 
+ https://www.facebook.com/patinesdlx
 
 /doblevdoble.com/es/ :
 
