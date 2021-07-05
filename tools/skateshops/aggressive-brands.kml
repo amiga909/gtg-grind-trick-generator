@@ -1,0 +1,1081 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Aggressive Inline Brands</name>
+    <description>Shops selling mainly blades (Aggressive Inline, Freestyle, Rollerskate).
+         Addresses are not verified, travel on your own risk. All links working (2021-07).</description>
+    <Placemark>
+      <styleUrl>#icon-1867-01579B-nodesc</styleUrl>
+      <name>1) Powerslide</name>
+      <ExtendedData>
+        <Data name="URL">
+          <value>https://www.powerslide.com/</value>
+        </Data>
+        <Data name="Rank">
+          <value>1 of 24</value>
+        </Data>
+        <Data name="Address">
+          <value>Esbachgraben 1, 95463 Bindlach, Germany</value>
+        </Data>
+        <Data name="ahrefs.com">
+          <value>
+            Domain Rank: 178221 
+            Traffic Value: $47.0K 
+            Backlinks: 170K 
+            URL Rating: 22 
+            Domain Rating: 64 
+            Referring Domains: 1.82K  
+          </value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>11.6182378,49.9758825,0</coordinates>
+      </Point>
+       <description>USD, Gawds, Kizer, Wicked, MyFit, Undercover, Ennui, Chaya</description>
+      <backlinkCount>170K</backlinkCount>
+      <ahrefsRank>178221</ahrefsRank>
+      <trafficValue>$47.0K</trafficValue>
+      <backlinkDomains>1.82K</backlinkDomains>
+      <urlRating>22</urlRating>
+      <domainRating>64</domainRating>
+    </Placemark>
+    <Placemark>
+      <styleUrl>#icon-1867-01579B-nodesc</styleUrl>
+      <name>2) Rollerblade</name>
+      <ExtendedData>
+        <Data name="URL">
+          <value>https://www.rollerblade.com/</value>
+        </Data>
+        <Data name="Rank">
+          <value>2 of 24</value>
+        </Data>
+        <Data name="Address">
+          <value>19 Technology Dr, West Lebanon, NH 03784</value>
+        </Data>
+        <Data name="ahrefs.com">
+          <value>
+            Domain Rank: 178221 
+            Traffic Value: $47.0K 
+            Backlinks: 170K 
+            URL Rating: 22 
+            Domain Rating: 64 
+            Referring Domains: 1.82K  
+          </value>
+        </Data>
+      </ExtendedData>
+      <description/>
+      <Point>
+        <coordinates>-72.31307, 43.6220744</coordinates>
+      </Point>
+      <backlinkCount>170K</backlinkCount>
+      <ahrefsRank>178221</ahrefsRank>
+      <trafficValue>$47.0K</trafficValue>
+      <backlinkDomains>1.82K</backlinkDomains>
+      <urlRating>22</urlRating>
+      <domainRating>64</domainRating>
+    </Placemark>
+    <Placemark>
+      <styleUrl>#icon-1867-01579B-nodesc</styleUrl>
+      <name>3) Roces</name>
+      <ExtendedData>
+        <Data name="URL">
+          <value>http://roces.com/</value>
+        </Data>
+        <Data name="Rank">
+          <value>3 of 24</value>
+        </Data>
+        <Data name="Address">
+          <value>Via Ferraris Galileo, 36, 31044 Montebelluna TV, Italia</value>
+        </Data>
+        <Data name="ahrefs.com">
+          <value>
+            Domain Rank: 1149556 
+            Traffic Value: $2.5K 
+            Backlinks: 19.9K 
+            URL Rating: 22 
+            Domain Rating: 43 
+            Referring Domains: 587  
+          </value>
+        </Data>
+      </ExtendedData>
+      <description/>
+      <Point>
+        <coordinates>12.0450646, 45.7759956</coordinates>
+      </Point>
+      <backlinkCount>19.9K</backlinkCount>
+      <ahrefsRank>1149556</ahrefsRank>
+      <trafficValue>$2.5K</trafficValue>
+      <backlinkDomains>587</backlinkDomains>
+      <urlRating>22</urlRating>
+      <domainRating>43</domainRating>
+    </Placemark>
+    <Placemark>
+      <styleUrl>#icon-1867-01579B-nodesc</styleUrl>
+      <name>4) Intuition Liners</name>
+      <ExtendedData>
+        <Data name="URL">
+          <value>https://intuitionliners.com/</value>
+        </Data>
+        <Data name="Rank">
+          <value>4 of 24</value>
+        </Data>
+        <Data name="Address">
+          <value>Mount Pleasant, Vancouver, BC V5Y 1K8, Canada</value>
+        </Data>
+        <Data name="ahrefs.com">
+          <value>
+            Domain Rank: 1382834 
+            Traffic Value: $1.2K 
+            Backlinks: 6.75K 
+            URL Rating: 43 
+            Domain Rating: 41 
+            Referring Domains: 420  
+          </value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>-123.109988,49.265411,0</coordinates>
+      </Point>
+      <description/>
+      <backlinkCount>6.75K</backlinkCount>
+      <ahrefsRank>1382834</ahrefsRank>
+      <trafficValue>$1.2K</trafficValue>
+      <backlinkDomains>420</backlinkDomains>
+      <urlRating>43</urlRating>
+      <domainRating>41</domainRating>
+    </Placemark>
+    <Placemark>
+      <styleUrl>#icon-1867-01579B-nodesc</styleUrl>
+      <name>5) Seba</name>
+      <ExtendedData>
+        <Data name="URL">
+          <value>http://www.sebaskates.com/</value>
+        </Data>
+        <Data name="Rank">
+          <value>5 of 24</value>
+        </Data>
+        <Data name="Address">
+          <value>Paris, France</value>
+        </Data>
+        <Data name="ahrefs.com">
+          <value>
+            Domain Rank: 2685015 
+            Traffic Value: $2.1K 
+            Backlinks: 12.5K 
+            URL Rating: 8 
+            Domain Rating: 34 
+            Referring Domains: 195  
+          </value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>2.3514612,48.8566961,0</coordinates>
+      </Point>
+      <description/>
+      <backlinkCount>12.5K</backlinkCount>
+      <ahrefsRank>2685015</ahrefsRank>
+      <trafficValue>$2.1K</trafficValue>
+      <backlinkDomains>195</backlinkDomains>
+      <urlRating>8</urlRating>
+      <domainRating>34</domainRating>
+    </Placemark>
+    <Placemark>
+      <styleUrl>#icon-1867-0288D1-nodesc</styleUrl>
+      <name>6) Oysi Frames</name>
+      <ExtendedData>
+        <Data name="URL">
+          <value>https://www.oysius.com/</value>
+        </Data>
+        <Data name="Rank">
+          <value>6 of 24</value>
+        </Data>
+        <Data name="Address">
+          <value>USA</value>
+        </Data>
+        <Data name="ahrefs.com">
+          <value>
+            Domain Rank: 2890529 
+            Traffic Value: $12 
+            Backlinks: 1.2K 
+            URL Rating: 10 
+            Domain Rating: 33 
+            Referring Domains: 50  
+          </value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>-100.4458825,39.7837304,0</coordinates>
+      </Point>
+      <description/>
+      <backlinkCount>1.2K</backlinkCount>
+      <ahrefsRank>2890529</ahrefsRank>
+      <trafficValue>$12</trafficValue>
+      <backlinkDomains>50</backlinkDomains>
+      <urlRating>10</urlRating>
+      <domainRating>33</domainRating>
+    </Placemark>
+    <Placemark>
+      <styleUrl>#icon-1867-0288D1-nodesc</styleUrl>
+      <name>7) Them</name>
+      <ExtendedData>
+        <Data name="URL">
+          <value>https://www.themgoods.com/</value>
+        </Data>
+        <Data name="Rank">
+          <value>7 of 24</value>
+        </Data>
+        <Data name="Address">
+          <value>Santa Ana, United States of America</value>
+        </Data>
+        <Data name="ahrefs.com">
+          <value>
+            Domain Rank: 2950549 
+            Traffic Value: $40 
+            Backlinks: 4.76K 
+            URL Rating: 32 
+            Domain Rating: 33 
+            Referring Domains: 115  
+          </value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>-117.88105,33.747949,0</coordinates>
+      </Point>
+      <description/>
+      <backlinkCount>4.76K</backlinkCount>
+      <ahrefsRank>2950549</ahrefsRank>
+      <trafficValue>$40</trafficValue>
+      <backlinkDomains>115</backlinkDomains>
+      <urlRating>32</urlRating>
+      <domainRating>33</domainRating>
+    </Placemark>
+    <Placemark>
+      <styleUrl>#icon-1867-0288D1-nodesc</styleUrl>
+      <name>8) Razors</name>
+      <ExtendedData>
+        <Data name="URL">
+          <value>https://www.razorskate.com/</value>
+        </Data>
+        <Data name="Rank">
+          <value>8 of 24</value>
+        </Data>
+        <Data name="Address">
+          <value>Encinitas, California, United States of America</value>
+        </Data>
+        <Data name="ahrefs.com">
+          <value>
+            Domain Rank: 4346154 
+            Traffic Value: $604 
+            Backlinks: 17.5K 
+            URL Rating: 40 
+            Domain Rating: 29 
+            Referring Domains: 217  
+          </value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>-117.2919818,33.0369867,0</coordinates>
+      </Point>
+      <description/>
+      <backlinkCount>17.5K</backlinkCount>
+      <ahrefsRank>4346154</ahrefsRank>
+      <trafficValue>$604</trafficValue>
+      <backlinkDomains>217</backlinkDomains>
+      <urlRating>40</urlRating>
+      <domainRating>29</domainRating>
+    </Placemark>
+    <Placemark>
+      <styleUrl>#icon-1867-0288D1-nodesc</styleUrl>
+      <name>9) USD</name>
+      <ExtendedData>
+        <Data name="URL">
+          <value>https://www.usd-skate.com/</value>
+        </Data>
+        <Data name="Rank">
+          <value>9 of 24</value>
+        </Data>
+        <Data name="Address">
+          <value>Esbachgraben 1, 95463 Bindlach, Germany</value>
+        </Data>
+        <Data name="ahrefs.com">
+          <value>
+            Domain Rank: 4452362 
+            Traffic Value: $917 
+            Backlinks: 23.2K 
+            URL Rating: 18 
+            Domain Rating: 29 
+            Referring Domains: 254  
+          </value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>11.6182378,49.9758826,0</coordinates>
+      </Point>
+      <description/>
+      <backlinkCount>23.2K</backlinkCount>
+      <ahrefsRank>4452362</ahrefsRank>
+      <trafficValue>$917</trafficValue>
+      <backlinkDomains>254</backlinkDomains>
+      <urlRating>18</urlRating>
+      <domainRating>29</domainRating>
+    </Placemark>
+    <Placemark>
+      <styleUrl>#icon-1867-0288D1-nodesc</styleUrl>
+      <name>10) 50/50, Chroma</name>
+      <description/>
+      <ExtendedData>
+        <Data name="URL">
+          <value>https://www.balancedist.com</value>
+        </Data>
+        <Data name="Rank">
+          <value>10 of 24</value>
+        </Data>
+        <Data name="Address">
+          <value>No address</value>
+        </Data>
+        <Data name="ahrefs.com">
+          <value>
+            Domain Rank: 4601057 
+            Traffic Value: $7 
+            Backlinks: 350 
+            URL Rating: 8 
+            Domain Rating: 28 
+            Referring Domains: 19  
+          </value>
+        </Data>
+      </ExtendedData>
+      <address>USA</address>
+      <Point>
+        <coordinates>-100.4458825, 39.7837304</coordinates>
+      </Point>
+      <backlinkCount>350</backlinkCount>
+      <ahrefsRank>4601057</ahrefsRank>
+      <trafficValue>$7</trafficValue>
+      <backlinkDomains>19</backlinkDomains>
+      <urlRating>8</urlRating>
+      <domainRating>28</domainRating>
+    </Placemark>
+    <Placemark>
+      <styleUrl>#icon-1867-0288D1-nodesc</styleUrl>
+      <name>11) Adapt</name>
+      <ExtendedData>
+        <Data name="URL">
+          <value>https://www.adaptbrand.com/</value>
+        </Data>
+        <Data name="Rank">
+          <value>11 of 24</value>
+        </Data>
+        <Data name="Address">
+          <value>Goudvinklaan 35 Den Haag</value>
+        </Data>
+        <Data name="ahrefs.com">
+          <value>
+            Domain Rank: 8969658 
+            Traffic Value: $96 
+            Backlinks: 1K 
+            URL Rating: 29 
+            Domain Rating: 19 
+            Referring Domains: 68  
+          </value>
+        </Data>
+      </ExtendedData>
+      <address>Goudvinklaan 35 Den Haag</address>
+      <Point>
+        <coordinates>4.3716756,52.0435705,0</coordinates>
+      </Point>
+      <description/>
+      <backlinkCount>1K</backlinkCount>
+      <ahrefsRank>8969658</ahrefsRank>
+      <trafficValue>$96</trafficValue>
+      <backlinkDomains>68</backlinkDomains>
+      <urlRating>29</urlRating>
+      <domainRating>19</domainRating>
+    </Placemark>
+    <Placemark>
+      <styleUrl>#icon-1867-757575-nodesc</styleUrl>
+      <name>12) Famus Wheels</name>
+      <ExtendedData>
+        <Data name="URL">
+          <value>https://www.alk13.eu/</value>
+        </Data>
+        <Data name="Rank">
+          <value>12 of 24</value>
+        </Data>
+        <Data name="Address">
+          <value>Marseille, France</value>
+        </Data>
+        <Data name="ahrefs.com">
+          <value>
+            Domain Rank: 12522355 
+            Traffic Value: $98 
+            Backlinks: 2.76K 
+            URL Rating: 24 
+            Domain Rating: 15 
+            Referring Domains: 61  
+          </value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>5.3699525, 43.2961743,0</coordinates>
+      </Point>
+      <description/>
+      <backlinkCount>2.76K</backlinkCount>
+      <ahrefsRank>12522355</ahrefsRank>
+      <trafficValue>$98</trafficValue>
+      <backlinkDomains>61</backlinkDomains>
+      <urlRating>24</urlRating>
+      <domainRating>15</domainRating>
+    </Placemark>
+    <Placemark>
+      <styleUrl>#icon-1867-757575-nodesc</styleUrl>
+      <name>13) Dead Wheels</name>
+      <ExtendedData>
+        <Data name="URL">
+          <value>https://www.bladingisdead.com/</value>
+        </Data>
+        <Data name="Rank">
+          <value>13 of 24</value>
+        </Data>
+        <Data name="Address">
+          <value>Huntington Beach, California</value>
+        </Data>
+        <Data name="ahrefs.com">
+          <value>
+            Domain Rank: 13858499 
+            Traffic Value: $0 
+            Backlinks: 389 
+            URL Rating: 13 
+            Domain Rating: 13 
+            Referring Domains: 29  
+          </value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>-118.0000166, 33.6783336,0</coordinates>
+      </Point>
+      <description/>
+      <backlinkCount>389</backlinkCount>
+      <ahrefsRank>13858499</ahrefsRank>
+      <trafficValue>$0</trafficValue>
+      <backlinkDomains>29</backlinkDomains>
+      <urlRating>13</urlRating>
+      <domainRating>13</domainRating>
+    </Placemark>
+    <Placemark>
+      <styleUrl>#icon-1867-757575-nodesc</styleUrl>
+      <name>14) Sola Frames</name>
+      <description/>
+      <ExtendedData>
+        <Data name="URL">
+          <value>https://www.solaequipment.com</value>
+        </Data>
+        <Data name="Rank">
+          <value>14 of 24</value>
+        </Data>
+        <Data name="Address">
+          <value>No address</value>
+        </Data>
+        <Data name="ahrefs.com">
+          <value>
+            Domain Rank: 14043580 
+            Traffic Value: $0 
+            Backlinks: 450 
+            URL Rating: 7 
+            Domain Rating: 13 
+            Referring Domains: 17  
+          </value>
+        </Data>
+      </ExtendedData>
+      <address>8006 Zürich </address>
+      <Point>
+        <coordinates>8.5410422, 47.3744489</coordinates>
+      </Point>
+      <backlinkCount>450</backlinkCount>
+      <ahrefsRank>14043580</ahrefsRank>
+      <trafficValue>$0</trafficValue>
+      <backlinkDomains>17</backlinkDomains>
+      <urlRating>7</urlRating>
+      <domainRating>13</domainRating>
+    </Placemark>
+    <Placemark>
+      <styleUrl>#icon-1867-757575-nodesc</styleUrl>
+      <name>15) Pills Wheels</name>
+      <ExtendedData>
+        <Data name="URL">
+          <value>https://pillswheels.com/</value>
+        </Data>
+        <Data name="Rank">
+          <value>15 of 24</value>
+        </Data>
+        <Data name="Address">
+          <value>Moscow, Russia</value>
+        </Data>
+        <Data name="ahrefs.com">
+          <value>
+            Domain Rank: 16635376 
+            Traffic Value: &lt;img class="loadingImg m-t-1" src="data:image/svg+xml,&lt;svg xmlns=&amp;quot;http://www.w3.org/2000/svg&amp;quot; width=&amp;quot;35&amp;quot; height=&amp;quot;35&amp;quot;&gt;&lt;rect fill-opacity=&amp;quot;0&amp;quot;/&gt;&lt;/svg&gt;" width="17" height="17" alt="Wait please..." title="Wait please..." style="position:relative;z-index:2;background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-12)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important"&gt; 
+            Backlinks:  
+            URL Rating:  
+            Domain Rating:  
+            Referring Domains:   
+          </value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>37.6174943,55.7504461,0</coordinates>
+      </Point>
+      <description/>
+      <backlinkCount/>
+      <ahrefsRank>16635376</ahrefsRank>
+      <trafficValue>&lt;img class="loadingImg m-t-1" src="data:image/svg+xml,&lt;svg xmlns=&amp;quot;http://www.w3.org/2000/svg&amp;quot; width=&amp;quot;35&amp;quot; height=&amp;quot;35&amp;quot;&gt;&lt;rect fill-opacity=&amp;quot;0&amp;quot;/&gt;&lt;/svg&gt;" width="17" height="17" alt="Wait please..." title="Wait please..." style="position:relative;z-index:2;background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-12)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important"&gt;</trafficValue>
+      <backlinkDomains/>
+      <urlRating/>
+      <domainRating/>
+    </Placemark>
+    <Placemark>
+      <styleUrl>#icon-1867-757575-nodesc</styleUrl>
+      <name>16) Create Originals Frames</name>
+      <ExtendedData>
+        <Data name="URL">
+          <value>https://www.createoriginals.com/</value>
+        </Data>
+        <Data name="Rank">
+          <value>16 of 24</value>
+        </Data>
+        <Data name="Address">
+          <value>Boston, USA</value>
+        </Data>
+        <Data name="ahrefs.com">
+          <value>
+            Domain Rank: 18168549 
+            Traffic Value: $0 
+            Backlinks: 10.1K 
+            URL Rating: 26 
+            Domain Rating: 10 
+            Referring Domains: 53  
+          </value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>-71.0582912,42.3602534,0</coordinates>
+      </Point>
+      <description/>
+      <backlinkCount>10.1K</backlinkCount>
+      <ahrefsRank>18168549</ahrefsRank>
+      <trafficValue>$0</trafficValue>
+      <backlinkDomains>53</backlinkDomains>
+      <urlRating>26</urlRating>
+      <domainRating>10</domainRating>
+    </Placemark>
+    <Placemark>
+      <styleUrl>#icon-1867-757575-nodesc</styleUrl>
+      <name>17) Kaltik</name>
+      <ExtendedData>
+        <Data name="URL">
+          <value>https://www.kaltik.eu/</value>
+        </Data>
+        <Data name="Rank">
+          <value>17 of 24</value>
+        </Data>
+        <Data name="Address">
+          <value>5 Millmount Avenue, Drumcondra South C ED, Dublin, Ireland</value>
+        </Data>
+        <Data name="ahrefs.com">
+          <value>
+            Domain Rank: 19307273 
+            Traffic Value: $5 
+            Backlinks: 1.7K 
+            URL Rating: 23 
+            Domain Rating: 9 
+            Referring Domains: 31  
+          </value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>-6.2560201,53.3688504,0</coordinates>
+      </Point>
+      <description/>
+      <backlinkCount>1.7K</backlinkCount>
+      <ahrefsRank>19307273</ahrefsRank>
+      <trafficValue>$5</trafficValue>
+      <backlinkDomains>31</backlinkDomains>
+      <urlRating>23</urlRating>
+      <domainRating>9</domainRating>
+    </Placemark>
+    <Placemark>
+      <styleUrl>#icon-1867-BDBDBD-nodesc</styleUrl>
+      <name>18) BHC Wheels</name>
+      <ExtendedData>
+        <Data name="URL">
+          <value>https://www.bhcwheels.com/</value>
+        </Data>
+        <Data name="Rank">
+          <value>18 of 24</value>
+        </Data>
+        <Data name="Address">
+          <value>Somerset, United Kingdom</value>
+        </Data>
+        <Data name="ahrefs.com">
+          <value>
+            Domain Rank: 21940024 
+            Traffic Value: $0 
+            Backlinks: 994 
+            URL Rating: 8 
+            Domain Rating: 8 
+            Referring Domains: 24  
+          </value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>-3, 51.083333,0</coordinates>
+      </Point>
+      <description/>
+      <backlinkCount>994</backlinkCount>
+      <ahrefsRank>21940024</ahrefsRank>
+      <trafficValue>$0</trafficValue>
+      <backlinkDomains>24</backlinkDomains>
+      <urlRating>8</urlRating>
+      <domainRating>8</domainRating>
+    </Placemark>
+    <Placemark>
+      <styleUrl>#icon-1867-BDBDBD-nodesc</styleUrl>
+      <name>19) Trigger</name>
+      <ExtendedData>
+        <Data name="URL">
+          <value>https://www.triggerextremesports.com</value>
+        </Data>
+        <Data name="Rank">
+          <value>19 of 24</value>
+        </Data>
+        <Data name="Address">
+          <value>Paris, France</value>
+        </Data>
+        <Data name="ahrefs.com">
+          <value>
+            Domain Rank: 26054889 
+            Traffic Value: $19 
+            Backlinks: 834 
+            URL Rating: 6 
+            Domain Rating: 6 
+            Referring Domains: 21  
+          </value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>2.3514616,48.8566969,0</coordinates>
+      </Point>
+      <description/>
+      <backlinkCount>834</backlinkCount>
+      <ahrefsRank>26054889</ahrefsRank>
+      <trafficValue>$19</trafficValue>
+      <backlinkDomains>21</backlinkDomains>
+      <urlRating>6</urlRating>
+      <domainRating>6</domainRating>
+    </Placemark>
+    <Placemark>
+      <styleUrl>#icon-1867-BDBDBD-nodesc</styleUrl>
+      <name>20) Red Eye Wheels</name>
+      <ExtendedData>
+        <Data name="URL">
+          <value>https://www.redeyewheels.com/</value>
+        </Data>
+        <Data name="Rank">
+          <value>20 of 24</value>
+        </Data>
+        <Data name="Address">
+          <value>Pompano Beach, Florida</value>
+        </Data>
+        <Data name="ahrefs.com">
+          <value>
+            Domain Rank: 36729076 
+            Traffic Value: $0 
+            Backlinks: 41 
+            URL Rating: 13 
+            Domain Rating: 3.6 
+            Referring Domains: 10  
+          </value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>-80.1247667, 26.2378597,0</coordinates>
+      </Point>
+      <description/>
+      <backlinkCount>41</backlinkCount>
+      <ahrefsRank>36729076</ahrefsRank>
+      <trafficValue>$0</trafficValue>
+      <backlinkDomains>10</backlinkDomains>
+      <urlRating>13</urlRating>
+      <domainRating>3.6</domainRating>
+    </Placemark>
+    <Placemark>
+      <styleUrl>#icon-1867-BDBDBD-nodesc</styleUrl>
+      <name>21) Gawds</name>
+      <ExtendedData>
+        <Data name="URL">
+          <value>https://gawds.shop/</value>
+        </Data>
+        <Data name="Rank">
+          <value>21 of 24</value>
+        </Data>
+        <Data name="Address">
+          <value>Long Beach, California, United States of America</value>
+        </Data>
+        <Data name="ahrefs.com">
+          <value>
+            Domain Rank: 46240027 
+            Traffic Value: $2 
+            Backlinks: 23 
+            URL Rating: 9 
+            Domain Rating: 2.2 
+            Referring Domains: 5  
+          </value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>-118.191604,33.7690164,0</coordinates>
+      </Point>
+      <description/>
+      <backlinkCount>23</backlinkCount>
+      <ahrefsRank>46240027</ahrefsRank>
+      <trafficValue>$2</trafficValue>
+      <backlinkDomains>5</backlinkDomains>
+      <urlRating>9</urlRating>
+      <domainRating>2.2</domainRating>
+    </Placemark>
+    <Placemark>
+      <styleUrl>#icon-1867-BDBDBD-nodesc</styleUrl>
+      <name>22) Masterframe</name>
+      <ExtendedData>
+        <Data name="URL">
+          <value>https://www.masterbike.co/</value>
+        </Data>
+        <Data name="Rank">
+          <value>22 of 24</value>
+        </Data>
+        <Data name="Address">
+          <value>Seattle, Washington, United States of America</value>
+        </Data>
+        <Data name="ahrefs.com">
+          <value>
+            Domain Rank: 53104986 
+            Traffic Value: $19 
+            Backlinks: 171 
+            URL Rating: 20 
+            Domain Rating: 1.6 
+            Referring Domains: 18  
+          </value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>-122.3300624, 47.6038321,0</coordinates>
+      </Point>
+      <description/>
+      <backlinkCount>171</backlinkCount>
+      <ahrefsRank>53104986</ahrefsRank>
+      <trafficValue>$19</trafficValue>
+      <backlinkDomains>18</backlinkDomains>
+      <urlRating>20</urlRating>
+      <domainRating>1.6</domainRating>
+    </Placemark>
+    <Placemark>
+      <styleUrl>#icon-1867-BDBDBD-nodesc</styleUrl>
+      <name>23) Muzzle Wheels</name>
+      <ExtendedData>
+        <Data name="URL">
+          <value>https://muzzle.site/</value>
+        </Data>
+        <Data name="Rank">
+          <value>23 of 24</value>
+        </Data>
+        <Data name="Address">
+          <value>United Kingdom</value>
+        </Data>
+        <Data name="ahrefs.com">
+          <value>
+            Domain Rank: 95268322 
+            Traffic Value: $0 
+            Backlinks: 1 
+            URL Rating: 4 
+            Domain Rating: 0.1 
+            Referring Domains: 1  
+          </value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>-3.2765753, 54.7023545,0</coordinates>
+      </Point>
+      <description/>
+      <backlinkCount>1</backlinkCount>
+      <ahrefsRank>95268322</ahrefsRank>
+      <trafficValue>$0</trafficValue>
+      <backlinkDomains>1</backlinkDomains>
+      <urlRating>4</urlRating>
+      <domainRating>0.1</domainRating>
+    </Placemark>
+    <Placemark>
+      <styleUrl>#icon-1867-BDBDBD-nodesc</styleUrl>
+      <name>24) Flying Eagle Skate</name>
+      <ExtendedData>
+        <Data name="URL">
+          <value>https://flyingeagleskate.com/</value>
+        </Data>
+        <Data name="Rank">
+          <value>24 of 24</value>
+        </Data>
+        <Data name="Address">
+          <value>C. de Bolívia, 227, 08020 Barcelona, Spanien (https://www.facebook.com/flyingeagleskateseu/), based in China</value>
+        </Data>
+        <Data name="ahrefs.com">
+          <value>
+            Domain Rank: 2147483640 
+            Traffic Value: n.a. 
+            Backlinks: n.a. 
+            URL Rating: n.a. 
+            Domain Rating: n.a. 
+            Referring Domains: n.a.  
+          </value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>2.2087264, 41.4161944,0</coordinates>
+      </Point>
+      <description/>
+      <backlinkCount>n.a.</backlinkCount>
+      <ahrefsRank>2147483640</ahrefsRank>
+      <trafficValue>n.a.</trafficValue>
+      <backlinkDomains>n.a.</backlinkDomains>
+      <urlRating>n.a.</urlRating>
+      <domainRating>n.a.</domainRating>
+    </Placemark>
+    <Style id="icon-1867-01579B-nodesc-normal">
+      <IconStyle>
+        <color>ff9b5701</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text>&lt;h3&gt;$[name]&lt;/h3&gt;</text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1867-01579B-nodesc-highlight">
+      <IconStyle>
+        <color>ff9b5701</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text>&lt;h3&gt;$[name]&lt;/h3&gt;</text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1867-0288D1-normal">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1867-0288D1-highlight">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1867-0288D1-nodesc-normal">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text>&lt;h3&gt;$[name]&lt;/h3&gt;</text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1867-0288D1-nodesc-highlight">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text>&lt;h3&gt;$[name]&lt;/h3&gt;</text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1867-757575-nodesc-normal">
+      <IconStyle>
+        <color>ff757575</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text>&lt;h3&gt;$[name]&lt;/h3&gt;</text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1867-757575-nodesc-highlight">
+      <IconStyle>
+        <color>ff757575</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text>&lt;h3&gt;$[name]&lt;/h3&gt;</text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1867-BDBDBD-nodesc-normal">
+      <IconStyle>
+        <color>ffbdbdbd</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text>&lt;h3&gt;$[name]&lt;/h3&gt;</text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1867-BDBDBD-nodesc-highlight">
+      <IconStyle>
+        <color>ffbdbdbd</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text>&lt;h3&gt;$[name]&lt;/h3&gt;</text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-503-02F6EA-normal">
+      <IconStyle>
+        <color>ffeaf602</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-503-02F6EA-highlight">
+      <IconStyle>
+        <color>ffeaf602</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1867-01579B-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1867-01579B-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1867-01579B-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <StyleMap id="icon-1867-0288D1">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1867-0288D1-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1867-0288D1-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <StyleMap id="icon-1867-0288D1-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1867-0288D1-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1867-0288D1-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <StyleMap id="icon-1867-757575-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1867-757575-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1867-757575-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <StyleMap id="icon-1867-BDBDBD-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1867-BDBDBD-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1867-BDBDBD-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <StyleMap id="icon-503-02F6EA">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-503-02F6EA-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-503-02F6EA-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+  </Document>
+</kml>
