@@ -1,0 +1,2493 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+   <Document>
+      <name>Blade Shops</name>
+      <description>Shops selling mainly blades (Aggressive Inline, Freestyle, Rollerskate).
+         Addresses are not verified, travel on your own risk. All links working (2021-07).</description>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Nickel and Dime</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://nickelanddimela.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>5422 Alhambra Ave Los Angeles CA</address>
+         <Point>
+            <coordinates>-118.1673778,34.077494,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Rolling Rock</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.rollingrock.ch/</value>
+            </Data>
+         </ExtendedData>
+         <address>Neumattstrasse 26 Aarau 5000</address>
+         <Point>
+            <coordinates>8.0664265,47.4010942,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Oak City</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://oakcityskate.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>6154 Plain View Hwy Dunn NC 28334</address>
+         <Point>
+            <coordinates>-78.5603625,35.2579095,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Carriers Skate Shop</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.carriersskateshop.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>1423 K Ave Plano TX 75074</address>
+         <Point>
+            <coordinates>-96.6993829,33.0194632,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Knight Skate Supply</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.knightskate.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>395 N E Street 107 San Bernardino CA 92401</address>
+         <Point>
+            <coordinates>-117.293842,34.106195,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Intuition Skate Shop</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.intuitionskate.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>1020 19th street Bakersfield CA 93301</address>
+         <Point>
+            <coordinates>-119.013599,35.3764955,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Roller Warehouse</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://rollerwarehouse.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>4320 Anthony Ct,Suite 15 Rocklin CA 95677</address>
+         <Point>
+            <coordinates>-121.214789,38.803448,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Them Skates</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://themgoods.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>231 East Dyer Road Santa Ana CA 92707</address>
+         <Point>
+            <coordinates>-117.8652545,33.70911,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Inline Warehouse</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.inlinewarehouse.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>21 Zaca Lane, Ste 120 San Luis Obispo CA 93401</address>
+         <Point>
+            <coordinates>-120.6747681,35.2516954,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Shop Task Vancouver</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.shop-task.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>1739 Main St Vancouver BC</address>
+         <Point>
+            <coordinates>-123.100945,49.2698074,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Shop Task Toronto</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.shop-task.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>446 Front Street East Toronto ON</address>
+         <Point>
+            <coordinates>-79.3562019,43.653261,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Shop Task Seattle</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.shop-task.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>885 8th Ave N Seattle WA 98109</address>
+         <Point>
+            <coordinates>-122.3412523,47.6271078,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Thuro Skate Shop</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://thuroshop.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>362 Boylston St Brookline MA 2445</address>
+         <Point>
+            <coordinates>-71.1264652,42.3297881,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Asphalt Beach</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.asphaltbeach.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>1120 Elm Hill Pike, Ste 160 Nashville TN 37210</address>
+         <Point>
+            <coordinates>-86.7319715,36.1441352,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Modern Skate</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.modernskate.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>1500 N Stephenson Hwy Royal Oak MI</address>
+         <Point>
+            <coordinates>-83.1168114,42.5027885,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Eastern Skating Supply</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.easternskatingsupply.net/</value>
+            </Data>
+         </ExtendedData>
+         <address>1002 US Highway 9 Howell NJ 7731</address>
+         <Point>
+            <coordinates>-74.2561723,40.2020441,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Kinetic Expression Skate Shop</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://keskate.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>Sunnyside, Queens New York NY</address>
+         <Point>
+            <coordinates>-73.9196324,40.7432759,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Bakerized Store</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.bakerized.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>5454 N Hamilton Rd Columbus OH</address>
+         <Point>
+            <coordinates>-82.8624218,40.0675655,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>SG Sports Distribution</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://sgsports.shop/</value>
+            </Data>
+         </ExtendedData>
+         <address>390 Amapola Ave, Suite 3 Torrance CA</address>
+         <Point>
+            <coordinates>-118.3221361,33.8452442,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Pro Skaters Place</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.proskatersplace.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>7250 Keele St, Unit 408, Concord ON</address>
+         <Point>
+            <coordinates>-79.4974547,43.7869742,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Ovskate</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://ovskate.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>25 Redstone Ln Kanata ON</address>
+         <Point>
+            <coordinates>-75.8447776,45.2896452,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Hedon</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://hedonskate.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>Azotowa 21 Chorzów 41-503</address>
+         <Point>
+            <coordinates>18.9779744,50.3128625,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Skate Pro</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.skatepro.com</value>
+            </Data>
+         </ExtendedData>
+         <address>Omega 6 Hinnerup 8382</address>
+         <Point>
+            <coordinates>10.1004044,56.2348427,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Bladeville (Online Store Warehouse)</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://bladeville.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>Westhafenstr 1 Berlin 13353</address>
+         <Point>
+            <coordinates>13.3423095,52.5373514,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Grindhouse</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.grindhouse.eu</value>
+            </Data>
+         </ExtendedData>
+         <address>ALTKÖNIGSTR 12 Hochheim 65239</address>
+         <Point>
+            <coordinates>8.3662467,50.0114593,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>This is soul</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.thisissoul.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>Overtoom 327 Amsterdam 1054JM</address>
+         <Point>
+            <coordinates>4.864608,52.3599032,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>SkaMiDan</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.skamidan.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>Gempenstr 1 Weil am Rhein 79576</address>
+         <Point>
+            <coordinates>7.6082213,47.6145997,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Clic-n-Roll</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.clic-n-roll.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>85b Rue de la République Nîmes 30900</address>
+         <Point>
+            <coordinates>4.3546664,43.8277538,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Nomade</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.nomadeshop.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>37, boulevard bourdon Paris 75004</address>
+         <Point>
+            <coordinates>2.3676231,48.8522557,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Roex Barcelona</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://roex.es/</value>
+            </Data>
+         </ExtendedData>
+         <address>Salvador Espriu 63C Barcelona 8005</address>
+         <Point>
+            <coordinates>2.1988842,41.3907069,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Roex Burgos</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://roex.es/</value>
+            </Data>
+         </ExtendedData>
+         <address>Calle de Europa 8 Burgos 9001</address>
+         <Point>
+            <coordinates>-3.6994146,42.3286683,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Roex Madrid</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://roex.es/</value>
+            </Data>
+         </ExtendedData>
+         <address>Calle de Pablo Picasso Pinto 28320</address>
+         <Point>
+            <coordinates>-3.6948544,40.2379444,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Pierre qui Roule</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.pierrequiroule.fr/</value>
+            </Data>
+         </ExtendedData>
+         <address>32 place Gambetta Bordeaux 33000</address>
+         <Point>
+            <coordinates>-0.5812972,44.841089,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Jack'n Roll</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://jackroll.fr/</value>
+            </Data>
+         </ExtendedData>
+         <address>13 rue Sainte Ursule 31000 TOULOUSE</address>
+         <Point>
+            <coordinates>1.44216,43.60221</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Inercia</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.inercia.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>Calle Roger de Flor, 10 Barcelona 8018</address>
+         <Point>
+            <coordinates>2.1839841,41.3903305,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Skateworld.ro</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.skateworld.ro/</value>
+            </Data>
+         </ExtendedData>
+         <address>Decebal, Nr 9 Bukarest</address>
+         <Point>
+            <coordinates>26.1327684,44.4288786,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>LocoSkates</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.locoskates.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>6 Redward Business Park, Hammonds Drive, Eastbourne, East Sussex BN23 6PW</address>
+         <Point>
+            <coordinates>0.296925,50.7894588,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Skatehut Manchester</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.skatehut.co.uk/</value>
+            </Data>
+         </ExtendedData>
+         <address>47 Brunel Avenue Manchester M5 4BE</address>
+         <Point>
+            <coordinates>-2.2759438,53.4835424,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Skatehut Corby</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.skatehut.co.uk/</value>
+            </Data>
+         </ExtendedData>
+         <address>Adrenaline Alley Skate Park Corby NN17 5QW</address>
+         <Point>
+            <coordinates>-0.6449442,52.5019065,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Skatehut Halesowen</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.skatehut.co.uk/</value>
+            </Data>
+         </ExtendedData>
+         <address>Shenstone Trading Estate Halesowen B63 3XB</address>
+         <Point>
+            <coordinates>-2.0428173,52.4515169,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Woooosh Skates</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://wooooshskates.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>Quinn Crescent TS28 5 Wingate</address>
+         <Point>
+            <coordinates>-1.3807175,54.7339415,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Pro Inline Skates</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://prolineskates.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>A4 Southpoint, Foreshore Road Cardiff CF10 4SP</address>
+         <Point>
+            <coordinates>-3.1395466,51.4694639,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Skate Britain</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.skatebritain.net/</value>
+            </Data>
+         </ExtendedData>
+         <address>Salop Rd, Oswestry Shropshire SY11 2NR</address>
+         <Point>
+            <coordinates>-3.0522878,52.858262,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Slick Willie's Skate Store</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.slickwillies.co.uk/</value>
+            </Data>
+         </ExtendedData>
+         <address>12 Gloucester Road London SW7 4RB</address>
+         <Point>
+            <coordinates>-0.1838836,51.4992975,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Mommatrucker Skates</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.mommatruckerskates.co.uk/</value>
+            </Data>
+         </ExtendedData>
+         <address>45 Cowick st Exeter</address>
+         <Point>
+            <coordinates>-3.5413109,50.7162703,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Wheel Love Skateshop</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://wl33.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>First Floor, 20A, Jalan Telawi, Bangsar Baru Kuala Lumpur 59100</address>
+         <Point>
+            <coordinates>101.6705875,3.13206,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Bayside</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.baysideblades.com.au/</value>
+            </Data>
+         </ExtendedData>
+         <address>2487 Highett Rd Highett VIC 3190</address>
+         <Point>
+            <coordinates>145.031922,-37.9475628,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Rampant</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://rampantskateshop.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>279 Wells Rd Chelsea Heights, Vic 3196</address>
+         <Point>
+            <coordinates>145.1415311,-38.0466012,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Skater HQ</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.skaterhq.com.au/</value>
+            </Data>
+         </ExtendedData>
+         <address>Unit 8750, Pittwater Rd Brookvale, NSW</address>
+         <Point>
+            <coordinates>151.2715548,-33.7635954,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Luckyskates</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://luckyskates.com.au/</value>
+            </Data>
+         </ExtendedData>
+         <address>Visit 24, 839 Beaufort Street Inglewood, Perth</address>
+         <Point>
+            <coordinates>115.88322,-31.9232,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Outerlimitz</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://outerlimitz.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>Level 2,25 Barrack St Perth 6000</address>
+         <Point>
+            <coordinates>115.8597707,-31.9551129,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>World Of Wheelcraft</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://worldofwheelcraft.com.au/</value>
+            </Data>
+         </ExtendedData>
+         <address>138 Princes Hwy St Peters Sydney</address>
+         <Point>
+            <coordinates>151.1793305,-33.9128718,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Go Roller</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://goroller.com.br/</value>
+            </Data>
+         </ExtendedData>
+         <address>Avenida Presidente Kennedy, Loja 03 São Paulo</address>
+         <Point>
+            <coordinates>-46.4259136,-24.005758,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Nell Skates</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.nellskates.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>Everlasting Street, Antipolo, Rizal 1800</address>
+         <Point>
+            <coordinates>121.1103634,14.6344275,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Inline X</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.inlinex.com.sg</value>
+            </Data>
+         </ExtendedData>
+         <address>362 Upper Paya Lebar Road 05-06 Singapore 534963</address>
+         <Point>
+            <coordinates>103.8808077,1.348194,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>X-WORLD skateshop</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://x-world-skateshop.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>Steinweg 11 Herzogenaurach 91074</address>
+         <Point>
+            <coordinates>10.8823545,49.5698024,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Adapt</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.adaptbrand.com/shop</value>
+            </Data>
+         </ExtendedData>
+         <address>Goudvinklaan 35 Den Haag</address>
+         <Point>
+            <coordinates>4.3716756,52.0435705,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Skate Shop Rollerwave</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.onlineskateshop.nl/</value>
+            </Data>
+         </ExtendedData>
+         <address>Badhuisstraat 118 Scheveningen 2584</address>
+         <Point>
+            <coordinates>4.2793351,52.1051352,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Mills</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.mills.dk/</value>
+            </Data>
+         </ExtendedData>
+         <address>Rosengården 9, Kopenhagen 1174</address>
+         <Point>
+            <coordinates>12.5725831,55.682229,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Roller Shop</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://inlinerollershop.com/el/</value>
+            </Data>
+         </ExtendedData>
+         <address>Aiolou 102, Athina 105 64</address>
+         <Point>
+            <coordinates>23.7293755,37.9834069,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Soul Skate</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://soulskate.hu/</value>
+            </Data>
+         </ExtendedData>
+         <address>Szeged, Sólyom u 9B,</address>
+         <Point>
+            <coordinates>20.1649878,46.2724313,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Roller Skate Europe</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://rollerskateeurope.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>Obstgartenweg 12 Schöftland</address>
+         <Point>
+            <coordinates>8.0539162,47.3083117,0</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Shred City Skates</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://shredcityskates.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>Shred City Skates, New Plymouth, New Zealand</address>
+         <Point>
+            <coordinates>174.08333,-39.06667</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>InMove Skates</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.inmoveskates.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>Meribrook road, Philadelphia, USA 19151</address>
+         <Point>
+            <coordinates>-75.271690,39.974152</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Solo Inline</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.solo-inline.com</value>
+            </Data>
+         </ExtendedData>
+         <address>4306 Ste-Catherine est Montreal, Québec, Kanada H1V 1X9</address>
+         <Point>
+            <coordinates>-73.533836,45.550869</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Lino Skate Shop</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://linoskateshop.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>Unit 4c Jigman Park Alternater road Montague Gardens 7441, Cape Town, South Africa</address>
+         <Point>
+            <coordinates>18.42322, -33.92584</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Wheeladdict</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://wheeladdict.shop</value>
+            </Data>
+         </ExtendedData>
+         <address>Rua F lote 1052 zil 2, 7520-309 Sines, Portugal</address>
+         <Point>
+            <coordinates>-8.847050477253244, 37.96074771161637</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Sportmania</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.sportmania.ch</value>
+            </Data>
+         </ExtendedData>
+         <address>Route Cantonale 93A, 1025 Saint-Sulpice, Switzerland</address>
+         <Point>
+            <coordinates>6.5499916, 46.5136161</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Agressive Rollerclub</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>http://agressive.rollerclub.ru/</value>
+            </Data>
+         </ExtendedData>
+         <address>1905 year Street, Presnensky District, Moscow, Russia, 123610</address>
+         <Point>
+            <coordinates>37.5583452, 55.7579612</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Alberts Inline Shop</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.albertsinlineshop.at/</value>
+            </Data>
+         </ExtendedData>
+         <address>Wohnpark Donaucity, Leonard-Bernstein-Straße, Wien, Österreich</address>
+         <Point>
+            <coordinates>16.4111269, 48.2348511</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Rollbay</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://rollbay.ru/</value>
+            </Data>
+         </ExtendedData>
+         <address>Lesnoy-Prospekt, 63, lit. A, pom. 1H, Sankt-Peterburg, Russland, 194100</address>
+         <Point>
+            <coordinates>30.31413, 59.93863</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Disroyal</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://disroyal.com</value>
+            </Data>
+         </ExtendedData>
+         <address>Esbachgraben 1B, 95463 Bindlach, Germany (also: Skate District, Powerslide Outlet Store)</address>
+         <Point>
+            <coordinates>11.617692, 49.9741283</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Soul Vision Works</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://sv-works.com</value>
+            </Data>
+         </ExtendedData>
+         <address>2-23-10 Numabukuro Nakano-ku, Tokyo, 165-0025 – Japan</address>
+         <Point>
+            <coordinates>139.6701011, 35.7153431</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Death + Glory Skate Shop</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.deathandgloryskate.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>935 W 11th Ave Ste B, Denver, CO 80204</address>
+         <Point>
+            <coordinates>-104.9996267, 39.7338833</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Streetbladers</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://streetbladers.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>Bulevar Adolfo Suárez, 77, 29003 Málaga, Spanien</address>
+         <Point>
+            <coordinates>-4.4504299, 36.7032323</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Crazy People Shop</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://crazypeopleshop.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>Av. Santa Fe 4977 1425 Buenos Aires</address>
+         <Point>
+            <coordinates>-58.4299184, -34.5769002</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Skate Ape</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://skateape.com.au/</value>
+            </Data>
+         </ExtendedData>
+         <address>328 High Stree Maitland Australia</address>
+         <Point>
+            <coordinates>151.5576871, -32.7332672</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Skate Connection</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.skateconnection.com.au/</value>
+            </Data>
+         </ExtendedData>
+         <address>1 Molly Morgan Drive, East Maitland, NSW, Australia</address>
+         <Point>
+            <coordinates>151.5944061279297, -32.76301574707031</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>DaKlinic</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://daklinic.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>Myer Centre, 14-38 Rundle Mall, Adelaide SA 5000, Australia</address>
+         <Point>
+            <coordinates>138.6006222, -34.9222632</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Shiner Town</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://shinertown.com.au/</value>
+            </Data>
+         </ExtendedData>
+         <address>348 BAGOT RD, MILLNER NT 0810, Australia</address>
+         <Point>
+            <coordinates>130.8569207, -12.3927591</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Extreme Skates</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://extremeskates.com.au/</value>
+            </Data>
+         </ExtendedData>
+         <address>14 Parkview Street, Milton QLD 4064, Australia</address>
+         <Point>
+            <coordinates>153.0078372, -27.4650759</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>skatescool</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.skatescool.com.au/</value>
+            </Data>
+         </ExtendedData>
+         <address>Orsmond Street, Hindmarsh SA 5007, Australia</address>
+         <Point>
+            <coordinates>138.5683995, -34.9045691</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Bladeworx Skateshop</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.bladeworx.com.au/</value>
+            </Data>
+         </ExtendedData>
+         <address>15 Canterbury Rd Braeside, VIC 3195</address>
+         <Point>
+            <coordinates>145.1040151, -38.0089367</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>ProSkating Club</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.proskating.by/</value>
+            </Data>
+         </ExtendedData>
+         <address>Minsk, Belarus</address>
+         <Point>
+            <coordinates>27.5618791, 53.902334</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Dims</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://dims.be/</value>
+            </Data>
+         </ExtendedData>
+         <address>DIMS, Anker 18, 9260 Wichelen, Belgium</address>
+         <Point>
+            <coordinates>3.9215576, 50.9909905</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Sliding Tiger</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.slidingtiger.eu/</value>
+            </Data>
+         </ExtendedData>
+         <address>Melosport, Herestraat 50, 3520 Zonhoven, Belgium</address>
+         <Point>
+            <coordinates>5.376003, 50.9848803</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Sportservice</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.sportservice.be/</value>
+            </Data>
+         </ExtendedData>
+         <address>Kwademeer 40 2480 Dessel</address>
+         <Point>
+            <coordinates>5.1090003, 51.2396525</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Inline Store Curtiba</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.inlinestorepr.com.br/</value>
+            </Data>
+         </ExtendedData>
+         <address>Prof Osvaldo Kohatsu 174 Curitiba, Brazil, PR 82100-090</address>
+         <Point>
+            <coordinates>-49.3027949, -25.4003269</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Inline Store São Paulo</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.inlinestore.com.br/</value>
+            </Data>
+         </ExtendedData>
+         <address>Rua Domingos de Santa Maria, 499 04311040 São Paulo</address>
+         <Point>
+            <coordinates>-46.6352857, -23.6313194</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Rolling Sports</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.rollingsports.com.br/</value>
+            </Data>
+         </ExtendedData>
+         <address>Rua Augusta 2690 Sao Paulo</address>
+         <Point>
+            <coordinates>-46.6668595, -23.5643738</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Vertigo Skates</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>http://www.vertigo-skates.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>Krum Popov 26, Lozenetz, Sofia, Bulgaria 1164</address>
+         <Point>
+            <coordinates>23.32785, 42.6829273</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Crazy</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://alieninline.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>4627 – 17 Ave NW, Calgary, T3B0B2</address>
+         <Point>
+            <coordinates>-114.16009, 51.072056</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Nerd Roller Skates</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.nerdskates.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>917 12th St SE # 1, Calgary, T2G 3H6</address>
+         <Point>
+            <coordinates>-114.034973, 51.040817</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>The Blade Farm</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://thebladefarm.ca/</value>
+            </Data>
+         </ExtendedData>
+         <address>3544 route 115. Notre-Dame, NB E4V 2H6</address>
+         <Point>
+            <coordinates>-64.757133, 46.282322</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Alacalufe</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.alacalufe.cl</value>
+            </Data>
+         </ExtendedData>
+         <address>Calle San Diego N° 676, Santiago de Chile</address>
+         <Point>
+            <coordinates>-70.64827, -33.45694</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Blackdog Distribution</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.blackdog.cl/</value>
+            </Data>
+         </ExtendedData>
+         <address>Providencia 2198, Loc. 62, Santiago, Chile</address>
+         <Point>
+            <coordinates>-70.6113373, -33.4288379</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Kamaro</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.kamaro.cl/</value>
+            </Data>
+         </ExtendedData>
+         <address>Avenida Elisa Correa #75, La Florida</address>
+         <Point>
+            <coordinates>-70.5851255, -33.5689395</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Planet Roller</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>http://www.planet-roller.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>General Adolfo Holley 70, Providencia, Santiago, Chile 7510035</address>
+         <Point>
+            <coordinates>-70.5888576, -33.5188908</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Rollmachine Tienda de Patines</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.tiendarollmachine.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>carrera 20 # 53 – 56 Barrio Galerias, Bogotá, Colombia Galerias</address>
+         <Point>
+            <coordinates>-74.0740503, 4.6412876</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Itak Sports</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://itaksport.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>Schlosserove stube 2 – ŠRC Šalata, 10000 Zagreb</address>
+         <Point>
+            <coordinates>15.9844877, 45.8158147</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Districk10</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.district10.dk/</value>
+            </Data>
+         </ExtendedData>
+         <address>Østerfælled torv 39-41 2100, Copenhagen, Denmark</address>
+         <Point>
+            <coordinates>12.5760044, 55.7057906</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Atmosphère Gap</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.atmosphere-gap.fr/</value>
+            </Data>
+         </ExtendedData>
+         <address>Rue du Docteur Roubaud, 05000 Gap, France</address>
+         <Point>
+            <coordinates>6.0791487, 44.5582729</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Role.hr</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://role.hr/</value>
+            </Data>
+         </ExtendedData>
+         <address>Ulica Vjekoslava Heinzela, Zagreb, Croatia</address>
+         <Point>
+            <coordinates>16.0167167, 45.7974216</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Inline Special</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.inlinespecial.cz/</value>
+            </Data>
+         </ExtendedData>
+         <address>Kamenická 13, Prague, Czech Republic 170 00</address>
+         <Point>
+            <coordinates>14.4277439, 50.0987494</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Ligne Droite Roller</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.ligne-droite-roller.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>12 Rue De L’Eglise, 44650 Touvois</address>
+         <Point>
+            <coordinates>-1.6836918, 46.9021432</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>CDK Shop</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.cdk.fr/</value>
+            </Data>
+         </ExtendedData>
+         <address>Rue d'Algérie, 69001 Lyon, France</address>
+         <Point>
+            <coordinates>4.8309128, 45.7672299</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Maki’O Roller Shop</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>http://www.makio-rollershop.fr/</value>
+            </Data>
+         </ExtendedData>
+         <address>3 Rue du Parc des Sports, 14000 Caen, France</address>
+         <Point>
+            <coordinates>-0.3886963, 49.175714</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Slide Open Spirit</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://slideopenspirit.fr/</value>
+            </Data>
+         </ExtendedData>
+         <address>100 Bis rue de la République, Six Fours les Plages, 83140</address>
+         <Point>
+            <coordinates>5.8377926, 43.0936401</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Terre de Glisse</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://terredeglisse.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>23, chaussèe de la Madeleine, Nantes 44000</address>
+         <Point>
+            <coordinates>-1.5511717, 47.2106626</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Wheel Shop</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://wheelshop.fr/</value>
+            </Data>
+         </ExtendedData>
+         <address>102 route de la Reine, Boulogne Boulogne-Billancourt, 92100</address>
+         <Point>
+            <coordinates>2.2405072, 48.8396197</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Aloha Beach</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.facebook.com/alohabeach.surfshop/</value>
+            </Data>
+         </ExtendedData>
+         <address>2955 Route de BADUEL, 97300 Cayenne, French Guiana</address>
+         <Point>
+            <coordinates>-52.3131994, 4.9357366</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>der-rollenshop.de</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.der-rollenshop.de/</value>
+            </Data>
+         </ExtendedData>
+         <address>Herforder Str. 141, Bielefeld 33609</address>
+         <Point>
+            <coordinates>8.5463587, 52.0346333</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Skatepower</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>http://www.skatepower.eu/en/</value>
+            </Data>
+         </ExtendedData>
+         <address>Kirburger Weg 125 50767 Köln</address>
+         <Point>
+            <coordinates>6.8847452, 51.0045119</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Sportbörse</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.speedskating-shop.de</value>
+            </Data>
+         </ExtendedData>
+         <address>Karlstraße 60, 78054 Villingen-Schwenningen, Germany</address>
+         <Point>
+            <coordinates>8.5305007, 48.0591374</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Warehouse One</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.warehouse-one.de/en/skate/inliner/inline-skates/</value>
+            </Data>
+         </ExtendedData>
+         <address>Warehouse One, Nürnberger Straße 23, 40599 Dusseldorf, Germany</address>
+         <Point>
+            <coordinates>6.8557715, 51.1707762</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Powerskate Athens</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.powerskate.eu</value>
+            </Data>
+         </ExtendedData>
+         <address>Powerskate, Κολοκοτρώνη 50, 185 31 Piraeus, Greece</address>
+         <Point>
+            <coordinates>23.6471527, 37.9446446</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Roller Lovers</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>http://www.rollerlovers.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>Karaiskaki Georgiou 21, Sindos / Thessaloniki, 57400</address>
+         <Point>
+            <coordinates>22.7977621, 40.6661113</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Slalom Shop</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>http://www.slalomshop.gr/</value>
+            </Data>
+         </ExtendedData>
+         <address>77, Passalidi str, GR 55132 Kalamaria, Thessaloniki, Greece</address>
+         <Point>
+            <coordinates>22.9516755, 40.581248</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>GoSk8</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://gosk8.ie</value>
+            </Data>
+         </ExtendedData>
+         <address>Unit 16, Village Green, D24, Tallaght, Ireland, D24 T653</address>
+         <Point>
+            <coordinates>-6.37344, 53.2859</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Bimar Skates</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.bimarskates.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>Via delle Betulle, 115, Roma, 171, IT</address>
+         <Point>
+            <coordinates>12.5629659, 41.8898389</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Aggressive Store</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://aggressivestore.eu/</value>
+            </Data>
+         </ExtendedData>
+         <address>Via Carso, 95047 Paternò CT, Italy</address>
+         <Point>
+            <coordinates>14.9109068, 37.5652409</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Freemove</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>http://www.freemove.it/</value>
+            </Data>
+         </ExtendedData>
+         <address>Via di Acqua Bullicante 201,, 00177, Roma (RM), Lazio, Italia</address>
+         <Point>
+            <coordinates>12.5425765, 41.8883281</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Pattininlinea.it</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://pattiniinlinea.it/</value>
+            </Data>
+         </ExtendedData>
+         <address>Via Corelli, 5, 09128 Cagliari</address>
+         <Point>
+            <coordinates>9.1813506, 39.2324678</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Pincio</name>
+         <description>Not a store, community</description>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.pincio.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>Rome, Italy</address>
+         <Point>
+            <coordinates>12.4829321, 41.8933203</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Sena Ramp</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://senaramp.stores.jp/</value>
+            </Data>
+         </ExtendedData>
+         <address>Shizuoka, Japan</address>
+         <Point>
+            <coordinates>138.38299, 34.979149</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Taktika.lv</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>http://www.taktika.lv/</value>
+            </Data>
+         </ExtendedData>
+         <address>A. Čaka 54, 1011 Riga</address>
+         <Point>
+            <coordinates>24.1051846, 56.9493977</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Rollshop.lt</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>http://www.rollshop.lt/</value>
+            </Data>
+         </ExtendedData>
+         <address>Vilnius</address>
+         <Point>
+            <coordinates>25.2829111, 54.6870458</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Slides.It</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://slides.lt/</value>
+            </Data>
+         </ExtendedData>
+         <address>Laisvės pr. 60 Įėjimas iš, Justiniškių g. Vilnius 05120</address>
+         <Point>
+            <coordinates>25.2220645, 54.7011491</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Terra Sport</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://terrasport.lt</value>
+            </Data>
+         </ExtendedData>
+         <address>Verkių g. 29 09108 Vilnius</address>
+         <Point>
+            <coordinates>25.2941961, 54.7137932</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Skateline Malaysia</name>
+         <ExtendedData>
+            <Data name="URL">
+               <value>http://www.skateline.com.my/</value>
+            </Data>
+         </ExtendedData>
+         <address>Selangor, Kuala Lumpur</address>
+         <Point>
+            <coordinates>101.7066194, 2.7447592</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Beyond Pro Shop</name>
+         <description />
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.beyondproshop.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>Pabellón Polanco L 266 frente a Sears (Ejército nacional 980, Esq. Juan Vázquez de Mella), Mexico</address>
+         <Point>
+            <coordinates>-99.1331785, 19.4326296</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Centroroller</name>
+         <description />
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://centroroller.mx/</value>
+            </Data>
+         </ExtendedData>
+         <address>Avenida Insurgentes Sur 375 Col. Hipodromo Condesa México Distrito Federal</address>
+         <Point>
+            <coordinates>-99.1869844, 19.3493055</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Doberman’s Skate Shop</name>
+         <description />
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.dbrmskateshop.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>La Capital, Washington 1400, Local PB17, Centro, Monterrey, Nuevo León, 6400</address>
+         <Point>
+            <coordinates>-100.3152586, 25.6802019</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Infinite Skate Shop</name>
+         <description />
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://infiniteshop.com.mx/</value>
+            </Data>
+         </ExtendedData>
+         <address>Av. Bonampak S.M. 06 M.Z.01 77500, Cancún, Quintana Roo</address>
+         <Point>
+            <coordinates>-86.8209545, 21.1593494</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Maverick Shop</name>
+         <description />
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.facebook.com/MaverickShopMexico/</value>
+            </Data>
+         </ExtendedData>
+         <address>Av 20 de Noviembre 1000-1012, Cazones, 93230 Poza Rica de Hidalgo, Ver. 93230 Poza Rica, Veracruz, Mexico</address>
+         <Point>
+            <coordinates>-96.1303449, 19.1734478</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Naked Rollers</name>
+         <description />
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.nakedrollershop.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>Calle Francisco Sarabia #1800 Local B, Col. Ricardo Flores Magón, 89450, Ciudad Madero, Tamaulipas</address>
+         <Point>
+            <coordinates>-97.8473608, 22.2519067</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Roll + Roll</name>
+         <description />
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.rollandroll.com.mx/</value>
+            </Data>
+         </ExtendedData>
+         <address>Manuel doblado 110 Col. Centro, Oaxaca, Oaxaca 68000</address>
+         <Point>
+            <coordinates>-96.7207013, 17.0562706</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>NoPro Skateshop</name>
+         <description />
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://nopro.nl/</value>
+            </Data>
+         </ExtendedData>
+         <address>Leeuwarden, Friesland</address>
+         <Point>
+            <coordinates>5.7918548, 53.2005936</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Mundoroller</name>
+         <description />
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://mundoroller.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>Simón Salguero 482, Surco. Altura cdr. 4 de la Av. La Merced. Encuentranos en Waze y</address>
+         <Point>
+            <coordinates>-77.0105986, -12.1305321</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Patines DLX</name>
+         <description />
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.facebook.com/patinesdlx</value>
+            </Data>
+         </ExtendedData>
+         <address>Jr. Pastaza 1163 Breña Lima Lima, Peru</address>
+         <Point>
+            <coordinates>-77.0501186, -12.0597004</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Freeskate Customs</name>
+         <description />
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://freeskate.pl/</value>
+            </Data>
+         </ExtendedData>
+         <address>al. Komisji Edukacji, Narodowej 51 lok. U4, Warsaw</address>
+         <Point>
+            <coordinates>21.0506228, 52.1451105</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>InMoveSkates</name>
+         <description />
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://inmoveskates.pl/</value>
+            </Data>
+         </ExtendedData>
+         <address>Krakow, Kraków County, Poland</address>
+         <Point>
+            <coordinates>19.9971534, 50.0469432</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Plich Wyscig</name>
+         <description />
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://plichwyscig.pl/</value>
+            </Data>
+         </ExtendedData>
+         <address>Północna 9 ( teren Lodowiska Bogdanka ) 61-718 Poznań</address>
+         <Point>
+            <coordinates>16.92993, 52.40692</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Rowery Rolki</name>
+         <description />
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://roweryrolki.pl/</value>
+            </Data>
+         </ExtendedData>
+         <address>Swoboda 4, 30-332 Kraków</address>
+         <Point>
+            <coordinates>19.9359486, 50.0424891</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Rollinn</name>
+         <description />
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.rollinn.pl</value>
+            </Data>
+         </ExtendedData>
+         <address>ul. Ząbkowska 22/24/26 lok. 145, Warsaw</address>
+         <Point>
+            <coordinates>21.0484173, 52.255135</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Roooolki</name>
+         <description />
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://roooolki.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>ul. Gliwicka 4,Legnica, 59-220</address>
+         <Point>
+            <coordinates>16.17266, 51.2164145</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Skatepro</name>
+         <description />
+         <ExtendedData>
+            <Data name="URL">
+               <value>http://www.skatepro.pl/</value>
+            </Data>
+         </ExtendedData>
+         <address>ul. Zamieniecka 42A, Warsaw</address>
+         <Point>
+            <coordinates>21.0994639, 52.2375825</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Wrotkownia</name>
+         <description />
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.wrotkownia.pl/</value>
+            </Data>
+         </ExtendedData>
+         <address>Sklep z Rolkami, Wrotkami oraz serwis w Gdańsku. Gdańsk, Politechniczna 9</address>
+         <Point>
+            <coordinates>18.613671, 54.3748835</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Zico Racing</name>
+         <description />
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.zicoracing.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>Głogowska 38, 60-736 Poznań, Poland</address>
+         <Point>
+            <coordinates>16.9034039, 52.3990759</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>freeskateinline</name>
+         <description />
+         <ExtendedData>
+            <Data name="URL">
+               <value>http://www.freeskateinline.com.sg</value>
+            </Data>
+         </ExtendedData>
+         <address>338 Ang Mo Kio Ave 1 #01-1649 S(560338), Along Ang Mo Kio St 32</address>
+         <Point>
+            <coordinates>103.8495228, 1.3700803</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>One Up Skates</name>
+         <description />
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://oneupskates.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>3 Ang Mo Kio St 62 #02-13 Singapore 569139</address>
+         <Point>
+            <coordinates>103.8452153, 1.3868539</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Blader Shop</name>
+         <description />
+         <ExtendedData>
+            <Data name="URL">
+               <value>http://blader.co.kr/</value>
+            </Data>
+         </ExtendedData>
+         <address>phone: 070-4140-8911, email: victorkimdc@gmail.com</address>
+         <Point>
+            <coordinates>127.6961188, 36.638392</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Rollingmall Skate Shop</name>
+         <description />
+         <ExtendedData>
+            <Data name="URL">
+               <value>http://www.rollingmall.co.kr/</value>
+            </Data>
+         </ExtendedData>
+         <address>Woori Venture Town 2 501ho, 70, Seonyu-ro, Yeongdeungpo-gu, Seoul</address>
+         <Point>
+            <coordinates>126.90308, 37.52606</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>AP Rollers</name>
+         <description />
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://aprollers.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>Carrer Germans García Peñaranda, 7, 07010 Palma de Mallorca</address>
+         <Point>
+            <coordinates>2.65024, 39.56939</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Booth Sport</name>
+         <description />
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.boothsport.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>Calle Acisclo Díaz, 30005 Murcia, Spain</address>
+         <Point>
+            <coordinates>-1.1381129, 37.9882956</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Doble V Doble</name>
+         <description />
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://doblevdoble.com/es/</value>
+            </Data>
+         </ExtendedData>
+         <address>Calle literato gabriel miro 51, Sueca Valencia, 46410</address>
+         <Point>
+            <coordinates>-0.3111645, 39.2025604</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>El Patin de Oro</name>
+         <description />
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://elpatindeoro.es/</value>
+            </Data>
+         </ExtendedData>
+         <address>Paseo de Pontones, 17, 28005 Madrid</address>
+         <Point>
+            <coordinates>-3.7100317, 40.4092795</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>In-Gravity</name>
+         <description />
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.in-gravity.com</value>
+            </Data>
+         </ExtendedData>
+         <address>Pza Mariano de Cavia, 2, 28007 Madrid, Spain</address>
+         <Point>
+            <coordinates>-3.6738737, 40.3977721</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>PastinAventura</name>
+         <description />
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.tiendapatines.es/</value>
+            </Data>
+         </ExtendedData>
+         <address>Virgen De Montserrat N°6 Bajo Derecha, Sevilla 41011</address>
+         <Point>
+            <coordinates>-5.9761, 37.3824</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Roll and Roll Shop</name>
+         <description />
+         <ExtendedData>
+            <Data name="URL">
+               <value>http://rollandrollshop.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>avd argentina 35, Palma De Mallorca, Spain 07013</address>
+         <Point>
+            <coordinates>2.6502, 39.5694</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Roll Elx</name>
+         <description />
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://rollelx.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>c/ Poeta Miguel Hernandez, 22, 03201 Elche</address>
+         <Point>
+            <coordinates>-0.704192, 38.2644227</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Roller Monkey Shop</name>
+         <description />
+         <ExtendedData>
+            <Data name="URL">
+               <value>http://www.rollermonkeyshop.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>Avenida Manzanares, 212, 28026 Madrid</address>
+         <Point>
+            <coordinates>-3.7781538, 40.646716</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Rollers Inline</name>
+         <description />
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.rollersinline.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>C/ Monasterio de Sto Domingo de Silos, 8, 47015 Valladolid .</address>
+         <Point>
+            <coordinates>-4.7448926, 41.6279796</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Rollergrind360</name>
+         <description />
+         <ExtendedData>
+            <Data name="URL">
+               <value>http://www.rollergrind360.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>Rollergrind 360, Carrer de Castella, 15-17, 08018 Barcelona, Spain</address>
+         <Point>
+            <coordinates>2.1978772, 41.4052141</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>RollerStore Zaragoza</name>
+         <description />
+         <ExtendedData>
+            <Data name="URL">
+               <value>http://www.rollerstore.es/</value>
+            </Data>
+         </ExtendedData>
+         <address>Calle Rodrigo Díaz de Vivar, 50006 Zaragoza, Spain</address>
+         <Point>
+            <coordinates>-0.8927294, 41.637393</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Skating Outlet</name>
+         <description />
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://skating-outlet.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>Calle Roger de Flor, 10, Barcelona, 08018</address>
+         <Point>
+            <coordinates>2.1813754, 41.3925973</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Slide Inline</name>
+         <description />
+         <ExtendedData>
+            <Data name="URL">
+               <value>http://slideinline.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>Calle Botella de hornos no 7, Alicante, Spain 03004</address>
+         <Point>
+            <coordinates>-0.486896, 38.3512606</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Out on Street Inline</name>
+         <description />
+         <ExtendedData>
+            <Data name="URL">
+               <value>http://www.outonstreet.ch/</value>
+            </Data>
+         </ExtendedData>
+         <address>Maurstrasse 26, 8117 Benglen, Switzerland</address>
+         <Point>
+            <coordinates>8.6404121, 47.3703599</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Sports Discount</name>
+         <description />
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.sports-discount.net/</value>
+            </Data>
+         </ExtendedData>
+         <address>Rue de Genève 17, 1003 Lausanne, Switzerland</address>
+         <Point>
+            <coordinates>6.6286515, 46.5215952</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>AGV Shop</name>
+         <description />
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.agvshop.com.ua/</value>
+            </Data>
+         </ExtendedData>
+         <address>st. Antonovich 165a, Kiev, 02000</address>
+         <Point>
+            <coordinates>30.5238, 50.45466</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Extrem-Style</name>
+         <description />
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://extremstyle.ua/ru</value>
+            </Data>
+         </ExtendedData>
+         <address>45/2, Nauky Ave., Kharkiv, 61000</address>
+         <Point>
+            <coordinates>36.5, 49.5</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Pro Roliki</name>
+         <description />
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://proroliki.com.ua/</value>
+            </Data>
+         </ExtendedData>
+         <address>Stepana Bandery 34B, Kiev, 02000</address>
+         <Point>
+            <coordinates>30.5288448, 50.4886131</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Alchemyst Skateshop</name>
+         <description />
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://alchemystskate.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>Hebden Royd, HX7 8AH, United Kingdom</address>
+         <Point>
+            <coordinates>-2.011379, 53.74119</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Fritzy’s Roller Skate Shop</name>
+         <description />
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://fritzysrollerskateshop.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>4150 Mission Boulevard, San Diego, CA 92109, United States of America</address>
+         <Point>
+            <coordinates>-117.2542083, 32.7920586</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Roller Skate USA</name>
+         <description />
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.rollerskateusa.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>7340 SW 48th Street, Miami, FL 33155</address>
+         <Point>
+            <coordinates>-80.3133858, 25.7252042</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Skaters Choice Shop</name>
+         <description />
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.skaterschoiceskateshop.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>5121 North Armenia Avenue, Tampa, FL 33603, United States of America</address>
+         <Point>
+            <coordinates>-82.4843865, 27.9927572</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Legacy Skates</name>
+         <description />
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://legacyskateskc.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>2119 Washington Street, Kansas City, MO 64108, United States of America</address>
+         <Point>
+            <coordinates>-94.5898949, 39.0864898</coordinates>
+         </Point>
+      </Placemark>
+      <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Medusa Skates</name>
+         <description />
+         <ExtendedData>
+            <Data name="URL">
+               <value>http://www.medusaskates.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>3515 Hyridge Drive, Austin, TX 78759, United States of America</address>
+         <Point>
+            <coordinates>-97.741193, 30.374225</coordinates>
+         </Point>
+      </Placemark>
+
+       <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Sola Equipment</name>
+         <description>No address</description>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.solaequipment.com</value>
+            </Data>
+         </ExtendedData>
+         <address>8006 Zürich </address>
+         <Point>
+            <coordinates>8.5410422, 47.3744489</coordinates>
+         </Point>
+      </Placemark>
+
+
+       <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Konjure</name>
+         <description>No address</description>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.konjurebrand.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>USA</address>
+         <Point>
+            <coordinates>-100.4458825, 39.7837304</coordinates>
+         </Point>
+      </Placemark>
+
+       <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Rush Shop</name>
+         <description></description>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.facebook.com/Rush-Shop-Mexico-266983736796681/</value>
+            </Data>
+         </ExtendedData>
+         <address>Xicotencatl Sur #282, Zona Centro, 25000 Saltillo, Coah., Mexiko</address>
+         <Point>
+            <coordinates>-101.0053, 25.42321</coordinates>
+         </Point>
+      </Placemark>
+
+       <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Straightjacket Distribution</name>
+         <description>No address</description>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://straightjacket.bigcartel.com</value>
+            </Data>
+         </ExtendedData>
+         <address>USA</address>
+         <Point>
+           <coordinates>-100.4458825, 39.7837304</coordinates>
+         </Point>
+      </Placemark>
+
+       <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Balance Distribution</name>
+         <description>No address</description>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.balancedist.com</value>
+            </Data>
+         </ExtendedData>
+         <address>USA</address>
+         <Point>
+           <coordinates>-100.4458825, 39.7837304</coordinates>
+         </Point>
+      </Placemark>
+
+       <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Roces</name>
+         <description>Roces Factory Shop</description>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.roces.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>Via Ferraris Galileo, 36, 31044 Montebelluna TV, Italien</address>
+         <Point>
+            <coordinates>12.0450646, 45.7759956</coordinates>
+         </Point>
+      </Placemark>
+
+       <Placemark>
+         <styleUrl>#0</styleUrl>
+         <name>Laced</name>
+         <description>No address</description>
+         <ExtendedData>
+            <Data name="URL">
+               <value>https://www.shop-laced.com/</value>
+            </Data>
+         </ExtendedData>
+         <address>Wellington, 6011</address>
+         <Point>
+            <coordinates>174.7772114, -41.2887953</coordinates>
+         </Point>
+      </Placemark>
+
+
+
+      
+      <Style id="0">
+         <IconStyle>
+            <scale>1</scale>
+            <Icon>
+               <href>https://batchgeo.com/images/icons/red_shadow_Marker.png</href>
+            </Icon>
+            <hotSpot x=".3" y=".8" xunits="fraction" yunits="fraction" />
+         </IconStyle>
+         <LabelStyle>
+            <scale>0</scale>
+         </LabelStyle>
+      </Style>
+   </Document>
+</kml>

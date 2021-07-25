@@ -24,11 +24,14 @@ const styleIds = [
 
 const run = async function () {
   const parser = new xml2js.Parser();
-  const sourceFile = '/result-backlinks.kml' // '/aggressive-brands.kml' 
+  const sourceFile = '/aggressive-brands.kml'  // '/result-backlinks.kml'  '/aggressive-brands.kml' 
   const data = fs.readFileSync(__dirname + sourceFile);
   let parsed = await parser.parseStringPromise(data);
+
   //const processed = await processShops(parsed);
-  //let result = parseHtmlFiles(parsed)
+// parsed = parseHtmlFiles(parsed)
+ 
+  
   //  dataFetcha(parsed)
   //const processed = await migrateShops(parsed);
 
@@ -36,7 +39,7 @@ const run = async function () {
 
   //console.log(result.kml.Document[0].Placemark)
   parsed = sortShops(parsed)
-  const placemarks = parsed.kml.Document[0].Placemark
+  let placemarks = parsed.kml.Document[0].Placemark
   let i = 0;
   // set Style ID
   const factor = placemarks.length / styleIds.length;
@@ -51,7 +54,7 @@ const run = async function () {
     //console.log(i, index)
 
     v.styleUrl = [styleIds[index]];
-    v.name = i + ") " + v.name;
+    //v.name = i + ") " + v.name;
     let obj = [
       {
         'Data': {
@@ -74,7 +77,7 @@ const run = async function () {
           $: {
             'name': 'Address'
           },
-          value: v.description[0]  //v.description
+          value: v.address[0]  //v.description
         }
       },
       {
@@ -94,90 +97,19 @@ const run = async function () {
       },
 
     ]
+    console.log(v.ExtendedData[0].Data[0].value[0], v.trafficValue[0]  )
     v.description = "";
     v.ExtendedData = [obj]
   }
   parsed.kml.Document[0].Placemark = placemarks.reverse()
 
+    placemarks.sort((a, b) => a.name[0].localeCompare(b.name[0]))
+    //console.log(placemarks)
+    parsed.kml.Document[0].Placemark = placemarks
 
+
+  
   writeFile(parsed)
-
-  /*
-  const placemarks = parsed.kml.Document[0].Placemark
-
-  console.log(placemarks[124])
-  for (let v of placemarks) {
-    if (parseInt(v.ahrefsRank[0], 10) === 0) {
-      v.ahrefsRank = [2147483600];
-    }
-
-    v.styleUrl = [getStyleId(v.ahrefsRank[0])];
-
-    let obj = [
-      {
-        'Data': {
-          $: {
-            'name': 'URL'
-          },
-          value: v.ExtendedData[0].Data[0].value[0]
-        }
-      },
-      {
-        'Data': {
-          $: {
-            'name': 'Domain Rank'
-          },
-          value: v.ahrefsRank[0]
-        }
-      },
-      {
-        'Data': {
-          $: {
-            'name': 'Traffic Value'
-          },
-          value: v.trafficValue ? v.trafficValue[0] : 'n.a'
-        }
-      },
-      {
-        'Data': {
-          $: {
-            'name': 'Backlinks'
-          },
-          value: v.backlinkCount ? v.backlinkCount[0] : 'n.a'
-        }
-      },
-      {
-        'Data': {
-          $: {
-            'name': 'URL Rating'
-          },
-          value: v.urlRating ? v.urlRating[0] : 'n.a'
-        }
-      },
-      {
-        'Data': {
-          $: {
-            'name': 'Domain Rating'
-          },
-          value: v.domainRating ? v.domainRating[0] : 'n.a'
-        }
-      },
-      {
-        'Data': {
-          $: {
-            'name': 'Referring Domains'
-          },
-          value: v.backlinkDomains ? v.backlinkDomains[0] : 'n.a'
-        }
-      },
-
-    ]
-
-    v.ExtendedData = [obj]
-    */
-
-
-
 }
 
 // run once
@@ -212,15 +144,7 @@ const dataFetcha = (result) => {
       let shopUrl = v.ExtendedData[0].Data[0].value[0];
       const domain = getDomain(shopUrl)
       console.log("https://ahrefs.com/site-explorer/overview/v2/subdomains/live?target=" + domain)
-      //  await parseHtmlFile(domain)
-      /* var yourscript = exec('sh ./tools/skateshops/osa.sh '+ shopUrl,
-         (error, stdout, stderr) => {
-             console.log(stdout);
-             console.log(stderr);
-             if (error !== null) {
-                 console.log(`exec error: ${error}`);
-             }
-         });*/
+
 
     }
   }
@@ -246,17 +170,16 @@ const parseHtmlFiles = async function (result) {
     v.domainRating = ["n.a."]
     v.backlinkCount = ["n.a."]
     if (domain.includes("pills")) {
-     // console.log(ahrefsData)
-    }
+      // console.log(ahrefsData)
+    } console.log(ahrefsData)
     if (ahrefsData && ahrefsData.rank !== 0) {
       v.ahrefsRank = [ahrefsData.rank]
       v.trafficValue = [ahrefsData.trafficValue]
+      v.trafficValue = v.trafficValue.length > 10 ? "n.a." :  v.trafficValue;
       v.backlinkDomains = [ahrefsData.backlinkDomains]
       v.urlRating = [ahrefsData.urlRating]
       v.domainRating = [ahrefsData.domainRating]
       v.backlinkCount = [ahrefsData.backlinks];
-
-      v.styleUrl = [getStyleId(v.rank)];
     }
     else {
       console.log("missing ahrefsData for:", domain)
@@ -292,8 +215,11 @@ const parseHtmlFile = async function (domain) {
           backlinkDomains = document.querySelector("#numberOfRefDomains a").innerHTML || '';
           urlRating = document.querySelector("#UrlRatingContainer span").innerHTML || '';
           domainRating = document.querySelector("#DomainRatingContainer span").innerHTML || '';
+
+          trafficValue =  trafficValue && trafficValue.length > 10 ? "n.a." : trafficValue
         }
         catch (err) { }
+       
         return {
           rank: rank || 0,
           trafficValue: trafficValue || "",
@@ -316,6 +242,7 @@ const addDataNode = (val) => {
 }
 
 const sortShops = (result) => {
+
   let placemarks = result.kml.Document[0].Placemark
 
   placemarks.sort((a, b) => {
@@ -333,14 +260,14 @@ const getStyleId = (result) => {
   const placemarks = result.kml.Document[0].Placemark
   const factor = placemarks.length / styleIds.length;
   for (let v of placemarks) {
-  //  console.log(v.ahrefsRank);
+    //  console.log(v.ahrefsRank);
     i++;
     let index = Math.floor(i / factor);
 
     if (index >= (styleIds.length - 1)) {
       index = styleIds.length - 1;
     }
-   // console.log(i, index)
+    // console.log(i, index)
 
     return [styleIds[index]];
   }
@@ -542,3 +469,6 @@ why it is bad.
 
 
 */
+
+
+

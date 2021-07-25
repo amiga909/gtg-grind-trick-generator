@@ -1,8 +1,8 @@
 const path = require("path");
 const webpack = require("webpack");
 const CopyPlugin = require("copy-webpack-plugin"); 
-
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 const outputPath = "public/";
 
 module.exports = (env = {}, argv) => {
