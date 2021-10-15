@@ -73,12 +73,11 @@
                            <span>l</span><span>e</span><span>f</span><span>t</span> 
                         </div>
                      </div>
-                    
                      <div class="pure-g  ">
                         <div  class="pure-u-1-2 scoreboard-left">
-                           <div class="scoreboard-points">
+                           <div class=" scoreboard-points">
                               Score   
-                              <div data-p-tooltip="scoreboard_score" id="sb-total-points"> 0 </div>
+                              <div data-p-tooltip="scoreboard_score" class="tada" id="sb-total-points"> 0 </div>
                            </div>
                         </div>
                         <div   data-p-tooltip="errorMsgTokens" class="sb-tokens-container  pure-u-1-2 ">
@@ -88,7 +87,6 @@
                                  <span id="sb-spins-remaining">0</span> / <span id="sb-spins-total">0</span>
                               </div>
                            </div>
-                         
                            <div style="display:none;" class="sb-tokens sb-locks-total">   
                               <i class="fa fa-lock fa-1x"></i>&nbsp;
                               <span id="sb-locks-remaining">10</span>/<span id="sb-locks-total">10</span>&nbsp;
@@ -117,12 +115,10 @@
                <div   class="start-screen-controls">
                   <div class="pure-g">
                      <div class="pure-u-1-3">
-                      
                         <button class="pure-button pure-button-primary pure-button-primary-nav " id="helpButtonStart">
                         <i class="fa fa-comments fa-2x"></i> 
                         </button> 
                         <h2 >Show help</h2>
-               
                      </div>
                      <div class="pure-u-1-3"  >
                         <form class="pure-form pure-form-stacked">
@@ -324,20 +320,18 @@
                            <input  class="includeTricksCb"  id="heelRoll-select" type="checkbox"><label for="heelRoll-select">Rare grinds <br>(Hot Dog, Citric Acid, Sidewalk, Wheelbarrow, Training Wheel, Byn Soul, Closed Book, Open Book)</label> <br/>
                            <input  class="includeTricksCb"  id="channel-select" type="checkbox"><label for="channel-select">Channel grinds</label> <br/>
                            <input  class="includeTricksCb"  id="christ-select" type="checkbox"><label for="christ-select">Christ grinds</label> <br/>
-
                            <input  class="includeTricksCb"  id="grabs-select" type="checkbox"><label for="grabs-select">Normal Grabs</label> <br/>
                            <input  class="includeTricksCb"  id="rocket-select" type="checkbox"><label for="rocket-select">Rocket Grabs</label> <br/>
                            <input  class="includeTricksCb"  id="crossgrab-select" type="checkbox"><label for="crossgrab-select">Cross Grabs</label> <br/>
                            <br>
                            <label   for="spinsTotalInput">Spins per game</label>
-                           <input maxlength="2" class="config-number-input" id="spinsTotalInput" inputmode="numeric" pattern="[0-9]{1,2}"> 
+                           <input maxlength="2" class=" config-number-input" id="spinsTotalInput" inputmode="numeric" pattern="[0-9]{1,2}"> 
                            <span style="display:none;"> 
                            <label   for="spinsLocksInput">Lock tokens per game</label>
                            <input  maxlength="1"  class="config-number-input" id="spinsLocksInput" inputmode="numeric" pattern="[0-9]"> 
                            <label   for="removesTotalInput">Remove tokens per game</label>
                            <input maxlength="1" class="config-number-input" id="removesTotalInput" inputmode="numeric" pattern="[0-9]"> 
                            </span>  <br> 
-                         
                            <label   for="speedSelect">Select slot machine speed</label>
                            <select data-p-tooltip="configSpeedSelect" id="speedSelect" class="pure-select">
                               <option value="500">Very Slow</option>
@@ -365,21 +359,22 @@
                   <div style="display:none;"  id="modal-screen--about" class="modal-screen-text">
                      <br> 
                      <h3>The app</h3>
-<p> 
-                     This is a grind trick randomizer app for blading. The goal is to have fun mucking around with grind tricks. <br>
-                     Use the tricktionary to learn about grind tricks.<br>
-                     Use the game mode for a challenge to do random grind tricks on your skates.    </p>
-                   <!-- 
                      <p> 
-                        Once upon a time there was the kingdom of blade, it was full of splendor and joy. 
-                        Evil forces have cast a dark shadow over the lands, and you must save the kingdom. 
-                        Cross the seven rivers of silver silk, pass the fiery mountains of gloom and slay the dragon of bail 
-                        to collect the golden soul plate of eternity.
-                        <br>
-                        <br>
-                        Well.. if this sounds like too much trouble, just have some fun with this 
-                        nutty little blading dice game.
-                         -->
+                        This is a grind trick randomizer app for blading. The goal is to have fun mucking around with grind tricks. <br>
+                        Use the tricktionary to learn about grind tricks.<br>
+                        Use the game mode for a challenge to do random grind tricks on your skates.    
+                     </p>
+                     <!-- 
+                        <p> 
+                           Once upon a time there was the kingdom of blade, it was full of splendor and joy. 
+                           Evil forces have cast a dark shadow over the lands, and you must save the kingdom. 
+                           Cross the seven rivers of silver silk, pass the fiery mountains of gloom and slay the dragon of bail 
+                           to collect the golden soul plate of eternity.
+                           <br>
+                           <br>
+                           Well.. if this sounds like too much trouble, just have some fun with this 
+                           nutty little blading dice game.
+                            -->
                      <ul class="aboutScreen-ul">
                         <li class="pure-menu-item">
                            <p> Spin the slot machine  </p>
@@ -393,60 +388,47 @@
                         <li class="pure-menu-item">
                            <p> Compete with friends or practice alone </p>
                         </li>
-
-                        <li class="pure-menu-item"> 
+                        <li class="pure-menu-item">
                            <p> <a target="_blank" href="https://play.google.com/store/apps/details?id=com.aightgame.www.twa"> Download Android App on Google Play</a>   
-                            </p></li>
+                           </p>
+                        </li>
                      </ul>
                      <br>
-                     
                      <h3>How to play</h3>
                      <p>
-                       
                         Per game, you get a limited amount of spins on the slot machine. The game ends when you have used the last spin.
-                        
                         <br>
-
-                        <ul class="aboutScreen-ul">
-                           <li class="pure-menu-item">
-                              <p> Press "Start Game" (<i class="fa fa-play-circle fa-1x"> </i>) to let the slot machine spin the first trick.  </p>
-                           </li>
-
-                           <li class="pure-menu-item">
-                              <p> Press "Explain" (<i class="fa fa-question-circle fa-1x"></i>) to show a description of the trick. </p>
-                           </li>
-
-
-                           <li class="pure-menu-item">
-                              <p> Press the reels (Approach, Spin to, Variation, Spin off) to disable parts of the trick (<i class="fa fa-ban fa-1x"></i>).
-                                 If the trick gets easier you get less points. Press the reels again to enable parts of the trick.</p>
-                                 <i>The grind reel in the middle can not be disabled. If you can not do the basic grind, you have to skip the trick.</i>
-                           </li>
-                          
-                           <li class="pure-menu-item">
-                              <p> Press "AIGHT!" if you have done the trick. 
-                                 This adds the displayed points to your score and adds 
-                                 the trick to your tricklist (<i class="fa fa-list-ul fa-1x"></i>).  </p>
-                           </li>
-
-                           <li class="pure-menu-item">
-                              <p>Press "Skip" (<i class="fa fa-forward fa-1x"></i>) to skip this trick and advance the game.
-                                  </p>
-                           </li>
- 
-
-                           <li class="pure-menu-item">
-                              <p> Open the configuration menu (<i class="fa fa-wrench fa-1x"></i>) to choose the 
-                                 included tricks and the amount of spins per game. 
-                                  </p>
-                           </li>
-
-                        </ul>
-                      
-                     
+                     <ul class="aboutScreen-ul">
+                        <li class="pure-menu-item">
+                           <p> Press "Start Game" (<i class="fa fa-play-circle fa-1x"> </i>) to let the slot machine spin the first trick.  </p>
+                        </li>
+                        <li class="pure-menu-item">
+                           <p> Press "Explain" (<i class="fa fa-question-circle fa-1x"></i>) to show a description of the trick. </p>
+                        </li>
+                        <li class="pure-menu-item">
+                           <p> Press the reels (Approach, Spin to, Variation, Spin off) to disable parts of the trick (<i class="fa fa-ban fa-1x"></i>).
+                              If the trick gets easier you get less points. Press the reels again to enable parts of the trick.
+                           </p>
+                           <i>The grind reel in the middle can not be disabled. If you can not do the basic grind, you have to skip the trick.</i>
+                        </li>
+                        <li class="pure-menu-item">
+                           <p> Press "AIGHT!" if you have done the trick. 
+                              This adds the displayed points to your score and adds 
+                              the trick to your tricklist (<i class="fa fa-list-ul fa-1x"></i>).  
+                           </p>
+                        </li>
+                        <li class="pure-menu-item">
+                           <p>Press "Skip" (<i class="fa fa-forward fa-1x"></i>) to skip this trick and advance the game.
+                           </p>
+                        </li>
+                        <li class="pure-menu-item">
+                           <p> Open the configuration menu (<i class="fa fa-wrench fa-1x"></i>) to choose the 
+                              included tricks and the amount of spins per game. 
+                           </p>
+                        </li>
+                     </ul>
                      </p>
                      <br><br>
-                     
                      <h3>Controls</h3>
                      <h5>Navigation</h5>
                      <table class="pure-table">
@@ -457,7 +439,6 @@
                            </tr>
                         </thead>
                         <tbody>
-                          
                            <tr>
                               <td> <i class="fa fa-comments fa-2x"></i> </td>
                               <td>Display info about on-screen controls.   </td>
@@ -507,39 +488,32 @@
                            </tr>
                         </tbody>
                      </table>
-                    
                      <br>
-                     <h3>Reviews</h3> 
-                       
+                     <h3>Reviews</h3>
                      Many thanks to all of you who supported this app with your feedback.    <br> 
+                     Thanks to <a target="_blank" href="https://www.youtube.com/user/MartinBommeli">Martin Bommeli</a> for his cool livestream testing.<br>
+                      
+                     <br>     
+                     Thanks to <a target="_blank" href="https://www.youtube.com/channel/UC7UsnLoydAYz_MNJxsWVvFQ">Brandon Drummond</a> for the <a target="_blank" href="https://www.youtube.com/watch?v=ky3jVP5iPpY">amazing review</a><br>
+                     <iframe class="yt_video"  src="https://www.youtube.com/embed/ky3jVP5iPpY" title="" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>  
                      
-
-       Thanks to <a target="_blank" href="https://www.youtube.com/user/MartinBommeli">Martin Bommeli</a> for his cool livestream testing.<br>
-   <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0"width="320" height="180" type="text/html" 
-   src="https://www.youtube.com/user/MartinBommeli?" ></iframe> <br><br>       Thanks to <a target="_blank" href="https://www.youtube.com/channel/UC7UsnLoydAYz_MNJxsWVvFQ">Brandon Drummond</a> for the <a target="_blank" href="https://www.youtube.com/watch?v=ky3jVP5iPpY">amazing review</a><br>
-      <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0"width="320" height="180" type="text/html" 
-      src="https://www.youtube.com/watch?v=ky3jVP5iPpY" ></iframe>    
-                
-
-                   
-                     . 
                      <br>  <br>
                      Thanks to  <a target="_blank" href="https://www.youtube.com/channel/UC7UsnLoydAYz_MNJxsWVvFQ">Tri Tri-Rudolf</a> for the amazing streams:
-                     <br> <a target="_blank" href="https://www.youtube.com/watch?v=234aMMz5jKc">Trying Out New Skate Setups with the AIGHT Skate Trick App</a>  
-                    
-<br>
-                     <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0"width="320" height="180" type="text/html" 
-      src="https://www.youtube.com/watch?v=234aMMz5jKc" ></iframe>  <br>
-
-      <a target="_blank" href="https://www.youtube.com/watch?v=LPle1C4Klzs">Trying Out AIGHT Skate Trick App</a>  <br>
-      <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0"width="320" height="180" type="text/html" 
-      src="https://www.youtube.com/watch?v=LPle1C4Klzs" ></iframe>  
-                    
-                    
-                   
-
+                     <br> <a target="_blank" href="https://www.youtube.com/embed/234aMMz5jKc">Trying Out New Skate Setups with the AIGHT Skate Trick App</a>  
                      <br>
-
+                     <iframe class="yt_video"  src="https://www.youtube.com/embed/234aMMz5jKc"  title="" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>  
+                     <br>
+                     <iframe class="yt_video"  src="https://www.youtube.com/embed/LPle1C4Klzs"  title="" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>  
+                     <br>
                      <div id="aboutScreenReferences"></div>
                      <p>
                         Features
@@ -559,20 +533,15 @@
                            <li class="pure-menu-item"> Works offline (Chrome only) </li>
                         </ul>
                      </div>
-                    
                      <p><br>    
-                           Many thanks to all of you who supported this app with your feedback.    <br> 
-                          
-                           
-                           Thanks to <a target="_blank" href="https://www.youtube.com/user/MartinBommeli">Martin Bommeli</a> for his cool livestream testing.<br>
-                           Thanks to <a target="_blank" href="https://www.youtube.com/channel/UC7UsnLoydAYz_MNJxsWVvFQ">Brandon Drummond</a> for the <a target="_blank" href="https://www.youtube.com/watch?v=ky3jVP5iPpY">amazing review</a>. 
-                           
-                           Thanks to  <a target="_blank" href="https://www.youtube.com/channel/UC7UsnLoydAYz_MNJxsWVvFQ">Tri Tri-Rudolf</a> for the amazing streams:
-                           <a target="_blank" href="https://www.youtube.com/watch?v=234aMMz5jKc">Trying Out New Skate Setups with the AIGHT Skate Trick App</a>,  
-                           <a target="_blank" href="https://www.youtube.com/watch?v=LPle1C4Klzs">Trying Out AIGHT Skate Trick App</a>  
+                        Many thanks to all of you who supported this app with your feedback.    <br> 
+                        Thanks to <a target="_blank" href="https://www.youtube.com/user/MartinBommeli">Martin Bommeli</a> for his cool livestream testing.<br>
+                        Thanks to <a target="_blank" href="https://www.youtube.com/channel/UC7UsnLoydAYz_MNJxsWVvFQ">Brandon Drummond</a> for the <a target="_blank" href="https://www.youtube.com/watch?v=ky3jVP5iPpY">amazing review</a>. 
+                        Thanks to  <a target="_blank" href="https://www.youtube.com/channel/UC7UsnLoydAYz_MNJxsWVvFQ">Tri Tri-Rudolf</a> for the amazing streams:
+                        <a target="_blank" href="https://www.youtube.com/watch?v=234aMMz5jKc">Trying Out New Skate Setups with the AIGHT Skate Trick App</a>,  
+                        <a target="_blank" href="https://www.youtube.com/watch?v=LPle1C4Klzs">Trying Out AIGHT Skate Trick App</a>  
                         Special thanks to the awesome blading reference <a target="_blank" href='http://skateyeg.com/bog/'>Book of Grinds</a> and letting me use the thumbnails for the trick explain function. 
                         I discovered BOG last year and it inspired me a lot. Only wish I had it earlier! <br>
-
                         I wanted to see what happens if I put all the tricks in a neat randomizer GUI.  
                         The main idea is to split every grind trick into 5 phases: approach, spin to grind, grind, grind variation and spin off grind. 
                         Then, randomize the phases individually and translate the randomized phases back to a blading trick name.
@@ -581,15 +550,8 @@
                         For all the tech geeks out there, the app also demonstrates the possibility of a rule based blade trick generator. Check this list if you want to see 
                         <a target="_blank" href="https://www.aightgame.com/assets/permutations.txt"> all permutations</a>. 
                         <br>    
-                          
-                           
-                          
-                           <br> It was amazing to learn how variable grind tricks are. <a target="_blank" href="https://www.youtube.com/watch?v=Chpys46GZAY">I love rollerblading</a>. <br>
-                         
-                           
+                        <br> It was amazing to learn how variable grind tricks are. <a target="_blank" href="https://www.youtube.com/watch?v=Chpys46GZAY">I love rollerblading</a>. <br>
                      <h4>Enjoy grinding</h4>
-                      
-                    
                   </div>
                   <div style="display:none;"  id="modal-screen--reference" class="modal-screen-text">
                      <p>
@@ -624,14 +586,13 @@
                         This app solves this by treating these hybrids as "FS" and "BS" soul tricks. 
                         Therefore, there is no 'True Tabernacle' but a 'True BS Tabernacle' or 'True FS Tabernacle'.
                      </p>
-                     
-
                      <br>
                      <h4>Scoring</h4>
                      <p> The score you get is the final answer to all your blading ambitions. Naturally, the scoring system is designed by 
                         a comittee of highly qualified experts and approved by the International Olympic Committee (IOC).  
                         <br>
-                        Irony aside, the scoring is actually just for fun and somewhat oversimplified.</p>
+                        Irony aside, the scoring is actually just for fun and somewhat oversimplified.
+                     </p>
                      <ul>
                         <li>
                            <p> Grinds are separated in easy, average and hard. Easy gets 1, average 2 and hard 3 points. </p>
@@ -646,7 +607,6 @@
                            <p> Average grinds: all the other grinds  </p>
                         </li>
                      </ul>
-                    
                   </div>
                </div>
             </div>
