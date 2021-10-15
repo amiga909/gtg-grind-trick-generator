@@ -10,6 +10,7 @@ const LEVEL_CONFIG = {
     christCheckbox: "off",
     heelRollCheckbox: "off",
     negativeCheckbox: "off",
+    topsideCheckbox: "off",
     roughCheckbox: "off",
     spins360Checkbox: "off",
     spins540Checkbox: "off",
@@ -18,15 +19,19 @@ const LEVEL_CONFIG = {
     switchCheckbox: "off",
     fakieCheckbox: "off",
     toughCheckbox: "off",
+    grabs: "off",
+    rocket: "off",
+    crossgrab: "off",
   },
   2: {
     spinsTotal: "5",
     locksTotal: "1",
     removesTotal: "5",
     channelCheckbox: "off",
-    christCheckbox: "on",
+    christCheckbox: "off",
     heelRollCheckbox: "on",
     negativeCheckbox: "on",
+    topsideCheckbox: "on",
     roughCheckbox: "off",
     spins360Checkbox: "on",
     spins540Checkbox: "off",
@@ -35,6 +40,9 @@ const LEVEL_CONFIG = {
     switchCheckbox: "on",
     fakieCheckbox: "on",
     toughCheckbox: "off",
+    grabsCheckbox: "on",
+    rocketCheckbox: "off",
+    crossgrabCheckbox: "off",
   },
   3: {
     spinsTotal: "5",
@@ -44,6 +52,7 @@ const LEVEL_CONFIG = {
     christCheckbox: "on",
     heelRollCheckbox: "on",
     negativeCheckbox: "on",
+    topsideCheckbox: "on",
     roughCheckbox: "on",
     spins360Checkbox: "on",
     spins540Checkbox: "on",
@@ -52,6 +61,9 @@ const LEVEL_CONFIG = {
     fakieCheckbox: "on",
     switchCheckbox: "on",
     toughCheckbox: "on",
+    grabsCheckbox: "on",
+    rocketCheckbox: "on",
+    crossgrabCheckbox: "on",
   },
 };
 
@@ -76,10 +88,15 @@ export class Configuration {
     this.$spins720Select = $("#spins720-select");
     this.$spins900Select = $("#spins900-select");
     this.$negativeSelect = $("#negative-select");
+    this.$topsideSelect = $("#topside-select");
     this.$switchSelect = $("#switch-select");
     this.$channelSelect = $("#channel-select");
     this.$christSelect = $("#christ-select");
     this.$fakieSelect = $("#fakie-select");
+
+    this.$grabsSelect = $("#grabs-select");
+    this.$rocketSelect = $("#rocket-select");
+    this.$crossgrabSelect = $("#crossgrab-select");
 
     this.$levelSelect = $("#levelSelect");
     this.$spinsTotal = $("#spinsTotalInput");
@@ -92,6 +109,7 @@ export class Configuration {
       { $dom: this.$fakieSelect, key: "fakieCheckbox", value: "off" },
       { $dom: this.$switchSelect, key: "switchCheckbox", value: "off" },
       { $dom: this.$negativeSelect, key: "negativeCheckbox", value: "off" },
+      { $dom: this.$topsideSelect, key: "topsideCheckbox", value: "off" },
       { $dom: this.$roughSelect, key: "roughCheckbox", value: "off" },
       { $dom: this.$toughSelect, key: "toughCheckbox", value: "off" },
       { $dom: this.$spins360Select, key: "spins360Checkbox", value: "off" },
@@ -101,6 +119,9 @@ export class Configuration {
       { $dom: this.$heelRollSelect, key: "heelRollCheckbox", value: "off" },
       { $dom: this.$channelSelect, key: "channelCheckbox", value: "off" },
       { $dom: this.$christSelect, key: "christCheckbox", value: "off" },
+      { $dom: this.$grabsSelect, key: "grabsCheckbox", value: "off" },
+      { $dom: this.$rocketSelect, key: "rocketCheckbox", value: "off" },
+      { $dom: this.$crossgrabSelect, key: "crossgrabCheckbox", value: "off" },
       { $dom: this.$levelSelect, key: "levelSelect", value: "1" },
       { $dom: this.$spinsTotal, key: "spinsTotal", value: 5 },
       { $dom: this.$removesTotal, key: "removesTotal", value: 3 },
@@ -235,9 +256,18 @@ export class Configuration {
   }
 
   hasNoApproachSlot() {
-    return (
-      !this.$switchSelect.is(":checked") && !this.$fakieSelect.is(":checked")
-    );
+    const hasApproach = this.$switchSelect.is(":checked") || this.$fakieSelect.is(":checked")
+    return !hasApproach
+  }
+
+  hasNoVariationSlot() {
+    const hasVariation =
+      this.$negativeSelect.is(":checked") || this.$topsideSelect.is(":checked") ||
+      this.$roughSelect.is(":checked") || this.$toughSelect.is(":checked") ||
+      this.$channelSelect.is(":checked") || this.$christSelect.is(":checked") ||
+      this.$grabsSelect.is(":checked") || this.$rocketSelect.is(":checked") ||
+      this.$crossgrabSelect.is(":checked");
+    return !hasVariation;
   }
 
   getIncludedTricks() {
@@ -245,6 +275,7 @@ export class Configuration {
       switch: this.$switchSelect.is(":checked") ? "on" : "off",
       fakie: this.$fakieSelect.is(":checked") ? "on" : "off",
       negative: this.$negativeSelect.is(":checked") ? "on" : "off",
+      topside: this.$topsideSelect.is(":checked") ? "on" : "off",
       rough: this.$roughSelect.is(":checked") ? "on" : "off",
       tough: this.$toughSelect.is(":checked") ? "on" : "off",
       heelRoll: this.$heelRollSelect.is(":checked") ? "on" : "off",
@@ -254,6 +285,9 @@ export class Configuration {
       spins900: this.$spins900Select.is(":checked") ? "on" : "off",
       channel: this.$channelSelect.is(":checked") ? "on" : "off",
       christ: this.$christSelect.is(":checked") ? "on" : "off",
+      grabs: this.$grabsSelect.is(":checked") ? "on" : "off",
+      rocket: this.$rocketSelect.is(":checked") ? "on" : "off",
+      crossgrab: this.$crossgrabSelect.is(":checked") ? "on" : "off",
     };
   }
 }

@@ -44,11 +44,14 @@ class GrindTrickRandomizer {
     this.includedTricks = this.configurator.getIncludedTricks();
 
     this.audioplayer = new Audioplayer(this.$soundOnOff);
+    
     this.slotMachine = new SlotMachine(
       this.slotSpeed,
       this.includedTricks,
-      this.configurator.hasNoApproachSlot()
+      this.configurator.hasNoApproachSlot(),
+      this.configurator.hasNoVariationSlot(), 
     );
+    debugger;
     this.resultParser = new ResultParser();
 
     this.screens = new Screens();
@@ -176,6 +179,7 @@ class GrindTrickRandomizer {
         this.tricklist.getStorage()
       );
       this.screens.show("GameOver", "up");
+      this.scoreboard.useSpin();
     } else {
       this.onClickStart();
     }

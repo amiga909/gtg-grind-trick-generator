@@ -14,9 +14,10 @@ export const SLOT_STATES = {
 const SLOT_MACHINE_NO_OF_SPINS = 1;
 
 export class SlotMachine {
-  constructor(slotSpeed, includedTricks, hasNoApproachSlot = false) {
+  constructor(slotSpeed, includedTricks, hasNoApproachSlot = false, hasNoVariationSlot = false) {
     this.includedTricks = includedTricks;
     this.hasNoApproachSlot = hasNoApproachSlot;
+    this.hasNoVariationSlot = hasNoVariationSlot;
     this.slotSpeed = slotSpeed;
     this.$slots = $(".bog-slot");
     this.$approaches = $("#approaches");
@@ -36,13 +37,21 @@ export class SlotMachine {
     } else {
       $(".bog-slot-1").show();
     }
+
+    if (this.hasNoVariationSlot) {
+      $(".bog-slot-4").closest(".pure-u-1").hide();
+    } else {
+      $(".bog-slot-4").closest(".pure-u-1").show();
+    }
   }
 
   initSlots() {
+    const nextStepNoApproach = this.hasNoApproachSlot ? 3 : 2
     this.slots = [
       {
         name: "Grind",
         next: 1,
+        next: this.hasNoVariationSlot ? nextStepNoApproach : 1,
         machine: null,
         dom: this.$grinds,
         data: CONFIG.GRINDS_FOR_SLOTS,
@@ -51,7 +60,7 @@ export class SlotMachine {
       },
       {
         name: "GrindVariation",
-        next: this.hasNoApproachSlot ? 3 : 2,
+        next: nextStepNoApproach,
         machine: null,
         dom: this.$grindVariations,
         data: null,
@@ -583,6 +592,9 @@ export class SlotMachine {
       if (this.includedTricks.negative === "off") {
         entries = entries.filter((e) => !e.name.includes("Negative"));
       }
+      if (this.includedTricks.topside === "off") {
+        entries = entries.filter((e) => !e.name.includes("Topside"));
+      }
       if (this.includedTricks.rough === "off") {
         entries = entries.filter((e) => !e.name.includes("Rough"));
       }
@@ -594,6 +606,15 @@ export class SlotMachine {
       }
       if (this.includedTricks.christ === "off") {
         entries = entries.filter((e) => !e.name.includes("Christ"));
+      }
+      if (this.includedTricks.grabs === "off") {
+        entries = entries.filter((e) => !e.name === "Grab");
+      }
+      if (this.includedTricks.rocket === "off") {
+        entries = entries.filter((e) => !e.name.includes("Rocket"));
+      }
+      if (this.includedTricks.crossgrab === "off") {
+        entries = entries.filter((e) => !e.name.includes("Cross-Grab"));
       }
     }
 
