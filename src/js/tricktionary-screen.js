@@ -47,7 +47,7 @@ const MORE = [
   {
     term: "Citric PStar",
     comment:
-      "Special legs required.",
+      "Special legs required. <a target='_blank' href=' https://www.facebook.com/trirudolf/posts/4401979706486905'>Tri Tri-Rudolf Facebook</a>" ,
   },
   {
     term: "Grabbing grinds",
@@ -57,7 +57,7 @@ const MORE = [
   {
     term: "Underbar grinds",
     comment:
-      "Chris Farmer, Tri Tri-Rudolf, ..",
+      "Chris Farmer, ..",
   }
 
  
