@@ -474,7 +474,7 @@ const SOUL_GRINDS = [
     noSwitch: true,
     url: "http://skateyeg.com/bog/11.0_Hot_Dog.html",
     comment:
-      "Grinding on both negative soul plates. Easier to do on a narrow box that can be grinded on both sides.",
+      "(Double Negative) Grinding on both negative soul plates. Easier to do on a narrow box that can be grinded on both sides.",
     variations: {
       Rough: true,
       Tough: true,
@@ -493,8 +493,8 @@ const SOUL_GRINDS = [
       Negative: true,
       Rough: true, // book of grinds
       "Rough Topside": true,
-      //Tough: true,
-      //"Tough Topside": true,
+      Tough: true,
+      "Tough Topside": true,
     },
   },
   {
@@ -665,7 +665,7 @@ const GROOVE_GRINDS = [
     name: "BS Cab driver",
     scores: 3,
     comment:
-      "(Cowboy) Sliding a torque and backslide at the same time without crossing your legs.",
+      "(Cowboy, Lucky Grind) Sliding a torque and backslide at the same time without crossing your legs.",
     url: "http://skateyeg.com/bog/09.1_Backside_Cab_driver.html",
     variations: { Channel: true },
   },
