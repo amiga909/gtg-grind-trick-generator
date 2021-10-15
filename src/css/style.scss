@@ -1100,6 +1100,8 @@ body::-webkit-scrollbar-thumb {
   padding-top: 12px;
   color: white;
   box-shadow: none;
+
+  
 }
 .pure-menu-heading {
   color: white;
@@ -1107,9 +1109,11 @@ body::-webkit-scrollbar-thumb {
 }
 .pure-menu-link {
   color: white;
+  text-decoration: underline;
 }
 .pure-menu-link:hover {
   color: black;
+  text-decoration: none;
 }
 
 .toc-anchor {

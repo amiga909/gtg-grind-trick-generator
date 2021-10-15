@@ -44,7 +44,27 @@ const MORE = [
     comment:
       "Like a Fastslide but with the trailing foot instead of the leading foot.",
   },
+  {
+    term: "Citric PStar",
+    comment:
+      "Special legs required.",
+  },
+  {
+    term: "Grabbing grinds",
+    comment:
+      "Tri Tri-Rudolf <a target='_blank' href='https://www.youtube.com/watch?v=MhZZ14ap6VA'>Grabbing Grinds (Trying Not To Squish Fingers)</a>",
+  },
+  {
+    term: "Underbar grinds",
+    comment:
+      "Chris Farmer, Tri Tri-Rudolf, ..",
+  }
+
+ 
+
 ];
+
+
 
 export class TricktionaryScreen {
   constructor() {
@@ -179,6 +199,28 @@ export class TricktionaryScreen {
       ["Name", "Image", "Comment"],
       rows
     );
+    this.$dom.append(html);
+  }
+
+  renderRareGrinds() {
+    const rows = [];
+    const variations = CONFIG.OBSTACLE_VARIATIONS;
+
+    variations.forEach((v) => {
+      let row = [];
+      const url = v.url ? v.url : "";
+      const comment = v.comment ? `${v.comment}` : "";
+      const thumb = v.thumbUrl ? v.thumbUrl : "";
+      rows.push([
+        v.name,
+        url ? `<a target="_blank" href="${url}">Book of Grinds</a>` : "",
+      ]);
+    });
+
+    MORE.forEach((m) => {
+      rows.push([m.term, m.comment]);
+    });
+    let html = renderTable("Not Implemented", ["Term", "Comment"], rows);
     this.$dom.append(html);
   }
 
