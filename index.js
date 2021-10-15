@@ -67,6 +67,11 @@ app.get("/robots.txt", (request, response) => {
   response.sendFile("./robots.txt", {root: __dirname });
 });
 
+app.get("/google3c4c2c0afdd9521d.html", (request, response) => {
+  response.sendFile("./google3c4c2c0afdd9521d.html", {root: __dirname });
+});
+
+
 
 // Start listening on the port
 var server = app.listen(port, () => {
