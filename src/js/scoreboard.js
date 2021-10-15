@@ -5,7 +5,8 @@ export class Scoreboard {
     this.tokensTotal = config; // config.spins;config.locks;config.removes;
 
     this.points = 0;
-    this.spins = this.tokensTotal.spins;
+    this.spins = this.tokensTotal.spins < 1 ? 1: this.tokensTotal.spins;
+    
     this.locks = this.tokensTotal.locks;
     this.removes = this.tokensTotal.removes;
 

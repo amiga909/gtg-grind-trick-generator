@@ -25,7 +25,7 @@ export const testData = [
   },
 
   {
-    expected: "AO Acid to 360 revert out",
+    expected: "AO Acid to 360 rewind out",
     data: [
       { name: "Grind", winner: { name: "Acid", isGrooveGrind: false } },
       { name: "SpinTo", winner: { name: "Inspin 180" } },
@@ -74,7 +74,7 @@ export const testData = [
     ],
   },
   {
-    expected: "360 Sweatstance to 180 revert out",
+    expected: "360 Sweatstance to 180 rewind out",
     data: [
       { name: "Grind", winner: { name: "Mizou" } },
       { name: "GrindVariation", winner: { name: "Topside" } },
@@ -224,7 +224,7 @@ export const testData = [
   },
 
   {
-    expected: "AO Fishbrain to 180 revert out",
+    expected: "AO Fishbrain to 180 rewind out",
     data: [
       { name: "Grind", winner: { name: "Makio" } },
       { name: "GrindVariation", winner: { name: "Topside" } },
@@ -258,7 +258,7 @@ export const testData = [
   },
 
   {
-    expected: "360 Negative Soul to 180 revert out",
+    expected: "360 Negative Soul to 180 rewind out",
     data: [
       { name: "Grind", winner: { name: "Soul", isGrooveGrind: false } },
       { name: "GrindVariation", winner: { name: "Negative" } },
@@ -316,7 +316,7 @@ export const testData = [
     ],
   },
   {
-    expected: "True Fullcab Soyale to 540 revert out",
+    expected: "True Fullcab Soyale to 540 rewind out",
     data: [
       {
         name: "Approach",

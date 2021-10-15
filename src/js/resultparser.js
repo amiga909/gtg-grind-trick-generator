@@ -117,7 +117,7 @@ export class ResultParser {
       isRough: isRough || false,
     });
 
-    // Fakie Switch Outspin 360 Tough Soul to 180 revert out
+    // Fakie Switch Outspin 360 Tough Soul to 180 rewind out
     // Zerospin BS Pudslide
     result = result.replace("Topside", "Top");
     result = result.replace("Alley-oop", "AO");
@@ -241,7 +241,7 @@ export class ResultParser {
     }
     spinName = spinName.replace("Inspin", "");
     spinName = spinName.replace("Outspin", "");
-    spinName = isRevert ? spinName + " revert" : spinName;
+    spinName = isRevert ? spinName + " rewind" : spinName;
     // Forwards
     // spinName = spinName.replace("Forwards", "");
     return spinName;

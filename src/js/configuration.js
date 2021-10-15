@@ -37,8 +37,8 @@ const LEVEL_CONFIG = {
     spins540Checkbox: "off",
     spins720Checkbox: "off",
     spins900Checkbox: "off",
-    switchCheckbox: "on",
-    fakieCheckbox: "on",
+    switchCheckbox: "off",
+    fakieCheckbox: "off",
     toughCheckbox: "off",
     grabsCheckbox: "on",
     rocketCheckbox: "off",
@@ -71,7 +71,6 @@ export class Configuration {
   constructor() {
     this.$levelSelect = $("#levelSelect");
 
-    this.$spinsTotal = $("#spinsTotalInput");
     this.$removesTotal = $("#removesTotalInput");
     this.$spinsLocks = $("#spinsLocksInput");
 
@@ -183,6 +182,13 @@ export class Configuration {
     this.$submit.on("click", (e) => {
       e.preventDefault();
       this.submit();
+    });
+
+    this.$spinsTotal.on("change", (e) => {
+      const val = parseInt(e.currentTarget.value, 10);
+      if (!Number.isInteger(val) || val < 2) {
+        this.$spinsTotal.val(2);
+      }
     });
 
     this.$reset.on("click", (e) => {

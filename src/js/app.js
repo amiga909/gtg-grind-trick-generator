@@ -51,7 +51,7 @@ class GrindTrickRandomizer {
       this.configurator.hasNoApproachSlot(),
       this.configurator.hasNoVariationSlot(), 
     );
-    debugger;
+   
     this.resultParser = new ResultParser();
 
     this.screens = new Screens();
