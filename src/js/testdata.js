@@ -207,6 +207,29 @@ export const testData = [
     ],
   },
   {
+    expected: "Grab Negative Makio",
+    data: [
+      { name: "Grind", winner: { name: "Makio", isGrooveGrind: false } },
+      { name: "GrindVariation", winner: { name: "Grab Negative" } },
+    ],
+  },
+  {
+    expected: "Zerospin Christ Negative Makio",
+    data: [
+      {
+        name: "Approach",
+        winner: {
+          name: "Fakie & Natural",
+          isFakie: true,
+          isSwitch: false,
+        },
+      },
+      { name: "Grind", winner: { name: "Makio", isGrooveGrind: false } },
+      { name: "GrindVariation", winner: { name: "Christ Negative" } },
+    ],
+  },
+  
+  {
     expected: "Zerospin Christ Fishbrain to 180 out",
     data: [
       {

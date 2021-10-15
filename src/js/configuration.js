@@ -19,9 +19,9 @@ const LEVEL_CONFIG = {
     switchCheckbox: "off",
     fakieCheckbox: "off",
     toughCheckbox: "off",
-    grabs: "off",
-    rocket: "off",
-    crossgrab: "off",
+    grabsCheckbox: "off",
+    rocketCheckbox: "off",
+    crossgrabCheckbox: "off",
   },
   2: {
     spinsTotal: "5",
@@ -220,7 +220,6 @@ export class Configuration {
   }
   setLevel(level) {
     const levelConfig = LEVEL_CONFIG[level];
-    //this.$levelSelect.val(level)
     this.configs.forEach((param) => {
       let configValue = levelConfig[param.key] ? levelConfig[param.key] : "";
       if (param.key === "levelSelect") {

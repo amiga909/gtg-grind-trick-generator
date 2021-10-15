@@ -23,7 +23,7 @@ const MORE = [
   },
   {
     term: "Toe/Heel Rolls",
-    comment: "Rolling with one foot on one wheel before or after the grind.",
+    comment: "Rolling with one foot on one wheel before or after the grind. There is Wheelbarrow and Training Wheel. Much more variations are possible.",
   },
   {
     term: "Step",

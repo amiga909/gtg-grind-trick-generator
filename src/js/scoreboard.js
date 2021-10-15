@@ -5,7 +5,7 @@ export class Scoreboard {
     this.tokensTotal = config; // config.spins;config.locks;config.removes;
 
     this.points = 0;
-    this.spins = this.tokensTotal.spins < 1 ? 1: this.tokensTotal.spins;
+    this.spins = 0 ;
     
     this.locks = this.tokensTotal.locks;
     this.removes = this.tokensTotal.removes;
@@ -24,20 +24,15 @@ export class Scoreboard {
 
   startGame() {
     this.points = 0;
-    this.spinsRemaining = this.tokensTotal.spins;
-    this.locksRemaining = this.tokensTotal.locks;
-    this.removesRemaining = this.tokensTotal.removes;
+   // this.spinsRemaining = this.tokensTotal.spins;
+   // this.locksRemaining = this.tokensTotal.locks;
+   // this.removesRemaining = this.tokensTotal.removes;
     this.render();
   }
 
   render() {
-    // +1 show actual spin
-    let spinNo = parseInt(this.spins, 10);
-
-    spinNo =
-      spinNo === parseInt(this.tokensTotal.spins, 10) ? spinNo : spinNo + 1;
-
-    this.$spinsRemaining.html(spinNo);
+    
+    this.$spinsRemaining.html(this.spins);
     this.$locksRemaining.html(this.locks);
     if (this.locks < 0) {
       this.$locksRemaining.addClass("token-in-minus");
@@ -69,7 +64,7 @@ export class Scoreboard {
     this.render();
   }
   useSpin() {
-    this.spins = this.spins - 1;
+    this.spins = this.spins + 1;
     this.render();
   }
 
@@ -80,7 +75,11 @@ export class Scoreboard {
   }
 
   isLastSpin() {
-    return this.spins === 0 ? true : false;
+    return this.spins === parseInt(this.tokensTotal.spins,10) ? true : false;
+  }
+
+  hasNoMoreSpins() {
+    return this.spins > parseInt(this.tokensTotal.spins,10) ? true : false;
   }
 
   isValidTokensCount() {

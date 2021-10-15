@@ -44,14 +44,14 @@ class GrindTrickRandomizer {
     this.includedTricks = this.configurator.getIncludedTricks();
 
     this.audioplayer = new Audioplayer(this.$soundOnOff);
-    
+
     this.slotMachine = new SlotMachine(
       this.slotSpeed,
       this.includedTricks,
       this.configurator.hasNoApproachSlot(),
-      this.configurator.hasNoVariationSlot(), 
+      this.configurator.hasNoVariationSlot(),
     );
-   
+
     this.resultParser = new ResultParser();
 
     this.screens = new Screens();
@@ -120,7 +120,10 @@ class GrindTrickRandomizer {
       e.preventDefault();
       this.scoreboard.startGame();
       this.tricklist.clearList();
+
+      console.log("use spin")
       this.onClickStart();
+      this.scoreboard.useSpin();
     });
 
     this.$soundOnOff.on("click", (e) => {
@@ -169,20 +172,59 @@ class GrindTrickRandomizer {
       this.slotMachineResult.orig,
       score
     );
-    this.triggerNextSpin();
+
+    this.triggerNextSpin({ hasNewScore: true });
+
   }
 
-  triggerNextSpin() {
-    if (this.scoreboard.isLastSpin()) {
+  triggerNextSpin(options = null) {
+    if (this.scoreboard.hasNoMoreSpins()) {
       this.gameOverScreen.render(
         this.scoreboard.points,
         this.tricklist.getStorage()
       );
       this.screens.show("GameOver", "up");
-      this.scoreboard.useSpin();
-    } else {
-      this.onClickStart();
+      // this.scoreboard.useSpin();
     }
+    else {}
+    const delay = t => new Promise(resolve => setTimeout(resolve, t));
+
+    const tadaAnim = 700;
+    const hasNewScore = options && options.hasNewScore === true ? true : false;
+
+    if (hasNewScore) {
+      $(".scoreboard-points").addClass("tada");
+      delay(tadaAnim).then(() => {
+        $(".scoreboard-points").removeClass("tada");
+      });
+    }
+    if (!this.scoreboard.isLastSpin()) {
+      delay(hasNewScore ? 500 : 0).then(() => {
+        this.scoreboard.useSpin();
+        $(".scoreboard-spins").addClass("tada");
+      });
+    }
+
+    $("body").addClass("disable_clicks");
+    let totalDelay = hasNewScore ? tadaAnim * 2 : tadaAnim
+    totalDelay = this.scoreboard.isLastSpin() ? totalDelay / 2 : totalDelay;
+    delay(totalDelay).then(() => {
+      $("body").removeClass("disable_clicks");
+      $(".scoreboard-spins").removeClass("tada");
+      $("body").removeClass("disable_clicks");
+      console.log("this.scoreboard.hasNoMoreSpins()",this.scoreboard.hasNoMoreSpins())
+      if (this.scoreboard.hasNoMoreSpins()) {
+        this.gameOverScreen.render(
+          this.scoreboard.points,
+          this.tricklist.getStorage()
+        );
+        this.screens.show("GameOver", "up");
+        // this.scoreboard.useSpin();
+      } else {
+        this.onClickStart();
+      }
+      $(".scoreboard-spins").removeClass("tada");
+    });
   }
 
   turnSoundOn() {
@@ -227,7 +269,7 @@ class GrindTrickRandomizer {
   onClickStart() {
     this.screens.show("Slotmachine", "up");
     this.screens.disableNav();
-    this.scoreboard.useSpin();
+    // this.scoreboard.useSpin();
 
     this.isEndScreen = false;
     this.audioplayer.stop();
