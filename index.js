@@ -59,6 +59,10 @@ app.get("/about", (request, response) => {
   response.sendFile("public/index.html", {root: __dirname });
 });
 
+app.get("/sitemap.xml", (request, response) => {
+  response.sendFile("./sitemap.xml", {root: __dirname });
+});
+
 
 // Start listening on the port
 var server = app.listen(port, () => {
