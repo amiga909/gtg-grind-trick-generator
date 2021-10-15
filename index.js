@@ -63,6 +63,10 @@ app.get("/sitemap.xml", (request, response) => {
   response.sendFile("./sitemap.xml", {root: __dirname });
 });
 
+app.get("/robots.txt", (request, response) => {
+  response.sendFile("./robots.txt", {root: __dirname });
+});
+
 
 // Start listening on the port
 var server = app.listen(port, () => {
