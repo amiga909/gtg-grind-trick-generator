@@ -228,7 +228,7 @@ export const testData = [
       { name: "GrindVariation", winner: { name: "Christ Negative" } },
     ],
   },
-  
+
   {
     expected: "Zerospin Christ Fishbrain to 180 out",
     data: [

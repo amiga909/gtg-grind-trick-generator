@@ -23,7 +23,8 @@ const MORE = [
   },
   {
     term: "Toe/Heel Rolls",
-    comment: "Rolling with one foot on one wheel before or after the grind. There is Wheelbarrow and Training Wheel. Much more variations are possible.",
+    comment:
+      "Rolling with one foot on one wheel before or after the grind. There is Wheelbarrow and Training Wheel. Much more variations are possible.",
   },
   {
     term: "Step",
@@ -47,7 +48,7 @@ const MORE = [
   {
     term: "Citric PStar",
     comment:
-      "Special legs required. <a target='_blank' href=' https://www.facebook.com/trirudolf/posts/4401979706486905'>Tri Tri-Rudolf Facebook</a>" ,
+      "Special legs required. <a target='_blank' href=' https://www.facebook.com/trirudolf/posts/4401979706486905'>Tri Tri-Rudolf Facebook</a>",
   },
   {
     term: "Grabbing grinds",
@@ -56,15 +57,9 @@ const MORE = [
   },
   {
     term: "Underbar grinds",
-    comment:
-      "Chris Farmer, ..",
-  }
-
- 
-
+    comment: "Chris Farmer, ..",
+  },
 ];
-
-
 
 export class TricktionaryScreen {
   constructor() {

@@ -261,16 +261,21 @@ export class Configuration {
   }
 
   hasNoApproachSlot() {
-    const hasApproach = this.$switchSelect.is(":checked") || this.$fakieSelect.is(":checked")
-    return !hasApproach
+    const hasApproach =
+      this.$switchSelect.is(":checked") || this.$fakieSelect.is(":checked");
+    return !hasApproach;
   }
 
   hasNoVariationSlot() {
     const hasVariation =
-      this.$negativeSelect.is(":checked") || this.$topsideSelect.is(":checked") ||
-      this.$roughSelect.is(":checked") || this.$toughSelect.is(":checked") ||
-      this.$channelSelect.is(":checked") || this.$christSelect.is(":checked") ||
-      this.$grabsSelect.is(":checked") || this.$rocketSelect.is(":checked") ||
+      this.$negativeSelect.is(":checked") ||
+      this.$topsideSelect.is(":checked") ||
+      this.$roughSelect.is(":checked") ||
+      this.$toughSelect.is(":checked") ||
+      this.$channelSelect.is(":checked") ||
+      this.$christSelect.is(":checked") ||
+      this.$grabsSelect.is(":checked") ||
+      this.$rocketSelect.is(":checked") ||
       this.$crossgrabSelect.is(":checked");
     return !hasVariation;
   }

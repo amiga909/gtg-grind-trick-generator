@@ -14,7 +14,12 @@ export const SLOT_STATES = {
 const SLOT_MACHINE_NO_OF_SPINS = 1;
 
 export class SlotMachine {
-  constructor(slotSpeed, includedTricks, hasNoApproachSlot = false, hasNoVariationSlot = false) {
+  constructor(
+    slotSpeed,
+    includedTricks,
+    hasNoApproachSlot = false,
+    hasNoVariationSlot = false
+  ) {
     this.includedTricks = includedTricks;
     this.hasNoApproachSlot = hasNoApproachSlot;
     this.hasNoVariationSlot = hasNoVariationSlot;
@@ -46,7 +51,7 @@ export class SlotMachine {
   }
 
   initSlots() {
-    const nextStepNoApproach = this.hasNoApproachSlot ? 3 : 2
+    const nextStepNoApproach = this.hasNoApproachSlot ? 3 : 2;
     this.slots = [
       {
         name: "Grind",

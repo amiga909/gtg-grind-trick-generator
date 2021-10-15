@@ -49,7 +49,7 @@ class GrindTrickRandomizer {
       this.slotSpeed,
       this.includedTricks,
       this.configurator.hasNoApproachSlot(),
-      this.configurator.hasNoVariationSlot(),
+      this.configurator.hasNoVariationSlot()
     );
 
     this.resultParser = new ResultParser();
@@ -121,7 +121,7 @@ class GrindTrickRandomizer {
       this.scoreboard.startGame();
       this.tricklist.clearList();
 
-      console.log("use spin")
+      console.log("use spin");
       this.onClickStart();
       this.scoreboard.useSpin();
     });
@@ -174,7 +174,6 @@ class GrindTrickRandomizer {
     );
 
     this.triggerNextSpin({ hasNewScore: true });
-
   }
 
   triggerNextSpin(options = null) {
@@ -185,9 +184,9 @@ class GrindTrickRandomizer {
       );
       this.screens.show("GameOver", "up");
       // this.scoreboard.useSpin();
+    } else {
     }
-    else {}
-    const delay = t => new Promise(resolve => setTimeout(resolve, t));
+    const delay = (t) => new Promise((resolve) => setTimeout(resolve, t));
 
     const tadaAnim = 700;
     const hasNewScore = options && options.hasNewScore === true ? true : false;
@@ -206,13 +205,16 @@ class GrindTrickRandomizer {
     }
 
     $("body").addClass("disable_clicks");
-    let totalDelay = hasNewScore ? tadaAnim * 2 : tadaAnim
+    let totalDelay = hasNewScore ? tadaAnim * 2 : tadaAnim;
     totalDelay = this.scoreboard.isLastSpin() ? totalDelay / 2 : totalDelay;
     delay(totalDelay).then(() => {
       $("body").removeClass("disable_clicks");
       $(".scoreboard-spins").removeClass("tada");
       $("body").removeClass("disable_clicks");
-      console.log("this.scoreboard.hasNoMoreSpins()",this.scoreboard.hasNoMoreSpins())
+      console.log(
+        "this.scoreboard.hasNoMoreSpins()",
+        this.scoreboard.hasNoMoreSpins()
+      );
       if (this.scoreboard.hasNoMoreSpins()) {
         this.gameOverScreen.render(
           this.scoreboard.points,
