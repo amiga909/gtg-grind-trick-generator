@@ -71,10 +71,10 @@ export class Configuration {
   constructor() {
     this.$levelSelect = $("#levelSelect");
 
-    this.$removesTotal = $("#removesTotalInput");
-    this.$spinsLocks = $("#spinsLocksInput");
+    //this.$removesTotal = $("#removesTotalInput");
+   // this.$spinsLocks = $("#spinsLocksInput");
 
-    this.$soundSelect = $("#soundSelect");
+   // this.$soundSelect = $("#soundSelect");
     this.$speedSelect = $("#speedSelect");
     this.$submit = $("#config-submit");
     this.$reset = $("#config-reset");
@@ -99,11 +99,12 @@ export class Configuration {
 
     this.$levelSelect = $("#levelSelect");
     this.$spinsTotal = $("#spinsTotalInput");
-    this.$removesTotal = $("#removesTotalInput");
-    this.$locksTotal = $("#spinsLocksInput");
+ //   this.$removesTotal = $("#removesTotalInput");
+  //  this.$locksTotal = $("#spinsLocksInput");
+  this.hasUnsavedChanges = false; 
 
     this.configs = [
-      { $dom: this.$soundSelect, key: "soundSelect", value: 0 },
+      //{ $dom: this.$soundSelect, key: "soundSelect", value: 0 },
       { $dom: this.$speedSelect, key: "speedSelect", value: 0 },
       { $dom: this.$fakieSelect, key: "fakieCheckbox", value: "off" },
       { $dom: this.$switchSelect, key: "switchCheckbox", value: "off" },
@@ -123,8 +124,8 @@ export class Configuration {
       { $dom: this.$crossgrabSelect, key: "crossgrabCheckbox", value: "off" },
       { $dom: this.$levelSelect, key: "levelSelect", value: "1" },
       { $dom: this.$spinsTotal, key: "spinsTotal", value: 5 },
-      { $dom: this.$removesTotal, key: "removesTotal", value: 3 },
-      { $dom: this.$locksTotal, key: "locksTotal", value: 2 },
+    //  { $dom: this.$removesTotal, key: "removesTotal", value: 3 },
+    //  { $dom: this.$locksTotal, key: "locksTotal", value: 2 },
     ];
 
     this.versionCheck();
@@ -138,27 +139,31 @@ export class Configuration {
       localStorage.setItem(VERSION_KEY, CURRENT_VERSION);
     }
   }
-
+/*
   hasUnsavedSettings() {
     let isUnsaved = false;
     this.configs.forEach((param) => {
-      const storedVal = localStorage.getItem(param.key) || param.value;
-      //console.log(storedVal, param)
+      let storedVal = localStorage.getItem(param.key)  ;
+      if(!storedVal) {
+        
+      }
+     // console.log(param, " storedVal",storedVal)
       if (!param.key.includes("Checkbox")) {
-        if (storedVal !== param.$dom.val()) {
+        //   if value is not stored yet: 
+        if (   storedVal !== param.$dom.val()) {
           isUnsaved = true;
-          // console.log(param, "hot cb", param.value , param.$dom.val())
+          console.log(param, "hot cb", param.value , param.$dom.val())
         }
       } else if (
         (storedVal === "on" && !param.$dom.prop("checked")) ||
         (storedVal === "off" && param.$dom.prop("checked"))
       ) {
-        //  console.log(param, "hot")
+         console.log(param, "hot")
         isUnsaved = true;
       }
     });
     return isUnsaved;
-  }
+  }*/
 
   initStoreables() {
     this.configs.forEach((param) => {
@@ -177,6 +182,7 @@ export class Configuration {
     }
     param.value = param.$dom.val();
     param.$dom.on("change", (e) => {
+      this.hasUnsavedChanges = true;
       this.$submit.removeClass("pure-button-disabled");
       param.value = param.$dom.val();
     });
@@ -191,13 +197,14 @@ export class Configuration {
     }
     param.value = val;
     param.$dom.on("change", (e) => {
+      this.hasUnsavedChanges = true;
       this.$submit.removeClass("pure-button-disabled");
       param.value = param.$dom.is(":checked") ? "on" : "off";
     });
   }
 
   registerListener() {
-    this.$levelSelect.on("change", (e) => {
+    this.$levelSelect.on("change", (e) => { this.hasUnsavedChanges = true;
       this.setLevel(this.$levelSelect.val());
     });
     this.$submit.on("click", (e) => {
@@ -205,7 +212,7 @@ export class Configuration {
       this.submit();
     });
 
-    this.$spinsTotal.on("change", (e) => {
+    this.$spinsTotal.on("change", (e) => {this.hasUnsavedChanges = true;
       const val = parseInt(e.currentTarget.value, 10);
       if (!Number.isInteger(val) || val < 2) {
         this.$spinsTotal.val(2);
@@ -226,15 +233,16 @@ export class Configuration {
     });
 
     $(".configurator-right-close-btn").on("click.save", (e) => {
-      if (this.hasUnsavedSettings()) {
+      if (this.hasUnsavedChanges) {
         const checkMenu = confirm(
-          `You have unsaved changes. 
-        Press OK to apply the settings and restart game.
-        Press Cancel to close the settings window.`
+`You have unsaved changes. 
+Press OK to save and apply the settings. This restarts the game.
+Press Cancel to close the settings window and continue the game.`
         );
         if (checkMenu == true) {
           this.$submit.trigger("click");
         } else {
+          // this.initStoreables();
           //$(".configurator-right-close-btn").off("click.save");
         }
 
@@ -244,12 +252,17 @@ export class Configuration {
     });
   }
 
-  submit() {
+  saveToLocalStorage() {
     this.configs.forEach((param) => {
       if (param.value) {
         localStorage.setItem(param.key, param.value);
       }
     });
+  }
+
+  submit() {
+    this.saveToLocalStorage();
+    this.hasUnsavedChanges = false;
     location.reload();
   }
 
@@ -283,15 +296,12 @@ export class Configuration {
     return {
       level: this.configs.filter((s) => s.key == "levelSelect")[0].value,
       spins: this.configs.filter((s) => s.key == "spinsTotal")[0].value,
-      removes: this.configs.filter((s) => s.key == "removesTotal")[0].value,
-      locks: this.configs.filter((s) => s.key == "locksTotal")[0].value,
+      //removes: this.configs.filter((s) => s.key == "removesTotal")[0].value,
+      //locks: this.configs.filter((s) => s.key == "locksTotal")[0].value,
     };
   }
 
-  getSound() {
-    const idx = this.configs.filter((s) => s.key == "soundSelect")[0].value;
-    return idx > 0 ? idx - 1 : 0;
-  }
+  
 
   getSpeed() {
     const { value } = this.configs.filter((s) => s.key == "speedSelect")[0];
