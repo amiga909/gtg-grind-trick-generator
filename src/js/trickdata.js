@@ -42,7 +42,7 @@ const APPROACHES = [
 const SPINS_TO_GRIND = [
   {
     name: "Outspin 180",
-    repeat: MEDIUM_REPEAT,
+   // repeat: MEDIUM_REPEAT,
     scores: 1,
   },
   {
@@ -103,7 +103,7 @@ const SPINS_FAKIE_TO_GRIND = [
   },
   {
     name: "Outspin 180",
-    repeat: MEDIUM_REPEAT,
+   // repeat: MEDIUM_REPEAT,
     scores: 1,
     url: "",
   },
@@ -265,6 +265,7 @@ const SPINS_FAKIE_TO_GRIND_GROOVE_BS = [
 const SPINS_OFF_GRIND = [
   {
     name: "Inspin 180",
+    repeat: EASY_REPEAT,
     scores: 1,
     url: "",
   },
@@ -318,11 +319,13 @@ const SPINS_OFF_GRIND = [
 const SPINS_OFF_GROOVE_GRIND = [
   {
     name: "Forwards",
+    repeat: EASY_REPEAT,
     scores: 0,
     url: "",
   },
   {
     name: "Fakie",
+    repeat: EASY_REPEAT,
     scores: 0,
     url: "",
   },
@@ -1118,15 +1121,15 @@ const GLOSSARY = {
   "True Halfcab": "Fakie to 180 Outspin to a soul grind.",
   "True Fullcab": "Fakie to 360 Outspin to a soul grind.",
   Zerospin: "Fakie to a soul grind, no rotation.",
-  Revert:
-    "(Rewind) Spinning off a grind the opposite direction of the natural momentum set by the initial grind spin.",
+  Rewind:
+    "(Revert) If you spin out of a grind in the other direction set by the initial spin to the grind.",
 
   // slot tokens
   450: "360 spin to/off a groove grind. The longer way (360 + 90 degrees).",
   270: "360 spin to/off a groove grind. The shorter way (360 - 90 degrees).",
   810: "720 spin to/off a groove grind. The longer way (720 + 90 degrees).",
   630: "720 spin to/off a groove grind. The shorter way (720 - 90 degrees).",
-  Switch: "(Unnatural) Grinding in the unnatural mirrored position of a grind.",
+  Switch: "(Unnatural) Grinding in the unnatural mirrored position of a grind. In this game Switch only applies to grinds not spin direction.",
   Fakie:
     "Approach obstacle skating backwards. Also used for landing a groove grind backwards with no rotation (Royale to Fakie).",
   Forwards: "Forwards is the opposite of Fakie.",

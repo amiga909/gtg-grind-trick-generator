@@ -91,6 +91,8 @@ class GrindTrickRandomizer {
     });
 
     $(".bog-slot").on("click", (e) => {
+      // tmp: remove lock feature?
+      return false; 
       if (this.isEndScreen) {
         const onResultChange = () => {
           this.showEndScreen(false);
@@ -190,23 +192,30 @@ class GrindTrickRandomizer {
 
     const tadaAnim = 700;
     const hasNewScore = options && options.hasNewScore === true ? true : false;
-
+    const isInvalidSpin = this.scoreboard.isInvalidSpin();
+    console.log("isInvalidSpin  ", isInvalidSpin);
+    
     if (hasNewScore) {
       $(".scoreboard-points").addClass("tada");
       delay(tadaAnim).then(() => {
         $(".scoreboard-points").removeClass("tada");
       });
     }
-    if (!this.scoreboard.isLastSpin()) {
+    console.log("thus.scoreboard.spins",this.scoreboard.spins)
+  
+      if(this.scoreboard.isLastSpin()) {
+        this.scoreboard.useSpin();
+    }
+    else if (!this.scoreboard.isInvalidSpin() ) {
       delay(hasNewScore ? 500 : 0).then(() => {
         this.scoreboard.useSpin();
         $(".scoreboard-spins").addClass("tada");
       });
-    }
+    }  
 
     $("body").addClass("disable_clicks");
     let totalDelay = hasNewScore ? tadaAnim * 2 : tadaAnim;
-    totalDelay = this.scoreboard.isLastSpin() ? totalDelay / 2 : totalDelay;
+    totalDelay = this.scoreboard.isInvalidSpin() ? totalDelay / 2 : totalDelay;
     delay(totalDelay).then(() => {
       $("body").removeClass("disable_clicks");
       $(".scoreboard-spins").removeClass("tada");
@@ -215,7 +224,7 @@ class GrindTrickRandomizer {
         "this.scoreboard.hasNoMoreSpins()",
         this.scoreboard.hasNoMoreSpins()
       );
-      if (this.scoreboard.hasNoMoreSpins()) {
+      if (this.scoreboard.isInvalidSpin()) {
         this.gameOverScreen.render(
           this.scoreboard.points,
           this.tricklist.getStorage()

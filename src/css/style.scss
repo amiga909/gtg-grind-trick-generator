@@ -1,8 +1,8 @@
-$fa-font-path: '../fonts';
-@import '~@fortawesome/fontawesome-free/scss/fontawesome';
-@import '~@fortawesome/fontawesome-free/scss/brands';
-@import '~@fortawesome/fontawesome-free/scss/solid';
-@import '~@fortawesome/fontawesome-free/scss/regular';
+$fa-font-path: "../fonts";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/regular";
 
 * {
   //box-shadow: 0 2px 2px rgba(230, 6, 6, 0.8);
@@ -57,13 +57,13 @@ $slotEnabled: #0078e7;
 $slotDisabled: #004280; // e71b00
 $slotLocked: #e71b00; // 004280
 
-$slotApproach: #1a0e2d;
-$slotSpinTo: #101e33;
-$slotGrind: #072818;
-$slotVariation: #453a02;
-$slotSpinOff: #44110a;
+$slotApproach: #1a0e2d; // rgb(26, 14, 45)
+$slotSpinTo: #101e33; //rgb(16, 30, 51)
+$slotGrind: #072818; //rgb(7, 40, 24)
+$slotVariation: #453a02; //rgb(69, 58, 2)
+$slotSpinOff: #44110a; //rgb(68, 17, 10)
 
-$redButton: #e71b00;
+$redButton: #e71b00; // rgb(231, 27, 0)
 
 $bog-slot-header-color: white;
 $bog-slot-header-bgColor: #111;
@@ -99,12 +99,7 @@ $startscreen-controls-text--tablet-FS: 18px;
 $startscreen-controls-text--desktop-FS: 20px;
 
 .body-wrapper {
-  /*
-  max-width: $maxWidthContent;
-  margin: 0 auto;
-  position: relative;
-  height: 100vh;
-  max-height: 1000px;*/
+   
 }
 
 body {
@@ -116,7 +111,7 @@ body {
   font-family: Arial, Helvetica, sans-serif !important;
 }
 
-.pure-g [class*='pure-u'] {
+.pure-g [class*="pure-u"] {
   font-family: Arial, Helvetica, sans-serif !important;
 }
 
@@ -156,7 +151,7 @@ p {
   padding: 0.5em 0.7em;
 }
 .banner-logo {
-  background-image: url('../img/gtg-logo-banner.svg');
+  background-image: url("../img/gtg-logo-banner.svg");
   background-size: cover;
   z-index: 0;
   width: 140px;
@@ -396,8 +391,7 @@ p {
 #endScreen {
   position: relative;
   display: none;
-  margin-top: 20px;
-  // padding-bottom: 20px;
+  margin-top: 20px; 
 }
 
 #endscreen-text {
@@ -500,9 +494,7 @@ p {
   right: 0;
 }
 
-.myFooter {
-  //  padding-bottom: 20px;
-  // padding-top: 20px; // android toolbar
+.myFooter { 
   margin: 0 auto;
   font-size: 16px;
   max-width: $maxWidthContent;
@@ -550,22 +542,19 @@ body::-webkit-scrollbar-thumb {
   min-height: 100vh;
 }
 .gameover-screen-box {
-  // background-color: rgba(255, 255, 255, 0.2);
 }
 .gameover-controls-container {
-  //margin-top: 16px;
 }
 .gameover-controls-row {
-  //padding: 16px;
   width: auto;
   padding: 8px;
   margin: 0 auto;
 }
 .gameover-screen-box::after {
-  background-image: url('../img/thejokerblade-smaller-1x.jpg');
+  background-image: url("../img/thejokerblade-smaller-1x.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  content: '';
+  content: "";
   opacity: 0;
   top: 0;
   left: 0;
@@ -697,7 +686,7 @@ body::-webkit-scrollbar-thumb {
 
 @media (min-width: $bp_tablet) {
   .l-content-modal::after {
-    background-image: url('../img/thejokerblade-big.jpg');
+    background-image: url("../img/thejokerblade-big.jpg");
   }
 }
 
@@ -735,7 +724,7 @@ body::-webkit-scrollbar-thumb {
 .loading-screen::after {
   background-repeat: no-repeat;
   background-size: cover;
-  content: '';
+  content: "";
   opacity: 0.5;
   top: 0;
   left: 0;
@@ -810,7 +799,7 @@ body::-webkit-scrollbar-thumb {
   border-radius: 30px;
   border: 2px solid #ddd;
   background-color: #eee;
-  content: '';
+  content: "";
   margin-right: 15px;
   transition: background-color 0.5s linear;
 }
@@ -819,7 +808,7 @@ body::-webkit-scrollbar-thumb {
   height: 30px;
   border-radius: 30px;
   background-color: #fff;
-  content: '';
+  content: "";
   transition: margin 0.1s linear;
   box-shadow: 0px 0px 5px #aaa;
   position: absolute;
@@ -886,24 +875,24 @@ body::-webkit-scrollbar-thumb {
 }
 
 .info-tooltip-arrow::before {
-  content: '';
+  content: "";
   transform: rotate(45deg);
   background: #333;
 }
 
-.info-tooltip[data-popper-placement^='top'] > .info-tooltip-arrow {
+.info-tooltip[data-popper-placement^="top"] > .info-tooltip-arrow {
   bottom: -4px;
 }
 
-.info-tooltip[data-popper-placement^='bottom'] > .info-tooltip-arrow {
+.info-tooltip[data-popper-placement^="bottom"] > .info-tooltip-arrow {
   top: -4px;
 }
 
-.info-tooltip[data-popper-placement^='left'] > .info-tooltip-arrow {
+.info-tooltip[data-popper-placement^="left"] > .info-tooltip-arrow {
   right: -4px;
 }
 
-.info-tooltip[data-popper-placement^='right'] > .info-tooltip-arrow {
+.info-tooltip[data-popper-placement^="right"] > .info-tooltip-arrow {
   left: -4px;
 }
 
@@ -1100,8 +1089,6 @@ body::-webkit-scrollbar-thumb {
   padding-top: 12px;
   color: white;
   box-shadow: none;
-
-  
 }
 .pure-menu-heading {
   color: white;
@@ -1454,21 +1441,22 @@ $gameOverKeyFrames3: $slotEnabled;
 }
 
 .yt_video {
-  width: 320px; 
-  height:180px;
+  width: 320px;
+  height: 180px;
   padding: 4px;
-} 
+}
 
 .disable_clicks {
   pointer-events: none !important;
   cursor: progress !important;
 }
- 
+
 .text-shadow-drop-center {
-  -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
-  animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+  -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1)
+    both;
+  animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
 }
-  /* ----------------------------------------------
+/* ----------------------------------------------
  * Generated by Animista on 2021-10-15 14:23:31
  * Licensed under FreeBSD License.
  * See http://animista.net/license for more info. 
@@ -1505,8 +1493,6 @@ $gameOverKeyFrames3: $slotEnabled;
   }
 }
 
-
-
 .tada {
   -webkit-animation-name: tada;
   animation-name: tada;
@@ -1514,72 +1500,99 @@ $gameOverKeyFrames3: $slotEnabled;
   animation-duration: 0.7s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
-  }
-  @-webkit-keyframes tada {
+}
+@-webkit-keyframes tada {
   0% {
-  -webkit-transform: scale3d(1, 1, 1);
-  transform: scale3d(1, 1, 1);
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
   }
-  10%, 20% {
-  -webkit-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
-  transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+  10%,
+  20% {
+    -webkit-transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
   }
-  30%, 50%, 70%, 90% {
-  -webkit-transform: scale3d(1.5, 1.5, 1.5) rotate3d(0, 0, 1, 3deg);
-  transform: scale3d(1.5, 1.5, 1.5) rotate3d(0, 0, 1, 3deg);
+  30%,
+  50%,
+  70%,
+  90% {
+    -webkit-transform: scale3d(1.5, 1.5, 1.5) rotate3d(0, 0, 1, 3deg);
+    transform: scale3d(1.5, 1.5, 1.5) rotate3d(0, 0, 1, 3deg);
   }
-  40%, 60%, 80% {
-  -webkit-transform: scale3d(1.5, 1.5, 1.5) rotate3d(0, 0, 1, -3deg);
-  transform: scale3d(1.5, 1.5, 1.5) rotate3d(0, 0, 1, -3deg);
+  40%,
+  60%,
+  80% {
+    -webkit-transform: scale3d(1.5, 1.5, 1.5) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(1.5, 1.5, 1.5) rotate3d(0, 0, 1, -3deg);
   }
   100% {
-  -webkit-transform: scale3d(1, 1, 1);
-  transform: scale3d(1, 1, 1);
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
   }
-  }
-  @keyframes tada {
+}
+@keyframes tada {
   0% {
-  -webkit-transform: scale3d(1, 1, 1);
-  transform: scale3d(1, 1, 1);
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
   }
-  10%, 20% {
-  -webkit-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
-  transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+  10%,
+  20% {
+    -webkit-transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
   }
-  30%, 50%, 70%, 90% {
-  -webkit-transform: scale3d(1.5, 1.5, 1.5) rotate3d(0, 0, 1, 3deg);
-  transform: scale3d(1.5, 1.5, 1.5) rotate3d(0, 0, 1, 3deg);
+  30%,
+  50%,
+  70%,
+  90% {
+    -webkit-transform: scale3d(1.5, 1.5, 1.5) rotate3d(0, 0, 1, 3deg);
+    transform: scale3d(1.5, 1.5, 1.5) rotate3d(0, 0, 1, 3deg);
   }
-  40%, 60%, 80% {
-  -webkit-transform: scale3d(1.5, 1.5, 1.5) rotate3d(0, 0, 1, -3deg);
-  transform: scale3d(1.5, 1.5, 1.5) rotate3d(0, 0, 1, -3deg);
+  40%,
+  60%,
+  80% {
+    -webkit-transform: scale3d(1.5, 1.5, 1.5) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(1.5, 1.5, 1.5) rotate3d(0, 0, 1, -3deg);
   }
   100% {
-  -webkit-transform: scale3d(1, 1, 1);
-  transform: scale3d(1, 1, 1);
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
   }
-  } 
+}
 
 
-  .text-blur-out {
-  
-            -webkit-animation: text-shadow-drop-bottom 2s infinite;
-	        animation: text-shadow-drop-bottom 2s infinite;
+
+
+.rainbow-text {
+  background-image: linear-gradient(
+    to left,
+    
+    #ffffff,
+    #fad1cc,
+ 
+#f5a399,
+ 
+#fad1cc,
+ 
+#ffffff,
+ 
+
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: move 160s linear infinite;
+}
+
+@keyframes move {
+  to {
+    background-position: 3500vh;
   }
+}
 
-/* ----------------------------------------------
- * Generated by Animista on 2021-10-15 23:29:28
- * Licensed under FreeBSD License.
- * See http://animista.net/license for more info. 
- * w: http://animista.net, t: @cssanimista
- * ---------------------------------------------- */
+.text-blur-out {
+  -webkit-animation: text-shadow-drop-bottom 2s infinite;
+  animation: text-shadow-drop-bottom 2s infinite;
+}
 
-/**
- * ----------------------------------------
- * @animation text-shadow-drop-bottom
- * ----------------------------------------
- */
- @-webkit-keyframes text-shadow-drop-bottom {
+@-webkit-keyframes text-shadow-drop-bottom {
   0% {
     //opacity:0;
     text-shadow: 0 0 0 black;
@@ -1608,35 +1621,23 @@ $gameOverKeyFrames3: $slotEnabled;
   }
 }
 
- /* ----------------------------------------------
- * Generated by Animista on 2021-10-15 20:20:4
- * Licensed under FreeBSD License.
- * See http://animista.net/license for more info. 
- * w: http://animista.net, t: @cssanimista
- * ---------------------------------------------- */
-
-/**
- * ----------------------------------------
- * animation text-blur-out
- * ----------------------------------------
- */
 @-webkit-keyframes text-blur-out {
   0% {
     -webkit-filter: blur(0.01);
-            filter: blur(0.01);
+    filter: blur(0.01);
   }
   100% {
     -webkit-filter: blur(12px) opacity(0%);
-            filter: blur(12px) opacity(0%);
+    filter: blur(12px) opacity(0%);
   }
 }
 @keyframes text-blur-out {
   0% {
     -webkit-filter: blur(0.01);
-            filter: blur(0.01);
+    filter: blur(0.01);
   }
   100% {
     -webkit-filter: blur(12px) opacity(0%);
-            filter: blur(12px) opacity(0%);
+    filter: blur(12px) opacity(0%);
   }
 }

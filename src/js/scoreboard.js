@@ -24,14 +24,15 @@ export class Scoreboard {
 
   startGame() {
     this.points = 0;
-    // this.spinsRemaining = this.tokensTotal.spins;
-    // this.locksRemaining = this.tokensTotal.locks;
-    // this.removesRemaining = this.tokensTotal.removes;
     this.render();
   }
 
   render() {
-    this.$spinsRemaining.html(this.spins);
+    const spinNo =
+      this.spins === parseInt(this.tokensTotal.spins, 10) + 1
+        ? parseInt(this.tokensTotal.spins, 10)
+        : this.spins;
+    this.$spinsRemaining.html(spinNo);
     this.$locksRemaining.html(this.locks);
     if (this.locks < 0) {
       this.$locksRemaining.addClass("token-in-minus");
@@ -73,8 +74,16 @@ export class Scoreboard {
     this.render();
   }
 
+  isInvalidSpin() {
+    return this.spins === parseInt(this.tokensTotal.spins, 10) + 1
+      ? true
+      : false;
+  }
+
   isLastSpin() {
-    return this.spins === parseInt(this.tokensTotal.spins, 10) ? true : false;
+    return this.spins === parseInt(this.tokensTotal.spins, 10)
+      ? true
+      : false;
   }
 
   hasNoMoreSpins() {
