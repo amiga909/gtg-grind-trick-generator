@@ -72,9 +72,9 @@ export class Configuration {
     this.$levelSelect = $("#levelSelect");
 
     //this.$removesTotal = $("#removesTotalInput");
-   // this.$spinsLocks = $("#spinsLocksInput");
+    // this.$spinsLocks = $("#spinsLocksInput");
 
-   // this.$soundSelect = $("#soundSelect");
+    // this.$soundSelect = $("#soundSelect");
     this.$speedSelect = $("#speedSelect");
     this.$submit = $("#config-submit");
     this.$reset = $("#config-reset");
@@ -99,9 +99,9 @@ export class Configuration {
 
     this.$levelSelect = $("#levelSelect");
     this.$spinsTotal = $("#spinsTotalInput");
- //   this.$removesTotal = $("#removesTotalInput");
-  //  this.$locksTotal = $("#spinsLocksInput");
-  this.hasUnsavedChanges = false; 
+    //   this.$removesTotal = $("#removesTotalInput");
+    //  this.$locksTotal = $("#spinsLocksInput");
+    this.hasUnsavedChanges = false;
 
     this.configs = [
       //{ $dom: this.$soundSelect, key: "soundSelect", value: 0 },
@@ -124,8 +124,8 @@ export class Configuration {
       { $dom: this.$crossgrabSelect, key: "crossgrabCheckbox", value: "off" },
       { $dom: this.$levelSelect, key: "levelSelect", value: "1" },
       { $dom: this.$spinsTotal, key: "spinsTotal", value: 5 },
-    //  { $dom: this.$removesTotal, key: "removesTotal", value: 3 },
-    //  { $dom: this.$locksTotal, key: "locksTotal", value: 2 },
+      //  { $dom: this.$removesTotal, key: "removesTotal", value: 3 },
+      //  { $dom: this.$locksTotal, key: "locksTotal", value: 2 },
     ];
 
     this.versionCheck();
@@ -139,7 +139,7 @@ export class Configuration {
       localStorage.setItem(VERSION_KEY, CURRENT_VERSION);
     }
   }
-/*
+  /*
   hasUnsavedSettings() {
     let isUnsaved = false;
     this.configs.forEach((param) => {
@@ -204,7 +204,8 @@ export class Configuration {
   }
 
   registerListener() {
-    this.$levelSelect.on("change", (e) => { this.hasUnsavedChanges = true;
+    this.$levelSelect.on("change", (e) => {
+      this.hasUnsavedChanges = true;
       this.setLevel(this.$levelSelect.val());
     });
     this.$submit.on("click", (e) => {
@@ -212,10 +213,11 @@ export class Configuration {
       this.submit();
     });
 
-    this.$spinsTotal.on("change", (e) => {this.hasUnsavedChanges = true;
+    this.$spinsTotal.on("change", (e) => {
+      this.hasUnsavedChanges = true;
       const val = parseInt(e.currentTarget.value, 10);
       if (!Number.isInteger(val) || val < 2) {
-        this.$spinsTotal.val(2);
+        this.setSpins(2);
       }
     });
 
@@ -235,7 +237,7 @@ export class Configuration {
     $(".configurator-right-close-btn").on("click.save", (e) => {
       if (this.hasUnsavedChanges) {
         const checkMenu = confirm(
-`You have unsaved changes. 
+          `You have unsaved changes. 
 Press OK to save and apply the settings. This restarts the game.
 Press Cancel to close the settings window and continue the game.`
         );
@@ -270,6 +272,16 @@ Press Cancel to close the settings window and continue the game.`
     const value = this.configs.filter((s) => s.key == "levelSelect")[0].value;
     return value;
   }
+
+  setSpins(spins) {
+    this.configs.forEach((param) => {
+      if (param.key === "spinsTotal") {
+        param.value = spins;
+      }
+    });
+    this.$spinsTotal.val(2);
+  }
+
   setLevel(level) {
     const levelConfig = LEVEL_CONFIG[level];
     this.configs.forEach((param) => {
@@ -300,8 +312,6 @@ Press Cancel to close the settings window and continue the game.`
       //locks: this.configs.filter((s) => s.key == "locksTotal")[0].value,
     };
   }
-
-  
 
   getSpeed() {
     const { value } = this.configs.filter((s) => s.key == "speedSelect")[0];
