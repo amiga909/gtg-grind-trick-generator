@@ -944,4 +944,13 @@ export const testData = [
       { name: "SpinTo", winner: { name: "Outspin 540" } },
     ],
   },
+
+  {
+    expected: "Mistrial to 180 out",
+    data: [
+      { name: "Grind", winner: { name: "Mistrial" } },
+      { name: "SpinTo", winner: { name: "None" } },
+      { name: "SpinOff", winner: { name: "Inspin 180" } },
+    ],
+  },
 ];

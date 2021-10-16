@@ -1,5 +1,5 @@
 const VERSION_KEY = "aight-version";
-const CURRENT_VERSION = "1.2.3";
+const CURRENT_VERSION = "2.0";
 
 const LEVEL_CONFIG = {
   1: {
@@ -139,6 +139,27 @@ export class Configuration {
     }
   }
 
+  hasUnsavedSettings() {
+    let isUnsaved = false;
+    this.configs.forEach((param) => {
+      const storedVal = localStorage.getItem(param.key) || param.value;
+      //console.log(storedVal, param)
+      if (!param.key.includes("Checkbox")) {
+        if (storedVal !== param.$dom.val()) {
+          isUnsaved = true;
+          // console.log(param, "hot cb", param.value , param.$dom.val())
+        }
+      } else if (
+        (storedVal === "on" && !param.$dom.prop("checked")) ||
+        (storedVal === "off" && param.$dom.prop("checked"))
+      ) {
+        //  console.log(param, "hot")
+        isUnsaved = true;
+      }
+    });
+    return isUnsaved;
+  }
+
   initStoreables() {
     this.configs.forEach((param) => {
       const val = localStorage.getItem(param.key) || param.value;
@@ -202,6 +223,24 @@ export class Configuration {
       });
       localStorage.clear();
       location.reload();
+    });
+
+    $(".configurator-right-close-btn").on("click.save", (e) => {
+      if (this.hasUnsavedSettings()) {
+        const checkMenu = confirm(
+          `You have unsaved changes. 
+        Press OK to apply the settings and restart game.
+        Press Cancel to close the settings window.`
+        );
+        if (checkMenu == true) {
+          this.$submit.trigger("click");
+        } else {
+          //$(".configurator-right-close-btn").off("click.save");
+        }
+
+        e.preventDefault();
+        e.stopPropagation();
+      }
     });
   }
 

@@ -15,10 +15,12 @@ export class ResultParser {
     const tokens = [];
     let approach = slots.filter((s) => s && s.name === "Approach")[0] || null;
     let spinTo = slots.filter((s) => s && s.name === "SpinTo")[0] || null;
+    spinTo = spinTo && spinTo.winner.name === "None" ? null : spinTo;
     const grind = slots.filter((s) => s && s.name === "Grind")[0] || null;
     let grindVariation =
       slots.filter((s) => s && s.name === "GrindVariation")[0] || null;
     let spinOff = slots.filter((s) => s && s.name === "SpinOff")[0] || null;
+    spinOff = spinOff && spinOff.winner.name === "None" ? null : spinOff;
 
     if (!approach || !approach.winner) {
       approach = { winner: { name: "Forwards" } };
@@ -105,7 +107,8 @@ export class ResultParser {
       tokens.push(grind.winner.name);
     }
     if (spinOff) {
-      tokens.push(`to ${this.parseSpinOff(spinOff, hasSpin, isInspin)} out`);
+      const spinOffTxt = this.parseSpinOff(spinOff, hasSpin, isInspin);
+      tokens.push(`to ${spinOffTxt} out`);
     }
 
     let result = tokens.join(" ");
@@ -224,6 +227,7 @@ export class ResultParser {
     //spinName = spinName.replace("90 ", " ");
     spinName = spinName.replace("Inspin", "");
     spinName = spinName.replace("Outspin", "");
+    spinName = spinName.replace("None", "");
 
     // spinName = spinName.replace("Forwards", "");
     return spinName;
@@ -231,17 +235,21 @@ export class ResultParser {
 
   parseSpinOff(spinOff, hasSpin, isInspin) {
     let spinName = spinOff.winner.name;
-    let isRevert = false;
+    let isRewind = false;
+
     if (hasSpin) {
       if (isInspin && spinOff.winner.name.includes("Outspin")) {
-        isRevert = true;
+        isRewind = true;
       } else if (!isInspin && spinOff.winner.name.includes("Inspin")) {
-        isRevert = true;
+        isRewind = true;
       }
     }
+
     spinName = spinName.replace("Inspin", "");
     spinName = spinName.replace("Outspin", "");
-    spinName = isRevert ? spinName + " rewind" : spinName;
+    spinName = spinName.replace("None", "");
+    spinName = isRewind ? spinName + " rewind" : spinName;
+
     // Forwards
     // spinName = spinName.replace("Forwards", "");
     return spinName;

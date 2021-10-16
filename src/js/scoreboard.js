@@ -81,9 +81,7 @@ export class Scoreboard {
   }
 
   isLastSpin() {
-    return this.spins === parseInt(this.tokensTotal.spins, 10)
-      ? true
-      : false;
+    return this.spins === parseInt(this.tokensTotal.spins, 10) ? true : false;
   }
 
   hasNoMoreSpins() {

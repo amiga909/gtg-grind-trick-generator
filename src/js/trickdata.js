@@ -1,5 +1,5 @@
-const EASY_REPEAT = 2;
-const MEDIUM_REPEAT = 1;
+const EASY_REPEAT = 3;
+const MEDIUM_REPEAT = 2;
 
 const APPROACHES = [
   {
@@ -41,8 +41,14 @@ const APPROACHES = [
 
 const SPINS_TO_GRIND = [
   {
+    name: "None",
+    repeat: EASY_REPEAT,
+    scores: 0,
+    url: "",
+  },
+  {
     name: "Outspin 180",
-   // repeat: MEDIUM_REPEAT,
+    // repeat: MEDIUM_REPEAT,
     scores: 1,
   },
   {
@@ -103,7 +109,7 @@ const SPINS_FAKIE_TO_GRIND = [
   },
   {
     name: "Outspin 180",
-   // repeat: MEDIUM_REPEAT,
+    // repeat: MEDIUM_REPEAT,
     scores: 1,
     url: "",
   },
@@ -151,7 +157,7 @@ const SPINS_FAKIE_TO_GRIND = [
 
 const SPINS_TO_GRIND_GROOVE_FS = [
   {
-    name: "Inspin 90",
+    name: "None",
     repeat: EASY_REPEAT,
     scores: 0,
     url: "",
@@ -179,7 +185,7 @@ const SPINS_TO_GRIND_GROOVE_FS = [
 ];
 const SPINS_TO_GRIND_GROOVE_BS = [
   {
-    name: "Outspin 90",
+    name: "None",
     repeat: EASY_REPEAT,
     scores: 0,
     url: "",
@@ -207,7 +213,7 @@ const SPINS_TO_GRIND_GROOVE_BS = [
 ];
 const SPINS_FAKIE_TO_GRIND_GROOVE_FS = [
   {
-    name: "Inspin 90",
+    name: "None",
     repeat: EASY_REPEAT,
     scores: 0,
     url: "",
@@ -235,7 +241,7 @@ const SPINS_FAKIE_TO_GRIND_GROOVE_FS = [
 ];
 const SPINS_FAKIE_TO_GRIND_GROOVE_BS = [
   {
-    name: "Outspin 90",
+    name: "None",
     repeat: EASY_REPEAT,
     scores: 0,
     url: "",
@@ -264,8 +270,14 @@ const SPINS_FAKIE_TO_GRIND_GROOVE_BS = [
 
 const SPINS_OFF_GRIND = [
   {
-    name: "Inspin 180",
+    name: "None",
     repeat: EASY_REPEAT,
+    scores: 0,
+    url: "",
+  },
+  {
+    name: "Inspin 180",
+    repeat: MEDIUM_REPEAT,
     scores: 1,
     url: "",
   },
@@ -1129,7 +1141,8 @@ const GLOSSARY = {
   270: "360 spin to/off a groove grind. The shorter way (360 - 90 degrees).",
   810: "720 spin to/off a groove grind. The longer way (720 + 90 degrees).",
   630: "720 spin to/off a groove grind. The shorter way (720 - 90 degrees).",
-  Switch: "(Unnatural) Grinding in the unnatural mirrored position of a grind. In this game Switch only applies to grinds not spin direction.",
+  Switch:
+    "(Unnatural) Grinding in the unnatural mirrored position of a grind. In this game Switch only applies to grinds not spin direction.",
   Fakie:
     "Approach obstacle skating backwards. Also used for landing a groove grind backwards with no rotation (Royale to Fakie).",
   Forwards: "Forwards is the opposite of Fakie.",

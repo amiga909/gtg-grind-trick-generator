@@ -119,6 +119,7 @@ export class SlotMachine {
   }
   onSpinStart() {
     this.slots.forEach((slot) => {
+      //slot.state =  SLOT_STATES.enabled
       if (slot.state === SLOT_STATES.disabled) {
         // reset disabled before spin
         // this.setSlotState(slot.name, SLOT_STATES.enabled, slot.dom.closest(".bog-slot"));
@@ -351,10 +352,9 @@ export class SlotMachine {
     const index = this.getSlotIndexByName(slot.name);
     const $active = slot.dom.find(`.bogLink:eq(${activeNodeIndex + 1})`);
     let theWinner = slot.data[$active.data("index") - 1];
-    //console.log($active.data("index"));
+
     if (String($active.data("index")) === "-1") {
       theWinner = { scores: 0, name: "None" };
-      console.log(theWinner);
     }
     let score = theWinner.scores;
     this.slots[index].winner = theWinner;
@@ -690,19 +690,7 @@ export class SlotMachine {
 
       reelRows.push(htmlSlot);
     });
-    // None type
-    /*
-    if (this.slots[slotIndex].name !== "Grind") {
-      console.log("reelRows", reelRows, this.slots[slotIndex].name);
-      for (let i = 0; i < 4; i++) {
-        reelRows.push(`
-        <div data-index="-1" class="bogLink">
-          <div class="emptyRow">None
-          </div>
-        </div>
-        `);
-      }
-    }*/
+
 
     const shuffleArray = (arr) => arr.sort(() => Math.random() - 0.5);
     $node.html(shuffleArray(reelRows).join(""));
