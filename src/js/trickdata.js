@@ -953,6 +953,7 @@ const GRIND_SYNONYMS = [
 const VARIATIONS = [
   {
     name: "Topside",
+    repeat: EASY_REPEAT,
     scores: 1,
     url: "http://skateyeg.com/bog/03.0_Topside_(Top).html",
     comment:
@@ -960,7 +961,6 @@ const VARIATIONS = [
   },
   {
     name: "Negative",
-    repeat: EASY_REPEAT,
     scores: 1,
     url: "http://skateyeg.com/bog/11.0_Negative.html",
     comment:
