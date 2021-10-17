@@ -4,7 +4,7 @@ if (process.env.APP_ENV !== "prod") {
   require("dotenv").config();
 }
 const DB_CONN = process.env.CLEARDB_DATABASE_URL;
-let con = mysql.createConnection(DB_CONN);
+let con = mysql.createPool(DB_CONN);
 
 const QUERIES = {
   getScores: `SELECT * from scores;`,
@@ -19,14 +19,9 @@ const connect = async function () {
 };
 
 con.on("error", (err) => {
-  if (err.code === "PROTOCOL_CONNECTION_LOST") {
-    con.destroy();
-    con = mysql.createConnection(DB_CONN);
-    con.connect();
-  } else {
-    console.error("db error", err);
+  console.error("db error", err);
+    console.error("db error code", err.code);
     throw err;
-  }
 });
 
 const execQuery = (query = "", params = null) => {
