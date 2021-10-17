@@ -417,6 +417,7 @@ function testParser() {
   testData.forEach((entry, i) => {
     let p = s.parse(entry.data);
     if (p.parsed !== entry.expected) {
+      // eslint-disable-next-line
       console.error(i, entry, p);
     }
     let doc = s.getHelpTableForTrick(p);

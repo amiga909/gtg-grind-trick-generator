@@ -40,9 +40,10 @@ function permutations() {
   const uniques = RESULTS.filter(
     (value, index, self) => self.indexOf(value) === index
   );
-
+  // eslint-disable-next-line
   console.log(`PERMUTATIONS uniq (${uniques.length})`);
   uniques.forEach((e) => {
+    // eslint-disable-next-line
     console.log(e);
   });
   return uniques;

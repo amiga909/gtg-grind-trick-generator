@@ -183,6 +183,7 @@ export class SlotMachine {
     let newState = "";
 
     if (state === SLOT_STATES.unavailable) {
+      // eslint-disable-next-line
       console.error("unavailable slot state", slotName, state);
     } else if (state === SLOT_STATES.enabled) {
       newState = SLOT_STATES.disabled;
@@ -191,6 +192,7 @@ export class SlotMachine {
     } else if (state === SLOT_STATES.locked) {
       newState = SLOT_STATES.enabled;
     } else {
+      // eslint-disable-next-line
       console.error("invalid slot state", slotName, state);
     }
 
@@ -690,7 +692,6 @@ export class SlotMachine {
 
       reelRows.push(htmlSlot);
     });
-
 
     const shuffleArray = (arr) => arr.sort(() => Math.random() - 0.5);
     $node.html(shuffleArray(reelRows).join(""));

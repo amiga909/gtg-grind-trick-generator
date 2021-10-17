@@ -240,6 +240,7 @@ export class Tooltips {
       let name = $el.data("p-tooltip");
       let config = this.config[name];
       if (!config) {
+        // eslint-disable-next-line
         console.error("missing tooltip config", name);
       }
       let text = config.text;

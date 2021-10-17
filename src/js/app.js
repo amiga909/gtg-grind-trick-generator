@@ -192,7 +192,6 @@ class GrindTrickRandomizer {
     const tadaAnim = 700;
     const hasNewScore = options && options.hasNewScore === true ? true : false;
     const isInvalidSpin = this.scoreboard.isInvalidSpin();
-    console.log("isInvalidSpin  ", isInvalidSpin);
 
     if (hasNewScore) {
       $(".scoreboard-points").addClass("tada");
@@ -200,7 +199,6 @@ class GrindTrickRandomizer {
         $(".scoreboard-points").removeClass("tada");
       });
     }
-    console.log("thus.scoreboard.spins", this.scoreboard.spins);
 
     if (this.scoreboard.isLastSpin()) {
       this.scoreboard.useSpin();
@@ -218,17 +216,13 @@ class GrindTrickRandomizer {
       $("body").removeClass("disable_clicks");
       $(".scoreboard-spins").removeClass("tada");
       $("body").removeClass("disable_clicks");
-      console.log(
-        "this.scoreboard.hasNoMoreSpins()",
-        this.scoreboard.hasNoMoreSpins()
-      );
+
       if (this.scoreboard.isInvalidSpin()) {
         this.gameOverScreen.render(
           this.scoreboard.points,
           this.tricklist.getStorage()
         );
         this.screens.show("GameOver", "up");
-        // this.scoreboard.useSpin();
       } else {
         this.onClickStart();
       }
@@ -278,7 +272,6 @@ class GrindTrickRandomizer {
   onClickStart() {
     this.screens.show("Slotmachine", "up");
     this.screens.disableNav();
-    // this.scoreboard.useSpin();
 
     this.isEndScreen = false;
     this.audioplayer.stop();
@@ -288,17 +281,15 @@ class GrindTrickRandomizer {
     if (this.$soundOnOff.hasClass("pure-button-active")) {
       this.audioplayer.play("start");
     }
-
     this.hideEndScreen();
-
     this.slotMachine
       .run()
       .then((results) => {
         this.screens.enableNav();
-
         this.showEndScreen();
       })
       .catch((error) => {
+        // eslint-disable-next-line
         console.error("catch", error);
       });
   }
