@@ -1,9 +1,12 @@
 // Require and create the Express framework
-var express = require("express");
-var app = express();
+let express = require("express");
+const bodyParser = require("body-parser");
+const DBClient = require("./srv/db-client");
+let app = express();
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Determine port to listen on
-var port = process.env.PORT || process.env.VCAP_APP_PORT || 3099;
+let port = process.env.PORT || process.env.VCAP_APP_PORT || 3099;
 
 // Enable reverse proxy support in Express. This causes the
 // the "X-Forwarded-Proto" header field to be trusted so its
@@ -15,7 +18,6 @@ app.enable("trust proxy");
 // http://expressjs.com/api#req.secure). This allows us
 // to know whether the request was via http or https.
 app.use((req, res, next) => {
- 
   if (req.secure === false && app.get("env") !== "development") {
     res.redirect("https://" + req.headers.host + req.url);
   } else {
@@ -23,62 +25,86 @@ app.use((req, res, next) => {
   }
 });
 
+//app.use(bodyParser.urlencoded({ extended: false }));
+//app.use(bodyParser.json());
+
 app.get("/sw.js", (request, response) => {
-  response.sendFile("public/sw.js", {root: __dirname });
+  response.sendFile("public/sw.js", { root: __dirname });
 });
 app.get("/sw.js.map", (request, response) => {
-  response.sendFile("public/sw.js.map", {root: __dirname });
+  response.sendFile("public/sw.js.map", { root: __dirname });
 });
 
 app.get("/vendor/workbox-v6.1.0/workbox-core.prod.js", (request, response) => {
-  response.sendFile("./vendor/workbox-v6.1.0/workbox-core.prod.js", {root: __dirname });
+  response.sendFile("./vendor/workbox-v6.1.0/workbox-core.prod.js", {
+    root: __dirname,
+  });
 });
 
+app.use(express.static(__dirname + "/public"));
 
-app.use(express.static(__dirname + '/public'));
- 
- 
 app.get("/.well-known/assetlinks.json", (request, response) => {
-  response.sendFile(".well-known/assetlinks.json", {root: __dirname });
+  response.sendFile(".well-known/assetlinks.json", { root: __dirname });
 });
 
 app.get("/", (request, response) => {
-  response.sendFile("public/index.html", {root: __dirname });
+  response.sendFile("public/index.html", { root: __dirname });
 });
- 
 
 app.get("/index.html", (request, response) => {
-  response.sendFile("public/index.html", {root: __dirname });
+  response.sendFile("public/index.html", { root: __dirname });
 });
 
 app.get("/tricktionary", (request, response) => {
-  response.sendFile("public/index.html", {root: __dirname });
+  response.sendFile("public/index.html", { root: __dirname });
 });
 
 app.get("/about", (request, response) => {
-  response.sendFile("public/index.html", {root: __dirname });
+  response.sendFile("public/index.html", { root: __dirname });
 });
 
 app.get("/sitemap.xml", (request, response) => {
-  response.sendFile("./sitemap.xml", {root: __dirname });
+  response.sendFile("./sitemap.xml", { root: __dirname });
 });
 
 app.get("/robots.txt", (request, response) => {
-  response.sendFile("./robots.txt", {root: __dirname });
+  response.sendFile("./robots.txt", { root: __dirname });
 });
 
 app.get("/google3c4c2c0afdd9521d.html", (request, response) => {
-  response.sendFile("./google3c4c2c0afdd9521d.html", {root: __dirname });
+  response.sendFile("./google3c4c2c0afdd9521d.html", { root: __dirname });
 });
 
+app.get("/getScores", (request, response) => {
+  DBClient.execQuery("getScores").then((res) => {
+    response.setHeader("Content-Type", "application/json");
+    response.end(JSON.stringify(res));
+  });
+});
 
+app.post("/saveScore", (request, response) => {
+  //code to perform particular action.
+  //To access POST variable use req.body()methods.
+
+  const ip = request.headers["x-forwarded-for"] || request.socket.remoteAddress;
+  const data = request.body;
+
+  DBClient.execQuery("saveScore", {
+    ip: ip,
+    score: data.score,
+    data: { tricks: data.tricks, config: data.config },
+  }).then((res) => {
+    response.setHeader("Content-Type", "application/json");
+    response.end(JSON.stringify(res));
+  });
+});
 
 // Start listening on the port
-var server = app.listen(port, () => {
+const server = app.listen(port, () => {
   console.log(
     "Listening on port %d",
     server.address().port,
-    " ENV:",
+    "ENV:",
     app.get("env")
   );
 });

@@ -135,7 +135,7 @@ export class Configuration {
 
   versionCheck() {
     if (localStorage.getItem(VERSION_KEY) !== CURRENT_VERSION) {
-      localStorage.clear();
+      this.reset();
       localStorage.setItem(VERSION_KEY, CURRENT_VERSION);
     }
   }
@@ -223,15 +223,7 @@ export class Configuration {
 
     this.$reset.on("click", (e) => {
       e.preventDefault();
-      $("body").html("reset app..");
-      // clear sw app cache
-      caches.keys().then(function (names) {
-        for (let name of names) {
-          caches.delete(name);
-        }
-      });
-      localStorage.clear();
-      location.reload();
+      this.reset();
     });
 
     $(".configurator-right-close-btn").on("click.save", (e) => {
@@ -265,6 +257,18 @@ Press Cancel to close the settings window and continue the game.`
   submit() {
     this.saveToLocalStorage();
     this.hasUnsavedChanges = false;
+    location.reload();
+  }
+
+  reset() {
+    $("body").html("reset app..");
+    // clear sw app cache
+    caches.keys().then(function (names) {
+      for (let name of names) {
+        caches.delete(name);
+      }
+    });
+    localStorage.clear();
     location.reload();
   }
 

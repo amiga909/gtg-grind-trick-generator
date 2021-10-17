@@ -3,3 +3,4 @@ _gitignore/
 /public/
 .DS_Store
 ahrefs/
+.env

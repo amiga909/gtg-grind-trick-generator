@@ -9,12 +9,15 @@
   },
   "dependencies": {
     "axios": "^0.23.0",
+    "body-parser": "^1.19.0",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "googleapis": "^88.2.0",
     "howler": "^2.2.3",
     "jquery": "^3.6.0",
     "jquery-slotmachine": "^4.0.2",
     "jsdom": "^18.0.0",
+    "mysql": "^2.18.1",
     "purecss": "^2.0.6",
     "tippy.js": "^6.3.2",
     "xml2js": "^0.4.23"
@@ -60,9 +63,11 @@
     "dev-sw": "rm -rf public/build/*; webpack --mode development && npm run build-sw",
     "build-sw": "node_modules/.bin/workbox generateSW workbox-config.js",
     "lint": "node_modules/.bin/eslint ./src/js --fix --ext .js;",
+    "lint-srv": "node_modules/.bin/eslint ./srv --fix --ext .js && node_modules/.bin/eslint index.js --fix --ext .js;",
     "permutations": "node -r esm tools/permutations.js",
     "googlemap": "node -r esm tools/skateshops/kml-parser.js",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "resetDB": "node srv/resetDB.js"
   },
   "author": "RH",
   "license": "ISC"

@@ -57,7 +57,12 @@ const MORE = [
   },
   {
     term: "Underbar grinds",
-    comment: "Chris Farmer, ..",
+    comment:
+      "<a target='_blank' href='https://www.facebook.com/groups/rollerblading/posts/4275445879205635'>Tri</a>",
+  },
+  {
+    term: "Frame Flips",
+    comment: "Tri again.. and other crazy ideas to mount a UFS frame.",
   },
 ];
 

@@ -47,7 +47,7 @@ export class GameOverScreen {
       location.reload();
     });
   }
-  render(score, tricks) {
+  render(score, tricks, config) {
     this.animateScore(parseInt(score, 10));
     let txt = TEXTS[Math.floor(Math.random() * TEXTS.length)];
     txt = score === 0 ? "At least it can not get worse..." : txt;
@@ -58,7 +58,8 @@ export class GameOverScreen {
     });
     let html = renderTable("", ["Points", "Name"], rows, "red");
     this.$tricks.html(html);
-    this.setSharingBar(score, tricks);
+    //this.setSharingBar(score, tricks);
+    this.saveResult(score, tricks, config);
   }
   animateScore(end, duration = 500) {
     if (end === 0) {
@@ -79,6 +80,17 @@ export class GameOverScreen {
       }
     }, stepTime);
     this.$points.html(end);
+  }
+
+  saveResult(score, tricks, config) {
+    $.ajax({
+      type: "POST",
+      url: "./saveScore",
+      data: { score: score, tricks: tricks, config: config },
+      success: () => {
+        console.log("saved result");
+      },
+    });
   }
   setSharingBar(score, tricks) {
     let rows = [];

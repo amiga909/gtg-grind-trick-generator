@@ -79,7 +79,8 @@ class GrindTrickRandomizer {
       this.screens.show("About");
     }
     //debug gameover
-  //  this.screens.show("GameOver", "up");
+    //this.screens.show("GameOver", "up");
+
     this.registerListener();
   }
 
@@ -182,10 +183,10 @@ class GrindTrickRandomizer {
     if (this.scoreboard.hasNoMoreSpins()) {
       this.gameOverScreen.render(
         this.scoreboard.points,
-        this.tricklist.getStorage()
+        this.tricklist.getStorage(),
+        this.configurator.getGameConfig()
       );
       this.screens.show("GameOver", "up");
-     
     } else {
     }
     const delay = (t) => new Promise((resolve) => setTimeout(resolve, t));
@@ -221,7 +222,8 @@ class GrindTrickRandomizer {
       if (this.scoreboard.isInvalidSpin()) {
         this.gameOverScreen.render(
           this.scoreboard.points,
-          this.tricklist.getStorage()
+          this.tricklist.getStorage(),
+          this.configurator.getGameConfig()
         );
         this.screens.show("GameOver", "up");
       } else {
