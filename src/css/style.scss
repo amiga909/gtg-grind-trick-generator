@@ -99,7 +99,6 @@ $startscreen-controls-text--tablet-FS: 18px;
 $startscreen-controls-text--desktop-FS: 20px;
 
 .body-wrapper {
-   
 }
 
 body {
@@ -391,7 +390,7 @@ p {
 #endScreen {
   position: relative;
   display: none;
-  margin-top: 20px; 
+  margin-top: 20px;
 }
 
 #endscreen-text {
@@ -494,7 +493,7 @@ p {
   right: 0;
 }
 
-.myFooter { 
+.myFooter {
   margin: 0 auto;
   font-size: 16px;
   max-width: $maxWidthContent;
@@ -540,7 +539,7 @@ body::-webkit-scrollbar-thumb {
   position: relative;
   text-align: center;
   min-height: 100vh;
-  overflow:hidden;
+  overflow: hidden;
 }
 .gameover-screen-box {
 }
@@ -552,15 +551,11 @@ body::-webkit-scrollbar-thumb {
   margin: 0 auto;
 }
 
-
- 
-
-
 .gameover-screen::after {
   //background-image: url("../img/thejokerblade-smaller-1x.jpg");
-  background-image: url("../img/aight-logo-square-white.png"); 
-//  background-repeat:  repeat;
-//   background-size: 24px;
+  background-image: url("../img/aight-logo-square-white.png");
+  //  background-repeat:  repeat;
+  //   background-size: 24px;
   content: "";
   opacity: 0;
   top: 0;
@@ -572,30 +567,34 @@ body::-webkit-scrollbar-thumb {
   z-index: -1;
 
   filter: grayscale(1);
- // animation: greyScaleImage 10s infinite;
- animation:spin 60s linear infinite;
+  // animation: greyScaleImage 10s infinite;
+  animation: spin 70s linear infinite;
 }
 
-@keyframes spin{
-  0% {transform:rotate(0deg);
-    background-size:100%;
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+    background-size: 100%;
     filter: grayscale(1);
   }
-  50% {  background-size:5%;
+  50% {
+    background-size: 2%;
     filter: grayscale(0.8);
   }
   70% {
     filter: grayscale(0.7);
   }
 
-  100% {transform:rotate(360deg);
-    background-size:100%;
+  100% {
+    transform: rotate(360deg);
+    background-size: 100%;
     filter: grayscale(1);
   }
 }
 
 @keyframes greyScaleImage {
-  0% {transform:rotate(0deg);
+  0% {
+    transform: rotate(0deg);
     filter: grayscale(1);
   }
   50% {
@@ -605,7 +604,8 @@ body::-webkit-scrollbar-thumb {
     filter: grayscale(0.7);
   }
 
-  100% {transform:rotate(360deg);
+  100% {
+    transform: rotate(360deg);
     filter: grayscale(1);
   }
 }
@@ -1584,23 +1584,14 @@ $gameOverKeyFrames3: $slotEnabled;
   }
 }
 
-
-
-
 .rainbow-text {
   background-image: linear-gradient(
     to left,
-    
     #ffffff,
     #fad1cc,
- 
-#f5a399,
- 
-#fad1cc,
- 
-#ffffff,
- 
-
+    #f5a399,
+    #fad1cc,
+    #ffffff
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
