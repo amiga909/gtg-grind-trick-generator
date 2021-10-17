@@ -540,6 +540,7 @@ body::-webkit-scrollbar-thumb {
   position: relative;
   text-align: center;
   min-height: 100vh;
+  overflow:hidden;
 }
 .gameover-screen-box {
 }
@@ -550,10 +551,16 @@ body::-webkit-scrollbar-thumb {
   padding: 8px;
   margin: 0 auto;
 }
-.gameover-screen-box::after {
-  background-image: url("../img/thejokerblade-smaller-1x.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+
+
+ 
+
+
+.gameover-screen::after {
+  //background-image: url("../img/thejokerblade-smaller-1x.jpg");
+  background-image: url("../img/aight-logo-square-white.png"); 
+//  background-repeat:  repeat;
+//   background-size: 24px;
   content: "";
   opacity: 0;
   top: 0;
@@ -565,11 +572,30 @@ body::-webkit-scrollbar-thumb {
   z-index: -1;
 
   filter: grayscale(1);
-  animation: greyScaleImage 10s infinite;
+ // animation: greyScaleImage 10s infinite;
+ animation:spin 40s linear infinite;
+}
+
+@keyframes spin{
+  0% {transform:rotate(0deg);
+    background-size:100%;
+    filter: grayscale(1);
+  }
+  50% {  background-size:5%;
+    filter: grayscale(0.8);
+  }
+  70% {
+    filter: grayscale(0.7);
+  }
+
+  100% {transform:rotate(360deg);
+    background-size:100%;
+    filter: grayscale(1);
+  }
 }
 
 @keyframes greyScaleImage {
-  0% {
+  0% {transform:rotate(0deg);
     filter: grayscale(1);
   }
   50% {
@@ -579,7 +605,7 @@ body::-webkit-scrollbar-thumb {
     filter: grayscale(0.7);
   }
 
-  100% {
+  100% {transform:rotate(360deg);
     filter: grayscale(1);
   }
 }
