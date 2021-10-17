@@ -78,7 +78,8 @@ class GrindTrickRandomizer {
     if (location.href.includes("about")) {
       this.screens.show("About");
     }
-
+    //debug gameover
+  //  this.screens.show("GameOver", "up");
     this.registerListener();
   }
 
@@ -184,7 +185,7 @@ class GrindTrickRandomizer {
         this.tricklist.getStorage()
       );
       this.screens.show("GameOver", "up");
-      // this.scoreboard.useSpin();
+     
     } else {
     }
     const delay = (t) => new Promise((resolve) => setTimeout(resolve, t));
