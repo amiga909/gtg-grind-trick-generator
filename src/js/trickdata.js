@@ -579,14 +579,20 @@ const SOUL_GRINDS = [
   {
     name: "BS Darkslide",
     url: "http://skateyeg.com/bog/14.1_Backside_Darkslide.html",
-    comment: "(Acid Rain) " + HYBRID_COMMENT + "Like a Mistrial but with the leading soul foot in acid position. The trailing foot is like a Backside Backslide.",
+    comment:
+      "(Acid Rain) " +
+      HYBRID_COMMENT +
+      "Like a Mistrial but with the leading soul foot in acid position. The trailing foot is like a Backside Backslide.",
     isSoulGroove: true,
     variations: { Channel: true },
   },
   {
     name: "FS Darkslide",
     url: "http://skateyeg.com/bog/14.0_Darkslide.html",
-    comment: "(Acid Rain) " + HYBRID_COMMENT + "Like a Mistrial but with the leading soul foot in acid position. The trailing foot is like a Frontside Backslide.",
+    comment:
+      "(Acid Rain) " +
+      HYBRID_COMMENT +
+      "Like a Mistrial but with the leading soul foot in acid position. The trailing foot is like a Frontside Backslide.",
     isSoulGroove: true,
     variations: { Channel: true },
   },
@@ -961,21 +967,21 @@ const VARIATIONS = [
   },
   {
     name: "Negative",
-    scores: 1,
+    scores: 2,
     url: "http://skateyeg.com/bog/11.0_Negative.html",
     comment:
       "Grinding on the inside soul plate instead of the outside soul plate.",
   },
   {
     name: "Rough",
-    scores: 1,
+    scores: 2,
     url: "http://skateyeg.com/bog/08.0_Rough_(Heel).html",
     comment:
       "Grinding on the heel instead of the whole soul foot (Rough Mizou, Rough Sweatstance, ..)",
   },
   {
     name: "Tough",
-    scores: 1,
+    scores: 2,
     url: "http://skateyeg.com/bog/07.0_Tough_(Toe).html",
     comment:
       "(Tokyo) Grinding on the toe instead of the whole soul foot (Tough Acid, ..)",
@@ -983,7 +989,7 @@ const VARIATIONS = [
 
   {
     name: "Channel",
-    scores: 1,
+    scores: 2,
     url: "http://skateyeg.com/bog/18.0_Channel.html",
     comment:
       "Grinding a groove trick between the wheels (Channel Frontside, ..)",
@@ -991,7 +997,7 @@ const VARIATIONS = [
   {
     name: "Rocket",
     repeat: MEDIUM_REPEAT,
-    scores: 1,
+    scores: 2,
     url: "http://skateyeg.com/bog/06.0_Rocket.html",
     comment:
       "Extending both legs out straight and crossing one hand over the front of both legs and grabbing the opposite outside soul plate.",
@@ -1006,7 +1012,7 @@ const VARIATIONS = [
   {
     name: "Cross-Grab",
     repeat: MEDIUM_REPEAT,
-    scores: 1,
+    scores: 2,
     noThumb: true,
     url: "",
     comment:
@@ -1014,7 +1020,7 @@ const VARIATIONS = [
   },
   {
     name: "Christ",
-    scores: 1,
+    scores: 2,
     url: "http://skateyeg.com/bog/09.0_Christ.html",
     comment:
       "Setting the other foot on top of the toe in a soul grind position.",
@@ -1094,14 +1100,14 @@ const VARIATIONS = [
   },
   {
     name: "Negative&Topside",
-    scores: 2,
+    scores: 3,
     url: "",
     noThumb: true,
     comment: "Used for a Negative X-Grind or Stub Soul",
   },
   {
     name: "Tough&Rough",
-    scores: 2,
+    scores: 3,
     url: "",
     noThumb: true,
     comment: "Used for a Rough & Tough X-Grind or Duck Hunt",
