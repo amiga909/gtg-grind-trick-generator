@@ -6,7 +6,7 @@ if (process.env.APP_ENV !== "prod") {
 const DB_CONN = process.env.CLEARDB_DATABASE_URL;
 const con = mysql.createConnection(DB_CONN);
 
-con.connect(function (err) {
+con.connect((err) => {
   if (err) {
     throw err;
   }
@@ -20,6 +20,7 @@ con.connect(function (err) {
     ip VARCHAR(255) NOT NULL, 
     score INT NOT NULL,level VARCHAR(255) NOT NULL, 
     data TEXT,
+    ts TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id)
   );
   `;
@@ -33,11 +34,12 @@ con.connect(function (err) {
     ip VARCHAR(255) NOT NULL, 
     score INT NOT NULL,level VARCHAR(255) NOT NULL, 
     data TEXT,
+    ts TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id)
   ); 
   `;
   let sql5 = `
-  INSERT INTO scores (score, level, data) VALUES(2, "Chill", "{}" );
+  INSERT INTO scores (ip, score, data) VALUES("test",2, "{}" );
   `;
   let sql6 = `
   select * from scores; 
@@ -47,25 +49,25 @@ con.connect(function (err) {
       throw err;
     }
     //console.log("Result: " + JSON.stringify(result));
-    con.query(sql2, function (err, result) {
+    con.query(sql2, (err, result) => {
       if (err) {
         throw err;
       }
       //console.log("Result: " + JSON.stringify(result));
-      con.query(sql3, function (err, result) {
+      con.query(sql3, (err, result) => {
         if (err) {
           throw err;
         }
         //  console.log("Result: " + JSON.stringify(result));
-        con.query(sql4, function (err, result) {
+        con.query(sql4, (err, result) => {
           if (err) {
             throw err;
           }
-          con.query(sql5, function (err, result) {
+          con.query(sql5, (err, result) => {
             if (err) {
               throw err;
             }
-            con.query(sql6, function (err, result) {
+            con.query(sql6, (err, result) => {
               if (err) {
                 throw err;
               }

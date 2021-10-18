@@ -43,7 +43,7 @@ const REFERENCES = [
   },
   {
     name: "SVG Editor",
-    url: `<a target="_blank" href="https://svg-edit.github.io/">svg-edit</a>`,
+    url: `<a target="_blank" href="https://github.com/SVG-Edit/svgedit">svg-edit</a>`,
   },
   {
     name: "AIGHT trick book",

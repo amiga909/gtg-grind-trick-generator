@@ -42,7 +42,7 @@ const LEVEL_CONFIG = {
     toughCheckbox: "off",
     grabsCheckbox: "on",
     rocketCheckbox: "off",
-    crossgrabCheckbox: "off",
+    crossgrabCheckbox: "on",
   },
   3: {
     spinsTotal: "5",

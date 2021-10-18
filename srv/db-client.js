@@ -20,8 +20,8 @@ const connect = async function () {
 
 con.on("error", (err) => {
   console.error("db error", err);
-    console.error("db error code", err.code);
-    throw err;
+  console.error("db error code", err.code);
+  throw err;
 });
 
 const execQuery = (query = "", params = null) => {

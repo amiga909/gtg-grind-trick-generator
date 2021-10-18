@@ -562,7 +562,7 @@ const SOUL_GRINDS = [
     name: "BS Tabernacle",
     url: "http://skateyeg.com/bog/12.1_Backside_Tabernacle.html",
     comment:
-      "Like a Mizou but with the leading soul foot in acid position. " +
+      "Like a Mizou but with the leading soul foot in acid position. The trailing foot is like a Backside Pudslide." +
       HYBRID_COMMENT,
     isSoulGroove: true,
     variations: { Channel: true },
@@ -570,7 +570,7 @@ const SOUL_GRINDS = [
   {
     name: "FS Tabernacle",
     comment:
-      "Like a Mizou but with the leading soul foot in acid position. " +
+      "Like a Mizou but with the leading soul foot in acid position. The trailing foot is like a Frontside Pudslide." +
       HYBRID_COMMENT,
     url: "http://skateyeg.com/bog/12.0_Tabernacle.html",
     isSoulGroove: true,
@@ -579,14 +579,14 @@ const SOUL_GRINDS = [
   {
     name: "BS Darkslide",
     url: "http://skateyeg.com/bog/14.1_Backside_Darkslide.html",
-    comment: "(Acid Rain) " + HYBRID_COMMENT,
+    comment: "(Acid Rain) " + HYBRID_COMMENT + "Like a Mistrial but with the leading soul foot in acid position. The trailing foot is like a Backside Backslide.",
     isSoulGroove: true,
     variations: { Channel: true },
   },
   {
     name: "FS Darkslide",
     url: "http://skateyeg.com/bog/14.0_Darkslide.html",
-    comment: "(Acid Rain) " + HYBRID_COMMENT,
+    comment: "(Acid Rain) " + HYBRID_COMMENT + "Like a Mistrial but with the leading soul foot in acid position. The trailing foot is like a Frontside Backslide.",
     isSoulGroove: true,
     variations: { Channel: true },
   },
@@ -594,7 +594,7 @@ const SOUL_GRINDS = [
     name: "BS Wheelbarrow",
     url: "http://skateyeg.com/bog/15.1_Backside_Wheelbarrow.html",
     comment:
-      "A backslide with the front foot rolling on the back wheel. " +
+      "A Backside Backslide with the front foot rolling on the back wheel. " +
       HYBRID_COMMENT,
     isSoulGroove: true,
     variations: { Channel: true },
@@ -603,7 +603,7 @@ const SOUL_GRINDS = [
     name: "FS Wheelbarrow",
     url: "http://skateyeg.com/bog/15.0_Wheelbarrow.html",
     comment:
-      "A backslide with the front foot rolling on the back wheel. " +
+      "A Frontside Backslide with the front foot rolling on the back wheel. " +
       HYBRID_COMMENT,
     isSoulGroove: true,
     variations: { Channel: true },
@@ -612,7 +612,7 @@ const SOUL_GRINDS = [
   {
     name: "BS Byn Soul",
     url: "",
-    comment: `(Neighborhood) Turning the soul foot on a soul grind into a torque. 
+    comment: `(Neighborhood) Turning the soul foot on a soul grind into a Backside Torque. 
       <a target="_blank" href="https://www.picuki.com/media/2251667102534778405">Image</a>. ${HYBRID_COMMENT}`,
     isSoulGroove: true,
     variations: { Channel: true },
@@ -620,7 +620,7 @@ const SOUL_GRINDS = [
   {
     name: "FS Byn Soul",
     url: "",
-    comment: `(Neighborhood) Turning the soul foot on a soul grind into a torque. 
+    comment: `(Neighborhood) Turning the soul foot on a soul grind into a Frontside Torque. 
     <a target="_blank" href="https://www.picuki.com/media/2251667102534778405">Image</a>. ${HYBRID_COMMENT}`,
     isSoulGroove: true,
     variations: { Channel: true },
