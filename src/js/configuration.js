@@ -48,7 +48,7 @@ const LEVEL_CONFIG = {
     spinsTotal: "5",
     locksTotal: "1",
     removesTotal: "5",
-    channelCheckbox: "off",
+    channelCheckbox: "on",
     christCheckbox: "on",
     heelRollCheckbox: "on",
     negativeCheckbox: "on",

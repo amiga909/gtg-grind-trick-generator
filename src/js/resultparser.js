@@ -19,6 +19,8 @@ export class ResultParser {
     const grind = slots.filter((s) => s && s.name === "Grind")[0] || null;
     let grindVariation =
       slots.filter((s) => s && s.name === "GrindVariation")[0] || null;
+    grindVariation =
+      grindVariation && grindVariation.winner ? grindVariation : null;
     let spinOff = slots.filter((s) => s && s.name === "SpinOff")[0] || null;
     spinOff = spinOff && spinOff.winner.name === "None" ? null : spinOff;
 
@@ -128,6 +130,7 @@ export class ResultParser {
     result = result.replace(/to Forwards out/g, "");
     result = result.replace(/Forwards/g, "");
     result = result.replace(/90 /, "");
+    result = result.replace(/None/, "");
     result = result.replace(/  /g, " ");
     result = result.replace(/  /g, " ");
     return {

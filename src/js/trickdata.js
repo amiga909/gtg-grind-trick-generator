@@ -958,6 +958,14 @@ const GRIND_SYNONYMS = [
 
 const VARIATIONS = [
   {
+    name: "None",
+    repeat: EASY_REPEAT,
+    scores: 0,
+    noThumb: true,
+    url: "",
+    comment: "",
+  },
+  {
     name: "Topside",
     repeat: EASY_REPEAT,
     scores: 1,
@@ -986,7 +994,6 @@ const VARIATIONS = [
     comment:
       "(Tokyo) Grinding on the toe instead of the whole soul foot (Tough Acid, ..)",
   },
-
   {
     name: "Channel",
     scores: 2,
@@ -1203,7 +1210,7 @@ GRINDS_FOR_SLOTS.forEach((g, index) => {
         });
       }
     }
-
+    arrayHash.push({ name: "None" });
     GRINDS_FOR_SLOTS[index].variations = arrayHash;
   }
 });

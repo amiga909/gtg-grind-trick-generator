@@ -270,7 +270,7 @@ export class SlotMachine {
     let total = 0;
     this.getWinnerSlots().forEach((w) => {
       let score = w && w.winner ? w.winner.scores : 0;
-      if (w && w.name === "GrindVariation") {
+      if (w && w.winner && w.name === "GrindVariation") {
         const variation = CONFIG.VARIATIONS.filter((v) => {
           return v.name === w.winner.name;
         })[0];
@@ -615,7 +615,7 @@ export class SlotMachine {
         entries = entries.filter((e) => !e.name.includes("Christ"));
       }
       if (this.includedTricks.grabs === "off") {
-        entries = entries.filter((e) => !e.name === "Grab");
+        entries = entries.filter((e) => !e.name.includes("Grab"));
       }
       if (this.includedTricks.rocket === "off") {
         entries = entries.filter((e) => !e.name.includes("Rocket"));
@@ -692,7 +692,7 @@ export class SlotMachine {
 
       reelRows.push(htmlSlot);
     });
-
+    
     const shuffleArray = (arr) => arr.sort(() => Math.random() - 0.5);
     $node.html(shuffleArray(reelRows).join(""));
     // dont animate disabled reels

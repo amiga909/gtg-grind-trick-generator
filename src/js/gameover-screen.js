@@ -88,7 +88,7 @@ export class GameOverScreen {
       url: "./saveScore",
       data: { score: score, tricks: tricks, config: config },
       success: () => {
-        console.log("saved result");
+        //console.log("saved result");
       },
     });
   }
