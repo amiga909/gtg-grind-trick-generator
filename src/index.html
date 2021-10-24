@@ -127,6 +127,7 @@
                                  <option value="1" selected>Chill</option>
                                  <option value="2">Juicy</option>
                                  <option value="3">Nuts</option>
+                                 <option value="4">Custom</option>
                               </select>
                               <h2 >Select Level </h2>
                            </fieldset>
@@ -299,14 +300,15 @@
                   <div style="display:none;" id="modal-screen--configuration" class="modal-screen-text">
                      <form action="#"   class="pure-form pure-form-stacked">
                         <fieldset>
-                           <label   for="levelSelect">Select options preset</label>
+                           <label   for="levelSelect">Select game difficulty.</label>
                            <select data-p-tooltip="configLevelSelect" class="config-level-select pure-select" id="levelSelect" >
                               <option value="1">Chill</option>
                               <option value="2">Juicy</option>
                               <option value="3">Nuts</option>
+                              <option value="4">Custom</option>
                            </select>
                            <br>
-                           <label data-p-tooltip="configManualOptions" >Set options manually</label>  
+                           <label data-p-tooltip="configManualOptions" >Included Tricks</label>  
                            <input  class="includeTricksCb"  id="fakie-select" type="checkbox"><label for="fakie-select"> Fakie tricks</label><br/>
                            <input  class="includeTricksCb"  id="switch-select" type="checkbox"><label for="switch-select"> Switch tricks</label><br/>
                            <input  class="includeTricksCb"  id="topside-select" type="checkbox"><label for="topside-select"> Topside grinds</label><br/>
@@ -622,7 +624,7 @@
                      </div>
                   </div>
                   <div class="pure-g gameover-controls-container">
-                     <!-- 
+                     
                         <div class="pure-u-1-1 " >
                            <button class="skip-trick-animation pure-button pure-button-primary pure-button-primary-nav " id="gameOverHighscoreButton">
                               <i class="fa fa-star fa-2x"></i>
@@ -630,7 +632,7 @@
                               <h3>Enter highscore</h3>
                         
                         </div>
-                        -->
+                      
                   </div>
                   <div class="pure-g gameover-controls-container">
                      <div class="pure-u-1-1 gameover-controls-row" >

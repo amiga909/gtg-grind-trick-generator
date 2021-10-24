@@ -30,21 +30,28 @@ const TEXTS = [
 ];
 
 export class GameOverScreen {
-  constructor() {
+  constructor(callbacks = {onStartNew: null}) {
+    this.callbacks = callbacks;
     this.$gameOverNewGameButton = $("#gameOverNewGameButton");
+    this.$gameOverHighscoreButton = $("#gameOverHighscoreButton");
+     
     this.$points = $("#gameOverPointsTotal");
     this.$tricks = $("#gameOverTricks");
     this.$gameOverText = $("#gameOverText");
     this.$facebookShareBtn = $("#facebookShareBtn");
     this.$whatsappShareBtn = $("#whatsappShareBtn");
     this.$mailShareBtn = $("#mailShareBtn");
+    
 
     this.registerListener();
   }
   registerListener() {
     this.$gameOverNewGameButton.on("click", (e) => {
       e.preventDefault();
-      location.reload();
+      this.callbacks.onStartNew(); 
+    });this.$gameOverHighscoreButton.on("click", (e) => {
+      e.preventDefault(); 
+      this.openHighscore();
     });
   }
   render(score, tricks, config) {

@@ -58,7 +58,10 @@ class GrindTrickRandomizer {
     this.tricklist = new Tricklist();
     this.tooltips = new Tooltips(this.$helpBtn, this.screens);
     this.scoreboard = new Scoreboard(this.configurator.getGameConfig());
-    this.gameOverScreen = new GameOverScreen();
+    this.gameOverScreen = new GameOverScreen({onStartNew: ()=> {
+      $("body").removeClass("gameover-screen-animated-background")
+      this.screens.show("Start");
+    }});
 
     this.trickdata = new Trickdata();
     CONFIG = this.trickdata.get();
@@ -79,7 +82,7 @@ class GrindTrickRandomizer {
       this.screens.show("About");
     }
     //debug gameover
-    //this.screens.show("GameOver", "up");
+   // this.openGameOverScreen();
 
     this.registerListener();
   }
@@ -115,16 +118,19 @@ class GrindTrickRandomizer {
 
     this.$levelStartSelect.on("change", (e) => {
       e.preventDefault();
-
       this.configurator.setLevel(this.$levelStartSelect.val());
-      this.configurator.submit();
+      if (this.$levelStartSelect.val() === "4") {
+        this.screens.show("Configuration", "up");
+      } else {
+        this.configurator.submit();
+      }
     });
 
     this.$randomizeButtonStart.on("click", (e) => {
       e.preventDefault();
       this.scoreboard.startGame();
       this.tricklist.clearList();
-
+     
       this.onClickStart();
       this.scoreboard.useSpin();
     });
@@ -181,12 +187,7 @@ class GrindTrickRandomizer {
 
   triggerNextSpin(options = null) {
     if (this.scoreboard.hasNoMoreSpins()) {
-      this.gameOverScreen.render(
-        this.scoreboard.points,
-        this.tricklist.getStorage(),
-        this.configurator.getGameConfig()
-      );
-      this.screens.show("GameOver", "up");
+      this.openGameOverScreen();
     } else {
     }
     const delay = (t) => new Promise((resolve) => setTimeout(resolve, t));
@@ -220,17 +221,23 @@ class GrindTrickRandomizer {
       $("body").removeClass("disable_clicks");
 
       if (this.scoreboard.isInvalidSpin()) {
-        this.gameOverScreen.render(
-          this.scoreboard.points,
-          this.tricklist.getStorage(),
-          this.configurator.getGameConfig()
-        );
-        this.screens.show("GameOver", "up");
+        this.openGameOverScreen();
+
       } else {
         this.onClickStart();
       }
       $(".scoreboard-spins").removeClass("tada");
     });
+  }
+
+  openGameOverScreen(){
+    $("body").addClass("gameover-screen-animated-background");
+    this.gameOverScreen.render(
+      this.scoreboard.points,
+      this.tricklist.getStorage(),
+      this.configurator.getGameConfig()
+    );
+    this.screens.show("GameOver", "up");
   }
 
   turnSoundOn() {

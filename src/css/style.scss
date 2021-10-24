@@ -551,7 +551,69 @@ body::-webkit-scrollbar-thumb {
   margin: 0 auto;
 }
 
-.gameover-screen::after {
+.gameover-screen-animated-background::before  {
+  //background-image: url("../img/thejokerblade-smaller-1x.jpg");
+  background-image: url("../img/aight-logo-square-white.png");
+  //  background-repeat:  repeat;
+  //   background-size: 24px;
+  content: "";
+  opacity: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0.5;
+  position: absolute;
+  z-index: -1;
+
+  filter: grayscale(1);
+  // animation: greyScaleImage 10s infinite;
+  animation: spin 59s linear infinite;
+}
+ 
+.gameover-screen-animated-background::after  {
+  //background-image: url("../img/thejokerblade-smaller-1x.jpg");
+  background-image: url("../img/aight-logo-square-white.png");
+  //  background-repeat:  repeat;
+  //   background-size: 24px;
+  content: "";
+  opacity: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0.5;
+  position: absolute;
+  z-index: -1;
+
+  filter: grayscale(1);
+  // animation: greyScaleImage 10s infinite;
+  animation: spin2 60s linear infinite;
+}
+
+/*
+ .gameover-screen::before  {
+  //background-image: url("../img/thejokerblade-smaller-1x.jpg");
+  background-image: url("../img/aight-logo-square-white.png");
+  //  background-repeat:  repeat;
+  //   background-size: 24px;
+  content: "";
+  opacity: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0.5;
+  position: absolute;
+  z-index: -1;
+
+  filter: grayscale(1);
+  // animation: greyScaleImage 10s infinite;
+  animation: spin 60s linear infinite;
+}
+
+ 
+.gameover-screen::after  {
   //background-image: url("../img/thejokerblade-smaller-1x.jpg");
   background-image: url("../img/aight-logo-square-white.png");
   //  background-repeat:  repeat;
@@ -570,7 +632,7 @@ body::-webkit-scrollbar-thumb {
   // animation: greyScaleImage 10s infinite;
   animation: spin 70s linear infinite;
 }
-
+*/
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -587,6 +649,28 @@ body::-webkit-scrollbar-thumb {
 
   100% {
     transform: rotate(360deg);
+    background-size: 100%;
+    filter: grayscale(1);
+  }
+}
+
+@keyframes spin2 {
+  0% {
+    transform: rotate(360deg);
+    background-size: 100%;
+    filter: grayscale(1);
+  }
+  50% {
+    background-size: 2%;
+    filter: grayscale(0.8);
+  }
+  70% {
+    filter: grayscale(0.7);
+  }
+
+  100% {
+    transform: rotate(0deg);
+   
     background-size: 100%;
     filter: grayscale(1);
   }

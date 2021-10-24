@@ -692,7 +692,7 @@ export class SlotMachine {
 
       reelRows.push(htmlSlot);
     });
-    
+
     const shuffleArray = (arr) => arr.sort(() => Math.random() - 0.5);
     $node.html(shuffleArray(reelRows).join(""));
     // dont animate disabled reels

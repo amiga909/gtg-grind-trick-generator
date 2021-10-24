@@ -183,6 +183,8 @@ export class Configuration {
     param.value = param.$dom.val();
     param.$dom.on("change", (e) => {
       this.hasUnsavedChanges = true;
+      //this.setLevel("4");
+      // this.$levelSelect.val("4")
       this.$submit.removeClass("pure-button-disabled");
       param.value = param.$dom.val();
     });
@@ -198,6 +200,7 @@ export class Configuration {
     param.value = val;
     param.$dom.on("change", (e) => {
       this.hasUnsavedChanges = true;
+      //this.setLevel("4");
       this.$submit.removeClass("pure-button-disabled");
       param.value = param.$dom.is(":checked") ? "on" : "off";
     });
@@ -206,7 +209,7 @@ export class Configuration {
   registerListener() {
     this.$levelSelect.on("change", (e) => {
       this.hasUnsavedChanges = true;
-      this.setLevel(this.$levelSelect.val());
+      this.setLevel(this.$levelSelect.val()); 
     });
     this.$submit.on("click", (e) => {
       e.preventDefault();
@@ -287,7 +290,8 @@ Press Cancel to close the settings window and continue the game.`
   }
 
   setLevel(level) {
-    const levelConfig = LEVEL_CONFIG[level];
+    // custom level like easy
+    const levelConfig = level === "4" ? {} : LEVEL_CONFIG[level];
     this.configs.forEach((param) => {
       let configValue = levelConfig[param.key] ? levelConfig[param.key] : "";
       if (param.key === "levelSelect") {
