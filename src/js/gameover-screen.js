@@ -30,27 +30,28 @@ const TEXTS = [
 ];
 
 export class GameOverScreen {
-  constructor(callbacks = {onStartNew: null}) {
+  constructor(callbacks = { onStartNew: null }) {
     this.callbacks = callbacks;
     this.$gameOverNewGameButton = $("#gameOverNewGameButton");
     this.$gameOverHighscoreButton = $("#gameOverHighscoreButton");
-     
+
     this.$points = $("#gameOverPointsTotal");
     this.$tricks = $("#gameOverTricks");
+    this.$highscores = $("#gameOverHighScores");
     this.$gameOverText = $("#gameOverText");
     this.$facebookShareBtn = $("#facebookShareBtn");
     this.$whatsappShareBtn = $("#whatsappShareBtn");
     this.$mailShareBtn = $("#mailShareBtn");
-    
 
     this.registerListener();
   }
   registerListener() {
     this.$gameOverNewGameButton.on("click", (e) => {
       e.preventDefault();
-      this.callbacks.onStartNew(); 
-    });this.$gameOverHighscoreButton.on("click", (e) => {
-      e.preventDefault(); 
+      this.callbacks.onStartNew();
+    });
+    this.$gameOverHighscoreButton.on("click", (e) => {
+      e.preventDefault();
       this.openHighscore();
     });
   }
@@ -65,9 +66,34 @@ export class GameOverScreen {
     });
     let html = renderTable("", ["Points", "Name"], rows, "red");
     this.$tricks.html(html);
+    this.renderHighScores();
     //this.setSharingBar(score, tricks);
     this.saveResult(score, tricks, config);
   }
+
+  renderHighScores() {
+    let html = "";
+    let rows = [];
+    $.get("/getScores", (data) => {
+      console.log(data);
+      data.forEach((d) => {
+        if (d.score) {
+          rows.push([
+            "Name",
+            d.score,
+            JSON.parse(d.data)
+              .tricks.map((dd) => {
+                return dd.parsed;
+              })
+              .join(","),
+          ]);
+        }
+      });
+      html = renderTable("", ["Name", "Score", "Tricks"], rows, "red");
+      this.$highscores.html(html);
+    });
+  }
+
   animateScore(end, duration = 500) {
     if (end === 0) {
       this.$points.html("0");

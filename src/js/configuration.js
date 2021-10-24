@@ -209,7 +209,7 @@ export class Configuration {
   registerListener() {
     this.$levelSelect.on("change", (e) => {
       this.hasUnsavedChanges = true;
-      this.setLevel(this.$levelSelect.val()); 
+      this.setLevel(this.$levelSelect.val());
     });
     this.$submit.on("click", (e) => {
       e.preventDefault();
