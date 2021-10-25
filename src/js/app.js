@@ -84,7 +84,7 @@ class GrindTrickRandomizer {
       this.screens.show("About");
     }
     //debug gameover
-    // this.openGameOverScreen();
+    this.openGameOverScreen();
 
     this.registerListener();
   }
@@ -232,6 +232,7 @@ class GrindTrickRandomizer {
   }
 
   openGameOverScreen() {
+    $("body").css({ overflow: "hidden" });
     $("body").addClass("gameover-screen-animated-background");
     this.gameOverScreen.render(
       this.scoreboard.points,

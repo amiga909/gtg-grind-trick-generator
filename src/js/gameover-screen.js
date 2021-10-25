@@ -48,7 +48,8 @@ export class GameOverScreen {
   registerListener() {
     this.$gameOverNewGameButton.on("click", (e) => {
       e.preventDefault();
-      this.callbacks.onStartNew();
+      //this.callbacks.onStartNew();
+      location.reload();
     });
     this.$gameOverHighscoreButton.on("click", (e) => {
       e.preventDefault();
@@ -74,22 +75,21 @@ export class GameOverScreen {
   renderHighScores() {
     let html = "";
     let rows = [];
+    let rank = 0;
     $.get("/getScores", (data) => {
       console.log(data);
       data.forEach((d) => {
         if (d.score) {
-          rows.push([
-            "Name",
-            d.score,
-            JSON.parse(d.data)
-              .tricks.map((dd) => {
-                return dd.parsed;
-              })
-              .join(","),
-          ]);
+          let tricks = JSON.parse(d.data)
+            .tricks.map((dd) => {
+              return dd.parsed;
+            })
+            .join(",");
+          rank = rank + 1;
+          rows.push([rank, "Name", d.score]);
         }
       });
-      html = renderTable("", ["Name", "Score", "Tricks"], rows, "red");
+      html = renderTable("", ["Rank", "Name", "Score"], rows, "red");
       this.$highscores.html(html);
     });
   }
