@@ -55,26 +55,26 @@ app.get("/.well-known/assetlinks.json", (request, response) => {
 });
 
 app.get("/", (request, response) => {
-  const header = fs.readFileSync(__dirname + "/public/header_index.html", "utf8");
   const html = fs.readFileSync(__dirname + "/public/index.html", "utf8");
+  console.log(header + html)
   response.end(header + html);
 });
 
 app.get("/index.html", (request, response) => {
-  const header = fs.readFileSync(__dirname + "/public/header_index.html", "utf8");
   const html = fs.readFileSync(__dirname + "/public/index.html", "utf8");
+   console.log(header + html)
   response.end(header + html);
 });
 
 app.get("/tricktionary", (request, response) => {
   const header = fs.readFileSync(__dirname + "/public/header_tricktionary.html", "utf8");
-  const html = fs.readFileSync(__dirname + "/public/index.html", "utf8");
+  const html = fs.readFileSync(__dirname + "/public/index_no_header.html", "utf8");
   response.end(header + html);
 });
 
 app.get("/about", (request, response) => {
   const header = fs.readFileSync(__dirname + "/public/header_about.html", "utf8");
-  const html = fs.readFileSync(__dirname + "/public/index.html", "utf8");
+  const html = fs.readFileSync(__dirname + "/public/index_no_header.html", "utf8");
   response.end(header + html);
 });
 
