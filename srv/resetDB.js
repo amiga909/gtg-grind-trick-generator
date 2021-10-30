@@ -39,10 +39,10 @@ con.connect((err) => {
   ); 
   `;
   let sql5 = `
-  INSERT INTO scores (ip, score, data) VALUES("test",2, "{}" );
+  INSERT INTO scores (ip, score, data) VALUES("::1",2, "{}" );
   `;
   let sql6 = `
-  select * from scores; 
+  INSERT INTO highscores (name, ip, score, data) VALUES("test", "::1",2, "{}" );
   `;
   con.query(sql1, function (err, result) {
     if (err) {

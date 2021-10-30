@@ -34,6 +34,8 @@ export class GameOverScreen {
     this.callbacks = callbacks;
     this.$gameOverNewGameButton = $("#gameOverNewGameButton");
     this.$gameOverHighscoreButton = $("#gameOverHighscoreButton");
+    this.$highscoresInputName = $("#highscoresInput");
+    this.$highscoresSubmit = $("#highscore-submit");
 
     this.$points = $("#gameOverPointsTotal");
     this.$tricks = $("#gameOverTricks");
@@ -44,6 +46,13 @@ export class GameOverScreen {
     this.$mailShareBtn = $("#mailShareBtn");
 
     this.csrfToken = "";
+    this.isScoreSent = false;
+    this.userData = {};
+
+    if (localStorage.getItem("userName") ) {
+      this.$highscoresInputName.val(localStorage.getItem("userName"))
+      this.$highscoresSubmit.removeClass("pure-button-disabled");
+    }
 
     this.registerListener();
   }
@@ -57,8 +66,24 @@ export class GameOverScreen {
       e.preventDefault();
       this.openHighscore();
     });
+    this.$highscoresInputName.on("change", (e) => {
+      e.preventDefault();
+      let val = this.$highscoresInputName.val(); 
+      val.replace(/[\W_]+/g," ");
+      this.$highscoresInputName.val(val)
+      if (this.isScoreSent === false) {
+        this.$highscoresSubmit.removeClass("pure-button-disabled");
+      }
+    });
+
+    this.$highscoresSubmit.on("click", (e) => {
+      e.preventDefault();
+      this.saveHighScore();
+      localStorage.setItem("userName", this.$highscoresInputName.val());
+    });
   }
   render(score, tricks, config) {
+    this.userData = { score: score, tricks: tricks, config: config };
     this.animateScore(parseInt(score, 10));
     let txt = TEXTS[Math.floor(Math.random() * TEXTS.length)];
     txt = score === 0 ? "At least it can not get worse..." : txt;
@@ -69,31 +94,33 @@ export class GameOverScreen {
     });
     let html = renderTable("", ["Points", "Name"], rows, "red");
     this.$tricks.html(html);
-    this.renderHighScores().then( ()=> {
-      this.saveResult(score, tricks, config);
+    this.renderHighScores().then(() => {
+      this.saveResult();
     });
     //this.setSharingBar(score, tricks);
-    
   }
 
   renderHighScores() {
     let html = "";
     let rows = [];
     let rank = 0;
-     
-    return $.get("/getScores", (data) => {
+
+    return $.get("/getHighScores", (data) => {
       const scores = data.scores;
-       
+
       this.csrfToken = data.csrfToken;
       scores.forEach((d) => {
-        if (d.score) {
-          let tricks = JSON.parse(d.data)
-            .tricks.map((dd) => {
+        let data = JSON.parse(d.data) || null;
+        if (data && d.name && d.score && Object.keys(data).length > 0) {
+          /*
+          let tricks = data.tricks
+            .map((dd) => {
               return dd.parsed;
             })
             .join(",");
+            */
           rank = rank + 1;
-          rows.push([rank, "Name", d.score]);
+          rows.push([rank, d.name, d.score]);
         }
       });
       html = renderTable("", ["Rank", "Name", "Score"], rows, "red");
@@ -122,14 +149,42 @@ export class GameOverScreen {
     this.$points.html(end);
   }
 
-  saveResult(score, tricks, config) {
+  saveHighScore() {
+    if (this.isScoreSent === false) {
+      $.ajax({
+        type: "PUT",
+        headers: {
+          "CSRF-Token": this.csrfToken,
+        },
+        url: "./saveHighScore",
+        data: {
+          name: this.$highscoresInputName.val(),
+          score: this.userData.score,
+          tricks: this.userData.tricks,
+          config: this.userData.config,
+        },
+        success: () => {
+          this.isScoreSent = true;
+          this.$highscoresSubmit.addClass("pure-button-disabled");
+          //console.log("saved result");
+        },
+      });
+    }
+  }
+
+  saveResult() {
     $.ajax({
       type: "PUT",
       headers: {
-        'CSRF-Token': this.csrfToken   
+        "CSRF-Token": this.csrfToken,
       },
       url: "./saveScore",
-      data: { score: score, tricks: tricks, config: config,  },
+      data: {
+        score: this.userData.score,
+        tricks: this.userData.tricks,
+        config: this.userData.config,
+      },
+
       success: () => {
         //console.log("saved result");
       },

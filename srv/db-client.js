@@ -9,8 +9,8 @@ let con = mysql.createPool(DB_CONN);
 const QUERIES = {
   getScores: `SELECT * from scores ORDER BY score DESC LIMIT 10;`,
   saveScore: `INSERT INTO scores SET ?;`,
-  getHighscores: `SELECT * from highscores;`,
-  saveHighscore: `INSERT INTO highscores SET ?;`,
+  getHighScores: `SELECT * from highscores ORDER BY score DESC LIMIT 10;`,
+  saveHighScore: `INSERT INTO highscores SET ?;`,
 };
 const connect = async function () {
   if (con.state === "disconnected") {
@@ -37,7 +37,8 @@ const execQuery = (query = "", params = null) => {
           score: params.score,
           data: JSON.stringify(params.data),
         };
-      } else if (query === "saveHighscore") {
+      } else if (query === "saveHighScore") {
+        console.log("paramsparamsparamsparamsparams", params);
         parameters = {
           name: params.name,
           ip: params.ip,
@@ -46,11 +47,11 @@ const execQuery = (query = "", params = null) => {
         };
       }
 
-      console.log("sql", sql);
+      //console.log("sql", sql);
       con.query(sql, [parameters], (err, result) => {
         if (err) {
           throw err;
-          reject();
+          //reject();
         }
         resolve(result);
       });

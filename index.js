@@ -89,6 +89,14 @@ app.get("/getScores", csrfProtection, (request, response) => {
   });
 });
 
+app.get("/getHighScores", csrfProtection, (request, response) => {
+  DBClient.execQuery("getHighScores").then((res) => {
+    response.setHeader("Content-Type", "application/json");
+    const data = { scores: res, csrfToken: request.csrfToken() }
+    response.end(JSON.stringify(data));
+  });
+});
+
 
 app.put("/saveScore", parseForm, csrfProtection, (request, response) => {
   //code to perform particular action.
@@ -104,6 +112,26 @@ app.put("/saveScore", parseForm, csrfProtection, (request, response) => {
     response.setHeader("Content-Type", "application/json");
     response.end(JSON.stringify(res));
   });
+});
+
+app.put("/saveHighScore", parseForm, csrfProtection, (request, response) => {
+  const ip = request.headers["x-forwarded-for"] || request.socket.remoteAddress;
+  data = request.body;
+  console.log("request.body", request.body)
+  if(data && data.name  && data.score) {
+  DBClient.execQuery("saveHighScore", {
+    ip: ip, 
+    name: data.name, 
+    score: data.score,
+    data: {tricks: data.tricks, config: data.config },
+  }).then((res) => {
+    response.setHeader("Content-Type", "application/json");
+    response.end(JSON.stringify(res));
+  });
+}
+else {
+  response.end("no data");
+}
 });
 
 // Start listening on the port

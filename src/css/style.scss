@@ -944,10 +944,19 @@ body::-webkit-scrollbar-thumb {
   max-width: 80px !important;
 }
 
-#config-submit, #highscores-submit {
+#config-submit {
   margin-top: 24px;
   padding: 8px;
   display: block;
+}
+#highscores-submit {
+  
+  padding: 8px;
+  display: block;
+}
+
+#highscoresInput {
+  height: 24px; 
 }
 
 #trickList-clearlistBtn {
@@ -1550,6 +1559,7 @@ $gameOverKeyFrames3: $slotEnabled;
 }
 
 .yt_video {
+  border: 0px; 
   width: 70vw;
   height: 39vw;
   padding: 4px;

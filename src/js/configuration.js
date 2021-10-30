@@ -200,7 +200,7 @@ export class Configuration {
     param.value = val;
     param.$dom.on("change", (e) => {
       this.hasUnsavedChanges = true;
-      //this.setLevel("4");
+     this.setLevel("4");
       this.$submit.removeClass("pure-button-disabled");
       param.value = param.$dom.is(":checked") ? "on" : "off";
     });
