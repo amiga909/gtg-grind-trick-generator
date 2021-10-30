@@ -131,6 +131,7 @@ export class Configuration {
     this.versionCheck();
     this.initStoreables();
     this.registerListener();
+    this.renderLevelText();
   }
 
   versionCheck() {
@@ -200,7 +201,7 @@ export class Configuration {
     param.value = val;
     param.$dom.on("change", (e) => {
       this.hasUnsavedChanges = true;
-     this.setLevel("4");
+      this.setLevel("4");
       this.$submit.removeClass("pure-button-disabled");
       param.value = param.$dom.is(":checked") ? "on" : "off";
     });
@@ -291,6 +292,7 @@ Press Cancel to close the settings window and continue the game.`
 
   setLevel(level) {
     // custom level like easy
+
     const levelConfig = level === "4" ? {} : LEVEL_CONFIG[level];
     this.configs.forEach((param) => {
       let configValue = levelConfig[param.key] ? levelConfig[param.key] : "";
@@ -310,6 +312,23 @@ Press Cancel to close the settings window and continue the game.`
         }
       }
     });
+    this.renderLevelText(level);
+  }
+
+  renderLevelText(level) {
+    if (!level) {
+      let storedLevel = localStorage.getItem("levelSelect") || null;
+      if (storedLevel) {
+        level = storedLevel;
+      } else {
+        level = 1;
+      }
+    }
+
+    let levelText = $(
+      `#start-screen-levels option:nth-child(${parseInt(level, 10)})`
+    ).html();
+    $("#scoreboard-game-level").html(levelText);
   }
 
   getGameConfig() {

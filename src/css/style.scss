@@ -1270,6 +1270,11 @@ body::-webkit-scrollbar-thumb {
 .scoreboard-left {
   text-align: center;
 }
+#scoreboard-game-level {
+  text-transform: uppercase;
+  
+    color: white;
+}
 
 .scoreboard-active {
   color: white;

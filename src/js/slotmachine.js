@@ -554,6 +554,7 @@ export class SlotMachine {
             e.name.includes("Open Book") ||
             e.name.includes("Byn Soul") ||
             e.name.includes("Sidewalk") ||
+            e.name.includes("Darkslide") ||
             e.name.includes("Citric Acid"));
         const isAdded = this.grindsInTricklist.includes(e.name);
 

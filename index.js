@@ -117,7 +117,7 @@ app.put("/saveScore", parseForm, csrfProtection, (request, response) => {
 app.put("/saveHighScore", parseForm, csrfProtection, (request, response) => {
   const ip = request.headers["x-forwarded-for"] || request.socket.remoteAddress;
   data = request.body;
-  console.log("request.body", request.body)
+  //console.log("request.body", request.body)
   if(data && data.name  && data.score) {
   DBClient.execQuery("saveHighScore", {
     ip: ip, 

@@ -49,8 +49,8 @@ export class GameOverScreen {
     this.isScoreSent = false;
     this.userData = {};
 
-    if (localStorage.getItem("userName") ) {
-      this.$highscoresInputName.val(localStorage.getItem("userName"))
+    if (localStorage.getItem("userName")) {
+      this.$highscoresInputName.val(localStorage.getItem("userName"));
       this.$highscoresSubmit.removeClass("pure-button-disabled");
     }
 
@@ -68,9 +68,9 @@ export class GameOverScreen {
     });
     this.$highscoresInputName.on("change", (e) => {
       e.preventDefault();
-      let val = this.$highscoresInputName.val(); 
-      val.replace(/[\W_]+/g," ");
-      this.$highscoresInputName.val(val)
+      let val = this.$highscoresInputName.val();
+      val.replace(/[\W_]+/g, " ");
+      this.$highscoresInputName.val(val);
       if (this.isScoreSent === false) {
         this.$highscoresSubmit.removeClass("pure-button-disabled");
       }

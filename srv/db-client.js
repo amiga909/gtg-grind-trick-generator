@@ -38,7 +38,7 @@ const execQuery = (query = "", params = null) => {
           data: JSON.stringify(params.data),
         };
       } else if (query === "saveHighScore") {
-        console.log("paramsparamsparamsparamsparams", params);
+        //console.log("paramsparamsparamsparamsparams", params);
         parameters = {
           name: params.name,
           ip: params.ip,
