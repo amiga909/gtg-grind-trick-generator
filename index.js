@@ -1,5 +1,6 @@
 // Require and create the Express framework
 let express = require("express");
+const fs = require("fs");
 const cookieParser = require('cookie-parser')
 const bodyParser = require("body-parser");
 const csrf = require('csurf')
@@ -54,19 +55,27 @@ app.get("/.well-known/assetlinks.json", (request, response) => {
 });
 
 app.get("/", (request, response) => {
-  response.sendFile("public/index.html", { root: __dirname });
+  const header = fs.readFileSync(__dirname + "/public/header_index.html", "utf8");
+  const html = fs.readFileSync(__dirname + "/public/index.html", "utf8");
+  response.end(header + html);
 });
 
 app.get("/index.html", (request, response) => {
-  response.sendFile("public/index.html", { root: __dirname });
+  const header = fs.readFileSync(__dirname + "/public/header_index.html", "utf8");
+  const html = fs.readFileSync(__dirname + "/public/index.html", "utf8");
+  response.end(header + html);
 });
 
 app.get("/tricktionary", (request, response) => {
-  response.sendFile("public/index.html", { root: __dirname });
+  const header = fs.readFileSync(__dirname + "/public/header_tricktionary.html", "utf8");
+  const html = fs.readFileSync(__dirname + "/public/index.html", "utf8");
+  response.end(header + html); 
 });
 
 app.get("/about", (request, response) => {
-  response.sendFile("public/index.html", { root: __dirname });
+  const header = fs.readFileSync(__dirname + "/public/header_about.html", "utf8");
+  const html = fs.readFileSync(__dirname + "/public/index.html", "utf8");
+  response.end(header + html); 
 });
 
 app.get("/sitemap.xml", (request, response) => {

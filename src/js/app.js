@@ -91,7 +91,7 @@ class GrindTrickRandomizer {
 
   registerListener() {
     this.$bannerLogoText.on("click", (e) => {
-      location.reload();
+      window.location.href = window.location.origin;
     });
     this.$bannerLogoAbout.on("click", (e) => {
       location.reload();
