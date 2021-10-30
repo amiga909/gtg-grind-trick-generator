@@ -69,13 +69,13 @@ app.get("/index.html", (request, response) => {
 app.get("/tricktionary", (request, response) => {
   const header = fs.readFileSync(__dirname + "/public/header_tricktionary.html", "utf8");
   const html = fs.readFileSync(__dirname + "/public/index.html", "utf8");
-  response.end(header + html); 
+  response.end(header + html);
 });
 
 app.get("/about", (request, response) => {
   const header = fs.readFileSync(__dirname + "/public/header_about.html", "utf8");
   const html = fs.readFileSync(__dirname + "/public/index.html", "utf8");
-  response.end(header + html); 
+  response.end(header + html);
 });
 
 app.get("/sitemap.xml", (request, response) => {
@@ -111,7 +111,7 @@ app.put("/saveScore", parseForm, csrfProtection, (request, response) => {
   //code to perform particular action.
   //To access POST variable use req.body()methods.
   const ip = request.headers["x-forwarded-for"] || request.socket.remoteAddress;
- // console.log("request.body", request.body)
+  // console.log("request.body", request.body)
   data = request.body;
   DBClient.execQuery("saveScore", {
     ip: ip,
@@ -127,20 +127,20 @@ app.put("/saveHighScore", parseForm, csrfProtection, (request, response) => {
   const ip = request.headers["x-forwarded-for"] || request.socket.remoteAddress;
   data = request.body;
   //console.log("request.body", request.body)
-  if(data && data.name  && data.score) {
-  DBClient.execQuery("saveHighScore", {
-    ip: ip, 
-    name: data.name, 
-    score: data.score,
-    data: {tricks: data.tricks, config: data.config },
-  }).then((res) => {
-    response.setHeader("Content-Type", "application/json");
-    response.end(JSON.stringify(res));
-  });
-}
-else {
-  response.end("no data");
-}
+  if (data && data.name && data.score) {
+    DBClient.execQuery("saveHighScore", {
+      ip: ip,
+      name: data.name,
+      score: data.score,
+      data: { tricks: data.tricks, config: data.config },
+    }).then((res) => {
+      response.setHeader("Content-Type", "application/json");
+      response.end(JSON.stringify(res));
+    });
+  }
+  else {
+    response.end("no data");
+  }
 });
 
 // Start listening on the port
