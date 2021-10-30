@@ -944,7 +944,7 @@ body::-webkit-scrollbar-thumb {
   max-width: 80px !important;
 }
 
-#config-submit {
+#config-submit, #highscores-submit {
   margin-top: 24px;
   padding: 8px;
   display: block;
@@ -1487,9 +1487,10 @@ body::-webkit-scrollbar-thumb {
 }
 
 .gameOverTitle h3 {
-  animation-name: gameOverKeyFrames;
-  animation-duration: 1s;
-  animation-iteration-count: infinite;
+  display:none;
+ // animation-name: gameOverKeyFrames;
+  //animation-duration: 1s;
+  //animation-iteration-count: infinite;
   font-size: $bog-slot-machine-FS;
 }
 

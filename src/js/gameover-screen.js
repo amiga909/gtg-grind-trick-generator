@@ -43,6 +43,8 @@ export class GameOverScreen {
     this.$whatsappShareBtn = $("#whatsappShareBtn");
     this.$mailShareBtn = $("#mailShareBtn");
 
+    this.csrfToken = "";
+
     this.registerListener();
   }
   registerListener() {
@@ -67,18 +69,23 @@ export class GameOverScreen {
     });
     let html = renderTable("", ["Points", "Name"], rows, "red");
     this.$tricks.html(html);
-    this.renderHighScores();
+    this.renderHighScores().then( ()=> {
+      this.saveResult(score, tricks, config);
+    });
     //this.setSharingBar(score, tricks);
-    this.saveResult(score, tricks, config);
+    
   }
 
   renderHighScores() {
     let html = "";
     let rows = [];
     let rank = 0;
-    $.get("/getScores", (data) => {
-      console.log(data);
-      data.forEach((d) => {
+     
+    return $.get("/getScores", (data) => {
+      const scores = data.scores;
+       
+      this.csrfToken = data.csrfToken;
+      scores.forEach((d) => {
         if (d.score) {
           let tricks = JSON.parse(d.data)
             .tricks.map((dd) => {
@@ -117,9 +124,12 @@ export class GameOverScreen {
 
   saveResult(score, tricks, config) {
     $.ajax({
-      type: "POST",
+      type: "PUT",
+      headers: {
+        'CSRF-Token': this.csrfToken   
+      },
       url: "./saveScore",
-      data: { score: score, tricks: tricks, config: config },
+      data: { score: score, tricks: tricks, config: config,  },
       success: () => {
         //console.log("saved result");
       },
