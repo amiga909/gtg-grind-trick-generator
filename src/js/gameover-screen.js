@@ -68,7 +68,7 @@ export class GameOverScreen {
       e.preventDefault();
       this.openHighscore();
     });
-    this.$highscoresInputName.on("change", (e) => {
+    this.$highscoresInputName.on("change keyup", (e) => {
       e.preventDefault();
       let val = this.$highscoresInputName.val();
       val = val.replace(/[\W_]+/g, "");
@@ -200,10 +200,16 @@ export class GameOverScreen {
           this.isScoreSent = true;
 
           this.disableHighscoreEntry();
-           
+
           console.log("success", data, data.rank);
-          $("#highscoreContTxt").html("Your rank: " + data.rank);
-          //console.log("saved result");
+          let rankTxt = "th";
+          rankTxt = Number(data.rank) === 1 ? "st" : rankTxt;
+          rankTxt = Number(data.rank) === 2 ? "nd" : rankTxt;
+          rankTxt = Number(data.rank) === 3 ? "rd" : rankTxt;
+          const txt = `Congrats, ${localStorage.getItem(
+            "userName"
+          )}, you are in ${data.rank}${rankTxt} place.`;
+          $("#highscoreContTxt").html(txt);
         },
       });
     }

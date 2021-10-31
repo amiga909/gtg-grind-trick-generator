@@ -112,7 +112,7 @@ app.get("/getHighScores", csrfProtection, (request, response) => {
   });
 });
 
-
+/*
 app.get("/getRank",    (request, response) => {
   DBClient.execQuery("getRank",{
     score: 2, 
@@ -121,7 +121,7 @@ app.get("/getRank",    (request, response) => {
      
     response.end(JSON.stringify(res[0]));
   });
-});
+});*/
 
 
 app.put("/saveScore", parseForm, csrfProtection, (request, response) => {
