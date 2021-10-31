@@ -36,6 +36,8 @@ export class GameOverScreen {
     this.$gameOverHighscoreButton = $("#gameOverHighscoreButton");
     this.$highscoresInputName = $("#highscoresInput");
     this.$highscoresSubmit = $("#highscore-submit");
+    this.$highscoresMaxSpins = $("#gameOverHighScoresTooMuchSpins");
+    this.$highscoresLoading = $("#highscoresLoading");
 
     this.$points = $("#gameOverPointsTotal");
     this.$tricks = $("#gameOverTricks");
@@ -69,16 +71,21 @@ export class GameOverScreen {
     this.$highscoresInputName.on("change", (e) => {
       e.preventDefault();
       let val = this.$highscoresInputName.val();
-      val.replace(/[\W_]+/g, " ");
+      val = val.replace(/[\W_]+/g, "");
       this.$highscoresInputName.val(val);
       if (this.isScoreSent === false) {
         this.$highscoresSubmit.removeClass("pure-button-disabled");
+      }
+      if (val === "") {
+        this.$highscoresSubmit.addClass("pure-button-disabled");
       }
     });
 
     this.$highscoresSubmit.on("click", (e) => {
       e.preventDefault();
-      this.saveHighScore();
+      this.saveHighScore().then(() => {
+        this.renderHighScores();
+      });
       localStorage.setItem("userName", this.$highscoresInputName.val());
     });
   }
@@ -97,34 +104,60 @@ export class GameOverScreen {
     this.renderHighScores().then(() => {
       this.saveResult();
     });
+    this.setTooMuchSpinsText(config);
+    if (Number(score) <= 0) {
+      this.disableHighscoreEntry();
+    }
     //this.setSharingBar(score, tricks);
+  }
+  setTooMuchSpinsText(config) {
+    if (config && config.spins) {
+      if (Number(config.spins) > 5) {
+        this.disableHighscoreEntry();
+        this.$highscoresMaxSpins.show();
+      } else {
+        this.$highscoresMaxSpins.hide();
+      }
+    }
+  }
+  disableHighscoreEntry() {
+    this.$highscoresInputName.hide();
+    this.$highscoresSubmit.hide();
   }
 
   renderHighScores() {
     let html = "";
     let rows = [];
     let rank = 0;
+    this.$highscores.hide();
+    this.$highscoresLoading.show();
 
     return $.get("/getHighScores", (data) => {
       const scores = data.scores;
 
       this.csrfToken = data.csrfToken;
       scores.forEach((d) => {
+        let payload = {};
         let data = JSON.parse(d.data) || null;
-        if (data && d.name && d.score && Object.keys(data).length > 0) {
-          /*
-          let tricks = data.tricks
-            .map((dd) => {
-              return dd.parsed;
-            })
-            .join(",");
-            */
+        if (data && d.name && d.score) {
           rank = rank + 1;
-          rows.push([rank, d.name, d.score]);
+          let tricks = "";
+          if (data.tricks && Object.keys(data.tricks).length > 0) {
+            tricks = data.tricks
+              .map((dd) => {
+                return dd.parsed;
+              })
+              .join(", ");
+          }
+          rows.push([rank, d.name, d.score, tricks]);
         }
       });
-      html = renderTable("", ["Rank", "Name", "Score"], rows, "red");
-      this.$highscores.html(html);
+      html = renderTable("", ["Rank", "Name", "Score", "Tricks"], rows, "red");
+      setTimeout(() => {
+        this.$highscoresLoading.hide();
+        this.$highscores.html(html);
+        this.$highscores.show();
+      }, 1000);
     });
   }
 
@@ -151,7 +184,7 @@ export class GameOverScreen {
 
   saveHighScore() {
     if (this.isScoreSent === false) {
-      $.ajax({
+      return $.ajax({
         type: "PUT",
         headers: {
           "CSRF-Token": this.csrfToken,
@@ -163,9 +196,13 @@ export class GameOverScreen {
           tricks: this.userData.tricks,
           config: this.userData.config,
         },
-        success: () => {
+        success: (data) => {
           this.isScoreSent = true;
-          this.$highscoresSubmit.addClass("pure-button-disabled");
+
+          this.disableHighscoreEntry();
+           
+          console.log("success", data, data.rank);
+          $("#highscoreContTxt").html("Your rank: " + data.rank);
           //console.log("saved result");
         },
       });

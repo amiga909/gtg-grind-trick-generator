@@ -111,6 +111,10 @@ const CONFIG = {
     screen: "Configuration",
     text: "Configure your own game.",
   },
+  spinsConfig: {
+    screen: "Configuration",
+    text: "Choose the amount of spins per game. Highscores are only available for max. 5 spins.",
+  },
 
   // manual
   endScreen: {

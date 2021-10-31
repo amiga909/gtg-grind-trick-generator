@@ -7,10 +7,17 @@ const DB_CONN = process.env.CLEARDB_DATABASE_URL;
 let con = mysql.createPool(DB_CONN);
 
 const QUERIES = {
-  getScores: `SELECT * from scores ORDER BY score DESC LIMIT 10;`,
+  getScores: `SELECT * from scores ORDER BY score DESC, ts DESC LIMIT 10;`,
   saveScore: `INSERT INTO scores SET ?;`,
-  getHighScores: `SELECT * from highscores ORDER BY score DESC LIMIT 10;`,
+  getHighScores: `SELECT * from highscores ORDER BY score DESC, ts DESC  LIMIT 10;`,
   saveHighScore: `INSERT INTO highscores SET ?;`,
+  getRank: `SELECT score, FIND_IN_SET( score, (    
+    SELECT GROUP_CONCAT( score
+    ORDER BY score DESC ) 
+    FROM highscores )
+    ) AS rank
+    FROM highscores
+    WHERE score = _SCORE_ `
 };
 const connect = async function () {
   if (con.state === "disconnected") {
@@ -28,7 +35,7 @@ const execQuery = (query = "", params = null) => {
   let parameters = [];
   return new Promise((resolve, reject) => {
     connect().then(() => {
-      // console.log("params", params);
+
       let result = null;
       let sql = QUERIES[query];
       if (query === "saveScore") {
@@ -46,6 +53,9 @@ const execQuery = (query = "", params = null) => {
           data: JSON.stringify(params.data),
         };
       }
+      else if (query === "getRank") {
+        sql = sql.replace("_SCORE_", Number(params.score))
+      }
 
       //console.log("sql", sql);
       con.query(sql, [parameters], (err, result) => {
@@ -53,6 +63,7 @@ const execQuery = (query = "", params = null) => {
           throw err;
           //reject();
         }
+        // console.log("query res", sql, result)
         resolve(result);
       });
     });

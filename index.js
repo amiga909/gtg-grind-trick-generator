@@ -107,6 +107,17 @@ app.get("/getHighScores", csrfProtection, (request, response) => {
 });
 
 
+app.get("/getRank",    (request, response) => {
+  DBClient.execQuery("getRank",{
+    score: 2, 
+  }).then((res) => {
+    response.setHeader("Content-Type", "application/json");
+     
+    response.end(JSON.stringify(res[0]));
+  });
+});
+
+
 app.put("/saveScore", parseForm, csrfProtection, (request, response) => {
   //code to perform particular action.
   //To access POST variable use req.body()methods.
@@ -134,8 +145,12 @@ app.put("/saveHighScore", parseForm, csrfProtection, (request, response) => {
       score: data.score,
       data: { tricks: data.tricks, config: data.config },
     }).then((res) => {
-      response.setHeader("Content-Type", "application/json");
-      response.end(JSON.stringify(res));
+      DBClient.execQuery("getRank", {
+        score: data.score,
+      }).then((res) => {
+        response.setHeader("Content-Type", "application/json");
+        response.end(JSON.stringify(res[0]));
+      });
     });
   }
   else {

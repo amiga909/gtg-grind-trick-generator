@@ -551,6 +551,10 @@ body::-webkit-scrollbar-thumb {
   margin: 0 auto;
 }
 
+.gameover-controls-row-points {
+  padding:0px;
+}
+
 .gameover-screen-animated-background::before  {
  
  
@@ -949,6 +953,21 @@ body::-webkit-scrollbar-thumb {
   padding: 8px;
   display: block;
 }
+
+#gameOverHighScoresTooMuchSpins {
+  background-color: black;
+}
+#highscoresLoading {
+  display:none;
+ // background-image: url("../img/loading-spinner.svg");
+  /*background-size: cover;
+  z-index: 0;
+  width: 140px;
+  height: 90px;
+  background-repeat: no-repeat;
+  position: absolute;*/
+}
+
 #highscores-submit {
   
   padding: 8px;
@@ -1484,12 +1503,12 @@ body::-webkit-scrollbar-thumb {
 #gameOverPointsTotal {
   font-size: 36px;
 }
-#gameOverTricks {
+.gameOverTricks {
   .resp-table-wrapper {
-    padding-top: 0;
+    padding-top: 4px;
   }
   h3 {
-    display: none;
+   // display: none;
   }
   @media screen and (min-width: $bp_smartphone) {
     .resp-table {
