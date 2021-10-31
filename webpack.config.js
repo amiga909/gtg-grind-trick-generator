@@ -26,10 +26,10 @@ module.exports = (env = {}, argv) => {
         patterns: [
           { from: "src/assets", to: "assets" },
           { from: "src/img", to: "img" },
-          { from: "src/fonts", to: "fonts" },
-          { from: "src/index.html", to: "index.html" },
+          { from: "src/fonts", to: "fonts" }, 
 
           { from: "src/index_no_header.html", to: "index_no_header.html" },
+          { from: "src/header_index.html", to: "header_index.html" },
           { from: "src/header_tricktionary.html", to: "header_tricktionary.html" },
           { from: "src/header_about.html", to: "header_about.html" },
         ],
