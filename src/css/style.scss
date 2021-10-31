@@ -1271,9 +1271,15 @@ body::-webkit-scrollbar-thumb {
   text-align: center;
 }
 #scoreboard-game-level {
-  text-transform: uppercase;
+//  text-transform: uppercase;
   //padding-top:6px;
     color: white;
+    @media only screen and (min-width: $bp_tablet) {
+      font-size: $scoreboard--tablet-FS;
+    }
+    @media only screen and (min-width: $bp_desktop) {
+      font-size: $scoreboard--desktop-FS;
+    }
 }
 
 .scoreboard-active {
@@ -1284,6 +1290,13 @@ body::-webkit-scrollbar-thumb {
 .scoreboard-points,
 .scoreboard-spins {
   font-size: 18px;
+
+  @media only screen and (max-width: 360px) {
+    font-size: 10px;
+  }
+  @media only screen and (max-width: 560px) {
+    font-size: 14px;
+  }
 
   @media only screen and (min-width: $bp_tablet) {
     font-size: $scoreboard--tablet-FS;
