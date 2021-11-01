@@ -1,7 +1,7 @@
 import "purecss/build/pure-min.css";
 import "purecss/build/grids-responsive-min.css";
 
-import "./sw-handler";
+//import "./sw-handler";
 
 import { Configuration } from "./configuration";
 import { SlotMachine } from "./slotmachine";

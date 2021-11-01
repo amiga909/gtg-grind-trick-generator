@@ -35,18 +35,15 @@ app.use((req, res, next) => {
 //app.use(bodyParser.urlencoded({ extended: false }));
 //app.use(bodyParser.json());
 
-app.get("/sw.js", (request, response) => {
-  response.sendFile("public/sw.js", { root: __dirname });
+app.get("/pwabuilder-sw.js", (request, response) => {
+  response.sendFile("./pwabuilder-sw.js", { root: __dirname });
 });
+/*
 app.get("/sw.js.map", (request, response) => {
   response.sendFile("public/sw.js.map", { root: __dirname });
-});
+});*/
 
-app.get("/vendor/workbox-v6.1.0/workbox-core.prod.js", (request, response) => {
-  response.sendFile("./vendor/workbox-v6.1.0/workbox-core.prod.js", {
-    root: __dirname,
-  });
-});
+ 
 
 app.get("/", (request, response) => {
   const header = fs.readFileSync(__dirname + "/public/header_index.html", "utf8");
