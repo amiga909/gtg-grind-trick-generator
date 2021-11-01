@@ -1,7 +1,6 @@
 window.addEventListener("load", () => {
   // remove SWs for now
   unregister();
-
 });
 
 function register() {
@@ -12,11 +11,10 @@ function register() {
   }
 }
 
-
 function unregister() {
   navigator.serviceWorker.getRegistrations().then(function (registrations) {
     for (let registration of registrations) {
-      registration.unregister()
+      registration.unregister();
     }
-  })
+  });
 }

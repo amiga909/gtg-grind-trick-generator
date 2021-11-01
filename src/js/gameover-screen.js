@@ -84,7 +84,9 @@ export class GameOverScreen {
     this.$highscoresSubmit.on("click", (e) => {
       e.preventDefault();
       this.saveHighScore().then(() => {
-        this.renderHighScores();
+        this.renderHighScores().catch((error) => {
+          this.onNetworkError(error);
+        });
       });
       localStorage.setItem("userName", this.$highscoresInputName.val());
     });
@@ -101,14 +103,24 @@ export class GameOverScreen {
     });
     let html = renderTable("", ["Points", "Name"], rows, "red");
     this.$tricks.html(html);
-    this.renderHighScores().then(() => {
-      this.saveResult();
-    });
+    this.renderHighScores()
+      .then(() => {
+        this.saveResult();
+      })
+      .catch((error) => {
+        this.onNetworkError(error);
+      });
     this.setTooMuchSpinsText(config);
     if (Number(score) <= 0) {
       this.disableHighscoreEntry();
     }
     //this.setSharingBar(score, tricks);
+  }
+  onNetworkError(error) {
+    this.disableHighscoreEntry();
+    this.$highscoresLoading.hide();
+    $("#highscoreContTxt").html("Highscores are not available right now.");
+    console.error(error);
   }
   setTooMuchSpinsText(config) {
     if (config && config.spins) {
@@ -132,7 +144,7 @@ export class GameOverScreen {
     this.$highscores.hide();
     this.$highscoresLoading.show();
 
-    return $.get("/getHighScores", (data) => {
+    return $.get("/getHighScoress", (data) => {
       const scores = data.scores;
 
       this.csrfToken = data.csrfToken;

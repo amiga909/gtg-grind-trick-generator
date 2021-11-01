@@ -84,7 +84,7 @@ class GrindTrickRandomizer {
       this.screens.show("About");
     }
     //debug gameover
-    //this.openGameOverScreen();
+  //  this.openGameOverScreen();
 
     this.registerListener();
   }
