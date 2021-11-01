@@ -27,6 +27,20 @@ const TEXTS = [
   "What a nutter! ",
   "You got the flow.",
   "Juiced stuff! ",
+  "Sick!",
+  "YOLO!",
+  "Snatched!",
+  "You are on fire! ",
+  "Boss mode, you got ",
+  "Massive flex! ",
+  "Da Bomb! ",
+  "Bang up job! ",
+  "Fantabulous! ",
+  "Gangster performance! ",
+  "Keep it real! ",
+  "Sweet action!",
+  "OG style ",
+  "Jam-packed sesh!",
 ];
 
 export class GameOverScreen {

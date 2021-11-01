@@ -60,7 +60,9 @@ class GrindTrickRandomizer {
     this.scoreboard = new Scoreboard(this.configurator.getGameConfig());
     this.gameOverScreen = new GameOverScreen({
       onStartNew: () => {
-        $("body").removeClass("gameover-screen-animated-background");
+        $("#gameover-screen").removeClass(
+          "gameover-screen-animated-background"
+        );
         this.screens.show("Start");
       },
     });
@@ -84,7 +86,7 @@ class GrindTrickRandomizer {
       this.screens.show("About");
     }
     //debug gameover
-  //  this.openGameOverScreen();
+    this.openGameOverScreen();
 
     this.registerListener();
   }
@@ -232,8 +234,7 @@ class GrindTrickRandomizer {
   }
 
   openGameOverScreen() {
-    $("body").css({ overflow: "hidden" });
-    $("body").addClass("gameover-screen-animated-background");
+    $("#gameover-screen").addClass("gameover-screen-animated-background");
     this.gameOverScreen.render(
       this.scoreboard.points,
       this.tricklist.getStorage(),
