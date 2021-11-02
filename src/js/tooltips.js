@@ -77,10 +77,6 @@ const CONFIG = {
     screen: "Slotmachine",
     text: "Show trick info",
   },
-  grindReel: {
-    screen: "Slotmachine",
-    text: `Press a reel to disable (<i class="fa fa-ban fa-1x"></i>), press again to enable. The GRIND reel can not be disabled.`,
-  },
   tricklistBtn: {
     screen: "Slotmachine",
     text: `Show tricklist`,
