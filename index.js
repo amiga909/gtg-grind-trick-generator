@@ -35,9 +35,11 @@ app.use((req, res, next) => {
 //app.use(bodyParser.urlencoded({ extended: false }));
 //app.use(bodyParser.json());
 
+
 app.get("/pwabuilder-sw.js", (request, response) => {
   response.sendFile("./pwabuilder-sw.js", { root: __dirname });
 });
+
 /*
 app.get("/sw.js.map", (request, response) => {
   response.sendFile("public/sw.js.map", { root: __dirname });
