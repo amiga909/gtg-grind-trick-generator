@@ -274,15 +274,14 @@ Press Cancel to close the settings window and continue the game.`
     });
     localStorage.clear();
 
-    try { 
+    try {
       navigator.serviceWorker.getRegistrations().then(function (registrations) {
         for (let registration of registrations) {
           registration.unregister();
         }
       });
-    }
-    catch(err) {};
-    
+    } catch (err) {}
+
     location.reload();
   }
 
