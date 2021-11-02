@@ -80,7 +80,7 @@ class GrindTrickRandomizer {
 
     this.screens.show("Start");
     if (location.href.includes("tricktionary")) {
-      this.screens.show("Tricktionary");
+      thiss.screens.show("Tricktionary");
     }
     if (location.href.includes("about")) {
       this.screens.show("About");
