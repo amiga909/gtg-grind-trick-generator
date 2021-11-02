@@ -561,7 +561,7 @@ body::-webkit-scrollbar-thumb {
 
 .gameover-screen-animated-background::before  {
  
- 
+ /*
   background-image: url("../img/aight-logo-square-white.png");
  
   content: "";
@@ -576,11 +576,11 @@ body::-webkit-scrollbar-thumb {
 
   filter: grayscale(1);
   
-  animation: spin 119s linear infinite;
+  animation: spin 119s linear infinite;*/
 }
  
 .gameover-screen-animated-background::after  {
-            background-image: url("../img/aight-logo-square-white.png");
+   /*         background-image: url("../img/aight-logo-square-white.png");
    
   content: "";
   opacity: 0;
@@ -594,7 +594,7 @@ body::-webkit-scrollbar-thumb {
 
   filter: grayscale(1);
   
-  animation: spin2 120s linear infinite;
+  animation: spin2 120s linear infinite;*/
 }
 
 
