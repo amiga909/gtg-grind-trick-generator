@@ -158,7 +158,7 @@ export class GameOverScreen {
     this.$highscores.hide();
     this.$highscoresLoading.show();
 
-    return $.get("/getHighScoress", (data) => {
+    return $.get("/getHighScores", (data) => {
       const scores = data.scores;
 
       this.csrfToken = data.csrfToken;
