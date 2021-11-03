@@ -71,7 +71,7 @@ const CONFIG = {
 
   addTricklistBtn: {
     screen: "Slotmachine",
-    text: "Add trick to tricklist",
+    text: "You have 3 tries. If you get the trick, click here. Else click 'Skip'.",
   },
   explainTrick: {
     screen: "Slotmachine",
