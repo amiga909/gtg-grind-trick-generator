@@ -1,8 +1,8 @@
-$fa-font-path: "../fonts";
-@import "~@fortawesome/fontawesome-free/scss/fontawesome";
-@import "~@fortawesome/fontawesome-free/scss/brands";
-@import "~@fortawesome/fontawesome-free/scss/solid";
-@import "~@fortawesome/fontawesome-free/scss/regular";
+$fa-font-path: '../fonts';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/brands';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/regular';
 
 * {
   //box-shadow: 0 2px 2px rgba(230, 6, 6, 0.8);
@@ -110,7 +110,7 @@ body {
   font-family: Arial, Helvetica, sans-serif !important;
 }
 
-.pure-g [class*="pure-u"] {
+.pure-g [class*='pure-u'] {
   font-family: Arial, Helvetica, sans-serif !important;
 }
 
@@ -150,7 +150,7 @@ p {
   padding: 0.5em 0.7em;
 }
 .banner-logo {
-  background-image: url("../img/gtg-logo-banner.svg");
+  background-image: url('../img/gtg-logo-banner.svg');
   background-size: cover;
   z-index: 0;
   width: 140px;
@@ -552,19 +552,17 @@ body::-webkit-scrollbar-thumb {
 }
 
 .gameover-controls-row-points {
-  padding:0px;
+  padding: 0px;
 }
 
 .gameover-screen-animated-background {
-  overflow:hidden; 
+  overflow: hidden;
 }
 
-.gameover-screen-animated-background::before  {
- 
- /*
-  background-image: url("../img/aight-logo-square-white.png");
- 
-  content: "";
+.gameover-screen-animated-background::before {
+  background-image: url('../img/aight-logo-square-white.png');
+
+  content: '';
   opacity: 0;
   top: 0;
   left: 0;
@@ -575,12 +573,13 @@ body::-webkit-scrollbar-thumb {
   z-index: -1;
 
   filter: grayscale(1);
-  
-  animation: spin 119s linear infinite;*/
+
+  animation: gameover 120s linear infinite;
+  animation-direction: alternate;
 }
- 
-.gameover-screen-animated-background::after  {
-   /*         background-image: url("../img/aight-logo-square-white.png");
+
+.gameover-screen-animated-background::after {
+  /*         background-image: url("../img/aight-logo-square-white.png");
    
   content: "";
   opacity: 0;
@@ -596,7 +595,52 @@ body::-webkit-scrollbar-thumb {
   
   animation: spin2 120s linear infinite;*/
 }
+@keyframes gameover {
+  0% {
+    //transform: rotate(0deg);
+    //background-size: 100%;
+    // background-size: 1000px 1000px;
 
+    background-size: 100vw 100vw;
+
+    background-position: 0px -500px;
+    //background-position: 0px -1000px;
+
+    filter: grayscale(0.7);
+  }
+  /*
+  50% {
+    //background-size: 2%;
+    filter: grayscale(0.8);
+    background-size: 100px 100px;
+  }
+  70% {
+    filter: grayscale(0.7);
+    background-size: 300px 300px;
+  }*/
+
+  70% {
+    filter: grayscale(0.7);
+    //background-size: 300px 300px;
+  }
+
+  90% {
+  //  background-size: 90vw 90vw;
+  }
+  95% {
+    // background-size: 1vw 1vw;
+  }
+
+  100% {
+    // transform: rotate(360deg);
+    // background-size: 100%;
+    filter: grayscale(1);
+    // background-position: 0px 1500px;
+    //background-position: 0px  600px ;
+    background-position: 0px 1500px;
+   // background-size: 30vw 30vw;
+  }
+}
 
 @keyframes spin {
   0% {
@@ -762,7 +806,7 @@ body::-webkit-scrollbar-thumb {
 
 @media (min-width: $bp_tablet) {
   .l-content-modal::after {
-    background-image: url("../img/thejokerblade-big.jpg");
+    background-image: url('../img/thejokerblade-big.jpg');
   }
 }
 
@@ -800,7 +844,7 @@ body::-webkit-scrollbar-thumb {
 .loading-screen::after {
   background-repeat: no-repeat;
   background-size: cover;
-  content: "";
+  content: '';
   opacity: 0.5;
   top: 0;
   left: 0;
@@ -875,7 +919,7 @@ body::-webkit-scrollbar-thumb {
   border-radius: 30px;
   border: 2px solid #ddd;
   background-color: #eee;
-  content: "";
+  content: '';
   margin-right: 15px;
   transition: background-color 0.5s linear;
 }
@@ -884,7 +928,7 @@ body::-webkit-scrollbar-thumb {
   height: 30px;
   border-radius: 30px;
   background-color: #fff;
-  content: "";
+  content: '';
   transition: margin 0.1s linear;
   box-shadow: 0px 0px 5px #aaa;
   position: absolute;
@@ -922,8 +966,8 @@ body::-webkit-scrollbar-thumb {
   background-color: black;
 }
 #highscoresLoading {
-  display:none;
- // background-image: url("../img/loading-spinner.svg");
+  display: none;
+  // background-image: url("../img/loading-spinner.svg");
   /*background-size: cover;
   z-index: 0;
   width: 140px;
@@ -933,13 +977,12 @@ body::-webkit-scrollbar-thumb {
 }
 
 #highscores-submit {
-  
   padding: 8px;
   display: block;
 }
 
 #highscoresInput {
-  height: 24px; 
+  height: 24px;
 }
 
 #trickList-clearlistBtn {
@@ -975,24 +1018,24 @@ body::-webkit-scrollbar-thumb {
 }
 
 .info-tooltip-arrow::before {
-  content: "";
+  content: '';
   transform: rotate(45deg);
   background: #333;
 }
 
-.info-tooltip[data-popper-placement^="top"] > .info-tooltip-arrow {
+.info-tooltip[data-popper-placement^='top'] > .info-tooltip-arrow {
   bottom: -4px;
 }
 
-.info-tooltip[data-popper-placement^="bottom"] > .info-tooltip-arrow {
+.info-tooltip[data-popper-placement^='bottom'] > .info-tooltip-arrow {
   top: -4px;
 }
 
-.info-tooltip[data-popper-placement^="left"] > .info-tooltip-arrow {
+.info-tooltip[data-popper-placement^='left'] > .info-tooltip-arrow {
   right: -4px;
 }
 
-.info-tooltip[data-popper-placement^="right"] > .info-tooltip-arrow {
+.info-tooltip[data-popper-placement^='right'] > .info-tooltip-arrow {
   left: -4px;
 }
 
@@ -1254,10 +1297,10 @@ body::-webkit-scrollbar-thumb {
   text-align: center;
 }
 #scoreboard-game-level {
-  display:none;
+  display: none;
   text-transform: uppercase;
   //padding-top:6px;
-    color: white;
+  color: white;
 }
 
 .scoreboard-active {
@@ -1472,7 +1515,7 @@ body::-webkit-scrollbar-thumb {
     padding-top: 4px;
   }
   h3 {
-   // display: none;
+    // display: none;
   }
   @media screen and (min-width: $bp_smartphone) {
     .resp-table {
@@ -1485,8 +1528,8 @@ body::-webkit-scrollbar-thumb {
 }
 
 .gameOverTitle h3 {
-  display:none;
- // animation-name: gameOverKeyFrames;
+  display: none;
+  // animation-name: gameOverKeyFrames;
   //animation-duration: 1s;
   //animation-iteration-count: infinite;
   font-size: $bog-slot-machine-FS;
@@ -1548,7 +1591,7 @@ $gameOverKeyFrames3: $slotEnabled;
 }
 
 .yt_video {
-  border: 0px; 
+  border: 0px;
   width: 70vw;
   height: 39vw;
   padding: 4px;
