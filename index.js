@@ -31,6 +31,14 @@ app.use((req, res, next) => {
     next();
   }
 });
+app.use(function (req, res, next) {
+  if (req.path.substr(-1) == '/' && req.path.length > 1) {
+    let query = req.url.slice(req.path.length)
+    res.redirect(301, req.path.slice(0, -1) + query)
+  } else {
+    next()
+  }
+})
 
 //app.use(bodyParser.urlencoded({ extended: false }));
 //app.use(bodyParser.json());
@@ -57,7 +65,6 @@ app.get("/", (request, response) => {
 app.get("/index.html", (request, response) => {
   const header = fs.readFileSync(__dirname + "/public/header_index.html", "utf8");
   const html = fs.readFileSync(__dirname + "/public/index_no_header.html", "utf8");
-   
   response.end(header + html);
 });
 
@@ -68,30 +75,18 @@ app.get("/.well-known/assetlinks.json", (request, response) => {
 });
 
 
-
-
-
 app.get("/tricktionary", (request, response) => {
   const header = fs.readFileSync(__dirname + "/public/header_tricktionary.html", "utf8");
   const html = fs.readFileSync(__dirname + "/public/index_no_header.html", "utf8");
   response.end(header + html);
 });
-app.get("/tricktionary/", (request, response) => {
-  const header = fs.readFileSync(__dirname + "/public/header_tricktionary.html", "utf8");
-  const html = fs.readFileSync(__dirname + "/public/index_no_header.html", "utf8");
-  response.end(header + html);
-});
-
+ 
 app.get("/about", (request, response) => {
   const header = fs.readFileSync(__dirname + "/public/header_about.html", "utf8");
   const html = fs.readFileSync(__dirname + "/public/index_no_header.html", "utf8");
   response.end(header + html);
 });
-app.get("/about/", (request, response) => {
-  const header = fs.readFileSync(__dirname + "/public/header_about.html", "utf8");
-  const html = fs.readFileSync(__dirname + "/public/index_no_header.html", "utf8");
-  response.end(header + html);
-});
+ 
 
 app.get("/sitemap.xml", (request, response) => {
   response.sendFile("./sitemap.xml", { root: __dirname });
