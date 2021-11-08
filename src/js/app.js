@@ -154,9 +154,9 @@ class GrindTrickRandomizer {
     }
 
     this.$addTricklistBtn.on("click", () => {
-      if (!this.hasTrickDupeErrorPrompt()) {
+      //if (!this.hasTrickDupeErrorPrompt()) {
         this.addToTricklist(this.scoreboard.isLastSpin());
-      }
+      //}
     });
 
     this.$trickHelpButton.on("click", () => {
