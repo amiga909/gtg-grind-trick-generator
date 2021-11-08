@@ -134,7 +134,7 @@ export class GameOverScreen {
     this.disableHighscoreEntry();
     this.$highscoresLoading.hide();
     $("#highscoreContTxt").html("Highscores are not available right now.");
-    console.error(error);
+    //console.error(error);
   }
   setTooMuchSpinsText(config) {
     if (config && config.spins) {
@@ -224,10 +224,7 @@ export class GameOverScreen {
         },
         success: (data) => {
           this.isScoreSent = true;
-
           this.disableHighscoreEntry();
-
-          console.log("success", data, data.rank);
           let rankTxt = "th";
           rankTxt = Number(data.rank) === 1 ? "st" : rankTxt;
           rankTxt = Number(data.rank) === 2 ? "nd" : rankTxt;

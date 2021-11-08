@@ -231,6 +231,11 @@ export class Configuration {
     });
 
     $(".configurator-right-close-btn").on("click.save", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if ($("#modal-screen--configuration").css("display") === "none") {
+        return false;
+      }
       if (this.hasUnsavedChanges) {
         const checkMenu = confirm(
           `You have unsaved changes. 
@@ -240,12 +245,7 @@ Press Cancel to close the settings window and continue the game.`
         if (checkMenu == true) {
           this.$submit.trigger("click");
         } else {
-          // this.initStoreables();
-          //$(".configurator-right-close-btn").off("click.save");
         }
-
-        e.preventDefault();
-        e.stopPropagation();
       }
     });
   }
