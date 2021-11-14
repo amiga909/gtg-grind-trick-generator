@@ -174,6 +174,13 @@ export class GameOverScreen {
             Object.keys(data.tricks.tricks).length > 0
               ? data.tricks.tricks
               : [];
+          // backwards comp
+          if (tricks.length === 0) {
+            tricks =
+              data.tricks && Object.keys(data.tricks).length > 0
+                ? data.tricks
+                : [];
+          }
           if (tricks.length > 0) {
             tricks = tricks
               .map((dd) => {
