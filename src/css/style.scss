@@ -770,9 +770,14 @@ body::-webkit-scrollbar-thumb {
 #modal-screen--configuration {
   padding-top: 0px;
 }
-#trickList-table {
+#tricklist-table, #tricklist-skipped-table {
   width: 100%;
+  h3  {
+    color:white !important;
+  }
 }
+ 
+
 .addTricklistBtn-plus-icon {
   position: absolute;
   margin-top: 10px;

@@ -107,19 +107,20 @@ export class GameOverScreen {
   }
   render(score, tricks, config) {
     this.userData = { score: score, tricks: tricks, config: config };
+    //console.log(this.userData.tricks);
     this.animateScore(parseInt(score, 10));
     let txt = TEXTS[Math.floor(Math.random() * TEXTS.length)];
     txt = score === 0 ? "At least it can not get worse..." : txt;
     this.$gameOverText.html(txt);
     let rows = [];
-    tricks.forEach((entry) => {
+    tricks.tricks.forEach((entry) => {
       let row = rows.push([entry.points, entry.parsed]);
     });
     let html = renderTable("", ["Points", "Name"], rows, "red");
     this.$tricks.html(html);
     this.renderHighScores()
       .then(() => {
-        this.saveResult();
+        this.saveScore();
       })
       .catch((error) => {
         this.onNetworkError(error);
@@ -167,9 +168,14 @@ export class GameOverScreen {
         let data = JSON.parse(d.data) || null;
         if (data && d.name && d.score) {
           rank = rank + 1;
-          let tricks = "";
-          if (data.tricks && Object.keys(data.tricks).length > 0) {
-            tricks = data.tricks
+          let tricks =
+            data.tricks &&
+            data.tricks.tricks &&
+            Object.keys(data.tricks.tricks).length > 0
+              ? data.tricks.tricks
+              : [];
+          if (tricks.length > 0) {
+            tricks = tricks
               .map((dd) => {
                 return dd.parsed;
               })
@@ -238,7 +244,7 @@ export class GameOverScreen {
     }
   }
 
-  saveResult() {
+  saveScore() {
     $.ajax({
       type: "PUT",
       headers: {

@@ -172,6 +172,12 @@ class GrindTrickRandomizer {
 
     this.$spinNextButton.on("click", (e) => {
       e.preventDefault();
+      this.tricklist.add(
+        this.slotMachineResult.parsed,
+        this.slotMachineResult.orig,
+        this.slotMachine.getTrickScore(),
+        true
+      );
       this.triggerNextSpin();
     });
   }
@@ -180,7 +186,7 @@ class GrindTrickRandomizer {
     const score = this.slotMachine.getTrickScore();
     this.scoreboard.setPoints(score);
 
-    this.tricklist.addTrick(
+    this.tricklist.add(
       this.slotMachineResult.parsed,
       this.slotMachineResult.orig,
       score
