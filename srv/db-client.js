@@ -7,7 +7,7 @@ const DB_CONN = process.env.CLEARDB_DATABASE_URL;
 let con = mysql.createPool(DB_CONN);
 
 const QUERIES = { // WHERE ip != "::1"
-  getScores: `SELECT * from scores  ORDER BY ts DESC  LIMIT 100000;`,
+  getScores: `SELECT * from scores  ORDER BY ts DESC  LIMIT 50;`,
   saveScore: `INSERT INTO scores SET ?;`,
   getHighScores: `SELECT * from highscores ORDER BY score DESC, ts DESC  LIMIT 10;`,
   saveHighScore: `INSERT INTO highscores SET ?;`,
