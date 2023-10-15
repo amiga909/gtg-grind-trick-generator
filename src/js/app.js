@@ -93,7 +93,7 @@ class GrindTrickRandomizer {
 
   registerListener() {
     this.$bannerLogoText.on("click", (e) => {
-      window.location.href = window.location.origin;
+      window.location.href = "./index.html";
     });
     this.$bannerLogoAbout.on("click", (e) => {
       location.reload();

@@ -47,11 +47,11 @@ const REFERENCES = [
   },
   {
     name: "AIGHT trick book",
-    url: `<a target="_blank" href="http://www.aightgame.com/assets/permutations.txt">List</a>`,
+    url: `<a target="_blank" href=./assets/permutations.txt">List</a>`,
   },
   {
     name: "AIGHT Tricktionary",
-    url: `<a target="_blank" href="http://www.aightgame.com/tricktionary">Tricktionary</a>`,
+    url: `<a target="_blank" href="./tricktionary">Tricktionary</a>`,
   },
   {
     name: "Rollerblading Rollerblading FB group - vote grind scores",

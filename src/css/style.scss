@@ -150,7 +150,7 @@ p {
   padding: 0.5em 0.7em;
 }
 .banner-logo {
-  background-image: url('../img/gtg-logo-banner.svg');
+  background-image: url('./img/gtg-logo-banner.svg');
   background-size: cover;
   z-index: 0;
   width: 140px;
@@ -560,7 +560,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .gameover-screen-animated-background::before {
-  background-image: url('../img/aight-logo-square-white.png');
+  background-image: url('./img/aight-logo-square-white.png');
 
   content: '';
   opacity: 0;
@@ -579,7 +579,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .gameover-screen-animated-background::after {
-  /*         background-image: url("../img/aight-logo-square-white.png");
+  /*         background-image: url("./img/aight-logo-square-white.png");
    
   content: "";
   opacity: 0;
@@ -811,7 +811,7 @@ body::-webkit-scrollbar-thumb {
 
 @media (min-width: $bp_tablet) {
   .l-content-modal::after {
-    background-image: url('../img/thejokerblade-big.jpg');
+    background-image: url('./img/thejokerblade-big.jpg');
   }
 }
 
