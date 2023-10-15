@@ -29,4 +29,4 @@ const headerTricktionary = fs.readFileSync(__dirname + "/public/header_tricktion
  
 fs.writeFileSync( path.join(destinationFolder, 'tricktionary.html') , headerIndex + bodyIndex);
 
-//ghpages.publish('public-gh', function(err) {});
+ghpages.publish('public-gh', function(err) {});

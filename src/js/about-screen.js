@@ -47,7 +47,7 @@ const REFERENCES = [
   },
   {
     name: "AIGHT trick book",
-    url: `<a target="_blank" href=./assets/permutations.txt">List</a>`,
+    url: `<a target="_blank" href="./assets/permutations.txt">List</a>`,
   },
   {
     name: "AIGHT Tricktionary",

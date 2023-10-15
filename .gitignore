@@ -1,6 +1,7 @@
 node_modules/
 _gitignore/
 /public/
+/public-gh/
 .DS_Store
 ahrefs/
 .env
