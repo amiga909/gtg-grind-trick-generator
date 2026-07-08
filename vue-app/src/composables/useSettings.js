@@ -4,8 +4,10 @@ const STORAGE_KEY = "aight-settings-v3";
 
 export const CUSTOM_LEVEL = 4;
 
-export const MIN_SPINS = 2;
-export const MAX_SPINS = 10;
+export const MIN_PLAYERS = 2;
+export const MAX_PLAYERS = 6;
+export const MIN_ROUNDS = 1;
+export const MAX_ROUNDS = 10;
 
 export const LEVELS = [
   { id: 1, name: "Chill", tagline: "Basic grinds, no spins" },
@@ -60,8 +62,10 @@ const LEVEL_PRESETS = {
 
 function defaultSettings() {
   return {
+    mode: "solo", // solo | group
     level: 1,
-    spinsPerGame: 5,
+    players: ["Player 1", "Player 2"],
+    rounds: 5,
     reelSpeed: "normal",
     tricks: { ...ALL_TRICKS_OFF },
   };
@@ -76,10 +80,21 @@ function loadSettings() {
       ...stored,
       tricks: { ...defaults.tricks, ...(stored && stored.tricks) },
     };
-    merged.spinsPerGame = Math.min(
-      MAX_SPINS,
-      Math.max(MIN_SPINS, merged.spinsPerGame)
+    merged.rounds = Math.min(
+      MAX_ROUNDS,
+      Math.max(MIN_ROUNDS, Number(merged.rounds) || 5)
     );
+    if (
+      !Array.isArray(merged.players) ||
+      merged.players.length < MIN_PLAYERS ||
+      merged.players.some((name) => typeof name !== "string")
+    ) {
+      merged.players = [...defaults.players];
+    }
+    merged.players = merged.players.slice(0, MAX_PLAYERS);
+    if (merged.mode !== "solo" && merged.mode !== "group") {
+      merged.mode = "solo";
+    }
     return merged;
   } catch {
     return defaultSettings();

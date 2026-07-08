@@ -3,8 +3,6 @@ import AppModal from "./AppModal.vue";
 import {
   LEVELS,
   CUSTOM_LEVEL,
-  MAX_SPINS,
-  MIN_SPINS,
   REEL_SPEEDS,
   useSettings,
 } from "../composables/useSettings.js";
@@ -55,13 +53,6 @@ const TRICK_GROUPS = [
   },
 ];
 
-function onSpinsInput(event) {
-  const value = parseInt(event.target.value, 10);
-  settings.spinsPerGame = Number.isInteger(value)
-    ? Math.min(MAX_SPINS, Math.max(MIN_SPINS, value))
-    : 5;
-  event.target.value = settings.spinsPerGame;
-}
 </script>
 
 <template>
@@ -96,17 +87,6 @@ function onSpinsInput(event) {
     </template>
 
     <h3 class="section-title">Game</h3>
-    <label class="option option--inline">
-      <span>Spins per game</span>
-      <input
-        class="number-input"
-        type="number"
-        :min="MIN_SPINS"
-        :max="MAX_SPINS"
-        :value="settings.spinsPerGame"
-        @change="onSpinsInput"
-      />
-    </label>
     <label class="option option--inline">
       <span>Reel speed</span>
       <select class="select" v-model="settings.reelSpeed">

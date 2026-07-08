@@ -1,5 +1,6 @@
 <script setup>
 import AppModal from "./AppModal.vue";
+import AppIcon from "./AppIcon.vue";
 import {
   GLOSSARY,
   GRINDS,
@@ -8,8 +9,11 @@ import {
   VARIATIONS,
   thumbUrl,
 } from "../game/trickData.js";
+import { useCollection } from "../composables/useCollection.js";
 
 defineEmits(["close"]);
+
+const { grindLandedCount, landedGrindCount, totalGrinds } = useCollection();
 
 const terms = Object.entries(GLOSSARY).sort(([a], [b]) => a.localeCompare(b));
 
@@ -132,11 +136,23 @@ function scrollTo(id) {
     </table>
 
     <h3 id="tricktionary-Grinds" class="section-title">Grinds</h3>
+    <p v-if="landedGrindCount > 0" class="landed-summary">
+      <AppIcon name="check" :size="14" /> You landed
+      {{ landedGrindCount }}/{{ totalGrinds }} grinds in solo sessions.
+    </p>
     <table class="data-table">
       <tbody>
         <tr v-for="grind in grinds" :key="grind.name">
           <td class="term">
             {{ grind.name.replace(/^BS /, "Backside/BS ").replace(/^FS /, "Frontside/FS ") }}
+            <span
+              v-if="grindLandedCount(grind.name) > 0"
+              class="landed-mark"
+              :title="`Landed ${grindLandedCount(grind.name)}×`"
+            >
+              <AppIcon name="check" :size="13" />
+              {{ grindLandedCount(grind.name) }}&times;
+            </span>
           </td>
           <td>
             <a :href="grind.url || 'http://skateyeg.com/bog/'" target="_blank" rel="noopener">
@@ -231,6 +247,25 @@ function scrollTo(id) {
 .term {
   font-weight: 700;
   white-space: nowrap;
+}
+
+.landed-summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--red-hi);
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.landed-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  margin-left: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--red-hi);
 }
 
 @media (max-width: 560px) {

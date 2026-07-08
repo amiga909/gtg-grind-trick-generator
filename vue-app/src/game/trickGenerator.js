@@ -27,9 +27,11 @@ const NONE = { name: "None", score: 0 };
  * @param settings   `tricks` settings object from useSettings.
  * @param usedGrinds grind names already spun this game; they are
  *                   avoided until every grind has been used once.
+ * @param grindBias  optional weight multipliers per grind name, used by
+ *                   solo mode to favor never-landed and often-skipped grinds.
  */
-export function generateSpin(settings, usedGrinds = []) {
-  const grindPool = grindCandidates(settings, usedGrinds);
+export function generateSpin(settings, usedGrinds = [], grindBias = null) {
+  const grindPool = grindCandidates(settings, usedGrinds, grindBias);
   const grind = pickWeighted(grindPool);
 
   const variationPool = variationCandidates(grind, settings);
@@ -97,7 +99,7 @@ function pickWeighted(pool) {
   return pool[pool.length - 1];
 }
 
-function grindCandidates(settings, usedGrinds) {
+function grindCandidates(settings, usedGrinds, grindBias) {
   let pool = GRINDS;
   if (!settings.rareGrinds) {
     pool = pool.filter(
@@ -113,11 +115,11 @@ function grindCandidates(settings, usedGrinds) {
 
   // Soul grinds appear twice as often to even the odds against groove
   // grinds, which are listed once per FS/BS variant.
-  return pool.map((grind) =>
-    grind.isGroove || grind.isSoulGroove
-      ? grind
-      : { ...grind, weight: grind.weight * 2 }
-  );
+  return pool.map((grind) => {
+    const soulFactor = grind.isGroove || grind.isSoulGroove ? 1 : 2;
+    const biasFactor = (grindBias && grindBias[grind.name]) || 1;
+    return { ...grind, weight: grind.weight * soulFactor * biasFactor };
+  });
 }
 
 function variationCandidates(grind, settings) {

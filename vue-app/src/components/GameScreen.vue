@@ -4,22 +4,81 @@ import AppIcon from "./AppIcon.vue";
 import SlotReel from "./SlotReel.vue";
 import TrickExplainPanel from "./TrickExplainPanel.vue";
 import TrickListPanel from "./TrickListPanel.vue";
-import { useGame } from "../composables/useGame.js";
+import { LETTERS, useGame } from "../composables/useGame.js";
 import { useSettings } from "../composables/useSettings.js";
+import { useSpeech } from "../composables/useSpeech.js";
 
 const REEL_STAGGER_MS = 320;
 
-const { state, landTrick, skipTrick, giveUp, onReelsSettled } = useGame();
+const {
+  state,
+  isSolo,
+  currentPlayer,
+  isLastRound,
+  attempt,
+  rerollTrick,
+  landTrick,
+  skipTrick,
+  giveUp,
+  onReelsSettled,
+} = useGame();
 const { settings, reelSpeedMs } = useSettings();
+const { speakTrick } = useSpeech();
 
 const openPanel = ref(null); // 'explain' | 'tricklist' | null
 const stoppedReels = ref(0);
+
+// Read the trick aloud once the reels have settled.
+watch(
+  () => state.phase,
+  (phase) => {
+    if (phase === "result" && state.spin) {
+      speakTrick(state.spin.name);
+    }
+  }
+);
+
+// Badges earned by the last landed trick pop up as a short toast.
+const badgeToast = ref([]);
+let badgeToastTimer = null;
+watch(
+  () => state.newBadges,
+  (badges) => {
+    if (!badges.length) {
+      return;
+    }
+    badgeToast.value = badges;
+    window.clearTimeout(badgeToastTimer);
+    badgeToastTimer = window.setTimeout(() => {
+      badgeToast.value = [];
+    }, 3500);
+  }
+);
 
 const visibleReels = computed(() =>
   state.spin ? state.spin.reels.filter((reel) => !reel.hidden) : []
 );
 const isResult = computed(() => state.phase === "result");
-const isLastSpin = computed(() => state.spinsUsed >= state.spinsTotal);
+
+// Roster info for group mode: whether a player already attempted the
+// current trick, is up now, or is out of the game.
+function playerStatus(index) {
+  const pos = state.turnOrder.indexOf(index);
+  if (state.players[index].letters >= LETTERS.length) {
+    return "out";
+  }
+  if (pos === -1) {
+    return "waiting";
+  }
+  if (pos < state.turnPos) {
+    return "done";
+  }
+  return pos === state.turnPos ? "up" : "waiting";
+}
+
+function lettersOf(player) {
+  return LETTERS.slice(0, player.letters).split("").join(" ");
+}
 
 watch(
   () => state.spinId,
@@ -39,6 +98,24 @@ function onReelStopped() {
 
 <template>
   <section class="game">
+    <div v-if="!isSolo" class="roster">
+      <div
+        v-for="(player, i) in state.players"
+        :key="i"
+        class="roster__chip panel"
+        :class="`roster__chip--${playerStatus(i)}`"
+      >
+        <AppIcon
+          v-if="i === state.turnOrder[0]"
+          name="play"
+          :size="10"
+          title="Starts this turn"
+        />
+        <span class="roster__name">{{ player.name }}</span>
+        <span class="roster__letters">{{ lettersOf(player) || "—" }}</span>
+      </div>
+    </div>
+
     <div class="machine panel">
       <div class="machine__lights" aria-hidden="true">
         <span v-for="i in 14" :key="i" :style="{ '--i': i }" />
@@ -60,36 +137,85 @@ function onReelStopped() {
 
     <transition name="result">
       <div v-if="isResult" class="result">
-        <div class="result__name sticker-text">{{ state.spin.name }}</div>
-        <div class="result__score">
-          <AppIcon name="zap" :size="18" />
-          {{ state.spin.score }} point{{ state.spin.score === 1 ? "" : "s" }}
-          <span v-if="isLastSpin" class="result__last">— last spin!</span>
+        <div class="result__name sticker-text">
+          {{ state.spin.name }}
+          <button
+            class="result__speak"
+            aria-label="Read trick aloud"
+            @click="speakTrick(state.spin.name)"
+          >
+            <AppIcon name="sound" :size="20" />
+          </button>
         </div>
 
-        <div class="result__actions">
-          <button class="btn" @click="openPanel = 'explain'">
-            <AppIcon name="question" :size="18" /> Explain
-          </button>
-          <button class="btn" @click="skipTrick(settings)">
-            <AppIcon name="forward" :size="18" /> Skip
-          </button>
-          <button class="btn btn--go" @click="landTrick(settings)">
-            <AppIcon name="check" :size="18" /> Aight! +{{ state.spin.score }}
-          </button>
-        </div>
-        <div class="result__actions result__actions--secondary">
-          <button class="btn btn--ghost" @click="giveUp()">
-            <AppIcon name="flag" :size="16" /> Give up
-          </button>
-          <button
-            class="btn btn--ghost"
-            :disabled="state.tricks.length + state.skipped.length === 0"
-            @click="openPanel = 'tricklist'"
-          >
-            <AppIcon name="list" :size="16" /> Trick list ({{ state.tricks.length }})
-          </button>
-        </div>
+        <!-- solo: land or skip, build the collection -->
+        <template v-if="isSolo">
+          <div class="result__score">
+            <AppIcon name="zap" :size="18" />
+            {{ state.spin.score }} point{{ state.spin.score === 1 ? "" : "s" }}
+          </div>
+
+          <div class="result__actions">
+            <button class="btn" @click="openPanel = 'explain'">
+              <AppIcon name="question" :size="18" /> Explain
+            </button>
+            <button class="btn" @click="skipTrick(settings)">
+              <AppIcon name="forward" :size="18" /> Skip
+            </button>
+            <button class="btn btn--go" @click="landTrick(settings)">
+              <AppIcon name="check" :size="18" /> Aight! +{{ state.spin.score }}
+            </button>
+          </div>
+          <div class="result__actions result__actions--secondary">
+            <button class="btn btn--ghost" @click="giveUp()">
+              <AppIcon name="flag" :size="16" /> End session
+            </button>
+            <button
+              class="btn btn--ghost"
+              :disabled="state.tricks.length + state.skipped.length === 0"
+              @click="openPanel = 'tricklist'"
+            >
+              <AppIcon name="list" :size="16" /> Trick list ({{ state.tricks.length }})
+            </button>
+          </div>
+        </template>
+
+        <!-- group: every player attempts the same trick, bails cost a letter -->
+        <template v-else>
+          <div class="result__turn">
+            <span class="result__turn-name">{{ currentPlayer?.name }}</span> — your
+            turn!
+            <span v-if="isLastRound" class="result__last">last round!</span>
+          </div>
+
+          <div class="result__actions">
+            <button class="btn" @click="openPanel = 'explain'">
+              <AppIcon name="question" :size="18" /> Explain
+            </button>
+            <!-- only the turn's starting player may swap the trick -->
+            <button
+              v-if="state.turnPos === 0"
+              class="btn"
+              :disabled="state.rerollsLeft <= 0"
+              @click="rerollTrick(settings)"
+            >
+              <AppIcon name="forward" :size="18" /> New trick ({{
+                state.rerollsLeft
+              }})
+            </button>
+            <button class="btn" @click="attempt(false, settings)">
+              <AppIcon name="flag" :size="18" /> Bailed
+            </button>
+            <button class="btn btn--go" @click="attempt(true, settings)">
+              <AppIcon name="check" :size="18" /> Landed
+            </button>
+          </div>
+          <div class="result__actions result__actions--secondary">
+            <button class="btn btn--ghost" @click="giveUp()">
+              <AppIcon name="flag" :size="16" /> End game
+            </button>
+          </div>
+        </template>
       </div>
     </transition>
 
@@ -99,6 +225,18 @@ function onReelStopped() {
       @close="openPanel = null"
     />
     <TrickListPanel v-if="openPanel === 'tricklist'" @close="openPanel = null" />
+
+    <transition name="badge-toast">
+      <div v-if="badgeToast.length" class="badge-toast">
+        <div v-for="badge in badgeToast" :key="badge.id" class="badge-toast__item">
+          <AppIcon name="trophy" :size="18" />
+          <span>
+            <strong>Badge unlocked: {{ badge.name }}</strong>
+            <small>{{ badge.desc }}</small>
+          </span>
+        </div>
+      </div>
+    </transition>
   </section>
 </template>
 
@@ -180,6 +318,19 @@ function onReelStopped() {
   text-transform: uppercase;
 }
 
+.result__speak {
+  vertical-align: middle;
+  margin-left: 6px;
+  padding: 4px;
+  color: var(--red-hi);
+  text-shadow: none;
+  transition: transform 0.15s ease;
+}
+
+.result__speak:hover {
+  transform: scale(1.15);
+}
+
 .result__score {
   display: inline-flex;
   align-items: center;
@@ -193,6 +344,80 @@ function onReelStopped() {
 
 .result__last {
   color: var(--red-hi);
+}
+
+.result__turn {
+  font-size: 18px;
+  color: var(--text-dim);
+}
+
+.result__turn-name {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: var(--text);
+  text-shadow: var(--glow-white);
+}
+
+/* group roster */
+.roster {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.roster__chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.roster__chip--up {
+  border-color: var(--red);
+  box-shadow: var(--glow-red);
+}
+
+/* marker for the player who starts this turn */
+.roster__chip > svg {
+  color: var(--red-hi);
+  flex: none;
+}
+
+.roster__chip--done {
+  opacity: 0.6;
+}
+
+.roster__chip--out {
+  opacity: 0.35;
+}
+
+.roster__chip--out .roster__name {
+  text-decoration: line-through;
+}
+
+.roster__name {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.roster__chip--up .roster__name {
+  color: var(--red-hi);
+}
+
+.roster__letters {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  color: var(--red);
+  text-shadow: var(--glow-red);
 }
 
 .result__actions {
@@ -223,5 +448,57 @@ function onReelStopped() {
 
 .result-leave-to {
   opacity: 0;
+}
+
+.badge-toast {
+  position: fixed;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.badge-toast__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(231, 26, 0, 0.6);
+  background: rgba(10, 10, 10, 0.94);
+  box-shadow: var(--glow-red);
+  color: var(--red-hi);
+  text-align: left;
+}
+
+.badge-toast__item span {
+  display: flex;
+  flex-direction: column;
+}
+
+.badge-toast__item strong {
+  font-family: var(--font-display);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.badge-toast__item small {
+  color: var(--text-dim);
+  font-size: 13px;
+}
+
+.badge-toast-enter-active,
+.badge-toast-leave-active {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.badge-toast-enter-from,
+.badge-toast-leave-to {
+  opacity: 0;
+  transform: translateX(-50%) translateY(-14px);
 }
 </style>

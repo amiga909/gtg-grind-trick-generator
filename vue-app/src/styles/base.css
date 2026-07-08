@@ -96,6 +96,17 @@ button {
   cursor: pointer;
 }
 
+/* the browser's blue focus ring clashes with the theme; keep a red one
+   for keyboard navigation only */
+button:focus {
+  outline: none;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--red-hi);
+  outline-offset: 2px;
+}
+
 /* ---------- shared building blocks ---------- */
 
 .panel {

@@ -1,12 +1,18 @@
 <script setup>
-import { ref, watch } from "vue";
-import { useGame } from "../composables/useGame.js";
+import { computed, ref, watch } from "vue";
+import { LETTERS, useGame } from "../composables/useGame.js";
 import { useSettings } from "../composables/useSettings.js";
+import { useCollection } from "../composables/useCollection.js";
 
-const { state } = useGame();
+const { state, isSolo } = useGame();
 const { levelName } = useSettings();
+const { uniqueTrickCount } = useCollection();
 
 const pointsPop = ref(false);
+
+const playersIn = computed(
+  () => state.players.filter((p) => p.letters < LETTERS.length).length
+);
 
 watch(
   () => state.points,
@@ -20,21 +26,38 @@ watch(
 </script>
 
 <template>
-  <div class="scoreboard panel">
+  <div v-if="isSolo" class="scoreboard panel">
     <div class="scoreboard__block">
       <span class="scoreboard__caption">Score</span>
       <span class="scoreboard__value" :class="{ pop: pointsPop }">{{ state.points }}</span>
     </div>
     <div class="scoreboard__divider" />
     <div class="scoreboard__block">
-      <span class="scoreboard__caption">Spin {{ state.spinsUsed }}/{{ state.spinsTotal }}</span>
-      <span class="scoreboard__pips">
-        <i
-          v-for="i in Math.min(state.spinsTotal, 10)"
-          :key="i"
-          :class="{ used: i <= state.spinsUsed }"
-        />
-      </span>
+      <span class="scoreboard__caption">Spins</span>
+      <span class="scoreboard__value scoreboard__value--plain">{{
+        state.spinsUsed
+      }}</span>
+    </div>
+    <div class="scoreboard__divider" />
+    <div class="scoreboard__block">
+      <span class="scoreboard__caption">Collection</span>
+      <span class="scoreboard__level">{{ uniqueTrickCount }}</span>
+    </div>
+  </div>
+
+  <div v-else class="scoreboard panel">
+    <div class="scoreboard__block">
+      <span class="scoreboard__caption">Round</span>
+      <span class="scoreboard__value"
+        >{{ state.round }}/{{ state.roundsTotal }}</span
+      >
+    </div>
+    <div class="scoreboard__divider" />
+    <div class="scoreboard__block">
+      <span class="scoreboard__caption">Still in</span>
+      <span class="scoreboard__value scoreboard__value--plain">{{
+        playersIn
+      }}</span>
     </div>
     <div class="scoreboard__divider" />
     <div class="scoreboard__block">
@@ -81,23 +104,9 @@ watch(
   animation: pop 0.6s ease;
 }
 
-.scoreboard__pips {
-  display: flex;
-  gap: 5px;
-  padding: 8px 0;
-}
-
-.scoreboard__pips i {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: rgba(255, 90, 67, 0.9);
-  box-shadow: var(--glow-red-hi);
-}
-
-.scoreboard__pips i.used {
-  background: rgba(255, 255, 255, 0.14);
-  box-shadow: none;
+.scoreboard__value--plain {
+  color: var(--text-dim);
+  text-shadow: none;
 }
 
 .scoreboard__level {

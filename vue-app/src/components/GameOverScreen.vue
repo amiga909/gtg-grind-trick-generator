@@ -1,53 +1,25 @@
 <script setup>
-import { onMounted, ref } from "vue";
+import { computed } from "vue";
 import AppIcon from "./AppIcon.vue";
-import { useGame } from "../composables/useGame.js";
+import { LETTERS, useGame } from "../composables/useGame.js";
 import { useSettings } from "../composables/useSettings.js";
-
-const HYPE_TEXTS = [
-  "Congrats, you got",
-  "Sick, you got",
-  "You laced it, you got",
-  "Bonkers, that's",
-  "Call your mum, you got",
-  "Aight! You got",
-  "Lush! You have",
-  "Gnarly, you have",
-  "Banger! You got",
-  "Full send! That's",
-  "You got the flow,",
-  "Stoked! You got",
-  "Dope! You got",
-  "Epic sesh! You got",
-  "You killed it and got",
-  "Boss mode, you got",
-  "Massive flex!",
-  "Sweet action! You got",
-];
 
 const { state, startGame, goToStart } = useGame();
 const { settings } = useSettings();
 
-const hype =
-  state.points === 0
-    ? "At least it can not get worse..."
-    : HYPE_TEXTS[Math.floor(Math.random() * HYPE_TEXTS.length)];
+const standings = computed(() =>
+  [...state.players].sort((a, b) => a.letters - b.letters)
+);
+const winners = computed(() =>
+  standings.value.filter((p) => p.letters === standings.value[0]?.letters)
+);
+const winnerNames = computed(() =>
+  winners.value.map((p) => p.name).join(" & ")
+);
 
-// Count the score up from 0 for the arcade feel.
-const displayedPoints = ref(0);
-onMounted(() => {
-  const target = state.points;
-  if (target === 0) {
-    return;
-  }
-  const stepMs = Math.max(Math.floor(600 / target), 20);
-  const timer = setInterval(() => {
-    displayedPoints.value += 1;
-    if (displayedPoints.value >= target) {
-      clearInterval(timer);
-    }
-  }, stepMs);
-});
+function lettersOf(player) {
+  return LETTERS.slice(0, player.letters).split("").join(" ");
+}
 
 const CONFETTI_COLORS = ["#e71a00", "#ff5a43", "#ffffff", "#8c1000"];
 const confetti = Array.from({ length: 40 }, (_, i) => ({
@@ -60,7 +32,7 @@ const confetti = Array.from({ length: 40 }, (_, i) => ({
 
 <template>
   <section class="gameover rise-in">
-    <div v-if="state.points > 0" class="confetti" aria-hidden="true">
+    <div class="confetti" aria-hidden="true">
       <i
         v-for="(piece, i) in confetti"
         :key="i"
@@ -74,46 +46,38 @@ const confetti = Array.from({ length: 40 }, (_, i) => ({
     </div>
 
     <h2 class="gameover__title sticker-text">Game Over</h2>
-    <p class="gameover__hype">{{ hype }}</p>
-    <div class="gameover__points">{{ displayedPoints }}</div>
-    <p class="gameover__points-caption">points</p>
 
-    <p v-if="state.isNewBest" class="gameover__best">
-      <AppIcon name="trophy" :size="17" /> New best score!
-    </p>
-    <p v-else-if="state.bestScore > 0" class="gameover__best gameover__best--old">
-      Best: {{ state.bestScore }}
+    <p class="gameover__winner">
+      <AppIcon name="trophy" :size="18" />
+      <strong>{{ winnerNames }}</strong>
+      {{ winners.length > 1 ? "share the crown!" : "takes the crown!" }}
     </p>
 
-    <div class="gameover__tricks panel" v-if="state.tricks.length">
-      <h3>Landed tricks</h3>
+    <div class="gameover__standings panel">
       <table class="data-table">
         <tbody>
-          <tr v-for="(trick, i) in state.tricks" :key="i">
-            <td class="pts">+{{ trick.score }}</td>
-            <td>{{ trick.name }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="gameover__tricks panel" v-if="state.skipped.length">
-      <h3>Skipped</h3>
-      <table class="data-table">
-        <tbody>
-          <tr v-for="(trick, i) in state.skipped" :key="i">
-            <td class="pts pts--skipped">{{ trick.score }}</td>
-            <td>{{ trick.name }}</td>
+          <tr v-for="(player, i) in standings" :key="player.name + i">
+            <td class="rank">{{ i + 1 }}.</td>
+            <td class="name" :class="{ out: player.letters >= LETTERS.length }">
+              {{ player.name }}
+            </td>
+            <td class="letters">
+              <span v-if="player.letters > 0">{{ lettersOf(player) }}</span>
+              <span v-else class="clean">clean!</span>
+              <span v-if="player.letters >= LETTERS.length" class="out-tag"
+                >out</span
+              >
+            </td>
           </tr>
         </tbody>
       </table>
     </div>
 
     <div class="gameover__actions">
-      <button class="btn btn--go" @click="startGame(settings)">
-        <AppIcon name="play" :size="18" /> Play again
+      <button class="btn btn--go" @click="startGame(settings, 'group')">
+        <AppIcon name="play" :size="18" /> Rematch
       </button>
-      <button class="btn" @click="goToStart()">Change level</button>
+      <button class="btn" @click="goToStart()">Change setup</button>
     </div>
   </section>
 </template>
@@ -127,7 +91,7 @@ const confetti = Array.from({ length: 40 }, (_, i) => ({
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   text-align: center;
 }
 
@@ -137,66 +101,72 @@ const confetti = Array.from({ length: 40 }, (_, i) => ({
   text-transform: uppercase;
 }
 
-.gameover__hype {
-  color: var(--text-dim);
+.gameover__winner {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-size: 18px;
+  color: var(--text-dim);
 }
 
-.gameover__points {
+.gameover__winner strong {
   font-family: var(--font-display);
-  font-size: 74px;
-  font-weight: 900;
-  line-height: 1;
+  font-size: 19px;
+  text-transform: uppercase;
   color: var(--red-hi);
   text-shadow: var(--glow-red-hi);
 }
 
-.gameover__points-caption {
-  font-family: var(--font-display);
-  font-size: 12px;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--text-dim);
-}
-
-.gameover__best {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 6px;
-  color: var(--red-hi);
-  font-weight: 600;
-}
-
-.gameover__best--old {
-  color: var(--text-dim);
-}
-
-.gameover__tricks {
+.gameover__standings {
   width: 100%;
-  margin-top: 14px;
-  padding: 14px 16px;
+  margin-top: 12px;
+  padding: 8px 16px;
   text-align: left;
 }
 
-.gameover__tricks h3 {
-  font-size: 13px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--red-hi);
-  margin-bottom: 6px;
-}
-
-.pts {
-  width: 46px;
+.rank {
+  width: 34px;
   font-family: var(--font-display);
   font-weight: 700;
-  color: var(--red-hi);
+  color: var(--text-dim);
 }
 
-.pts--skipped {
-  color: var(--text-dim);
+.name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.name.out {
   text-decoration: line-through;
+  color: var(--text-dim);
+}
+
+.letters {
+  text-align: right;
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  color: var(--red);
+  text-shadow: var(--glow-red);
+}
+
+.letters .clean {
+  color: var(--text-dim);
+  text-shadow: none;
+  font-weight: 600;
+  letter-spacing: normal;
+}
+
+.out-tag {
+  margin-left: 8px;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  padding: 2px 8px;
 }
 
 .gameover__actions {
