@@ -66,7 +66,7 @@
     "build-sw": "node_modules/.bin/workbox generateSW workbox-config.js",
     "lint": "node_modules/.bin/eslint ./src/js --fix --ext .js;",
     "lint-srv": "node_modules/.bin/eslint ./srv --fix --ext .js && node_modules/.bin/eslint index.js --fix --ext .js;",
-    "permutations": "node vue-app/tools/permutations.js",
+    "permutations": "node src/tools/permutations.js",
     "googlemap": "node -r esm tools/skateshops/kml-parser.js",
     "heroku-postbuild": "npm run build",
     "resetDB": "node srv/resetDB.js"
