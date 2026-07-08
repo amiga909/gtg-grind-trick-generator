@@ -5,3 +5,4 @@ _gitignore/
 .DS_Store
 ahrefs/
 .env
+./src/dist
