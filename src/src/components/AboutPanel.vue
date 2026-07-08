@@ -38,8 +38,8 @@ const REFERENCES = [
       AIGHT is a grind trick randomizer for blading. Every grind trick is split
       into five phases — approach, spin to grind, grind, grind variation and
       spin off grind. The slot machine randomizes the phases and translates the
-      result back into a real blading trick name. More than 30 grinds, more
-      than 50'000 unique tricks. Play alone or against your crew.
+      result back into a real blading trick name. More than 30 grinds, more than
+      50'000 unique tricks. Play alone or against your crew.
     </p>
 
     <h3 class="section-title">Solo mode</h3>
@@ -70,19 +70,19 @@ const REFERENCES = [
         difficulty, then press <strong>Start game</strong>.
       </li>
       <li>
-        Each round one trick is spun and <strong>every player attempts
-        it</strong>, one after another. The starting player rotates every
-        round.
+        Each round one trick is spun and
+        <strong>every player attempts it</strong>, one after another. The
+        starting player rotates every round.
       </li>
       <li>
         The starting player may swap the trick for a new spin up to
-        <strong>3 times</strong> — but once they attempt it, the trick is
-        locked for everyone.
+        <strong>3 times</strong> — but once they attempt it, the trick is locked
+        for everyone.
       </li>
       <li>
         Bail the trick and you collect the next letter of
-        <strong>A&middot;I&middot;G&middot;H&middot;T</strong>. Five letters
-        and you're out — like S.K.A.T.E.
+        <strong>A&middot;I&middot;G&middot;H&middot;T</strong>. Five letters and
+        you're out — like S.K.A.T.E.
       </li>
       <li>
         The game ends after the last round or when only one player is left.
@@ -100,8 +100,8 @@ const REFERENCES = [
         <tr>
           <td><AppIcon name="sound" /></td>
           <td>
-            Read the trick name aloud. The button in the top right corner
-            mutes all audio.
+            Read the trick name aloud. The button in the top right corner mutes
+            all audio.
           </td>
         </tr>
         <tr>
@@ -132,7 +132,10 @@ const REFERENCES = [
         </tr>
         <tr>
           <td><AppIcon name="settings" /></td>
-          <td>Include and exclude tricks and set game options. Saved on this device.</td>
+          <td>
+            Include and exclude tricks and set game options. Saved on this
+            device.
+          </td>
         </tr>
         <tr>
           <td><AppIcon name="book" /></td>
@@ -144,23 +147,30 @@ const REFERENCES = [
     <h3 class="section-title">Credits &amp; references</h3>
     <p>
       Special thanks to the awesome blading reference
-      <a href="http://skateyeg.com/bog/" target="_blank" rel="noopener">Book of Grinds</a>
-      for letting me use the thumbnails for the trick explanations. The app
-      only covers single grind tricks — no jumps or switch-ups. It is amazing
-      to learn how variable grind tricks are.
-      <a href="https://www.youtube.com/watch?v=Chpys46GZAY" target="_blank" rel="noopener">
-        I love rollerblading</a>.
+      <a href="http://skateyeg.com/bog/" target="_blank" rel="noopener"
+        >Book of Grinds</a
+      >
+      for letting me use the thumbnails for the trick explanations. The app only
+      covers single grind tricks — no jumps or switch-ups. It is amazing to
+      learn how variable grind tricks are.
+      <a
+        href="https://www.youtube.com/watch?v=Chpys46GZAY"
+        target="_blank"
+        rel="noopener"
+      >
+        I love rollerblading</a
+      >.
     </p>
-    <ul class="links">
-      <li v-for="reference in REFERENCES" :key="reference.url">
-        <a :href="reference.url" target="_blank" rel="noopener">{{ reference.name }}</a>
-      </li>
-    </ul>
 
     <p class="footer-note">
-      Copyright &copy; 2021 Roman Hatz &middot;
-      <a href="https://github.com/amiga909/gtg-grind-trick-generator" target="_blank" rel="noopener">
-        Source code</a>
+      Copyright &copy; 2026 Roman Hatz &middot;
+      <a
+        href="https://github.com/amiga909/gtg-grind-trick-generator"
+        target="_blank"
+        rel="noopener"
+      >
+        Source code</a
+      >
       &middot;
       <a href="mailto:aight.bladegame@gmail.com">aight.bladegame@gmail.com</a>
     </p>
