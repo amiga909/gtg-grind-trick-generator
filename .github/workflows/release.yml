@@ -1,20 +1,21 @@
-# Manual release: builds the vue app from main and deploys it to
-# GitHub Pages. Requires Settings -> Pages -> Source: "GitHub Actions"
-# (the old gh-pages branch stays untouched as an archive of the old app).
+# Manual release: builds the vue app from main and pushes the compiled
+# dist/ to the "release" branch, which GitHub Pages serves.
+#
+# One-time setup: Settings -> Pages -> Deploy from a branch ->
+# Branch: release / (root). The old gh-pages branch stays untouched as
+# an archive of the old app.
 #
 # Run it from the Actions tab -> "Release to GitHub Pages" -> Run workflow.
+# Each release is a commit on "release": diff releases there, roll back
+# by resetting the branch to an earlier commit.
 name: Release to GitHub Pages
 
 on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
-# Never run two deploys at once; a newly started release supersedes a
-# queued (not yet deploying) one.
 concurrency:
   group: pages
   cancel-in-progress: false
@@ -22,9 +23,6 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -48,9 +46,13 @@ jobs:
         run: npm run build
         working-directory: vue-app
 
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: vue-app/dist
+      # Serve the files verbatim — no Jekyll processing on Pages.
+      - name: Add .nojekyll
+        run: touch vue-app/dist/.nojekyll
 
-      - uses: actions/deploy-pages@v4
-        id: deployment
+      - name: Push dist to release branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: release
+          publish_dir: vue-app/dist
