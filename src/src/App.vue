@@ -363,4 +363,16 @@ const openPanel = ref(null); // 'settings' | 'tricktionary' | 'collection' | 'ab
   opacity: 0.4;
   pointer-events: none;
 }
+
+/* small phones: icons only, the labels don't fit */
+@media (max-width: 480px) {
+  .app-nav__btn span {
+    display: none;
+  }
+
+  .app-nav__btn {
+    min-width: 58px;
+    padding: 11px 0;
+  }
+}
 </style>

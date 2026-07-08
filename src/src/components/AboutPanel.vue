@@ -4,29 +4,6 @@ import AppIcon from "./AppIcon.vue";
 
 defineEmits(["close"]);
 
-const REVIEWS = [
-  {
-    name: "Thirty+Rollin — review",
-    url: "https://www.youtube.com/watch?v=4F8yYgoO_fw",
-  },
-  {
-    name: "Brandon Drummond — review",
-    url: "https://www.youtube.com/watch?v=ky3jVP5iPpY",
-  },
-  {
-    name: "Tri Tri-Rudolf — stream 1",
-    url: "https://www.youtube.com/embed/234aMMz5jKc",
-  },
-  {
-    name: "Tri Tri-Rudolf — stream 2",
-    url: "https://www.youtube.com/embed/LPle1C4Klzs",
-  },
-  {
-    name: "Martin Bommeli — livestream testing",
-    url: "https://www.youtube.com/user/MartinBommeli",
-  },
-];
-
 const REFERENCES = [
   { name: "Book of Grinds", url: "http://skateyeg.com/" },
   {
@@ -62,24 +39,56 @@ const REFERENCES = [
       into five phases — approach, spin to grind, grind, grind variation and
       spin off grind. The slot machine randomizes the phases and translates the
       result back into a real blading trick name. More than 30 grinds, more
-      than 50'000 unique tricks.
+      than 50'000 unique tricks. Play alone or against your crew.
     </p>
 
-    <h3 class="section-title">How to play</h3>
+    <h3 class="section-title">Solo mode</h3>
     <ol class="steps">
-      <li>Choose a difficulty and press <strong>Start game</strong>.</li>
-      <li>The slot machine spins a trick. You have 3 tries to land it.</li>
+      <li>Pick a difficulty and press <strong>Start session</strong>.</li>
+      <li>The slot machine spins a trick — go land it.</li>
       <li>
-        Landed it? Press <strong>Aight!</strong> to collect the points. Can't
-        do it? Press <strong>Skip</strong>.
+        Landed it? Press <strong>Aight!</strong> to add it to your lifetime
+        trick collection. Can't do it? Press <strong>Skip</strong>.
       </li>
-      <li>The game ends after the last spin. Highest score wins.</li>
+      <li>
+        There is no game over and no spin limit — end the session whenever
+        you're done.
+      </li>
     </ol>
     <p>
-      Press <strong>Explain</strong> for a description of the current trick.
-      Design your own game in the settings: included tricks, spins per game and
-      reel speed.
+      Solo mode trains you: tricks you have never landed and tricks you keep
+      skipping come up more often. Your collection, milestone badges (first
+      topside, first 540, every soul-plate grind, ...) and per-grind progress
+      are saved on this device — check them under
+      <strong>Collection</strong>.
     </p>
+
+    <h3 class="section-title">Group mode — A.I.G.H.T</h3>
+    <ol class="steps">
+      <li>
+        Enter the players (2&ndash;6), choose the number of rounds and the
+        difficulty, then press <strong>Start game</strong>.
+      </li>
+      <li>
+        Each round one trick is spun and <strong>every player attempts
+        it</strong>, one after another. The starting player rotates every
+        round.
+      </li>
+      <li>
+        The starting player may swap the trick for a new spin up to
+        <strong>3 times</strong> — but once they attempt it, the trick is
+        locked for everyone.
+      </li>
+      <li>
+        Bail the trick and you collect the next letter of
+        <strong>A&middot;I&middot;G&middot;H&middot;T</strong>. Five letters
+        and you're out — like S.K.A.T.E.
+      </li>
+      <li>
+        The game ends after the last round or when only one player is left.
+        Fewest letters wins.
+      </li>
+    </ol>
 
     <h3 class="section-title">Controls</h3>
     <table class="data-table">
@@ -89,20 +98,37 @@ const REFERENCES = [
           <td>Show a description of the current trick.</td>
         </tr>
         <tr>
+          <td><AppIcon name="sound" /></td>
+          <td>
+            Read the trick name aloud. The button in the top right corner
+            mutes all audio.
+          </td>
+        </tr>
+        <tr>
           <td><AppIcon name="forward" /></td>
-          <td>Skip this trick and spin the next one. If this is the last spin, the game ends.</td>
+          <td>
+            Solo: skip this trick and spin the next one. Group: the starting
+            player swaps the trick (3 per turn).
+          </td>
         </tr>
         <tr>
           <td><AppIcon name="check" /></td>
-          <td>Trick done — collect the points and add it to your trick list.</td>
+          <td>Trick landed — collect it (solo) or pass it on (group).</td>
         </tr>
         <tr>
           <td><AppIcon name="flag" /></td>
-          <td>Give up and end the game.</td>
+          <td>
+            Solo: end the session. Group: bailed — take a letter, or end the
+            whole game.
+          </td>
         </tr>
         <tr>
           <td><AppIcon name="list" /></td>
-          <td>Show the tricks you have done so far.</td>
+          <td>Show the tricks you have done this session.</td>
+        </tr>
+        <tr>
+          <td><AppIcon name="trophy" /></td>
+          <td>Your lifetime trick collection, badges and grind progress.</td>
         </tr>
         <tr>
           <td><AppIcon name="settings" /></td>
@@ -114,14 +140,6 @@ const REFERENCES = [
         </tr>
       </tbody>
     </table>
-
-    <h3 class="section-title">Reviews</h3>
-    <p>Many thanks to all of you who supported this app with your feedback.</p>
-    <ul class="links">
-      <li v-for="review in REVIEWS" :key="review.url">
-        <a :href="review.url" target="_blank" rel="noopener">{{ review.name }}</a>
-      </li>
-    </ul>
 
     <h3 class="section-title">Credits &amp; references</h3>
     <p>
