@@ -1,11 +1,13 @@
 <script setup>
-import { computed } from "vue";
+import { computed, onMounted } from "vue";
 import AppIcon from "./AppIcon.vue";
 import { LETTERS, useGame } from "../composables/useGame.js";
 import { useSettings } from "../composables/useSettings.js";
+import { useSpeech } from "../composables/useSpeech.js";
 
 const { state, startGame, goToStart } = useGame();
 const { settings } = useSettings();
+const { announceWinner } = useSpeech();
 
 const standings = computed(() =>
   [...state.players].sort((a, b) => a.letters - b.letters)
@@ -20,6 +22,13 @@ const winnerNames = computed(() =>
 function lettersOf(player) {
   return LETTERS.slice(0, player.letters).split("").join(" ");
 }
+
+// "Player N ... wins" — only when there is a single winner to call out.
+onMounted(() => {
+  if (winners.value.length === 1) {
+    announceWinner(state.players.indexOf(winners.value[0]) + 1);
+  }
+});
 
 const CONFETTI_COLORS = ["#e71a00", "#ff5a43", "#ffffff", "#8c1000"];
 const confetti = Array.from({ length: 40 }, (_, i) => ({

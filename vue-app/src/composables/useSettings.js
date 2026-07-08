@@ -67,6 +67,7 @@ function defaultSettings() {
     players: ["Player 1", "Player 2"],
     rounds: 5,
     reelSpeed: "normal",
+    introMusic: true,
     tricks: { ...ALL_TRICKS_OFF },
   };
 }
@@ -95,6 +96,7 @@ function loadSettings() {
     if (merged.mode !== "solo" && merged.mode !== "group") {
       merged.mode = "solo";
     }
+    merged.introMusic = merged.introMusic !== false;
     return merged;
   } catch {
     return defaultSettings();

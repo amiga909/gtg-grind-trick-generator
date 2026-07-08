@@ -1,11 +1,11 @@
 /**
  * Enumerates every trick name the slot machine can produce and writes
- * them to src/assets/permutations2.txt (repo root).
+ * them to permutations2.txt next to this script.
  *
  * Replaces the legacy `node -r esm tools/permutations.js`, which broke
  * because the `esm` loader shim does not work on modern Node.
  *
- * Run from vue-app/: node tools/permutations.js
+ * Run from the app root: node tools/permutations.js
  */
 import { writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
@@ -26,7 +26,7 @@ import { nameTrick } from "../src/game/trickNamer.js";
 
 const OUT_FILE = join(
   dirname(fileURLToPath(import.meta.url)),
-  "../../src/assets/permutations2.txt"
+  "permutations2.txt"
 );
 
 function spinTosFor(grind, approach) {

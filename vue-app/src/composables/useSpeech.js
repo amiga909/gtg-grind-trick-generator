@@ -1,4 +1,10 @@
 import { reactive } from "vue";
+import {
+  GRINDS,
+  GRIND_SYNONYMS,
+  VARIATIONS,
+  thumbUrl,
+} from "../game/trickData.js";
 
 /**
  * Text-to-speech sampler: trick names are concatenations of a small
@@ -90,6 +96,37 @@ export const SAMPLE_FILES = {
   true: "True.wav",
 };
 
+// Game audio: intro music and announcer clips for group mode.
+const GAME_AUDIO_BASE = "audioGame/";
+export const GAME_SAMPLE_FILES = {
+  "player 1": "Player 1.mp3",
+  "player 2": "Player 2.mp3",
+  "player 3": "Player 3.mp3",
+  "player 4": "Player 4.mp3",
+  "player 5": "Player 5.mp3",
+  "player 6": "Player 6.mp3",
+  wins: "wins.mp3",
+  fight: "fight.mp3",
+  music: "title music.mp3",
+};
+
+/**
+ * Every image the app shows, derived from the trick database instead of
+ * a hardcoded file list: each grind/variation/synonym knows its capture
+ * thumb. Only the standalone logos are listed explicitly.
+ */
+export const IMAGE_URLS = [
+  ...new Set([
+    "img/gtg-logo.svg",
+    "img/gtg-logo-banner-text.svg",
+    ...GRINDS.map((grind) => grind.thumbUrl),
+    ...VARIATIONS.filter((v) => !v.noThumb).map((v) => thumbUrl(v.name)),
+    ...GRIND_SYNONYMS.map((syn) =>
+      thumbUrl(syn.newName === "Top Teakettle" ? "Teakettle" : syn.newName)
+    ),
+  ]),
+];
+
 // Written form -> spoken form, applied before tokenizing.
 const SPOKEN = [
   [/\bBS\b/g, "Backside"],
@@ -136,7 +173,10 @@ const MUTE_KEY = "aight-muted";
 const state = reactive({
   ready: false,
   loaded: 0,
-  total: Object.keys(SAMPLE_FILES).length,
+  total:
+    Object.keys(SAMPLE_FILES).length +
+    Object.keys(GAME_SAMPLE_FILES).length +
+    IMAGE_URLS.length,
   failed: [], // files that could not be fetched/decoded
   // guarded: this module is also imported in node-based tests
   muted:
@@ -154,21 +194,39 @@ export async function preloadSpeech() {
   }
   ctx = new (window.AudioContext || window.webkitAudioContext)();
 
-  await Promise.all(
-    Object.entries(SAMPLE_FILES).map(async ([key, file]) => {
-      try {
-        const res = await fetch(AUDIO_BASE + encodeURIComponent(file));
-        if (!res.ok) {
-          throw new Error(`HTTP ${res.status}`);
-        }
-        const buffer = await ctx.decodeAudioData(await res.arrayBuffer());
-        buffers.set(key, buffer);
-      } catch {
-        state.failed.push(file);
+  const load = async ([key, file], base) => {
+    try {
+      const res = await fetch(base + encodeURIComponent(file));
+      if (!res.ok) {
+        throw new Error(`HTTP ${res.status}`);
       }
+      const buffer = await ctx.decodeAudioData(await res.arrayBuffer());
+      buffers.set(key, buffer);
+    } catch {
+      state.failed.push(file);
+    }
+    state.loaded += 1;
+  };
+
+  // Warms the browser cache so images render instantly later on.
+  const loadImage = (url) =>
+    new Promise((resolve) => {
+      const img = new Image();
+      img.onload = resolve;
+      img.onerror = () => {
+        state.failed.push(url);
+        resolve();
+      };
+      img.src = url;
+    }).then(() => {
       state.loaded += 1;
-    })
-  );
+    });
+
+  await Promise.all([
+    ...Object.entries(SAMPLE_FILES).map((e) => load(e, AUDIO_BASE)),
+    ...Object.entries(GAME_SAMPLE_FILES).map((e) => load(e, GAME_AUDIO_BASE)),
+    ...IMAGE_URLS.map(loadImage),
+  ]);
   state.ready = true;
 }
 
@@ -188,11 +246,12 @@ export function toggleMute() {
   localStorage.setItem(MUTE_KEY, state.muted ? "1" : "0");
   if (state.muted) {
     stopSpeech();
+    fadeOutMusic(0.2);
   }
 }
 
-/** Reads a trick name aloud from the preloaded samples. */
-export function speakTrick(name) {
+/** Plays a sequence of preloaded sample keys back to back. */
+export function playKeys(keys) {
   if (!state.ready || !ctx || state.muted) {
     return;
   }
@@ -203,7 +262,10 @@ export function speakTrick(name) {
 
   const GAP_S = 0.06;
   let at = ctx.currentTime + 0.05;
-  for (const key of matchSamples(name, (k) => buffers.has(k))) {
+  for (const key of keys) {
+    if (!buffers.has(key)) {
+      continue;
+    }
     const source = ctx.createBufferSource();
     source.buffer = buffers.get(key);
     source.connect(ctx.destination);
@@ -213,6 +275,98 @@ export function speakTrick(name) {
   }
 }
 
+/** Reads a trick name aloud from the preloaded samples. */
+export function speakTrick(name) {
+  playKeys(matchSamples(name, (key) => buffers.has(key)));
+}
+
+/** Group mode: announce whose turn starts ("Player 3"). */
+export function announceStarter(playerNumber) {
+  playKeys([`player ${playerNumber}`]);
+}
+
+/** Game over: announce the winner ("Player 2 ... wins"). */
+export function announceWinner(playerNumber) {
+  playKeys([`player ${playerNumber}`, "wins"]);
+}
+
+/* ---------- intro music ---------- */
+
+let musicSource = null;
+let musicGain = null;
+let musicStarted = false;
+let musicFaded = false;
+
+/**
+ * Starts the looping title music (with a short fade in). No-op until
+ * the samples are ready, after the music was faded out, while muted,
+ * or while the AudioContext is still waiting for a user gesture.
+ */
+export function startMusic() {
+  if (
+    musicStarted ||
+    musicFaded ||
+    state.muted ||
+    !state.ready ||
+    !ctx ||
+    ctx.state === "suspended" ||
+    !buffers.has("music")
+  ) {
+    return;
+  }
+  musicStarted = true;
+  musicGain = ctx.createGain();
+  musicGain.gain.value = 0;
+  musicGain.gain.linearRampToValueAtTime(0.85, ctx.currentTime + 1.2);
+  musicGain.connect(ctx.destination);
+  musicSource = ctx.createBufferSource();
+  musicSource.buffer = buffers.get("music");
+  musicSource.loop = true;
+  musicSource.connect(musicGain);
+  musicSource.start();
+}
+
+/** Fades the title music out; it will not start again. */
+export function fadeOutMusic(seconds = 1.4) {
+  musicFaded = true;
+  if (!musicSource || !musicGain) {
+    return;
+  }
+  const now = ctx.currentTime;
+  musicGain.gain.cancelScheduledValues(now);
+  musicGain.gain.setValueAtTime(musicGain.gain.value, now);
+  musicGain.gain.linearRampToValueAtTime(0, now + seconds);
+  musicSource.stop(now + seconds + 0.05);
+  musicSource = null;
+  musicGain = null;
+}
+
+/**
+ * Resumes the AudioContext from the first user gesture (browsers block
+ * audio before one). Optionally starts the intro music.
+ */
+export function unlockAudio(withMusic) {
+  if (!ctx) {
+    return;
+  }
+  const resumed = ctx.state === "suspended" ? ctx.resume() : Promise.resolve();
+  if (withMusic) {
+    resumed.then(() => startMusic());
+  }
+}
+
 export function useSpeech() {
-  return { speechState: state, preloadSpeech, speakTrick, stopSpeech, toggleMute };
+  return {
+    speechState: state,
+    preloadSpeech,
+    speakTrick,
+    playKeys,
+    announceStarter,
+    announceWinner,
+    startMusic,
+    fadeOutMusic,
+    unlockAudio,
+    stopSpeech,
+    toggleMute,
+  };
 }

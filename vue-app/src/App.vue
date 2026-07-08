@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, onUnmounted, ref } from "vue";
+import { computed, onMounted, onUnmounted, ref, watch } from "vue";
 import AppIcon from "./components/AppIcon.vue";
 import ScoreBoard from "./components/ScoreBoard.vue";
 import StartScreen from "./components/StartScreen.vue";
@@ -10,39 +10,120 @@ import TricktionaryPanel from "./components/TricktionaryPanel.vue";
 import AboutPanel from "./components/AboutPanel.vue";
 import CollectionPanel from "./components/CollectionPanel.vue";
 import { useGame } from "./composables/useGame.js";
+import { useSettings } from "./composables/useSettings.js";
 import { useSpeech } from "./composables/useSpeech.js";
 
 const { state, goToStart } = useGame();
+const { settings } = useSettings();
 
-// All speech samples are decoded before the app shows.
-const { speechState, preloadSpeech, toggleMute, stopSpeech } = useSpeech();
+// All audio (speech samples, announcer, title music) is decoded before
+// the app shows, behind an intro screen of at least INTRO_MIN_MS.
+const {
+  speechState,
+  preloadSpeech,
+  toggleMute,
+  stopSpeech,
+  startMusic,
+  fadeOutMusic,
+  unlockAudio,
+} = useSpeech();
 preloadSpeech();
 
-// Any button press cuts running speech short. Capture phase, so the
-// stop happens before the button's own handler (which may speak again,
-// like the replay button).
+const INTRO_MIN_MS = 2000;
+const introTimeDone = ref(false);
+const started = ref(false);
+
+// Browsers block audio until a user gesture, so the intro ends with a
+// START button: clicking it unlocks the AudioContext, starts the title
+// music and fades the game in.
+const showStart = computed(() => speechState.ready && introTimeDone.value);
+const showApp = computed(() => started.value);
+
+function start() {
+  started.value = true;
+  // resume the AudioContext; start the music only if enabled in settings
+  unlockAudio(settings.introMusic);
+}
+
+// Switching the setting off while the music plays silences it right away.
+watch(
+  () => settings.introMusic,
+  (enabled) => !enabled && fadeOutMusic(0.5)
+);
+
+// While the game fades in, transient transforms would overflow the
+// viewport and flash a scrollbar. Clip the page until it settles.
+function lockScroll() {
+  document.documentElement.style.overflow = "clip";
+}
+function unlockScroll() {
+  document.documentElement.style.overflow = "";
+}
+
+// The loading counter always animates from 0 to the asset total across
+// the intro (at least 2s), never running ahead of what actually loaded.
+const displayedCount = ref(0);
+function animateCounter(startedAt) {
+  const progress = Math.min((performance.now() - startedAt) / INTRO_MIN_MS, 1);
+  displayedCount.value = Math.min(
+    Math.floor(progress * speechState.total),
+    speechState.loaded
+  );
+  if (!showApp.value) {
+    requestAnimationFrame(() => animateCounter(startedAt));
+  }
+}
+
+// Any button press in the game cuts running speech short. Capture
+// phase, so the stop happens before the button's own handler (which may
+// speak again, like the replay button). The intro music is NOT touched
+// here — it keeps playing through the toolbar panels and only fades
+// when a mode is chosen (see StartScreen).
 function stopSpeechOnButton(event) {
-  if (event.target.closest("button")) {
+  if (showApp.value && event.target.closest("button")) {
     stopSpeech();
   }
 }
-onMounted(() => document.addEventListener("click", stopSpeechOnButton, true));
-onUnmounted(() =>
-  document.removeEventListener("click", stopSpeechOnButton, true)
-);
+
+onMounted(() => {
+  setTimeout(() => (introTimeDone.value = true), INTRO_MIN_MS);
+  animateCounter(performance.now());
+  document.addEventListener("click", stopSpeechOnButton, true);
+});
+onUnmounted(() => {
+  document.removeEventListener("click", stopSpeechOnButton, true);
+});
 
 const openPanel = ref(null); // 'settings' | 'tricktionary' | 'collection' | 'about' | null
 </script>
 
 <template>
-  <div v-if="!speechState.ready" class="app-loading">
-    <span class="app-loading__spinner" aria-hidden="true" />
-    <p class="app-loading__text">
-      Loading sounds&hellip; {{ speechState.loaded }}/{{ speechState.total }}
-    </p>
-  </div>
+  <transition name="intro-out">
+    <div v-if="!showApp" class="app-loading">
+      <img
+        class="app-loading__logo"
+        src="/img/gtg-logo.svg"
+        alt="AIGHT"
+      />
+      <button v-if="showStart" class="btn btn--go app-loading__start" @click="start()">
+        <AppIcon name="play" :size="20" /> Start
+      </button>
+      <template v-else>
+        <span class="app-loading__spinner" aria-hidden="true" />
+        <p class="app-loading__text">
+          Loading&hellip; {{ displayedCount }}/{{ speechState.total }}
+        </p>
+      </template>
+    </div>
+  </transition>
 
-  <template v-else>
+  <transition
+    name="intro-in"
+    appear
+    @enter="lockScroll"
+    @after-enter="unlockScroll"
+  >
+  <div v-if="showApp" class="app-shell">
   <button
     class="mute-btn"
     :class="{ 'mute-btn--muted': speechState.muted }"
@@ -104,10 +185,61 @@ const openPanel = ref(null); // 'settings' | 'tricktionary' | 'collection' | 'ab
   <TricktionaryPanel v-if="openPanel === 'tricktionary'" @close="openPanel = null" />
   <CollectionPanel v-if="openPanel === 'collection'" @close="openPanel = null" />
   <AboutPanel v-if="openPanel === 'about'" @close="openPanel = null" />
-  </template>
+  </div>
+  </transition>
 </template>
 
 <style scoped>
+.app-shell {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+/* intro: loading screen dissolves, the game fades and scales in */
+.intro-out-leave-active {
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.intro-out-leave-to {
+  opacity: 0;
+  transform: scale(1.06);
+}
+
+.intro-in-enter-active {
+  transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.22, 1.2, 0.36, 1);
+}
+
+/* scale only — a translateY here would push the 100dvh shell past the
+   viewport and flash a scrollbar */
+.intro-in-enter-from {
+  opacity: 0;
+  transform: scale(0.94);
+}
+
+.app-loading__logo {
+  width: min(320px, 70vw);
+  animation: intro-logo-pulse 1.6s ease-in-out infinite;
+}
+
+.app-loading__start {
+  font-size: 18px;
+  padding: 16px 44px;
+}
+
+@keyframes intro-logo-pulse {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 12px rgba(231, 26, 0, 0.25));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 34px rgba(231, 26, 0, 0.6));
+    transform: scale(1.03);
+  }
+}
+
 .mute-btn {
   position: fixed;
   top: 12px;
@@ -138,13 +270,17 @@ const openPanel = ref(null); // 'settings' | 'tricktionary' | 'collection' | 'ab
 }
 
 .app-loading {
-  flex: 1;
+  position: fixed;
+  inset: 0;
+  z-index: 50;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 18px;
-  min-height: 100dvh;
+  gap: 22px;
+  background:
+    radial-gradient(700px 420px at 50% 40%, rgba(231, 26, 0, 0.12), transparent 65%),
+    var(--bg-0);
 }
 
 .app-loading__spinner {

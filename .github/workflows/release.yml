@@ -1,0 +1,56 @@
+# Manual release: builds the vue app from main and deploys it to
+# GitHub Pages. Requires Settings -> Pages -> Source: "GitHub Actions"
+# (the old gh-pages branch stays untouched as an archive of the old app).
+#
+# Run it from the Actions tab -> "Release to GitHub Pages" -> Run workflow.
+name: Release to GitHub Pages
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Never run two deploys at once; a newly started release supersedes a
+# queued (not yet deploying) one.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: vue-app/package-lock.json
+
+      - name: Install
+        run: npm ci
+        working-directory: vue-app
+
+      - name: Test
+        run: npm test
+        working-directory: vue-app
+
+      - name: Build
+        run: npm run build
+        working-directory: vue-app
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: vue-app/dist
+
+      - uses: actions/deploy-pages@v4
+        id: deployment

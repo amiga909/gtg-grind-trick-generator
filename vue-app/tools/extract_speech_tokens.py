@@ -9,16 +9,18 @@ corpus itself: a word that is always followed by the same word, or
 always preceded by the same word, is merged with it. "BS" and "FS" are
 spoken as "Backside" and "Frontside".
 
-Usage:
+Usage (from the app root):
 
     python3 tools/extract_speech_tokens.py [permutations.txt] [tokens_out.txt]
 
-Defaults: src/assets/permutations.txt -> src/assets/speech_tokens.txt
+Defaults: tools/permutations.txt -> tools/speech_tokens.txt
 """
 
 import sys
 from collections import defaultdict
 from pathlib import Path
+
+TOOLS_DIR = Path(__file__).parent
 
 SPOKEN = {"BS": "Backside", "FS": "Frontside"}
 
@@ -66,7 +68,7 @@ def merge_fixed_pairs(sequences):
 
 
 def main():
-    src = Path(sys.argv[1] if len(sys.argv) > 1 else "src/assets/permutations.txt")
+    src = Path(sys.argv[1]) if len(sys.argv) > 1 else TOOLS_DIR / "permutations.txt"
     out = (
         Path(sys.argv[2])
         if len(sys.argv) > 2

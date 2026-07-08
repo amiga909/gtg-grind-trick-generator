@@ -87,6 +87,13 @@ const TRICK_GROUPS = [
     </template>
 
     <h3 class="section-title">Game</h3>
+    <label class="option">
+      <span class="switch">
+        <input type="checkbox" v-model="settings.introMusic" />
+        <span class="track" />
+      </span>
+      <span>Play intro music</span>
+    </label>
     <label class="option option--inline">
       <span>Reel speed</span>
       <select class="select" v-model="settings.reelSpeed">

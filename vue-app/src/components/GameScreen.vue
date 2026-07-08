@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref, watch } from "vue";
+import { computed, onMounted, ref, watch } from "vue";
 import AppIcon from "./AppIcon.vue";
 import SlotReel from "./SlotReel.vue";
 import TrickExplainPanel from "./TrickExplainPanel.vue";
@@ -23,7 +23,14 @@ const {
   onReelsSettled,
 } = useGame();
 const { settings, reelSpeedMs } = useSettings();
-const { speakTrick } = useSpeech();
+const { speakTrick, playKeys } = useSpeech();
+
+// Group: a game starts with the "fight!" call.
+onMounted(() => {
+  if (!isSolo.value) {
+    playKeys(["fight"]);
+  }
+});
 
 const openPanel = ref(null); // 'explain' | 'tricklist' | null
 const stoppedReels = ref(0);

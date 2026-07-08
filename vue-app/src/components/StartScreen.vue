@@ -13,6 +13,7 @@ import {
 } from "../composables/useSettings.js";
 import { useGame } from "../composables/useGame.js";
 import { BADGES, useCollection } from "../composables/useCollection.js";
+import { useSpeech } from "../composables/useSpeech.js";
 
 const emit = defineEmits(["open-settings"]);
 
@@ -37,9 +38,14 @@ const MODES = [
 const step = ref("mode"); // 'mode' | 'setup'
 const showCollection = ref(false);
 
+const { fadeOutMusic } = useSpeech();
+
+// Committing to a mode ends the intro: the title music fades out here
+// (and only here — it keeps playing through the toolbar panels).
 function chooseMode(modeId) {
   settings.mode = modeId;
   step.value = "setup";
+  fadeOutMusic();
 }
 
 function selectLevel(levelId) {
