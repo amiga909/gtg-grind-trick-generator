@@ -17,11 +17,11 @@ export const LEVELS = [
 ];
 
 export const REEL_SPEEDS = [
-  { id: "verySlow", name: "Very slow", ms: 4200 },
-  { id: "slow", name: "Slow", ms: 3200 },
-  { id: "normal", name: "Normal", ms: 2300 },
-  { id: "fast", name: "Fast", ms: 1400 },
-  { id: "veryFast", name: "Very fast", ms: 800 },
+  { id: "verySlow", name: "Very slow", ms: 2300 },
+  { id: "slow", name: "Slow", ms: 1400 },
+  { id: "normal", name: "Normal", ms: 800 },
+  { id: "fast", name: "Fast", ms: 500 },
+  { id: "veryFast", name: "Very fast", ms: 300 },
 ];
 
 const ALL_TRICKS_OFF = {

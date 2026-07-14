@@ -29,9 +29,23 @@ const {
 } = useSpeech();
 preloadSpeech();
 
+// Panel deep links: ?panel=tricktionary (the tricktionary.html redirect)
+// or a bare /tricktionary path. They skip the intro entirely — there is
+// no start button, so audio stays locked until the first click inside
+// the app (playKeys resumes the AudioContext itself).
+const PANELS = ["settings", "tricktionary", "collection", "about"];
+const requestedPanel = [
+  new URLSearchParams(window.location.search).get("panel"),
+  window.location.pathname
+    .replace(/\/$/, "")
+    .split("/")
+    .pop()
+    .replace(/\.html$/, ""),
+].find((key) => PANELS.includes(key));
+
 const INTRO_MIN_MS = 2000;
 const introTimeDone = ref(false);
-const started = ref(false);
+const started = ref(Boolean(requestedPanel));
 
 // Browsers block audio until a user gesture, so the intro ends with a
 // START button: clicking it unlocks the AudioContext, starts the title
@@ -94,12 +108,9 @@ onUnmounted(() => {
   document.removeEventListener("click", stopSpeechOnButton, true);
 });
 
-// 'settings' | 'tricktionary' | 'collection' | 'about' | null.
-// Seeded from ?panel=… so old deep links (tricktionary.html redirects
-// there) open the panel right after the start button.
-const PANELS = ["settings", "tricktionary", "collection", "about"];
-const requestedPanel = new URLSearchParams(window.location.search).get("panel");
-const openPanel = ref(PANELS.includes(requestedPanel) ? requestedPanel : null);
+// 'settings' | 'tricktionary' | 'collection' | 'about' | null;
+// seeded from the deep link, if any (see top of script).
+const openPanel = ref(requestedPanel ?? null);
 </script>
 
 <template>

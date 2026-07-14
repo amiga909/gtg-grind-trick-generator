@@ -14,8 +14,9 @@ describe("matchSamples", () => {
   });
 
   it("skips tokens without a recorded sample", () => {
-    // "to 810 out" and its parts are not recorded yet, "810" alone is.
-    expect(matchSamples("Soul to 810 out", has)).toEqual(["soul", "810"]);
+    expect(
+      matchSamples("Soul to Narnia out", (key) => key === "soul")
+    ).toEqual(["soul"]);
   });
 
   it("uses whole spin-out phrase samples, longest first", () => {
@@ -51,7 +52,7 @@ describe("matchSamples", () => {
     ]);
     expect(matchSamples("Sunny Day to 450 out", has)).toEqual([
       "sunny day",
-      "450",
+      "to 450 out",
     ]);
   });
 

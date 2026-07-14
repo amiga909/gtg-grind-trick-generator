@@ -21,6 +21,7 @@ const AUDIO_BASE = "audio/";
 // "Top Soul" uses the dedicated sample instead of "Top" + "Soul".
 export const SAMPLE_FILES = {
   270: "270.wav",
+  360: "360.mp3",
   450: "450.wav",
   540: "540.wav",
   630: "630.wav",
@@ -74,6 +75,7 @@ export const SAMPLE_FILES = {
   tabernacle: "Tabernacle.wav",
   teakettle: "Teakettle.wav",
   torque: "Torque.wav",
+  "torque soul": "Torque Soul.mp3",
   tough: "Tough.wav",
   "training wheel": "Training Wheel.wav",
   unity: "Unity.wav",
@@ -81,12 +83,18 @@ export const SAMPLE_FILES = {
   "x-grind": "X-Grind.mp3",
   "to 180 out": "to 180 out.mp3",
   "to 180 rewind out": "to 180 rewind out.mp3",
+  "to 270 out": "to 270 out.mp3",
   "to 360 out": "to 360 out.mp3",
   "to 360 rewind out": "to 360 rewind out.mp3",
+  "to 450 out": "to 450 out.mp3",
   "to 540 out": "to 540 out.mp3",
   "to 540 rewind out": "to 540 rewind out.mp3",
+  "to 630 out": "to 630 out.mp3",
   "to 720 out": "to 720 out.mp3",
   "to 720 rewind out": "to 720 rewind out.mp3",
+  "to 810 out": "to 810 out.mp3",
+  "to 900 out": "to 900 out.mp3",
+  "to 900 rewind out": "to 900 rewind out.mp3",
   // spoken "to fakie" — the written name is "to Fakie out"
   "to fakie out": "to Fakie.mp3",
   // never appears in parsed names (the namer drops it), kept for safety
