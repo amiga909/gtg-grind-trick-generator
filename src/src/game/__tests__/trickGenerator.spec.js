@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { generateSpin } from "../trickGenerator.js";
-import { RARE_GRIND_NAME_PARTS } from "../trickData.js";
+import { GRINDS, RARE_GRIND_NAME_PARTS } from "../trickData.js";
 
 const ALL_OFF = {
   fakie: false,
@@ -14,7 +14,6 @@ const ALL_OFF = {
   grabs: false,
   rocket: false,
   crossgrab: false,
-  rareGrinds: false,
   spins360: false,
   spins540: false,
   spins720: false,
@@ -23,25 +22,49 @@ const ALL_OFF = {
 
 const ALL_ON = Object.fromEntries(Object.keys(ALL_OFF).map((k) => [k, true]));
 
+// The Chill preset's grind selection: rare grinds and slides are off.
+const CHILL_EXCLUDED = [...RARE_GRIND_NAME_PARTS, "Pudslide", "Fastslide"];
+const CHILL_GRINDS = Object.fromEntries(
+  GRINDS.filter((g) => CHILL_EXCLUDED.some((part) => g.name.includes(part)))
+    .map((g) => [g.name, false])
+);
+
 describe("generateSpin", () => {
   it("with everything off only spins the grind and 180 spin reels", () => {
     for (let i = 0; i < 200; i++) {
-      const spin = generateSpin(ALL_OFF);
+      const spin = generateSpin(ALL_OFF, [], null, CHILL_GRINDS);
       const byName = Object.fromEntries(spin.reels.map((r) => [r.name, r]));
 
       expect(spin.name).not.toBe("");
       expect(byName.Approach.hidden).toBe(true);
       expect(byName.GrindVariation.hidden).toBe(true);
       expect(
-        RARE_GRIND_NAME_PARTS.some((part) =>
-          byName.Grind.winner.name.includes(part)
-        )
+        CHILL_EXCLUDED.some((part) => byName.Grind.winner.name.includes(part))
       ).toBe(false);
       // Only 180s (or nothing) without the bigger-spin settings.
       for (const reel of [byName.SpinTo, byName.SpinOff]) {
         expect(reel.winner.name).toMatch(/^(None|Forwards|Fakie|\D*180)$/);
       }
     }
+  });
+
+  it("never spins up grinds that are switched off", () => {
+    const only = {};
+    for (const grind of GRINDS) {
+      only[grind.name] = ["Makio", "Soul"].includes(grind.name);
+    }
+    for (let i = 0; i < 100; i++) {
+      const spin = generateSpin(ALL_ON, [], null, only);
+      expect(["Makio", "Soul"]).toContain(
+        spin.reels.find((r) => r.name === "Grind").winner.name
+      );
+    }
+  });
+
+  it("ignores the grind selection when every grind is off", () => {
+    const noneOn = Object.fromEntries(GRINDS.map((g) => [g.name, false]));
+    const spin = generateSpin(ALL_ON, [], null, noneOn);
+    expect(spin.name).not.toBe("");
   });
 
   it("with everything on produces valid tricks with all reels", () => {
@@ -65,7 +88,7 @@ describe("generateSpin", () => {
 
   it("never picks switch approaches for noSwitch grinds", () => {
     for (let i = 0; i < 300; i++) {
-      const spin = generateSpin({ ...ALL_ON, rareGrinds: true });
+      const spin = generateSpin(ALL_ON);
       const byName = Object.fromEntries(spin.reels.map((r) => [r.name, r]));
       if (byName.Grind.winner.noSwitch) {
         expect(byName.Approach.winner.isSwitch).toBe(false);

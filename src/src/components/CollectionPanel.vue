@@ -67,22 +67,6 @@ const grinds = [...GRINDS].sort((a, b) =>
       </span>
     </div>
 
-    <h3 class="section-title">Badges</h3>
-    <div class="badges">
-      <div
-        v-for="badge in BADGES"
-        :key="badge.id"
-        class="badge-card"
-        :class="{ 'badge-card--earned': hasBadge(badge.id) }"
-      >
-        <AppIcon name="trophy" :size="20" />
-        <span class="badge-card__text">
-          <strong>{{ badge.name }}</strong>
-          <small>{{ badge.desc }}</small>
-        </span>
-      </div>
-    </div>
-
     <h3 class="section-title">Grinds</h3>
     <ul class="grind-list">
       <li
@@ -103,6 +87,22 @@ const grinds = [...GRINDS].sort((a, b) =>
         >
       </li>
     </ul>
+
+    <h3 class="section-title">Badges</h3>
+    <div class="badges">
+      <div
+        v-for="badge in BADGES"
+        :key="badge.id"
+        class="badge-card"
+        :class="{ 'badge-card--earned': hasBadge(badge.id) }"
+      >
+        <AppIcon name="trophy" :size="20" />
+        <span class="badge-card__text">
+          <strong>{{ badge.name }}</strong>
+          <small>{{ badge.desc }}</small>
+        </span>
+      </div>
+    </div>
 
     <div class="actions">
       <button

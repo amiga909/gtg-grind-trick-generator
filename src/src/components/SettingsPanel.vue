@@ -1,5 +1,6 @@
 <script setup>
 import AppModal from "./AppModal.vue";
+import { GRINDS, RARE_GRIND_NAME_PARTS } from "../game/trickData.js";
 import {
   LEVELS,
   CUSTOM_LEVEL,
@@ -9,7 +10,15 @@ import {
 
 defineEmits(["close"]);
 
-const { settings, applyLevel, setTrick, reset } = useSettings();
+const {
+  settings,
+  applyLevel,
+  setTrick,
+  reset,
+  grindEnabled,
+  setGrind,
+  setAllGrinds,
+} = useSettings();
 
 const TRICK_GROUPS = [
   {
@@ -42,21 +51,44 @@ const TRICK_GROUPS = [
       ["spins900", "900 / 810 spins"],
     ],
   },
-  {
-    title: "Special",
-    options: [
-      [
-        "rareGrinds",
-        "Rare grinds (Hot Dog, Citric Acid, Sidewalk, Wheelbarrow, Darkslide, Training Wheel, Byn Soul, Closed/Open Book)",
-      ],
-    ],
-  },
 ];
 
+const isRare = (name) =>
+  RARE_GRIND_NAME_PARTS.some((part) => name.includes(part));
+
+// FS/BS pairs sort next to their base name (like the tricktionary);
+// rare grinds go to the end of the list.
+const byBaseName = (a, b) =>
+  a.name
+    .replace(/^(BS|FS)/, "ZZ")
+    .localeCompare(b.name.replace(/^(BS|FS)/, "ZZ"));
+const grindList = [
+  ...GRINDS.filter((g) => !isRare(g.name)).sort(byBaseName),
+  ...GRINDS.filter((g) => isRare(g.name)).sort(byBaseName),
+];
 </script>
 
 <template>
   <AppModal title="Settings" @close="$emit('close')">
+    <h3 class="section-title">Game</h3>
+    <div class="options">
+      <label class="option">
+        <span class="switch">
+          <input type="checkbox" v-model="settings.introMusic" />
+          <span class="track" />
+        </span>
+        <span>Play intro music</span>
+      </label>
+      <label class="option option--inline">
+        <span>Reel speed</span>
+        <select class="select" v-model="settings.reelSpeed">
+          <option v-for="speed in REEL_SPEEDS" :key="speed.id" :value="speed.id">
+            {{ speed.name }}
+          </option>
+        </select>
+      </label>
+    </div>
+
     <h3 class="section-title">Difficulty preset</h3>
     <div class="levels">
       <button
@@ -73,35 +105,44 @@ const TRICK_GROUPS = [
 
     <template v-for="group in TRICK_GROUPS" :key="group.title">
       <h3 class="section-title">{{ group.title }}</h3>
-      <label v-for="[key, text] in group.options" :key="key" class="option">
+      <div class="options">
+        <label v-for="[key, text] in group.options" :key="key" class="option">
+          <span class="switch">
+            <input
+              type="checkbox"
+              :checked="settings.tricks[key]"
+              @change="setTrick(key, $event.target.checked)"
+            />
+            <span class="track" />
+          </span>
+          <span>{{ text }}</span>
+        </label>
+      </div>
+    </template>
+
+    <h3 class="section-title">Grinds</h3>
+    <p class="hint hint--top">
+      Only grinds switched on spin up &mdash; switch the rest off to train
+      specific grinds. With all of them off, everything spins again. The
+      difficulty presets pick a selection too (rare grinds are at the end).
+    </p>
+    <div class="grind-bulk">
+      <button class="btn btn--ghost" @click="setAllGrinds(true)">All on</button>
+      <button class="btn btn--ghost" @click="setAllGrinds(false)">All off</button>
+    </div>
+    <div class="options">
+      <label v-for="grind in grindList" :key="grind.name" class="option">
         <span class="switch">
           <input
             type="checkbox"
-            :checked="settings.tricks[key]"
-            @change="setTrick(key, $event.target.checked)"
+            :checked="grindEnabled(grind.name)"
+            @change="setGrind(grind.name, $event.target.checked)"
           />
           <span class="track" />
         </span>
-        <span>{{ text }}</span>
+        <span>{{ grind.name }}</span>
       </label>
-    </template>
-
-    <h3 class="section-title">Game</h3>
-    <label class="option">
-      <span class="switch">
-        <input type="checkbox" v-model="settings.introMusic" />
-        <span class="track" />
-      </span>
-      <span>Play intro music</span>
-    </label>
-    <label class="option option--inline">
-      <span>Reel speed</span>
-      <select class="select" v-model="settings.reelSpeed">
-        <option v-for="speed in REEL_SPEEDS" :key="speed.id" :value="speed.id">
-          {{ speed.name }}
-        </option>
-      </select>
-    </label>
+    </div>
 
     <p class="hint">Settings are saved on this device and apply to the next game.</p>
 
@@ -131,6 +172,19 @@ const TRICK_GROUPS = [
   gap: 8px;
 }
 
+/* switch lists: one column on phones, two when space allows */
+.options {
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: 20px;
+}
+
+@media (min-width: 560px) {
+  .options {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 .option {
   display: flex;
   align-items: center;
@@ -145,6 +199,17 @@ const TRICK_GROUPS = [
   max-width: 340px;
 }
 
+.grind-bulk {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.grind-bulk .btn {
+  font-size: 12px;
+  padding: 7px 14px;
+}
+
 .number-input {
   width: 78px;
 }
@@ -153,6 +218,10 @@ const TRICK_GROUPS = [
   color: var(--text-dim);
   font-size: 14px;
   margin-top: 10px;
+}
+
+.hint--top {
+  margin: 0 0 10px;
 }
 
 .actions {

@@ -1,7 +1,6 @@
 import {
   APPROACHES,
   GRINDS,
-  RARE_GRIND_NAME_PARTS,
   SPINS_OFF_GROOVE,
   SPINS_OFF_SOUL,
   SPINS_TO_GROOVE_BS,
@@ -29,9 +28,16 @@ const NONE = { name: "None", score: 0 };
  *                   avoided until every grind has been used once.
  * @param grindBias  optional weight multipliers per grind name, used by
  *                   solo mode to favor never-landed and often-skipped grinds.
+ * @param grindToggles optional per-grind training filter from useSettings
+ *                   (`grinds`): grind names mapped to false never spin up.
  */
-export function generateSpin(settings, usedGrinds = [], grindBias = null) {
-  const grindPool = grindCandidates(settings, usedGrinds, grindBias);
+export function generateSpin(
+  settings,
+  usedGrinds = [],
+  grindBias = null,
+  grindToggles = null
+) {
+  const grindPool = grindCandidates(settings, usedGrinds, grindBias, grindToggles);
   const grind = pickWeighted(grindPool);
 
   const variationPool = variationCandidates(grind, settings);
@@ -99,13 +105,15 @@ function pickWeighted(pool) {
   return pool[pool.length - 1];
 }
 
-function grindCandidates(settings, usedGrinds, grindBias) {
+function grindCandidates(settings, usedGrinds, grindBias, grindToggles) {
   let pool = GRINDS;
-  if (!settings.rareGrinds) {
-    pool = pool.filter(
-      (grind) =>
-        !RARE_GRIND_NAME_PARTS.some((part) => grind.name.includes(part))
-    );
+  if (grindToggles) {
+    const picked = pool.filter((grind) => grindToggles[grind.name] !== false);
+    // With every grind switched off there is nothing left to spin, so
+    // the selection is ignored rather than breaking the game.
+    if (picked.length > 0) {
+      pool = picked;
+    }
   }
 
   const unused = pool.filter((grind) => !usedGrinds.includes(grind.name));

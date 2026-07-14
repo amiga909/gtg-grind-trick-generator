@@ -24,7 +24,6 @@ const ALL_TRICKS_ON = {
   grabs: true,
   rocket: true,
   crossgrab: true,
-  rareGrinds: true,
   spins360: true,
   spins540: true,
   spins720: true,

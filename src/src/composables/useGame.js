@@ -110,7 +110,12 @@ export function useGame() {
     state.spinsUsed += 1;
     // Solo trains you: never-landed and often-skipped grinds come up more.
     const bias = state.mode === "solo" ? collection.grindBias() : null;
-    state.spin = generateSpin(settings.tricks, state.usedGrinds, bias);
+    state.spin = generateSpin(
+      settings.tricks,
+      state.usedGrinds,
+      bias,
+      settings.grinds
+    );
     state.usedGrinds.push(
       state.spin.reels.find((r) => r.name === "Grind").winner.name
     );

@@ -1,4 +1,5 @@
 import { reactive, watch } from "vue";
+import { GRINDS, RARE_GRIND_NAME_PARTS } from "../game/trickData.js";
 
 const STORAGE_KEY = "aight-settings-v3";
 
@@ -36,7 +37,6 @@ const ALL_TRICKS_OFF = {
   grabs: false,
   rocket: false,
   crossgrab: false,
-  rareGrinds: false,
   spins360: false,
   spins540: false,
   spins720: false,
@@ -47,7 +47,6 @@ const LEVEL_PRESETS = {
   1: { ...ALL_TRICKS_OFF },
   2: {
     ...ALL_TRICKS_OFF,
-    rareGrinds: true,
     negative: true,
     topside: true,
     spins360: true,
@@ -60,6 +59,25 @@ const LEVEL_PRESETS = {
   },
 };
 
+// Grinds each difficulty preset switches off, matched by substring so
+// FS/BS variants are covered. Nuts (3) and Custom allow everything.
+const LEVEL_EXCLUDED_GRINDS = {
+  1: [...RARE_GRIND_NAME_PARTS, "Pudslide", "Fastslide"],
+  2: ["Closed Book", "Open Book", "Citric Acid", "Darkslide", "Sidewalk"],
+  3: [],
+};
+
+function presetGrinds(levelId) {
+  const parts = LEVEL_EXCLUDED_GRINDS[levelId] || [];
+  const grinds = {};
+  for (const grind of GRINDS) {
+    if (parts.some((part) => grind.name.includes(part))) {
+      grinds[grind.name] = false;
+    }
+  }
+  return grinds;
+}
+
 function defaultSettings() {
   return {
     mode: "solo", // solo | group
@@ -69,6 +87,9 @@ function defaultSettings() {
     reelSpeed: "normal",
     introMusic: true,
     tricks: { ...ALL_TRICKS_OFF },
+    // Per-grind training filter: grind name -> false when switched off.
+    // Missing entries mean "on", so new grinds default to enabled.
+    grinds: presetGrinds(1),
   };
 }
 
@@ -97,6 +118,9 @@ function loadSettings() {
       merged.mode = "solo";
     }
     merged.introMusic = merged.introMusic !== false;
+    if (!merged.grinds || typeof merged.grinds !== "object") {
+      merged.grinds = {};
+    }
     return merged;
   } catch {
     return defaultSettings();
@@ -116,6 +140,7 @@ export function useSettings() {
     settings.level = levelId;
     if (LEVEL_PRESETS[levelId]) {
       Object.assign(settings.tricks, LEVEL_PRESETS[levelId]);
+      settings.grinds = presetGrinds(levelId);
     }
   };
 
@@ -130,11 +155,34 @@ export function useSettings() {
     Object.assign(settings.tricks, ALL_TRICKS_OFF);
   };
 
+  const grindEnabled = (name) => settings.grinds[name] !== false;
+  // Presets define a grind selection too, so custom picks flip the level.
+  const setGrind = (name, value) => {
+    settings.grinds[name] = value;
+    settings.level = CUSTOM_LEVEL;
+  };
+  const setAllGrinds = (value) => {
+    for (const grind of GRINDS) {
+      settings.grinds[grind.name] = value;
+    }
+    settings.level = CUSTOM_LEVEL;
+  };
+
   const levelName = (id = settings.level) =>
     LEVELS.find((l) => l.id === id)?.name ?? "";
 
   const reelSpeedMs = () =>
     (REEL_SPEEDS.find((s) => s.id === settings.reelSpeed) ?? REEL_SPEEDS[2]).ms;
 
-  return { settings, applyLevel, setTrick, reset, levelName, reelSpeedMs };
+  return {
+    settings,
+    applyLevel,
+    setTrick,
+    reset,
+    levelName,
+    reelSpeedMs,
+    grindEnabled,
+    setGrind,
+    setAllGrinds,
+  };
 }
