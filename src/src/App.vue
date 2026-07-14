@@ -94,7 +94,12 @@ onUnmounted(() => {
   document.removeEventListener("click", stopSpeechOnButton, true);
 });
 
-const openPanel = ref(null); // 'settings' | 'tricktionary' | 'collection' | 'about' | null
+// 'settings' | 'tricktionary' | 'collection' | 'about' | null.
+// Seeded from ?panel=… so old deep links (tricktionary.html redirects
+// there) open the panel right after the start button.
+const PANELS = ["settings", "tricktionary", "collection", "about"];
+const requestedPanel = new URLSearchParams(window.location.search).get("panel");
+const openPanel = ref(PANELS.includes(requestedPanel) ? requestedPanel : null);
 </script>
 
 <template>
