@@ -1,4 +1,5 @@
 <script setup>
+import { ref } from "vue";
 import AppModal from "./AppModal.vue";
 import AppIcon from "./AppIcon.vue";
 import { GRINDS } from "../game/trickData.js";
@@ -15,7 +16,20 @@ const {
   earnedBadges,
   hasBadge,
   grindLandedCount,
+  resetCollection,
 } = useCollection();
+
+// Two-tap confirm so a stray tap can't wipe lifetime progress.
+const confirmingReset = ref(false);
+
+const onReset = () => {
+  if (!confirmingReset.value) {
+    confirmingReset.value = true;
+    return;
+  }
+  resetCollection();
+  confirmingReset.value = false;
+};
 
 // Sort FS/BS pairs next to their base name, like the tricktionary.
 const grinds = [...GRINDS].sort((a, b) =>
@@ -89,6 +103,17 @@ const grinds = [...GRINDS].sort((a, b) =>
         >
       </li>
     </ul>
+
+    <div class="actions">
+      <button
+        class="btn btn--ghost reset-btn"
+        :class="{ 'reset-btn--confirm': confirmingReset }"
+        @click="onReset"
+        @blur="confirmingReset = false"
+      >
+        {{ confirmingReset ? "Tap again to erase everything" : "Reset progress" }}
+      </button>
+    </div>
   </AppModal>
 </template>
 
@@ -239,6 +264,18 @@ const grinds = [...GRINDS].sort((a, b) =>
   margin-left: auto;
   font-size: 13px;
   color: var(--red-hi);
+}
+
+.actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.reset-btn--confirm {
+  color: var(--red-hi);
+  border-color: rgba(231, 26, 0, 0.6);
+  box-shadow: 0 0 10px rgba(231, 26, 0, 0.2);
 }
 
 @media (max-width: 560px) {

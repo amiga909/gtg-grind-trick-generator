@@ -130,6 +130,11 @@ export function useCollection() {
     return earned;
   };
 
+  /** Wipes all lifetime progress: tricks, grinds, lands and badges. */
+  const resetCollection = () => {
+    Object.assign(collection, defaultCollection());
+  };
+
   const recordSkip = (spin) => {
     statsIn(collection.tricks, spin.name).skipped += 1;
     statsIn(collection.grinds, spinWinners(spin).Grind).skipped += 1;
@@ -175,6 +180,7 @@ export function useCollection() {
     collection,
     recordLand,
     recordSkip,
+    resetCollection,
     grindBias,
     uniqueTrickCount,
     landedGrindCount,
