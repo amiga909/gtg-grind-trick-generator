@@ -43,6 +43,18 @@ const requestedPanel = [
     .replace(/\.html$/, ""),
 ].find((key) => PANELS.includes(key));
 
+// The loading screen's own logo must not pop in late on a cold cache:
+// the intro stays blank until the image is decoded (instant once
+// cached). Decode failure still shows the intro — better a missing
+// logo than a black screen forever.
+const logoReady = ref(false);
+const logoImg = new Image();
+logoImg.src = "img/gtg-logo.svg";
+logoImg
+  .decode()
+  .then(() => (logoReady.value = true))
+  .catch(() => (logoReady.value = true));
+
 const INTRO_MIN_MS = 2000;
 const introTimeDone = ref(false);
 const started = ref(Boolean(requestedPanel));
@@ -116,19 +128,21 @@ const openPanel = ref(requestedPanel ?? null);
 <template>
   <transition name="intro-out">
     <div v-if="!showApp" class="app-loading">
-      <img
-        class="app-loading__logo"
-        src="/img/gtg-logo.svg"
-        alt="AIGHT"
-      />
-      <button v-if="showStart" class="btn btn--go app-loading__start" @click="start()">
-        <AppIcon name="play" :size="20" /> Start
-      </button>
-      <template v-else>
-        <span class="app-loading__spinner" aria-hidden="true" />
-        <p class="app-loading__text">
-          Loading&hellip; {{ displayedCount }}/{{ speechState.total }}
-        </p>
+      <template v-if="logoReady">
+        <img
+          class="app-loading__logo"
+          src="/img/gtg-logo.svg"
+          alt="AIGHT"
+        />
+        <button v-if="showStart" class="btn btn--go app-loading__start" @click="start()">
+          <AppIcon name="play" :size="20" /> Start
+        </button>
+        <template v-else>
+          <span class="app-loading__spinner" aria-hidden="true" />
+          <p class="app-loading__text">
+            Loading&hellip; {{ displayedCount }}/{{ speechState.total }}
+          </p>
+        </template>
       </template>
     </div>
   </transition>
