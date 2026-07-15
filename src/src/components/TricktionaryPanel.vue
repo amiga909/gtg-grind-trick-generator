@@ -19,15 +19,17 @@ const terms = Object.entries(GLOSSARY).sort(([a], [b]) => a.localeCompare(b));
 
 // Sort FS/BS pairs next to their base name.
 const grinds = [...GRINDS].sort((a, b) =>
-  a.name.replace(/^(BS|FS)/, "ZZ").localeCompare(b.name.replace(/^(BS|FS)/, "ZZ"))
+  a.name
+    .replace(/^(BS|FS)/, "ZZ")
+    .localeCompare(b.name.replace(/^(BS|FS)/, "ZZ")),
 );
 
 const synonyms = [...GRIND_SYNONYMS].sort((a, b) =>
-  a.newName.localeCompare(b.newName)
+  a.newName.localeCompare(b.newName),
 );
 
 const variations = VARIATIONS.filter((v) => v.name !== "None").sort((a, b) =>
-  a.name.localeCompare(b.name)
+  a.name.localeCompare(b.name),
 );
 
 const NOT_IMPLEMENTED = [
@@ -76,23 +78,9 @@ const NOT_IMPLEMENTED = [
       "Like a Fastslide but with the trailing foot instead of the leading foot.",
   },
   {
-    term: "Citric PStar",
+    term: "Extremely rare grinds and innovative ideas",
     comment:
-      "Special legs required. <a target='_blank' href='https://www.facebook.com/trirudolf/posts/4401979706486905'>Tri Tri-Rudolf Facebook</a>",
-  },
-  {
-    term: "Grabbing grinds",
-    comment:
-      "Tri Tri-Rudolf <a target='_blank' href='https://www.youtube.com/watch?v=MhZZ14ap6VA'>Grabbing Grinds (Trying Not To Squish Fingers)</a>",
-  },
-  {
-    term: "Underbar grinds",
-    comment:
-      "<a target='_blank' href='https://www.facebook.com/groups/rollerblading/posts/4275445879205635'>Tri</a>",
-  },
-  {
-    term: "Frame Flips",
-    comment: "Tri again.. and other crazy ideas to mount a UFS frame.",
+      "Check skaters like <a target='_blank' href='https://www.instagram.com/rollerstreet_miami/'>Jimmy Cisz</a>, <a target='_blank'  href='https://www.instagram.com/tryhardtri/'>Tri Tri Rudolf</a> for really rare grinds - special legs required for insane Citric grinds, or innovative ideas like Frame Flips. For more innovative ideas I also recommend <a target='_blank'  href='https://www.instagram.com/savosin.ilia/'>Ilya Savosin</a>, he can skate strange contraptions on hard spots. <a href='https://www.instagram.com/eugenenin/' target='blank'>Eugen Enin</a> is also a great source for innovative switchups and rare grinds. Or <a href='https://www.instagram.com/thefarmacy_' target='blank'>Chris Farmer</a>, arguably the skater with the deepest trick vocabulary.",
   },
 ];
 
@@ -110,8 +98,9 @@ function scrollTo(id) {
   <AppModal title="Tricktionary" @close="$emit('close')">
     <p class="intro">
       All 3D rendered graphics are screenshots taken from the awesome
-      <a href="http://skateyeg.com/bog/" target="_blank" rel="noopener">Book of Grinds</a>.
-      Click an image to open the Book of Grinds page for the trick.
+      <a href="http://skateyeg.com/bog/" target="_blank" rel="noopener"
+        >Book of Grinds</a
+      >. Click an image to open the Book of Grinds page for the trick.
     </p>
 
     <nav class="toc">
@@ -137,14 +126,20 @@ function scrollTo(id) {
 
     <h3 id="tricktionary-Grinds" class="section-title">Grinds</h3>
     <p v-if="landedGrindCount > 0" class="landed-summary">
-      <AppIcon name="check" :size="14" /> You landed
-      {{ landedGrindCount }}/{{ totalGrinds }} grinds in solo sessions.
+      <AppIcon name="check" :size="14" /> You landed {{ landedGrindCount }}/{{
+        totalGrinds
+      }}
+      grinds in solo sessions.
     </p>
     <table class="data-table">
       <tbody>
         <tr v-for="grind in grinds" :key="grind.name">
           <td class="term">
-            {{ grind.name.replace(/^BS /, "Backside/BS ").replace(/^FS /, "Frontside/FS ") }}
+            {{
+              grind.name
+                .replace(/^BS /, "Backside/BS ")
+                .replace(/^FS /, "Frontside/FS ")
+            }}
             <span
               v-if="grindLandedCount(grind.name) > 0"
               class="landed-mark"
@@ -155,8 +150,17 @@ function scrollTo(id) {
             </span>
           </td>
           <td>
-            <a :href="grind.url || 'http://skateyeg.com/bog/'" target="_blank" rel="noopener">
-              <img class="thumb" :src="grind.thumbUrl" :alt="grind.name" loading="lazy" />
+            <a
+              :href="grind.url || 'http://skateyeg.com/bog/'"
+              target="_blank"
+              rel="noopener"
+            >
+              <img
+                class="thumb"
+                :src="grind.thumbUrl"
+                :alt="grind.name"
+                loading="lazy"
+              />
             </a>
           </td>
           <!-- comments come from the local trick database -->
@@ -171,10 +175,18 @@ function scrollTo(id) {
         <tr v-for="syn in synonyms" :key="syn.newName">
           <td class="term">{{ syn.newName }}</td>
           <td>
-            <a :href="syn.url || 'http://skateyeg.com/bog/'" target="_blank" rel="noopener">
+            <a
+              :href="syn.url || 'http://skateyeg.com/bog/'"
+              target="_blank"
+              rel="noopener"
+            >
               <img
                 class="thumb"
-                :src="thumbUrl(syn.newName === 'Top Teakettle' ? 'Teakettle' : syn.newName)"
+                :src="
+                  thumbUrl(
+                    syn.newName === 'Top Teakettle' ? 'Teakettle' : syn.newName,
+                  )
+                "
                 :alt="syn.newName"
                 loading="lazy"
               />
@@ -197,7 +209,12 @@ function scrollTo(id) {
               target="_blank"
               rel="noopener"
             >
-              <img class="thumb" :src="thumbUrl(variation.name)" :alt="variation.name" loading="lazy" />
+              <img
+                class="thumb"
+                :src="thumbUrl(variation.name)"
+                :alt="variation.name"
+                loading="lazy"
+              />
             </a>
           </td>
           <td>{{ variation.comment }}</td>
