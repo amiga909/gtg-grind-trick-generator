@@ -70,9 +70,10 @@ export function explainTrick(trick) {
     }
   }
 
-  const variation = VARIATIONS.find(
-    (v) => rest.includes(v.name) && v.name !== "None"
-  );
+  // Longest name first so "Cross-Grab Topside" wins over "Grab".
+  const variation = [...VARIATIONS]
+    .sort((a, b) => b.name.length - a.name.length)
+    .find((v) => rest.includes(v.name) && v.name !== "None");
   if (variation) {
     rows.push({
       title: variation.name,

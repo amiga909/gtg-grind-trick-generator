@@ -116,7 +116,14 @@ function grindCandidates(settings, usedGrinds, grindBias, grindToggles) {
     }
   }
 
-  const unused = pool.filter((grind) => !usedGrinds.includes(grind.name));
+  // Avoid recently used grinds. The window is capped below the pool
+  // size so a small training selection always rotates through every
+  // grind: with just 2 grinds enabled the full 15-spin solo window
+  // would contain both, never force a rotation, and the weighted roll
+  // (soul factor x trainer bias) would repeat one grind in long streaks.
+  const windowSize = Math.min(usedGrinds.length, pool.length - 1);
+  const recent = windowSize > 0 ? usedGrinds.slice(-windowSize) : [];
+  const unused = pool.filter((grind) => !recent.includes(grind.name));
   if (unused.length > 0) {
     pool = unused;
   }

@@ -90,6 +90,11 @@ function defaultSettings() {
     // Per-grind training filter: grind name -> false when switched off.
     // Missing entries mean "on", so new grinds default to enabled.
     grinds: presetGrinds(1),
+    // Each mode's parked difficulty config ({ level, tricks, grinds }).
+    // The top-level fields always hold the current mode's config; the
+    // other mode's is stored here and swapped in on mode change, so solo
+    // and group each keep their own custom setup.
+    modeConfigs: {},
   };
 }
 
@@ -121,6 +126,9 @@ function loadSettings() {
     if (!merged.grinds || typeof merged.grinds !== "object") {
       merged.grinds = {};
     }
+    if (!merged.modeConfigs || typeof merged.modeConfigs !== "object") {
+      merged.modeConfigs = {};
+    }
     return merged;
   } catch {
     return defaultSettings();
@@ -133,6 +141,31 @@ watch(
   settings,
   () => localStorage.setItem(STORAGE_KEY, JSON.stringify(settings)),
   { deep: true }
+);
+
+// Swap difficulty configs when the mode changes: park the previous
+// mode's config and restore the new mode's (first switch ever keeps the
+// current config, so both modes start out identical).
+watch(
+  () => settings.mode,
+  (mode, prevMode) => {
+    if (!prevMode || mode === prevMode) {
+      return;
+    }
+    settings.modeConfigs[prevMode] = JSON.parse(
+      JSON.stringify({
+        level: settings.level,
+        tricks: settings.tricks,
+        grinds: settings.grinds,
+      })
+    );
+    const parked = settings.modeConfigs[mode];
+    if (parked) {
+      settings.level = parked.level;
+      Object.assign(settings.tricks, ALL_TRICKS_OFF, parked.tricks);
+      settings.grinds = { ...parked.grinds };
+    }
+  }
 );
 
 export function useSettings() {

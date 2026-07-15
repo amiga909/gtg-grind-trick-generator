@@ -59,17 +59,11 @@
     "workbox-cli": "^6.3.0"
   },
   "scripts": {
-    "start": "node ./index.js",
-    "build": "rm -rf public/*; node_modules/.bin/webpack --mode production",
-    "dev": "rm -rf public/build/*; webpack --mode development --watch",
-    "dev-sw": "rm -rf public/build/*; webpack --mode development && npm run build-sw",
-    "build-sw": "node_modules/.bin/workbox generateSW workbox-config.js",
-    "lint": "node_modules/.bin/eslint ./src/js --fix --ext .js;",
-    "lint-srv": "node_modules/.bin/eslint ./srv --fix --ext .js && node_modules/.bin/eslint index.js --fix --ext .js;",
-    "permutations": "node src/tools/permutations.js",
-    "googlemap": "node -r esm tools/skateshops/kml-parser.js",
-    "heroku-postbuild": "npm run build",
-    "resetDB": "node srv/resetDB.js"
+    "dev": "npm run dev --prefix src",
+    "build": "npm run build --prefix src",
+    "preview": "npm run preview --prefix src",
+    "test": "npm test --prefix src",
+    "permutations": "node src/tools/permutations.js"
   },
   "author": "RH",
   "license": "ISC"

@@ -61,6 +61,31 @@ describe("generateSpin", () => {
     }
   });
 
+  it("rotates through a small grind selection instead of streaking", () => {
+    // Two enabled grinds with skewed weights (soul factor + trainer
+    // bias) must still alternate, like the solo game loop calls it.
+    const only = Object.fromEntries(
+      GRINDS.map((g) => [g.name, ["Mistrial", "Frontside"].includes(g.name)])
+    );
+    const bias = { Mistrial: 2.5 };
+    const used = [];
+    const counts = { Mistrial: 0, Frontside: 0 };
+    let prev = null;
+    for (let i = 0; i < 100; i++) {
+      const spin = generateSpin(ALL_ON, used, bias, only);
+      const grind = spin.reels.find((r) => r.name === "Grind").winner.name;
+      expect(grind).not.toBe(prev);
+      prev = grind;
+      counts[grind] += 1;
+      used.push(grind);
+      if (used.length > 15) {
+        used.shift();
+      }
+    }
+    expect(counts.Mistrial).toBe(50);
+    expect(counts.Frontside).toBe(50);
+  });
+
   it("ignores the grind selection when every grind is off", () => {
     const noneOn = Object.fromEntries(GRINDS.map((g) => [g.name, false]));
     const spin = generateSpin(ALL_ON, [], null, noneOn);
