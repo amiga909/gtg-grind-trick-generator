@@ -127,6 +127,7 @@ export const IMAGE_URLS = [
   ...new Set([
     "img/gtg-logo.svg",
     "img/gtg-logo-banner-text.svg",
+    "img/aight-logo-square-white.png",
     ...GRINDS.map((grind) => grind.thumbUrl),
     ...VARIATIONS.filter((v) => !v.noThumb).map((v) => thumbUrl(v.name)),
     ...GRIND_SYNONYMS.map((syn) =>
