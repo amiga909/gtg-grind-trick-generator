@@ -21,14 +21,17 @@ export const BADGES = [
   { id: "true-1", name: "True Believer", desc: "Land a truespin grind" },
   { id: "true-3", name: "True Romance", desc: "Land truespins on 3 different grinds" },
   { id: "true-5", name: "True Legend", desc: "Land truespins on 5 different grinds" },
+  { id: "true-10", name: "True Devotion", desc: "Land truespins on 10 different grinds" },
   { id: "ao-1", name: "Alley Cat", desc: "Land an alley-oop grind" },
   { id: "ao-3", name: "Oop Troop", desc: "Land alley-oops on 3 different grinds" },
   { id: "ao-5", name: "King of the Alley", desc: "Land alley-oops on 5 different grinds" },
+  { id: "ao-10", name: "Oop Dynasty", desc: "Land alley-oops on 10 different grinds" },
   { id: "cab-company", name: "Cab Company", desc: "Land a Halfcab and a Fullcab trick" },
   { id: "grab-bag", name: "Grab Bag", desc: "Land a normal, a rocket and a cross grab" },
   { id: "grinds-5", name: "Grind Rookie", desc: "Land 5 different grinds" },
   { id: "grinds-10", name: "Grind Worker", desc: "Land 10 different grinds" },
   { id: "grinds-20", name: "Grind Boss", desc: "Land 20 different grinds" },
+  { id: "grinds-30", name: "Grind Veteran", desc: "Land 30 different grinds" },
   { id: "half-collection", name: "Halfway There", desc: "Land half of all grinds" },
   { id: "soul-plate", name: "Soul Searcher", desc: "Land every soul-plate grind" },
   { id: "groove", name: "Groove Master", desc: "Land every groove grind" },
@@ -40,12 +43,22 @@ export const BADGES = [
   { id: "tricks-40", name: "Top 40", desc: "Land 40 different tricks" },
   { id: "tricks-50", name: "Half Century", desc: "Land 50 different tricks" },
   { id: "tricks-100", name: "Trickipedia", desc: "Land 100 different tricks" },
+  { id: "tricks-250", name: "Trick Vault", desc: "Land 250 different tricks" },
+  { id: "tricks-500", name: "Half Grand", desc: "Land 500 different tricks" },
   { id: "tricks-1000", name: "Trick Machine", desc: "Land 1,000 different tricks" },
+  { id: "tricks-2500", name: "Trick Cosmos", desc: "Land 2,500 different tricks" },
   { id: "tricks-10000", name: "10,000 Hours", desc: "Land 10,000 different tricks" },
   { id: "century", name: "Century Club", desc: "Land 100 tricks in total" },
+  { id: "lands-500", name: "Five Hundred Club", desc: "Land 500 tricks in total" },
+  { id: "lands-1000", name: "Thousand Club", desc: "Land 1,000 tricks in total" },
+  { id: "lands-5000", name: "Grind Immortal", desc: "Land 5,000 tricks in total" },
   { id: "hot-streak", name: "Hot Streak", desc: "Land 5 tricks in a row without skipping" },
+  { id: "streak-25", name: "Unstoppable", desc: "Land 25 tricks in a row without skipping" },
+  { id: "streak-50", name: "Perfect Session", desc: "Land 50 tricks in a row without skipping" },
   { id: "comeback-kid", name: "Comeback Kid", desc: "Land a trick you skipped 3+ times" },
   { id: "daily-grind", name: "Daily Grind", desc: "Land tricks on 7 different days" },
+  { id: "days-30", name: "Monthly Grind", desc: "Land tricks on 30 different days" },
+  { id: "days-365", name: "Year of the Grind", desc: "Land tricks on 365 different days" },
   { id: "hammer", name: "Hammer Time", desc: "Land a trick worth 10+ points" },
   { id: "nukes", name: "Nukes", desc: "Land a trick worth 15+ points" },
 ];
@@ -147,6 +160,15 @@ function badgeEarned(id, spin, winners) {
   }
   if (id.startsWith("tricks-")) {
     return landedTrickCount() >= threshold;
+  }
+  if (id.startsWith("lands-")) {
+    return collection.landedTotal >= threshold;
+  }
+  if (id.startsWith("streak-")) {
+    return collection.streak >= threshold;
+  }
+  if (id.startsWith("days-")) {
+    return Object.keys(collection.days).length >= threshold;
   }
 
   switch (id) {
