@@ -7,8 +7,6 @@ export const CUSTOM_LEVEL = 4;
 
 export const MIN_PLAYERS = 2;
 export const MAX_PLAYERS = 6;
-export const MIN_ROUNDS = 1;
-export const MAX_ROUNDS = 10;
 
 export const LEVELS = [
   { id: 1, name: "Chill", tagline: "Basic grinds, no spins" },
@@ -83,7 +81,6 @@ function defaultSettings() {
     mode: "solo", // solo | group
     level: 1,
     players: ["Player 1", "Player 2"],
-    rounds: 5,
     reelSpeed: "normal",
     introMusic: true,
     tricks: { ...ALL_TRICKS_OFF },
@@ -107,10 +104,6 @@ function loadSettings() {
       ...stored,
       tricks: { ...defaults.tricks, ...(stored && stored.tricks) },
     };
-    merged.rounds = Math.min(
-      MAX_ROUNDS,
-      Math.max(MIN_ROUNDS, Number(merged.rounds) || 5)
-    );
     if (
       !Array.isArray(merged.players) ||
       merged.players.length < MIN_PLAYERS ||

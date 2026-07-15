@@ -134,7 +134,7 @@ const SOUL_GRINDS = [
     score: 1,
     url: "http://skateyeg.com/bog/02.0_Soul.html",
     comment:
-      "The back foot rests on the soulplate and the front foot slides on the h-block, pointing toward the obstacle.",
+      "The back foot rests on the soul plate and the front foot slides on the h-block, pointing toward the obstacle.",
     variations: ["Topside", "Negative", "Tough", "Tough Topside"],
   },
   {
@@ -192,7 +192,7 @@ const SOUL_GRINDS = [
     weight: MEDIUM,
     url: "http://skateyeg.com/bog/08.0_Torque_Soul.html",
     comment:
-      "The trailing foot is placed on the soul while the leading foot is placed on the backslide plate.",
+      "The trailing foot is on the soul plate, the leading foot on the backslide plate.",
     variations: ["Topside", "Negative", "Tough", "Tough Topside"],
   },
   {
@@ -200,7 +200,7 @@ const SOUL_GRINDS = [
     weight: MEDIUM,
     url: "http://skateyeg.com/bog/07.0_Mistrial.html",
     comment:
-      "Like a Mizou but the the trailing foot is pointing towards the obstacle. Both feet should be close together.",
+      "Like a Mizou but the trailing foot is pointing towards the obstacle. Both feet should be close together.",
     variations: [
       "Topside",
       "Negative",
@@ -273,7 +273,7 @@ const SOUL_GRINDS = [
   {
     name: "Training Wheel",
     weight: RARE,
-    comment: `The front skate is rolling on the wheel on the heel, the back skate is on Topside soul.
+    comment: `The front skate rolls on its heel wheel, the back skate locks in a topside soul.
       Image: Chris Haffey, AO Training Wheel,
       <a target="_blank" href="https://www.youtube.com/watch?v=Dv00GSmm0gk">B.L.A.D.E. Aragon</a>`,
     variations: ["Tough"],
@@ -336,7 +336,7 @@ const SOUL_GRINDS = [
     name: "BS Byn Soul",
     weight: RARE,
     isSoulGroove: true,
-    comment: `(Neighborhood) Turning the soul foot on a soul grind into a Backside Torque.
+    comment: `(Neighborhood) A soul grind with the soul foot twisted into a Backside Torque position.
       <a target="_blank" href="https://www.picuki.com/media/2251667102534778405">Image</a>.`,
     variations: ["Channel"],
   },
@@ -344,7 +344,7 @@ const SOUL_GRINDS = [
     name: "FS Byn Soul",
     weight: RARE,
     isSoulGroove: true,
-    comment: `(Neighborhood) Turning the soul foot on a soul grind into a Frontside Torque.
+    comment: `(Neighborhood) A soul grind with the soul foot twisted into a Frontside Torque position.
       <a target="_blank" href="https://www.picuki.com/media/2251667102534778405">Image</a>.`,
     variations: ["Channel"],
   },
@@ -408,14 +408,14 @@ const GROOVE_GRINDS = [
     name: "FS Torque",
     weight: MEDIUM,
     url: "http://skateyeg.com/bog/05.0_Torque.html",
-    comment: "Like an one-footed Full Torque",
+    comment: "Like a one-footed Full Torque.",
     variations: ["Grab", "Rocket", "Cross-Grab", "Christ", "Channel"],
   },
   {
     name: "BS Torque",
     weight: MEDIUM,
     url: "http://skateyeg.com/bog/05.1_Backside_Torque.html",
-    comment: "Like an one-footed Full Torque",
+    comment: "Like a one-footed Full Torque.",
     variations: ["Grab", "Rocket", "Cross-Grab", "Christ", "Channel"],
   },
   {
@@ -424,7 +424,7 @@ const GROOVE_GRINDS = [
     score: 3,
     url: "http://skateyeg.com/bog/09.0_Cab_driver.html",
     comment:
-      "(Cowboy, Lucky Grind, Buddha) Sliding a torque and backslide at the same time without crossing your legs.",
+      "(Cowboy, Lucky Grind) Sliding a torque and backslide at the same time without crossing your legs.",
     variations: ["Channel"],
   },
   {
@@ -433,21 +433,21 @@ const GROOVE_GRINDS = [
     score: 3,
     url: "http://skateyeg.com/bog/09.1_Backside_Cab_driver.html",
     comment:
-      "(Cowboy, Lucky Grind, Buddha) Sliding a torque and backslide at the same time without crossing your legs.",
+      "(Cowboy, Lucky Grind) Sliding a torque and backslide at the same time without crossing your legs.",
     variations: ["Channel"],
   },
   {
     name: "FS Backslide",
     weight: RARE,
     url: "http://skateyeg.com/bog/06.0_Backslide.html",
-    comment: "Like an one-footed Royale, grinding on the trailing foot.",
+    comment: "Like a one-footed Royale, grinding on the trailing foot.",
     variations: ["Grab", "Rocket", "Cross-Grab", "Christ", "Channel"],
   },
   {
     name: "BS Backslide",
     weight: RARE,
     url: "http://skateyeg.com/bog/06.1_Backside_Backslide.html",
-    comment: "Like an one-footed Royale, grinding on the trailing foot.",
+    comment: "Like a one-footed Royale, grinding on the trailing foot.",
     variations: ["Grab", "Rocket", "Cross-Grab", "Christ", "Channel"],
   },
   {
@@ -472,14 +472,14 @@ const GROOVE_GRINDS = [
     name: "FS Full Torque",
     weight: MEDIUM,
     url: "http://skateyeg.com/bog/04.0_Full_Torque.html",
-    comment: "(Fahrvergnuegen, Farhve, Nugen) Like a Royale grinded reverse.",
+    comment: "(Fahrvergnuegen, Fahrve, Nugen) Like a Royale but grinding in reverse.",
     variations: ["Channel"],
   },
   {
     name: "BS Full Torque",
     weight: MEDIUM,
     url: "http://skateyeg.com/bog/04.1_Backside_Full_Torque.html",
-    comment: "(Fahrvergnuegen, Farhve, Nugen) Like a Royale grinded reverse.",
+    comment: "(Fahrvergnuegen, Fahrve, Nugen) Like a Royale but grinding in reverse.",
     variations: ["Channel"],
   },
   {
@@ -506,7 +506,7 @@ const GROOVE_GRINDS = [
     score: 1,
     url: "http://skateyeg.com/bog/01.0_Frontside.html",
     comment:
-      "The skater spins 90° and lands in the space between the middle wheels, with both feet facing the obstacle.",
+      "The skater spins 90° and lands both h-blocks (the groove between the middle wheels) on the obstacle, chest facing it.",
     variations: ["Channel"],
   },
   {
@@ -588,14 +588,14 @@ export const VARIATIONS = [
     score: 2,
     url: "http://skateyeg.com/bog/06.0_Rocket.html",
     comment:
-      "Extending both legs out straight and crossing one hand over the front of both legs and grabbing the opposite outside soul plate.",
+      "Both legs extended straight, one hand crossed over the front of them, grabbing the opposite outside soul plate.",
   },
   {
     name: "Grab",
     weight: EASY,
     score: 1,
     url: "http://skateyeg.com/bog/17.0_Grabbed.html",
-    comment: "Grabbing the free foot while doing an one-footed grind.",
+    comment: "Grabbing the free foot while doing a one-footed grind.",
   },
   {
     name: "Cross-Grab",
@@ -611,7 +611,7 @@ export const VARIATIONS = [
     score: 2,
     url: "http://skateyeg.com/bog/09.0_Christ.html",
     comment:
-      "Setting the other foot on top of the toe in a soul grind position.",
+      "The free foot is set on top of the grinding skate's toe, in a soul grind position.",
   },
   // combos
   {
@@ -661,28 +661,28 @@ export const VARIATIONS = [
     weight: MEDIUM,
     score: 2,
     noThumb: true,
-    comment: "Same as Grab but with a Topside",
+    comment: "Same as Grab but with a Topside.",
   },
   {
     name: "Grab Negative",
     weight: RARE,
     score: 3,
     noThumb: true,
-    comment: "Same as Grab but with a Negative",
+    comment: "Same as Grab but with a Negative.",
   },
   {
     name: "Rocket Topside",
     weight: RARE,
     score: 2,
     noThumb: true,
-    comment: "Same as Rocket but with a Topside",
+    comment: "Same as Rocket but with a Topside.",
   },
   {
     name: "Rocket Negative",
     weight: RARE,
     score: 3,
     noThumb: true,
-    comment: "Same as Rocket but with a Negative",
+    comment: "Same as Rocket but with a Negative.",
   },
   {
     name: "Negative&Topside",
@@ -798,13 +798,13 @@ export const GLOSSARY = {
   "True Fullcab": "Fakie to 360 Outspin to a soul grind.",
   Zerospin: "Fakie to a soul grind, no rotation.",
   Rewind:
-    "(Revert) If you spin out of a grind in the other direction set by the initial spin to the grind.",
+    "(Revert) Spinning out of a grind against the direction of the spin you entered it with.",
   450: "360 spin to/off a groove grind. The longer way (360 + 90 degrees).",
   270: "360 spin to/off a groove grind. The shorter way (360 - 90 degrees).",
   810: "720 spin to/off a groove grind. The longer way (720 + 90 degrees).",
   630: "720 spin to/off a groove grind. The shorter way (720 - 90 degrees).",
   Switch:
-    "(Unnatural) Grinding in the unnatural mirrored position of a grind. In this game Switch only applies to grinds not spin direction.",
+    "(Unnatural) Grinding in the unnatural mirrored position of a grind. In this game Switch only applies to grinds, not spin direction.",
   Fakie:
     "Approach obstacle skating backwards. Also used for landing a groove grind backwards with no rotation (Royale to Fakie).",
   Forwards: "Forwards is the opposite of Fakie.",
@@ -818,7 +818,7 @@ export const GLOSSARY = {
   "Frontside/FS": "Frontside",
   "Backside/BS": "Backside",
   "Soul grinds":
-    "Soul frame based grind wihtout a frontside or a backside variant.",
+    "Soul frame based grind without a frontside or a backside variant.",
   "Groove grinds":
     "(Boot/Frame grinds) H-Block based grind with a frontside and a backside variant.",
 };

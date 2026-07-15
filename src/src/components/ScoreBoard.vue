@@ -48,9 +48,7 @@ watch(
   <div v-else class="scoreboard panel">
     <div class="scoreboard__block">
       <span class="scoreboard__caption">Round</span>
-      <span class="scoreboard__value"
-        >{{ state.round }}/{{ state.roundsTotal }}</span
-      >
+      <span class="scoreboard__value">{{ state.round }}</span>
     </div>
     <div class="scoreboard__divider" />
     <div class="scoreboard__block">

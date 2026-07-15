@@ -14,7 +14,7 @@ const {
   state,
   isSolo,
   currentPlayer,
-  isLastRound,
+  onLastLetter,
   attempt,
   rerollTrick,
   landTrick,
@@ -192,7 +192,7 @@ function onReelStopped() {
           <div class="result__turn">
             <span class="result__turn-name">{{ currentPlayer?.name }}</span> — your
             turn!
-            <span v-if="isLastRound" class="result__last">last round!</span>
+            <span v-if="onLastLetter" class="result__last">last letter!</span>
           </div>
 
           <div class="result__actions">

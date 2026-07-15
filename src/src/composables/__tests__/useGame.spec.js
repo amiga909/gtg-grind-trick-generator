@@ -34,7 +34,6 @@ function settings(mode, extra = {}) {
   return {
     mode,
     players: ["Ana", "Ben"],
-    rounds: 3,
     tricks: { ...ALL_TRICKS_ON },
     ...extra,
   };
@@ -48,21 +47,21 @@ describe("useGame modes", () => {
     game.goToStart();
   });
 
-  it("group mode plays one trick per player per round and ends after the rounds", () => {
+  it("group mode has no round limit while everyone keeps landing", () => {
     const s = settings("group");
     game.startGame(s, "group");
     expect(game.state.players.map((p) => p.name)).toEqual(["Ana", "Ben"]);
-    for (let round = 0; round < 3; round++) {
+    for (let round = 0; round < 20; round++) {
       expect(game.state.round).toBe(round + 1);
       game.attempt(true, s); // first player lands
       game.attempt(true, s); // second player lands
     }
-    expect(game.state.screen).toBe("gameover");
+    expect(game.state.screen).toBe("game");
     expect(game.state.players.every((p) => p.letters === 0)).toBe(true);
   });
 
-  it("group mode gives a letter per bail and ends early when only one player is left", () => {
-    const s = settings("group", { rounds: 10 });
+  it("group mode gives a letter per bail and ends when a player has all letters", () => {
+    const s = settings("group");
     game.startGame(s, "group");
     for (let round = 0; round < LETTERS.length; round++) {
       const [first, second] = game.state.turnOrder;
@@ -74,6 +73,25 @@ describe("useGame modes", () => {
     // Ben bailed every round: 5 letters, out, game over early.
     const ben = game.state.players.find((p) => p.name === "Ben");
     expect(ben.letters).toBe(LETTERS.length);
+    expect(game.state.screen).toBe("gameover");
+  });
+
+  it("ends immediately when a bail eliminates a player mid-round", () => {
+    const s = settings("group");
+    game.startGame(s, "group");
+    // Ben bails only in rounds he starts, so his knockout bail always
+    // happens with Ana's attempt still pending in the turn order.
+    while (game.state.screen === "game") {
+      const current =
+        game.state.players[game.state.turnOrder[game.state.turnPos]];
+      const benStarts =
+        game.state.players[game.state.turnOrder[0]].name === "Ben";
+      game.attempt(!(current.name === "Ben" && benStarts), s);
+    }
+    const ben = game.state.players.find((p) => p.name === "Ben");
+    expect(ben.letters).toBe(LETTERS.length);
+    // The game ended on Ben's attempt; Ana never played the round out.
+    expect(game.state.turnPos).toBe(0);
     expect(game.state.screen).toBe("gameover");
   });
 

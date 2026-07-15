@@ -31,7 +31,6 @@ const state = reactive({
   // group (S.K.A.T.E) state
   players: [], // { name, letters }
   round: 0,
-  roundsTotal: 0,
   turnOrder: [], // player indices attempting the current trick, in order
   turnPos: 0, // position within turnOrder
   rerollsLeft: 0, // trick swaps the turn's starting player has left
@@ -53,8 +52,9 @@ export function useGame() {
       ? state.players[state.turnOrder[state.turnPos]]
       : null
   );
-  const isLastRound = computed(
-    () => state.round >= state.roundsTotal || activeIndices().length <= 1
+  // The current player bails out of the game with one more letter.
+  const onLastLetter = computed(
+    () => (currentPlayer.value?.letters ?? 0) === LETTERS.length - 1
   );
 
   const startGame = (settings, mode = settings.mode || "group") => {
@@ -77,7 +77,6 @@ export function useGame() {
       name: String(name).trim() || `Player ${i + 1}`,
       letters: 0,
     }));
-    state.roundsTotal = Math.max(1, Number(settings.rounds) || 5);
     state.round = 0;
     beginRound(settings);
   };
@@ -142,12 +141,19 @@ export function useGame() {
     const player = state.players[state.turnOrder[state.turnPos]];
     if (!landed) {
       player.letters += 1;
+      // A bail on the last letter can decide the game mid-round: with
+      // one player left standing, later attempts this round are moot.
+      if (activeIndices().length <= 1) {
+        endGame();
+        return;
+      }
     }
     if (state.turnPos + 1 < state.turnOrder.length) {
       state.turnPos += 1; // same trick, next player
       return;
     }
-    if (state.round >= state.roundsTotal || activeIndices().length <= 1) {
+    // Classic S.K.A.T.E: rounds go on until one player is left standing.
+    if (activeIndices().length <= 1) {
       endGame();
     } else {
       beginRound(settings);
@@ -196,7 +202,7 @@ export function useGame() {
     spinsLeft,
     isSolo,
     currentPlayer,
-    isLastRound,
+    onLastLetter,
     startGame,
     onReelsSettled,
     attempt,

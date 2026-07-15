@@ -6,9 +6,7 @@ import {
   CUSTOM_LEVEL,
   LEVELS,
   MAX_PLAYERS,
-  MAX_ROUNDS,
   MIN_PLAYERS,
-  MIN_ROUNDS,
   useSettings,
 } from "../composables/useSettings.js";
 import { useGame } from "../composables/useGame.js";
@@ -53,13 +51,6 @@ function selectLevel(levelId) {
   if (levelId === CUSTOM_LEVEL) {
     emit("open-settings");
   }
-}
-
-function stepRounds(delta) {
-  settings.rounds = Math.min(
-    MAX_ROUNDS,
-    Math.max(MIN_ROUNDS, settings.rounds + delta)
-  );
 }
 
 function addPlayer() {
@@ -184,30 +175,10 @@ function removePlayer(index) {
       </div>
 
       <div class="setup__section">
-        <div class="spins-row">
-          <span class="setup__label">Rounds</span>
-          <div class="stepper">
-            <button
-              class="stepper__btn"
-              :disabled="settings.rounds <= MIN_ROUNDS"
-              @click="stepRounds(-1)"
-            >
-              &minus;
-            </button>
-            <span class="stepper__value">{{ settings.rounds }}</span>
-            <button
-              class="stepper__btn"
-              :disabled="settings.rounds >= MAX_ROUNDS"
-              @click="stepRounds(1)"
-            >
-              +
-            </button>
-          </div>
-        </div>
         <p class="setup__hint">
           Like S.K.A.T.E — everyone attempts the same trick. Bail and you
           collect a letter of A&middot;I&middot;G&middot;H&middot;T; five
-          letters and you're out.
+          letters and you're out. Last one standing wins.
         </p>
       </div>
     </template>
