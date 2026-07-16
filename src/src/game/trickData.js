@@ -283,8 +283,7 @@ const SOUL_GRINDS = [
     weight: RARE,
     isSoulGroove: true,
     url: "http://skateyeg.com/bog/12.1_Backside_Tabernacle.html",
-    comment:
-      "Like a Mizou but with the leading soul foot in acid position. The trailing foot is like a Backside Pudslide.",
+    comment: "Like a Mizou but with the leading soul foot in acid position.",
     variations: ["Channel"],
   },
   {
@@ -293,7 +292,7 @@ const SOUL_GRINDS = [
     isSoulGroove: true,
     url: "http://skateyeg.com/bog/12.0_Tabernacle.html",
     comment:
-      "Like a Mizou but with the leading soul foot in acid position. The trailing foot is like a Frontside Pudslide.",
+      "Like a Sweatstance but with the leading soul foot in acid position.",
     variations: ["Channel"],
   },
   {
@@ -302,7 +301,7 @@ const SOUL_GRINDS = [
     isSoulGroove: true,
     url: "http://skateyeg.com/bog/14.1_Backside_Darkslide.html",
     comment:
-      "(Acid Rain) Like a Mistrial but with the leading soul foot in acid position. The trailing foot is like a Backside Backslide.",
+      "(Acid Rain) Like a Mistrial but with the leading soul foot in acid position.",
     variations: ["Channel"],
   },
   {
@@ -311,7 +310,7 @@ const SOUL_GRINDS = [
     isSoulGroove: true,
     url: "http://skateyeg.com/bog/14.0_Darkslide.html",
     comment:
-      "(Acid Rain) Like a Mistrial but with the leading soul foot in acid position. The trailing foot is like a Frontside Backslide.",
+      "(Acid Rain) Like a Top Mistrial but with the leading soul foot in acid position. The trailing foot is like a Frontside Backslide.",
     variations: ["Channel"],
   },
   {
@@ -472,14 +471,16 @@ const GROOVE_GRINDS = [
     name: "FS Full Torque",
     weight: MEDIUM,
     url: "http://skateyeg.com/bog/04.0_Full_Torque.html",
-    comment: "(Fahrvergnuegen, Fahrve, Nugen) Like a Royale but grinding in reverse.",
+    comment:
+      "(Fahrvergnuegen, Fahrve, Nugen) Like a Royale but grinding in reverse.",
     variations: ["Channel"],
   },
   {
     name: "BS Full Torque",
     weight: MEDIUM,
     url: "http://skateyeg.com/bog/04.1_Backside_Full_Torque.html",
-    comment: "(Fahrvergnuegen, Fahrve, Nugen) Like a Royale but grinding in reverse.",
+    comment:
+      "(Fahrvergnuegen, Fahrve, Nugen) Like a Royale but grinding in reverse.",
     variations: ["Channel"],
   },
   {
