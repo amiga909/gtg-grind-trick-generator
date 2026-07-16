@@ -335,7 +335,7 @@ const SOUL_GRINDS = [
     name: "BS Byn Soul",
     weight: RARE,
     isSoulGroove: true,
-    comment: `(Neighborhood) A soul grind with the soul foot twisted into a Backside Torque position.
+    comment: `(Neighborhood) Like a Top Soul but with the soul foot twisted into a Frontside Torque position.
       <a target="_blank" href="https://www.picuki.com/media/2251667102534778405">Image</a>.`,
     variations: ["Channel"],
   },
@@ -343,7 +343,7 @@ const SOUL_GRINDS = [
     name: "FS Byn Soul",
     weight: RARE,
     isSoulGroove: true,
-    comment: `(Neighborhood) A soul grind with the soul foot twisted into a Frontside Torque position.
+    comment: `(Neighborhood) Like a Soul but with the soul foot twisted into a Backside Torque position.
       <a target="_blank" href="https://www.picuki.com/media/2251667102534778405">Image</a>.`,
     variations: ["Channel"],
   },
